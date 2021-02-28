@@ -130,6 +130,14 @@ Sau đây là bảng so sánh môt số đặc trưng, tính chất cơ bản c�
 + Region
 + Row-version
 + Block vs Block cache
+###Đường đi của data
+Hình dưới đây minh họa đường đi của dữ liệu trong HBase:
+![alt text](./photo/HBaseStorage.png "Đường đi của data")
++ Read: Client read data từ HBase <- HBase lấy data từ HDFS
++ Write: Client white data vào HBase -> HBase write data vào HDFS. Bên cạnh đó, client cũng có option white data trực tiếp
+vào HDFS
+  
+Quá trình giao tiếp giữa HBase với HDFS được thông qua các đối tượng HDFS Client
 ##2.5. Kiến trúc HBase
 ![alt text](./photo/hbaseArchitect.png "Kiến trúc HBase")
 Kiếm trúc cơ bản của một HBase Cluster bao gồm:
