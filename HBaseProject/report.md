@@ -5,9 +5,24 @@ _Yêu cầu 1) Tìm hiểu nội dung, đặc điểm, và các vấn đề liê
 #Chương 1: TỔNG QUAN COLUMN FAMILY
 ##1.1. Giới thiệu Column Family
 ###1.1.1. Định nghĩa
-Column Family là một loại NoSQL Database...
+Column Family là một loại NoSQL Database mà trong đó dữ liệu được lưu trữ và truy xuất theo các cột thay vì các hàng như trong các loại cơ sở dữ liệu quan hệ 
 ###1.1.2. Đặc điểm
++ Mỗi Column Family bao gồm nhiều hàng
++ Mỗi hàng có thể chứa các cột tùy ý (không cần thiết phải giống nhau giữa các hàng) (đang kiểm tra lại)
++ Một cột xuất hiện trong hàng này có thể không xuất hiện ở hàng khác (đang kiểm tra lại)
++ Nhiều Column Family có liên hệ với nhau về mặt logic tạo thành 1 cơ sở dữ liệu hoàn chỉnh (Column Families)
++ Được tối ưu cho các hệ thống online analytical processing (các thao tác chủ yếu là query thông tin trên các cột để phân tích) (giảm khối lượng công việc và thời gian cần để thao tác với dữ liệu trên đĩa cứng)
++ Thích hợp với các hệ thống data warehousing và xử lý Big Data
 ###1.1.4. Các vấn đề liên quan
+#### Ưu điểm
++ Compression: do dữ liệu trên mỗi Column Family chỉ gồm 1 loại, nên có thể chọn cách nén riêng cho từng Column Family, làm tăng hiệu quả
++ Dễ dàng mở rộng và chia nhỏ (scalability and partitioning)
++ Nhanh với những query chỉ cần dữ liệu trên 1 Column Family
++ Tốc độ tính toán các phép toán cần truy xuất trên toàn bộ tập dữ liệu (dataset) như SUM, COUNT, AVG, ... nhanh
+#### Nhược điểm
++ Không hỗ trợ transaction (đang kiểm tra lại)
++ Chậm với các thao tác insert update delete
++ Chậm với các câu query cần truy xuất trên nhiều Column Family
 
 ##1.2. Các hệ CSDL dựa trên Column Family
 + Big table
