@@ -19,29 +19,60 @@ _____________________________
 _Yêu cầu 2) Tìm hiểu về loại sản phẩm NoSQL theo chỉ định_
 #Chương 2: APACHE HBASE
 ##2.1. HBase là gì?
-**HBase** là một column-oriented DBMS phát hành lần đầu năm 2008, lưu trữ dữ liệu theo cột thay vì theo hàng như RDBMS. HBase có nguồn gốc từ cơ sở dữ liệu BigTable của Google, chạy trên nền Hadoop Distributed File System (HDFS).
-HBase được sử dụng trong các hệ thống Hadoop phát triển bởi Apache. 
+**HBase** là một loại NoSQL, column-oriented Database phát hành lần đầu năm 2008, lưu trữ dữ liệu theo cột thay vì theo
+hàng như RDBMS. HBase có nguồn gốc từ cơ sở dữ liệu BigTable của Google, chạy trên nền Hadoop Distributed File System (HDFS),
+phát triển bởi Apache. 
+
+HBase được phân loại là một NoSQL lưu trữ dạng key-value. Value được định danh bởi một key, cả key và value đều được lưu 
+trữ dạng ByteArray. Nói cách khác, HBase là một dạng NoSQL lưu trữ phi cấu trúc. Ở dạng lưu trữ có cấu trúc (RDBMS), cấu
+trúc dữ liệu phải được khai báo đầy đủ rõ ràng,
+và đối tượng được lưu trữ theo cột, dòng và có mối quan hệ chặt chẽ với nhau. Ngược lại, HBase cung cấp cách thức lưu trữ 
+đa dạng các loại dữ liệu mà không cần khai báo tường minh trước.
 
 ####Các đặc trưng của HBase:
 + Là dự án open source có khả năng scale theo chiều ngang (scale out/horizontal scale)
-+ Được viết bằng Java
-+ Được thiết kế để lưu trữ, xử lý dữ liệu lớn  
++ Được viết bằng Java, chạy trên nền JVM
++ Được thiết kế để lưu trữ, xử lý dữ liệu lớn
 + Xử lý tốt các loại dữ liệu thưa (nhiều giá trị rỗng)
++ HBase là database lưu trữ dạng bảng mà không cần khai báo trước schema. Tại thời điểm tạo bảng, ta chỉ cần khai báo trước column family.
 
 ####Một số tính chất của HBase:
-+ Distributed: 
-+ Flexible Data:
-+ Non-Relational:
-+ Big data storage: 
-+ Scalable: 
++ Distributed: HBase có 2 distributed mode: 
+  + Pseudo-distributed (giả phân tán): Mỗi thành phần của HBase là một process riêng lẻ, và đều chạy trên 1 node. Ở mode
+    này ta có thể lưu file local hoặc lưu trên HDFS. KHi chạy trên mode này dĩ nhiên khi node gặp sự cố, cả hệ thống sẽ bị ngưng. 
+  + Fully-distributed (phân tán hoàn toàn): Mode này thường được dùng để vận hành sản phẩm thật vì được chạy trên một hệ 
+    thống gồm nhiều node. Ở mode này HBase còn hỗ trợ cả auto-sharding, tức tự động chia tách và phân tán các bảng dữ liệu 
+    khi bảng quá lớn. 
+  
+  
++ Flexible Data: HBase được lấy ý tưởng từ Google BigTable và chạy trên nền Hadoop. Đối tượng cơ bản mà nó lưu trữ là table (bảng).
+  Một table sẽ bao gồm các column family (họ cột), trong mỗi column family lại chứa nhiều column. Sau cùng, dữ liệu sẽ được lưu thành các 
+  row (dòng). Các dòng sẽ được sắp xếp theo thứ tự từ điển dựa vào key (khóa) tương ứng để phục vụ tối ưu khi truy vấn.
+  Ngoài ra, HBase không quy định trước kiểu dữ liệu, vì tất cả các loại dữ liệu đều được lưu dưới dạng ByteArray.
+  ![alt text](./photo/columnfamily.png "Cấu tạo column family")
+  
 
++ Non-Relational: NoSQL database vận hành theo cơ chế storage-and-query, nên sẽ không tồn tại các quan hệ giữa các bảng.
+  
++ Big data storage: HBase lưu trữ dữ liệu trên HDFS nên cũng được thừa hưởng các đặc trưng của hệ thống này. Hệ thống có thể 
+  xử lý hàng PB dữ liệu với độ trễ thấp, real-time. HBase được thiết kế để có thể truy vấn được các table lớn với tốc độ nhanh.
+
++ Scalable: Như đã trình bày ở phần đầu, HBase có thể scale theo chiều ngang (scale-out) bằng cách gắn thêm nhiều node mới, 
+  sau đó các Region (nơi lưu trữ các table) tự động chia tách và tạo ra nhiều Region mới, tích hợp vào hệ thống.
+
+##2.2 Vì sao cần HBase?
+Với sự bùng nổ của Internet những năm gần đây, đặc biệt trong lĩnh vực như Social network, social media, kinh doanh online,...
+thì lượng dữ liệu phát sinh hàng ngày, hàng giờ là cực kỳ lớn và ngày càng gia tăng. 
+Để đám ứng nhu cầu thu thập, lưu trữ, truy xuất và khai thác dữ liệu lớn, các loại database mới ra đời để giải quyết các bài toán,
+tình huống cụ thể khi thao tác với dữ liệu lớn nói trên với performance tốt, khả năng scale tốt và dễ dàng truy xuất.
+Trong số đó, HBase là loại column-base database mạnh mẽ và phổ biến trên thế giới.
 ####Các loại ứng dụng có thể dùng HBase: 
-+ E-Commerce
-+ Social network
-+ ...
++ 
++
 
 ####Các loại ứng dụng không nên dùng HBase:
-
++
++
 
 
 ##2.3. HBase vs RDBMS
@@ -102,6 +133,7 @@ _Yêu cầu 3) Tài liệu kỹ thuật về nghiên cứu loại sản phẩm N
 ###2.6.2. Các thao tác & công cụ cơ bản:
 + HBase shell
 + HBase Java API
++ hbtop
 + Bulk Loading Data
 _____________________________
 _____________________________
