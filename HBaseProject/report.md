@@ -66,13 +66,22 @@ thì lượng dữ liệu phát sinh hàng ngày, hàng giờ là cực kỳ l�
 Để đám ứng nhu cầu thu thập, lưu trữ, truy xuất và khai thác dữ liệu lớn, các loại database mới ra đời để giải quyết các bài toán,
 tình huống cụ thể khi thao tác với dữ liệu lớn nói trên với performance tốt, khả năng scale tốt và dễ dàng truy xuất.
 Trong số đó, HBase là loại column-base database mạnh mẽ và phổ biến trên thế giới.
+
 ####Các loại ứng dụng có thể dùng HBase: 
-+ 
-+
++ Hệ thống audit log
++ Tracking user action
++ Realtime counters, realtime analytics
++ Monitor các hệ thống
++ Hệ thống message
++ Lưu trữ dữ liệu thu thập từ web
++ Lưu trữ dữ liệu sparse (thưa)
++ Nhiều người dùng truy cập đồng thời (stream,...)
 
 ####Các loại ứng dụng không nên dùng HBase:
-+
-+
++ Cần đến transaction hoặc các quan hệ, ràng buộc chặt chẽ
++ Cần join dữ liệu
++ Dữ liệu quy mô nhỏ
++ 
 
 
 ##2.3. HBase vs RDBMS
