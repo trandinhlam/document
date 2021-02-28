@@ -1,0 +1,44 @@
+Fault tolerant      Fault tolerant to some extent       Highly fault tolerant
+Normalization       Required for large data sets        Not required
+Object-oriented
+programming model   Because of the complexity
+of aggregating data, using
+JOINS using an object-
+oriented programming
+model is not suitable. The key-value storage makes
+HBase suitable for object-
+oriented programming
+model. Supported with
+client APIs in object-
+oriented languages such as
+PHP, Ruby, and Java.
+Administration More administration Less administration with
+auto-sharding, scaling, and
+rebalancing
+Architecture Monolithic Distributed
+Sharding Limited support. Manual
+server sharding. Table
+partitioning. Auto-sharding
+Write performance Does not scale well Scales linearly
+Single point of failure With single point of failure Without single point of
+failure
+Replication Asynchronous Asynchronous
+Storage model Tablespaces StoreFiles (HFiles) in HDFS
+Compression Built-in with some RDBMS
+in storage engine/table/
+index. Various methods
+available to other RDBMS. Built-in Gzip compression
+Caching Standard data/metadata
+cache with query cache In-memory caching
+Primary data object Table Table
+Read/write throughput 1000s of queries per second Millions of queries per
+second
+Security Authentication/
+Authorization Authentication/
+Authorization
+Row-/Column- Oriented Row-oriented Column-oriented
+Sparse tables Suitable for sparse tables Not optimized for sparse
+tables
+Wide/narrow tables Narrow tables Wide tables
+MapReduce integration Not designed for MR
+integration Well integrated
