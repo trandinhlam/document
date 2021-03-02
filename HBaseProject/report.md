@@ -76,7 +76,7 @@ và đối tượng được lưu trữ theo cột, dòng và có mối quan h�
   sau đó các Region (nơi lưu trữ các table) tự động chia tách và tạo ra nhiều Region mới, tích hợp vào hệ thống.
 
 ##2.2 Vì sao cần HBase?
-Với sự bùng nổ của Internet những năm gần đây, đặc biệt trong lĩnh vực như Social network, social media, kinh doanh online,...
+Với sự bùng nổ của Internet những năm gần đây và trong tương lai, đặc biệt trong lĩnh vực như Social network, social media, kinh doanh online,...
 thì lượng dữ liệu phát sinh hàng ngày, hàng giờ là cực kỳ lớn và ngày càng gia tăng. 
 Để đám ứng nhu cầu thu thập, lưu trữ, truy xuất và khai thác dữ liệu lớn, các loại database mới ra đời để giải quyết các bài toán,
 tình huống cụ thể khi thao tác với dữ liệu lớn nói trên với performance tốt, khả năng scale tốt và dễ dàng truy xuất.
@@ -123,27 +123,36 @@ Sau đây là bảng so sánh môt số đặc trưng, tính chất cơ bản c�
 |Write performance   |Does not scale well |Scales linearly
 |Single point of failure |Yes |No
 
-##2.4. HBase Storage
-+ Schema
-+ Table
-+ Column family & Column Qualifier
-+ Region
+##2.4. HBase Data Model
+![alt text](./photo/hbase_storage.png "Mô hình cấu trúc HBase")
+
+###Lưu trữ:
+HBase sử dụng 2 định dạng file chính là HLog và HFile, được vào các HDFS Datanode thông qua DFSClient. Điều này giúp cho HBase có thể 
+  tập trung vào việc tối hưu truy vấn và cập nhật dữ liệu, vốn không phải thế mạnh của HDFS nguyên thủy.
+Tập hợp một số file như trên được quản lý bởi một Region (trình bày ở phần sau), thường được sao lưu thành 3 bản lưu ở 3 datanode khác nhau.
+
++ Column family & Column Qualifier: 
++ Region: Một region là một mảnh của một bảng hoàn chỉnh. Tập hợp một số region sẽ được quản lý bởi một HRegionServer. 
 + Row-version
 + Block vs Block cache
-###Đường đi của data
-Hình dưới đây minh họa đường đi của dữ liệu trong HBase:
-![alt text](./photo/HBaseStorage.png "Đường đi của data")
-+ Read: Client read data từ HBase <- HBase lấy data từ HDFS
-+ Write: Client white data vào HBase -> HBase write data vào HDFS. Bên cạnh đó, client cũng có option white data trực tiếp
-vào HDFS
-  
-Quá trình giao tiếp giữa HBase với HDFS được thông qua các đối tượng HDFS Client
+
+
+
 ##2.5. Kiến trúc HBase
 ![alt text](./photo/hbaseArchitect.png "Kiến trúc HBase")
 Kiếm trúc cơ bản của một HBase Cluster bao gồm:
 + Master
 + RegionServers
 + Zookeeper
+
+###Đường đi của data
+Hình dưới đây minh họa đường đi của dữ liệu trong HBase:
+![alt text](./photo/HBaseStorage.png "Đường đi của data")
++ Read: Client read data từ HBase <- HBase lấy data từ HDFS
++ Write: Client white data vào HBase -> HBase write data vào HDFS. Bên cạnh đó, client cũng có option white data trực tiếp
+  vào HDFS
+
+Quá trình giao tiếp giữa HBase với HDFS được thông qua các đối tượng HDFS Client
 
 ________
 ##2.6. Thực hành sử dụng Hbase
