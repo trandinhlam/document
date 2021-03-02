@@ -131,19 +131,53 @@ HBase sử dụng 2 định dạng file chính là HLog và HFile, được vào
   tập trung vào việc tối hưu truy vấn và cập nhật dữ liệu, vốn không phải thế mạnh của HDFS nguyên thủy.
 Tập hợp một số file như trên được quản lý bởi một Region (trình bày ở phần sau), thường được sao lưu thành 3 bản lưu ở 3 datanode khác nhau.
 
-+ Column family & Column Qualifier: 
-+ Region: Một region là một mảnh của một bảng hoàn chỉnh. Tập hợp một số region sẽ được quản lý bởi một HRegionServer. 
-+ Row-version
-+ Block vs Block cache
++ Column family & Column & Row: Mỗi file HFile riêng biệt sẽ chứa thông tin của một (và chỉ một) Column family. 
+  Mỗi column family bao gồm nhiều column. Giá trị cần lưu trữ trong bảng là giao điểm giữa một column và một row, được xác định bằng row key.
+Ở trong một table có 2 loại index theo thứ tự từ điển, index chính sẽ theo thứ tự các row key, còn index phụ sẽ index các column (theo mỗi row).  
+Table trong HBase thường khá thưa, bởi vì mỗi row không nhất thiết phải có tất cả các column family của table đó.
+  
+
++ Region: Region là các mảnh của một table hoàn chỉnh. Tập hợp một số region sẽ được quản lý bởi một HRegionServer. 
 
 
++ Key-Value: Cấu tạo một Key được mô tả như sau:
+  ![alt text](./photo/keyvalue.png "Kiến trúc HBase")
+  ![alt text](./photo/keyvalue2.png "Kiến trúc HBase")
+  
+
++ Row-version: Mỗi một ô trong table khi được thêm mới hoặc cập nhật thì đều phát sinh ra một version (timestamp). Ví dụ hình trên ColQ1 được cập nhật
+3 version, sắp xếp từ mới tới cũ. Hình sau đây mô tả cách thức lưu trữ vật lý trong một HFile:
+  ![alt text](./photo/hfile_physic.png "Kiến trúc HBase")
 
 ##2.5. Kiến trúc HBase
+Chương này chủ yếu tìm hiểu kiến trúc HBase ở mode distributed.
 ![alt text](./photo/hbaseArchitect.png "Kiến trúc HBase")
 Kiếm trúc cơ bản của một HBase Cluster bao gồm:
 + Master
 + RegionServers
 + Zookeeper
+
+1. Master: Còn gọi là HMaster, chạy trên Namenode (của HDFS). Process này có nhiệm vụ quản lý toàn bộ cluster, bao gồm các công việc như:
+    + Chỉ định region nào được lưu vào RegionServer nào lúc khởi tạo, hoặc lúc bị lỗi.
+    + Load balancing
+    + Monitor các ResgionServer
+    + Quản lý các thay đổi trong metadata
+  
+
+2. RegionServer: Là process chạy trên Datanode (của HDFS), là nơi tiếp nhận lệnh từ Master, phụ trách quản lý data. Trong đó, mỗi RegionServer lưu trữ một số lượng Region được giao cho. Mỗi phân đoạn chứa số lượng row nhất định của một table
+sẽ được lưu ở các RegionServer khác nhau. RegionServer bao gồm các thành phần chủ yếu sau:
+   + Region(s): Là phân mảnh của một table cần được lưu trữ. Một region sẽ giữ một lượng row (sắp xếp theo đúng thứ tự được index) của table tương ứng.
+  Table càng thêm nhiều row thì số region tách ra càng nhiều, và được sao lưu để phân tán qua các RegionServer khác.
+   + Write-Ahead Log (WAL): Là nơi đầu tiên ghi dấu lại mọi cập nhật vào file HLog, trước khi cập nhật đó đi tới Memstore và tới HFile.
+  Mục đích lưu dấu này là để tái hiện lại cập nhật trong trường hợp RegionServer bị lỗi.
+   + Store: Gồm 2 thành phần là Memstore (lưu data trên memory) và HFile (lưu data trên file vật lý). Khi Memstore bị đầy hoặc
+  đến ngưỡng nhất định, data sẽ được flush xuống Hfile.
+   
+
+3. Zookeeper: Là đơn vị quản lý vận hành của toàn bộ kiến trúc trên. Một số công việc cụ thể như:
+    + Thông báo đến các đơn vị khác trạng thái hiện tại của Master
+    + Lưu trữ metadata của Master và recover lại Master trong trường hợp lỗi
+    + Lưu trữ danh sách tất cả các region của hệ thống
 
 ###Đường đi của data
 Hình dưới đây minh họa đường đi của dữ liệu trong HBase:
