@@ -171,13 +171,15 @@ sẽ được lưu ở các RegionServer khác nhau. RegionServer bao gồm các
    + Write-Ahead Log (WAL): Là nơi đầu tiên ghi dấu lại mọi cập nhật vào file HLog, trước khi cập nhật đó đi tới Memstore và tới HFile.
   Mục đích lưu dấu này là để tái hiện lại cập nhật trong trường hợp RegionServer bị lỗi.
    + Store: Gồm 2 thành phần là Memstore (lưu data trên memory) và HFile (lưu data trên file vật lý). Khi Memstore bị đầy hoặc
-  đến ngưỡng nhất định, data sẽ được flush xuống Hfile.
-   
+  đến ngưỡng nhất định, data sẽ được flush xuống Hfile.   
 
 3. Zookeeper: Là đơn vị quản lý vận hành của toàn bộ kiến trúc trên. Một số công việc cụ thể như:
     + Thông báo đến các đơn vị khác trạng thái hiện tại của Master
     + Lưu trữ metadata của Master và recover lại Master trong trường hợp lỗi
     + Lưu trữ danh sách tất cả các region của hệ thống
+  
+Ngoài ra còn một số cơ chế Cache và Block-Cache hỗ trợ truy vấn, cơ chế chia tách table thành các region (Spliting) và gộp các region 
+(Compaction) chưa được trình bày sâu trong báo cáo này. 
 
 ###Đường đi của data
 Hình dưới đây minh họa đường đi của dữ liệu trong HBase:
@@ -193,18 +195,65 @@ ________
 _Yêu cầu 3) Tài liệu kỹ thuật về nghiên cứu loại sản phẩm NoSQL qui định: cài đặt, các thao tác trên db: tạo db, thêm, xóa, sửa,... và các thao tác nâng cao
    khác (nếu có)_
 ###2.6.1. Hướng dẫn cài đặt chi tiết:
-+ Hadoop cluster:
-  + HDFS
-  + Datanode
-  + Namenode & secondary Namenode
-  + Nodemanager
-  + ResourceManager:
-    + MapReduce framework
-    + Zookeeper
-+ HBase cluster:
-  + HMaster
-  + HRegionServers
-  + Zookeeper
+Các bước cài đặt cần thiết cho từng thành phần của một HBase Cluster được mô tả cụ thể trong link các link tham khảo:
++ http://hbase.apache.org/book.html
++ https://computingforgeeks.com/how-to-install-apache-hadoop-hbase-on-ubuntu
+
+Ở quy mô của báo cáo này sẽ hướng dẫn các bước cài đặt HBase ở mode _pseudo-distributed_. Cụ thể từng bước như sau:
++ Cài đặt Java: Tham khảo các bước trong link https://ubuntu.com/tutorials/install-jre#3-installing-oracle-jre
++ Cài đặt SSH-server, mặc định port của ssh là 22. Sau khi cài đặt và enable SSH, ta cần add ssh-key của client vào server
+  ![alt text](./photo/install_ssh.png "Đường đi của data")
++ Cài đặt Hadoop:
+  + Tải bản Hadoop version stable theo link https://hadoop.apache.org/releases.html, sau đó giải nén và move vào /usr/local/hadoop
+    ![alt text](./photo/giainenhadoop.png "")
+    ![alt text](./photo/movehadoop.png "")
+  + Tạo và cập nhật các biến môi trường cho Hadoop:
+    ![alt text](./photo/hadooptaofilemotruong.png "")
+    ![alt text](./photo/hadoopcapnhatmoitruong.png "")
+    
+  Các file config quan trọng trong "/usr/local/hadoop/etc/hadoop/":
+  + core-site.xml: file này chứa các cấu hình cơ bản để khởi động Hadoop cluster, ta gán cơ bản như sau
+    ![alt text](./photo/hadoop-core-site.png "")
+    
+  + hdfs-site.xml: chứa cấu hình thư mục lưu trữ các tập tin  của HDFS
+    ![alt text](./photo/hadoop-hdfs-site.png "")
+    
+  + mapred-site.xml: Quy định framework được sử dụng cho MapReduce - mô hình tính toán của Hadoop:
+    
+    ![alt text](./photo/hadoop-mapred-site.png "")
+    
+  + yarn-site.xml:
+    ![alt text](./photo/hadoop-yarn-site.png "")
+    
+  + Cuối cùng khởi chạy Hadoop:
+    ![alt text](./photo/hadoop-start.png "")
+    
+  + Ta truy cập vào http://0.0.0.0:50070 để xem màn hình quản lý Datanode của Hadoop
+    ![alt text](./photo/hadoop-monitor.png "")
+  
+  
+    
++ Cài đặt HBase cluster:
+  + Tải HBase: https://downloads.apache.org/hbase/
+  + Giải nén vào thư mục /opt/hbase
+  + Thêm các biến môi trường vào tập tin ~/.bash_profile với nội dung sau:
+         
+        export HBASE_HOME="/opt/hbase"
+        export PATH="$HBASE_HOME/bin:$PATH"
+    
+  + Sửa nội dung tập tin /opt/hbase/conf/hbase-env.sh với nội dung sau:
+    
+        export JAVA_HOME=/usr/java/default
+        export HBASE_MANAGES_ZK=true
+        export HBASE_PID_DIR=/opt/hbase/var
+  + Cấu hình trong tập tin /opt/hbase/conf/hbase-site.xml với các thông tin quan trọng:
+    ![alt text](photo/hbase-site.png "")
+    
+  + Khởi chạy HBase bằng lệnh __/opt/hbase/bin/start-hbase.sh__
+    ![alt text](photo/hbase-monitor.png "")
+  
+  
+    
 ###2.6.2. Các thao tác & công cụ cơ bản:
 + HBase shell
 + HBase Java API
