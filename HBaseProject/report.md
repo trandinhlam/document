@@ -266,3 +266,31 @@ _____________________________
 ###3.3. HBase vs Cassandra
 https://appinventiv.com/blog/hbase-vs-cassandra/
 https://logz.io/blog/nosql-database-comparison/
+
+####3.3.1 Giống nhau:
++ Cơ sở dữ liệu(Database):
+  + Cả hai đều là cơ sơ dữ liệu mã nguồn mở.
+  + Có thể xử lí được dữ liệu lớn, dữ liệu không quan hệ(bao gòm image, audio, video..)
++ Khả năng mở rộng(Scalability)
+  + Cả hai điều có khả năng mở rộng cao.
+  + Để mở rộng chỉ cần tăng số lượng node trên cluster.
++ Tạo bản sao(Replication)
+  + Data khi được lưu xuống node sẽ tạo bản sao ở một số node khác, nên khi xảy ra lỗi vẫn tồn tại data ở node backup để truy xuất.
+####3.3.2 Khác nhau:
+|/|            HBase                |             Cassandra        |
+|-|---------------------------------|------------------------------|
+|Data Model|+ Column qualifier tương đối giống super column trong Cassandra <br/> + Chỉ cho phép một cột làm **Row Key** và mang ý nghĩa key để development<br/>|+ Chỉ cho phép **Primary Key** có nhiều cột <br/>+ Column giống như cell trong HBase, Column Family(CF) giống như table trong HBase|
+|Architecture (Chi tiết ở hình ảnh bên dưới)|+ Có một cái chính (master-based)|+ Kiến trúc vô chủ(masterless architecture)|
+|Performance|**WRRITE**: trong 32-node cluster, 297,000 phép tính toán 1 giây <br>**READ**: Đọc nhanh, dữ liệu thống nhất do chỉ ghi trên một server|**WRRITE**: trong 32-node cluster, 326,500 phép tính toán 1 giây <br> **READ** Đọc nhanh, nhưng có thể dữ liệu không mang tính nhất quáng(129,000 reads in one second)|
+
++ Data model:
+
+HBase             |  Cassandra
+:-------------------------:|:-------------------------:
+![](photo/hbaseDataModel.png)  |  ![](photo/cassandraDataModel.png)
++ Write data flow:
+![alt text](photo/writeDataFlow.png "")
+
+https://appinventiv.com/blog/hbase-vs-cassandra/
+https://www.scnsoft.com/blog/cassandra-vs-hbase#:~:text=Cassandra%20has%20a%20masterless%20architecture,%2C%20while%20Cassandra%20doesn't.&text=But%2C%20this%20can%20hardly%20compete,the%20always%2Davailable%20Cassandra%20cluster.
+
