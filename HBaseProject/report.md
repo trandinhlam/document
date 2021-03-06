@@ -256,11 +256,17 @@ Các bước cài đặt cần thiết cho từng thành phần của một HBas
     
 ###2.6.2. Các thao tác & công cụ cơ bản:
 + HBase shell
+
+
 + HBase Java API
   + __org.apache.hadoop.hbase.client.Admin__: Class này dùng làm interface để quản lý các Table của HBase, và làm một số tác vụ quản trị khác như thêm, xóa, tra cứu, bật/tắt các Table; thêm/cập nhật các Column family của table.
   Code ví dụ được trình bày trong file UsingHBaseAdmin.java trong mã nguồn đính kèm báo cáo này.
-  + org.apache.hadoop.hbase.client.Table: Là interface giao tiếp với một Table trong HBase. Ví dụ cụ thể mô tả trong file
+  + __org.apache.hadoop.hbase.client.Table__: Là interface giao tiếp với một Table trong HBase. Ví dụ cụ thể mô tả trong file
   UsingHTable.java
+
+
+
+
 + hbtop (optional)
 + Bulk Loading Data (optional)
 _____________________________

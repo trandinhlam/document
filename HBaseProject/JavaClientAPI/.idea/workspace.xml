@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb256f55-2042-4f65-b8f5-e7ed141753b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaClientAPI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hbase/UsingHBaseAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hbase/UsingHTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/hbase/UsingHBaseAdmin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/hbase/UsingHTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../report.md" beforeDir="false" afterPath="$PROJECT_DIR$/../report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
