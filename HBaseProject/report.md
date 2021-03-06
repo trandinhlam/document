@@ -119,9 +119,9 @@ Sau đây là bảng so sánh môt số đặc trưng, tính chất cơ bản c�
 |Fault tolerant      |Some case         |Highly fault tolerant       |
 |Scalability         |Hard              |Highly horizontal scalability       |
 |Read/write throughput |~1.000s/second |~1.000.000s/second
-|Sharding            |Limited support. Manual server sharding. Table partitioning |Auto-sharding|
 |Write performance   |Does not scale well |Scales linearly
 |Single point of failure |Yes |No
+|Sharding            |Limited support. Manual server sharding. Table partitioning |Auto-sharding|
 
 ##2.4. HBase Data Model
 ![alt text](./photo/hbase_storage.png "Mô hình cấu trúc HBase")
@@ -164,21 +164,22 @@ Kiếm trúc cơ bản của một HBase Cluster bao gồm:
     + Quản lý các thay đổi trong metadata
   
 
-2. RegionServer: Là process chạy trên Datanode (của HDFS), là nơi tiếp nhận lệnh từ Master, phụ trách quản lý data. Trong đó, mỗi RegionServer lưu trữ một số lượng Region được giao cho. Mỗi phân đoạn chứa số lượng row nhất định của một table
+2. RegionServer: Là nơi tiếp nhận lệnh từ Master, phụ trách quản lý data. Trong đó, mỗi RegionServer lưu trữ một số lượng Region được giao cho. Mỗi phân đoạn chứa số lượng row nhất định của một table
 sẽ được lưu ở các RegionServer khác nhau. RegionServer bao gồm các thành phần chủ yếu sau:
    + Region(s): Là phân mảnh của một table cần được lưu trữ. Một region sẽ giữ một lượng row (sắp xếp theo đúng thứ tự được index) của table tương ứng.
   Table càng thêm nhiều row thì số region tách ra càng nhiều, và được sao lưu để phân tán qua các RegionServer khác.
    + Write-Ahead Log (WAL): Là nơi đầu tiên ghi dấu lại mọi cập nhật vào file HLog, trước khi cập nhật đó đi tới Memstore và tới HFile.
   Mục đích lưu dấu này là để tái hiện lại cập nhật trong trường hợp RegionServer bị lỗi.
    + Store: Gồm 2 thành phần là Memstore (lưu data trên memory) và HFile (lưu data trên file vật lý). Khi Memstore bị đầy hoặc
-  đến ngưỡng nhất định, data sẽ được flush xuống Hfile.   
+  đến ngưỡng nhất định, data sẽ được flush xuống HFile.   
+
 
 3. Zookeeper: Là đơn vị quản lý vận hành của toàn bộ kiến trúc trên. Một số công việc cụ thể như:
     + Thông báo đến các đơn vị khác trạng thái hiện tại của Master
     + Lưu trữ metadata của Master và recover lại Master trong trường hợp lỗi
     + Lưu trữ danh sách tất cả các region của hệ thống
   
-Ngoài ra còn một số cơ chế Cache và Block-Cache hỗ trợ truy vấn, cơ chế chia tách table thành các region (Spliting) và gộp các region 
+Ngoài ra còn một số cơ chế Block-Cache hỗ trợ truy vấn, cơ chế chia tách table thành các region (Spliting) và gộp các region 
 (Compaction) chưa được trình bày sâu trong báo cáo này. 
 
 ###Đường đi của data
