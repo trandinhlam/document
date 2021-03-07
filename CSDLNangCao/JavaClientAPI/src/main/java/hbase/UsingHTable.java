@@ -8,10 +8,10 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 import java.io.IOException;
 
-import static hbase.UsingHBaseAdmin.CF_1;
-import static hbase.UsingHBaseAdmin.CF_2;
-
 public class UsingHTable {
+    public static final String TABLE_NAME = "my-table";
+    public static final String CF_1 = "colFa1";
+    public static final String CF_2 = "colFa2";
 
     public static void main(String[] args) throws IOException {
         Configuration conf = HBaseConfiguration.create();
