@@ -30,8 +30,11 @@ _(Ý này có nghĩa là các mạng CNN trước đó thường thực hiện x
 sau)_
 _______________________________________
 + ### Tác giả cung cấp những gì? Tài liệu phụ lục kèm theo?
-Tác giả cung cấp bộ data set 100K tấm ảnh góc rộng từ Tencent Street View<br>
-
++ https://cg.cs.tsinghua.edu.cn/traffic-sign/
++ Tác giả cung cấp bộ data set 100K tấm ảnh góc rộng từ Tencent Street View<br>
++ Hướng dẫn chạy model của họ  với TT100K dataset
++ Có Phụ lục kèm theo bao gồm kết quả detect một số case, và kết quả classification một số case
++ Có cung cấp 1 file caffemodel và 3 file .prototxt để train và test cho mô hình Fast-RNN
 _______________________________________
 + ### Tác giả không cung cấp những gì? 
 _(thuật toán có chi tiết? cách cài đặt có rõ ràng ko?...)_
