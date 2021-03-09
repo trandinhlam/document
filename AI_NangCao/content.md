@@ -51,14 +51,24 @@ _______________________________________
 ### 3. Cách họ xây dựng data như thế nào? ( Nhóm thực hành)
 
 + Các bộ dataset của các paper trước đó là gì ? (PASCAL VOC)
+PASCAL VOC, ImageNet ILSVRC (thu thập trên Internet bởi các search engine)
 + Data lấy từ đâu?
-+ Có lấy data từ các bài báo trước đó không?
+Tencent Street View (từ 300 thành phố ở Trung Quóc và các tuyến đường kết nối chúng). Được chụp với camera 6 SLR và sau đó ghép nối lại với nhau. Các kỹ thuật xử lý ảnh như điều chỉnh độ phơi sáng cũng được dùng. Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai với tần suất 10 phút
+
++ Có lấy data từ các bài báo trước đó không? 
+Không
 + Tính chất của data có gì khác biệt so với bộ data của các bài báo trước?
+Trong các tập data trước đây, đối tượng cần detect thường chiếm kích thước lớn (khoảng hơn 20%) trong ảnh. Tuy nhiên, thực tế đối tượng có thể là một phần nhỏ trong ảnh, chẳng hạn như là biển báo giao thông, với size thông thường khoảng 80x80p, và thường chiếm chỉ 0.2% bức ảnh
+Với bộ data mới này (Tsinghua-Tencent 100K), các tấm ảnh được lấy từ các camera nên sẽ thực tế hơn.
+
 + Họ chuẩn hóa data như thế nào? Dùng tay để lọc hay dùng máy?
+Các tấm ảnh được chọn lọc và đánh nhãn bằng tay. Ghi dấu lại khung bao, các đỉnh của khung và gán nhãn cho biển báo trong từng tấm ảnh
 + Data có nhiễu nhiều hay không? Được chụp/quay bằng gì?
+Nhiễu -> đang check
+Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai
 + Họ có trích xuất Feature ra trước khi đưa vào mạng không? Có gán nhãn trước cho biển báo giao thông?
 + Tác giả có chú trọng rất nhiều, có đặt trọng tâm bài báo vào bộ data này không? Vì sao?
-
+Ngoài việc cải tiến CNN để phân loại và nhận dạng, bài báo còn chú trọng vào việc có một bộ data thực tế và hiệu quả hơn so với các bộ data hiện có.
 _______________________________________
 
 ### 4. Mô hình Mạng CNN có gì đặc biệt?
