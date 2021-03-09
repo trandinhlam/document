@@ -11,8 +11,8 @@
   
 
 + __PASCAL VOC__: (PASCAL Visual Object Classification) là tập dữ liệu ảnh kinh điển được sử dụng rộng rãi trong chủ đề object detection
-
-+ __ImageNet__: ImageNet Large Scale Visual Recognition Challenge, là một cơ sở dữ liệu hình ảnh quy mô lớn được thiết kế để sử dụng trong nghiên cứu phần mềm nhận dạng đối tượng trực quan. Tính đến năm 2016, hơn 10 triệu tấm ảnh đã được ImageNet đánh dấu thủ công và ít nhất 1 triệu tấm đã được gán sẵn bounding box.  
+___
++ __ImageNet__: Là một cơ sở dữ liệu hình ảnh quy mô lớn được thiết kế để sử dụng trong nghiên cứu phần mềm nhận dạng đối tượng trực quan. Tính đến năm 2016, hơn 10 triệu tấm ảnh đã được ImageNet đánh dấu thủ công và ít nhất 1 triệu tấm đã được gán sẵn bounding box.
 + __ILSVRC__:  Cuộc thi nhận diện trực quan quy mô lớn của ImageNet (ImageNet Large Scale Visual Recognition Challenge), nơi các phần mềm cạnh tranh để phân loại và phát hiện các đối tượng và cảnh vật một cách chính xác.
 ___
 + __R-CNN__: (Regional CNN) Là thuật toán phổ biến dùng trong bài toán Object Detection. Ý tưởng cơ bản của thuật toán bao gồm 2 bước:
@@ -32,9 +32,10 @@ ___
   bức ảnh mỗi ngày chỉ với một card đồ họa NVIDIA K40 với AlexNet. Ta có thể sử dụng nó như một toolkit cho tác vụ phân lớp ảnh.
   Tuy nhiên, toolkit này khó áp dụng cho các bài toán bên xử lý văn bản và tiếng nói.
   Các bài báo cung cấp các file này để ta chạy demo thử và không cần phải train lại.
-
+___
 + __OverFeat__: là một feature extractor được huấn luyện trên tập dữ liệu ImageNet với Torch7 và dễ dàng để bắt đầu sử dụng.
-
+  Perform classificaon,	localizaon,	and detecon	on	the	ImageNet	Dataset
+___
 + __Tourch__: được viết bằng ngôn ngữ Lua, cung cấp một môi trường lập trình tương tự như MATLAB chuyên dùng cho các thuật toán ML thay cho Python vì nó tương thích tốt với C.
 
 + __GTFDB__:  
