@@ -43,6 +43,8 @@ _______________________________________
 + Hướng dẫn chạy model của họ  với TT100K dataset
 + Có Phụ lục kèm theo bao gồm kết quả detect một số case, và kết quả classification một số case
 + Có cung cấp 1 file caffemodel và 3 file .prototxt để train và test cho mô hình Fast-RNN
++ Cung cấp dataset 17GB
++ Cung cấp code 764MB
 _______________________________________
 + ### Tác giả không cung cấp những gì? 
 _(thuật toán có chi tiết? cách cài đặt có rõ ràng ko?...)_
@@ -57,6 +59,7 @@ Tác giả có trích dẫn nhiều bài báo trước đó cùng chủ đề
   + The German Traffic Sign Recognition Benchmark: A multi-class classification competition, https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
   + Traffic Sign Recognition with Multi-Scale Convolutional Networks http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf
   + https://cs.nyu.edu/~fergus/teaching/vision/5_detection.pdf
+  + An Empirical Evaluation of Deep Learning on Highway Driving https://arxiv.org/pdf/1504.01716.pdf
 ____
 
 + ###Họ đã làm được gì?
@@ -122,6 +125,7 @@ ____
 + ####Tác giả có chú trọng rất nhiều, có đặt trọng tâm bài báo vào bộ data này không? Vì sao?
   Ngoài việc cải tiến CNN để phân loại và nhận dạng, bài báo còn chú trọng vào việc có một bộ data thực tế và hiệu quả hơn so với các bộ data hiện có.
 _______________________________________
++ ####Pixel mask khi gán nhãn dữ liệu là gì? 
 + ####Có hình minh họa, biểu đồ, lượt đồ, ví dụ thể hiện data của họ không?
 _______________________________________
 
@@ -129,8 +133,10 @@ _______________________________________
 ____
 ### Mô hình cũ trước đó
 ____
-+ ####Nêu ra các mô hình cũ trước đó?
- 
++ ####Nêu ra các mô hình trước đó?
+  + OverFeat. Cần giải thích được cơ chế của OverFeat
+  
+![](photos/overFeat-Archi.png)
 ____
 + ####Đưa ra hình ảnh mô hình?
 ____
@@ -148,7 +154,9 @@ ____
 ____
 + Những kỹ thuật và phương pháp nào đã được tác giả sử dụng?
 ____
-+ Làm sao để giải thích rõ ràng mô hình mạng này cho mọi người hiểu?
++ ####Làm sao để giải thích rõ ràng mô hình mạng này cho mọi người hiểu?
+  Bảng sau đây mô tả tổng thể kiến trúc các layer của mô hình mạng mà tác giả đề xuất 
+![](photos/architech-cnn.png)
 
 _______________________________________
 
@@ -186,5 +194,5 @@ _______
 ## 7. Tài liệu tham khảo
 + The Graphics and Geometric Computing Group,  Tsinghua University
 + Towards Data Science, https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e
-+ Semantic Schoolar https://www.semanticscholar.org/
++ Semantic Scholar https://www.semanticscholar.org/
 + 
