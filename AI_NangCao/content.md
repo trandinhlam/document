@@ -42,13 +42,24 @@ _(thuật toán có chi tiết? cách cài đặt có rõ ràng ko?...)_
 _______________________________________
 
 ### 2. Lookback - Đặt vấn đề
+____
++ ###Các bài báo tiền nhiệm là bài báo nào?
+Tác giả có trích dẫn nhiều bài báo trước đó sử dụng GTSRB làm Dataset  
 
-+ Các bài báo tiền nhiệm là bài báo nào?
+  + Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition: 2012, link https://www.ini.rub.de/upload/file/1470692859_c57fac98ca9d02ac701c/stallkampetal_gtsrb_nn_si2012.pdf
+  + The German Traffic Sign Recognition Benchmark: A multi-class classification competition, https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
+____
+
++ ###Họ đã làm được gì?
+  + Kể từ khi có tập data về biển báo đầu tiên của Đức GTSDB và GTSRB [24,25] đến nay, có nhiều nhóm nghiên cứu đã làm về 2 pha này (detection & classification), và đạt đến gần 100% độ chính xác (recall & precision for detection) và 99.67% (classification
+
+____  
 + Bối cảnh và bài toán nào đã được các bài trước đó giải quyết?
+____
 + Vấn đề phát sinh từ các bài báo này?
     + Các bộ dữ liệu kinh điển bị nhược điểm gì mà tác giả lại chê?
     + Các giải pháp cũ có ứng dụng thực tiễn được không?
-
+____
 _______________________________________
 
 ### 3. Cách họ xây dựng data như thế nào? ( Nhóm thực hành)

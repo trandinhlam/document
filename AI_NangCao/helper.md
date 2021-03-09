@@ -23,4 +23,6 @@
 
 + __Tourch__: được viết bằng ngôn ngữ Lua, cung cấp một môi trường lập trình tương tự như MATLAB chuyên dùng cho các thuật toán ML thay cho Python vì nó tương thích tốt với C.
 
-+
++ __GTFDB__:  
++ __GTSRB__: German Traffic Sign Recognition Benchmark, là một cuộc thi tổ chức ở IJCNN 2011. Cuộc thi cung cấp GTSRB dataset with 51,840 images of German road signs in 43
+  classes. Có rất nhiều bài báo sử dụng tập data set này để huấn luyện. 
