@@ -101,7 +101,8 @@ _______________________________________
 ____
 + ####Các bộ dataset của các paper trước đó là gì ?
   + PASCAL VOC
-  + ImageNet ILSVRC (thu thập trên Internet bởi các search engine)
+  + Thu thập các hình ảnh do người dùng chụp trên Internet bởi các search engine, nên sẽ không gần giống với các tình huống thực tế: ImageNet, Microsoft COCO
+  + Cắt các hình liên tiếp từ video dẫn đến các biển báo sẽ xuất hiện rất giống nhau trong các ảnh): GTSRB
 ____
 + ####Data lấy từ đâu?
   Tencent Street View (từ 300 thành phố ở Trung Quóc và các tuyến đường kết nối chúng). Được chụp với camera 6 SLR và sau đó ghép nối lại với nhau. Các kỹ thuật xử lý ảnh như điều chỉnh độ phơi sáng cũng được dùng. Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai với tần suất 10 phút
@@ -110,23 +111,34 @@ ____
   Không
 ____
 + ####Tính chất của data có gì khác biệt so với bộ data của các bài báo trước?
-  Trong các tập data trước đây, đối tượng cần detect thường chiếm kích thước lớn (khoảng hơn 20%) trong ảnh. Tuy nhiên, thực tế đối tượng có thể là một phần nhỏ trong ảnh, chẳng hạn như là biển báo giao thông, với size thông thường khoảng 80x80p, và thường chiếm chỉ 0.2% bức ảnh
-  Với bộ data mới này (Tsinghua-Tencent 100K), các tấm ảnh được lấy từ các camera nên sẽ thực tế hơn.
+  + Trong các tập data trước đây, đối tượng cần detect thường chiếm kích thước lớn (khoảng hơn 20%) trong ảnh, các loại biển báo ít đa dạng. Trong thực tế biển báo có thể là một phần nhỏ trong ảnh với kích cỡ thông thường khoảng 80x80p, và thường chiếm chỉ 0.2% bức ảnh
+  
+  + Thu thập các hình ảnh do người dùng chụp trên Internet bởi các search engine, nên sẽ không gần giống với các tình huống thực tế: ImageNet, Microsoft COCO
+  + Cắt các hình liên tiếp từ video dẫn đến các biển báo sẽ xuất hiện rất giống nhau trong các ảnh: GTSRB
+  
+ ![alt text](./Photos/training_data_01.jpg "Training data")
+  Với bộ data mới này (Tsinghua-Tencent 100K), các tấm ảnh được chụp từ các camera trong những điều kiện ánh sáng và thời tiết khác nhau, chỉ chiếm một phần nhỏ và có thể ở bất cứ vị trí nào trong ảnh nên sẽ mô phỏng các tình huống thực tế tốt hơn. Các loại biển báo và góc chụp đa dạng hơn (100000 ảnh với 30000 biển báo)
 ____
 + ####Họ chuẩn hóa data như thế nào? Dùng tay để lọc hay dùng máy?
   Các tấm ảnh được chọn lọc và đánh nhãn bằng tay. Ghi dấu lại khung bao, các đỉnh của khung và gán nhãn cho biển báo trong từng tấm ảnh
+  ![alt text](./Photos/labeled_data.jpg "Labeled data")
+  ![alt text](./Photos/labeled_data_2.jpg "Labeled data")
 ____
 + ####Data có nhiễu nhiều hay không? Được chụp/quay bằng gì?
-  Nhiễu -> đang check
+  Nhiễu -> là data sai hả
   Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai
 ____
 + ####Họ có trích xuất Feature ra trước khi đưa vào mạng không? Có gán nhãn trước cho biển báo giao thông?
+  + Họ có trích xuất Feature ra trước khi đưa vào mạng không -> chưa hiểu
+  + Có gán nhãn bằng tay 
 ____
 + ####Tác giả có chú trọng rất nhiều, có đặt trọng tâm bài báo vào bộ data này không? Vì sao?
-  Ngoài việc cải tiến CNN để phân loại và nhận dạng, bài báo còn chú trọng vào việc có một bộ data thực tế và hiệu quả hơn so với các bộ data hiện có.
+  Ngoài việc cải tiến CNN để phân loại và nhận dạng, bài báo còn chú trọng vào việc tạo ra một bộ data thực tế và đa dạng hơn so với các bộ data hiện có cho việc training và benchmarking.
 _______________________________________
 + ####Pixel mask khi gán nhãn dữ liệu là gì? 
+  Là cầm cái ma trận dịch chuyển qua từng pixel trên ma trận của tấm ảnh nhân lại để tạo ra ma trận mới. 
 + ####Có hình minh họa, biểu đồ, lượt đồ, ví dụ thể hiện data của họ không?
+  Chỉ có mấy biểu đồ so sánh độ chính xác với từng kích cỡ biển báo (60px, 80px, ...)
 _______________________________________
 
 ## 4. Mô hình Mạng CNN có gì đặc biệt?
