@@ -100,7 +100,8 @@ _______________________________________
 ## 3. Cách họ xây dựng data như thế nào? ( Nhóm thực hành)
 ____
 + ####Các bộ dataset của các paper trước đó là gì ?
-  + PASCAL VOC
+  + PASCAL VOC\
+  + ImageNet ILSVR-C
   + Thu thập các hình ảnh do người dùng chụp trên Internet bởi các search engine, nên sẽ không gần giống với các tình huống thực tế: ImageNet, Microsoft COCO
   + Cắt các hình liên tiếp từ video dẫn đến các biển báo sẽ xuất hiện rất giống nhau trong các ảnh): GTSRB
 ____
@@ -126,6 +127,7 @@ ____
 ____
 + ####Data có nhiễu nhiều hay không? Được chụp/quay bằng gì?
   Nhiễu -> là data sai hả
+  Data nhiễu -> Có sử dụng khá nhiều hình ảnh không có biển báo, có add thêm độ nhiễu ngẫu nhiên trong quá trình train
   Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai
 ____
 + ####Họ có trích xuất Feature ra trước khi đưa vào mạng không? Có gán nhãn trước cho biển báo giao thông?
@@ -195,11 +197,13 @@ _______________________________________
 ## 6. Demo như thế nào? (Nhóm thực hành)
 
 + Quay video demo lại __cách sử dụng model__ đã được train. Cần check lại có model sẵn chưa?
+  + Đã có sẵn model. Đã có thể xuất ra được kết quả dựa trên model đã train của tác giả.
 + Có option chạy CPU không ? Nếu chạy trên GPU thì chạy cloud được ko? GoogleColab?
+  + Project sử dụng CUDA toolkits để train một bộ dataset khá lớn. Nếu không có GPU hỗ trợ thì sẽ rất khó để chạy được. -> Có thể tìm model nhỏ hơn
 + Có chạy được với dataset ít hơn ko? 14GB?
-
 + Nhận xét chủ quan của nhóm mình?
   (bước tiến có lớn hay ko hay chỉ chém gió? so với cái cũ thì có vượt trội?)
+  + Có vượt hơn fast-rcc một chút về độ chính xác (Theo bản report)
 
 
 _______
