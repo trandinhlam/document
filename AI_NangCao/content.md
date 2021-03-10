@@ -55,11 +55,11 @@ _______________________________________
 ____
 + ###Các bài báo tiền nhiệm là bài báo nào?
 Tác giả có trích dẫn nhiều bài báo trước đó cùng chủ đề
-  + Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition: 2012, link https://www.ini.rub.de/upload/file/1470692859_c57fac98ca9d02ac701c/stallkampetal_gtsrb_nn_si2012.pdf
-  + The German Traffic Sign Recognition Benchmark: A multi-class classification competition, https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
-  + Traffic Sign Recognition with Multi-Scale Convolutional Networks http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf
-  + https://cs.nyu.edu/~fergus/teaching/vision/5_detection.pdf
-  + An Empirical Evaluation of Deep Learning on Highway Driving https://arxiv.org/pdf/1504.01716.pdf
+  + [1] Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition: 2012, link https://www.ini.rub.de/upload/file/1470692859_c57fac98ca9d02ac701c/stallkampetal_gtsrb_nn_si2012.pdf
+  + [2] The German Traffic Sign Recognition Benchmark: A multi-class classification competition, https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
+  + [3] Traffic Sign Recognition with Multi-Scale Convolutional Networks http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf
+  + [4] https://cs.nyu.edu/~fergus/teaching/vision/5_detection.pdf
+  + [5] An Empirical Evaluation of Deep Learning on Highway Driving https://arxiv.org/pdf/1504.01716.pdf
 ____
 
 + ###Họ đã làm được gì?
@@ -148,9 +148,17 @@ ____
 ### Mô hình cũ trước đó
 ____
 + ####Nêu ra các mô hình trước đó?
-  + OverFeat. Cần giải thích được cơ chế của OverFeat
+  + AlexNet là một trong những Mô hình đầu tiên giải quyết bài toán phân lớp (classification)một bức ảnh vào 1 lớp trong 1000 lớp khác nhau (vd gà, chó, mèo … ). Đầu ra của mô hình là một vector có 1000 phần tử.
   
+
+  + OverFeet là một mạng CNN dùng để detect đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
+
++ Dưới đây là bảng mô tả kiến trúc cơ bản của mạng OverFeat
 ![](photos/overFeat-Archi.png)
+
++ Tác giả dựa trên giải pháp Vehicle Detection của bài báo trước đó [5], sử dụng kết hợp OverFeat và một mạng Hồi quy () 
+
+Kiến trúc của mạng Vehicle Detection vẫn đang nghiên cứu. 
 ____
 + ####Đưa ra hình ảnh mô hình?
 ____

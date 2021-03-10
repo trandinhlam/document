@@ -34,7 +34,7 @@ ___
   Các bài báo cung cấp các file này để ta chạy demo thử và không cần phải train lại.
 ___
 + __OverFeat__: là một feature extractor được huấn luyện trên tập dữ liệu ImageNet với Torch7 và dễ dàng để bắt đầu sử dụng.
-  Perform classificaon,	localizaon,	and detecon	on	the	ImageNet	Dataset
+  Perform classificaon, localization, and detection
 ___
 + __Tourch__: được viết bằng ngôn ngữ Lua, cung cấp một môi trường lập trình tương tự như MATLAB chuyên dùng cho các thuật toán ML thay cho Python vì nó tương thích tốt với C.
 
