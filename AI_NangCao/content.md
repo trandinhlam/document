@@ -145,7 +145,7 @@ _______________________________________
 
 ## 4. Mô hình Mạng CNN có gì đặc biệt?
 ____
-### Mô hình cũ trước đó
+### 4.1. Mô hình cũ trước đó
 ____
 + ####Nêu ra các mô hình trước đó?
   + AlexNet là một trong những Mô hình đầu tiên giải quyết bài toán phân lớp (classification)một bức ảnh vào 1 lớp trong 1000 lớp khác nhau (vd gà, chó, mèo … ). Đầu ra của mô hình là một vector có 1000 phần tử.
@@ -165,7 +165,7 @@ ____
 + ####Bạn có thể giái thích cơ bản mô tả mô hình cũ này không?
 ____
 
-### Mô hình mới
+### 4.2. Mô hình mới
 
 ____
 + Cơ sở lý thuyết cụ thể là gì ? Hướng tiếp cận?
