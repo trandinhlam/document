@@ -126,8 +126,10 @@ ____
   ![alt text](./Photos/labeled_data_2.jpg "Labeled data")
 ____
 + ####Data có nhiễu nhiều hay không? Được chụp/quay bằng gì?
-  Nhiễu -> là data sai hả
   Data nhiễu -> Có sử dụng khá nhiều hình ảnh không có biển báo, có add thêm độ nhiễu ngẫu nhiên trong quá trình train
+  <br>
+  gây nhiễu: xoay hình ngãu nhiên trong khoảng -20 độ -> +20 độ, scale hình, làm méo hình
+  <br>
   Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai
 ____
 + ####Họ có trích xuất Feature ra trước khi đưa vào mạng không? Có gán nhãn trước cho biển báo giao thông?
@@ -138,8 +140,8 @@ ____
   Ngoài việc cải tiến CNN để phân loại và nhận dạng, bài báo còn chú trọng vào việc tạo ra một bộ data thực tế và đa dạng hơn so với các bộ data hiện có cho việc training và benchmarking.
 _______________________________________
 + ####Pixel mask khi gán nhãn dữ liệu là gì? 
-  Là cầm cái ma trận dịch chuyển qua từng pixel trên ma trận của tấm ảnh nhân lại để tạo ra ma trận mới. 
-+ ####Có hình minh họa, biểu đồ, lượt đồ, ví dụ thể hiện data của họ không?
+  Là đánh dấu vùng thực sự có biển báo (hình tròn, chũ nhật, tam giác) trong bounding box
++ ####Có hình minh họa, biểu đồ, lược đồ, ví dụ thể hiện data của họ không?
   Chỉ có mấy biểu đồ so sánh độ chính xác với từng kích cỡ biển báo (60px, 80px, ...)
 _______________________________________
 
