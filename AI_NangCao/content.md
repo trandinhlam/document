@@ -151,7 +151,7 @@ ____
   + AlexNet là một trong những Mô hình đầu tiên giải quyết bài toán phân lớp (classification)một bức ảnh vào 1 lớp trong 1000 lớp khác nhau (vd gà, chó, mèo … ). Đầu ra của mô hình là một vector có 1000 phần tử.
   
 
-  + OverFeet là một mạng CNN dùng để detect đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
+  + OverFeat là một mạng CNN dùng để detect đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
 
 + Dưới đây là bảng mô tả kiến trúc cơ bản của mạng OverFeat
 ![](photos/overFeat-Archi.png)
