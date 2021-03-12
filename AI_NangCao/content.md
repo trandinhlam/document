@@ -100,10 +100,10 @@ _______________________________________
 ## 3. Cách họ xây dựng data như thế nào? ( Nhóm thực hành)
 ____
 + ####Các bộ dataset của các paper trước đó là gì ?
-  + PASCAL VOC\
+  + PASCAL VOC
   + ImageNet ILSVR-C
   + Thu thập các hình ảnh do người dùng chụp trên Internet bởi các search engine, nên sẽ không gần giống với các tình huống thực tế: ImageNet, Microsoft COCO
-  + Cắt các hình liên tiếp từ video dẫn đến các biển báo sẽ xuất hiện rất giống nhau trong các ảnh): GTSRB
+  + Cắt các hình liên tiếp từ video dẫn đến các biển báo sẽ xuất hiện rất giống nhau trong các ảnh: GTSRB
 ____
 + ####Data lấy từ đâu?
   Tencent Street View (từ 300 thành phố ở Trung Quóc và các tuyến đường kết nối chúng). Được chụp với camera 6 SLR và sau đó ghép nối lại với nhau. Các kỹ thuật xử lý ảnh như điều chỉnh độ phơi sáng cũng được dùng. Các ảnh này được chụp từ phương tiện giao thông và các thiết bị gắn trên vai với tần suất 10 phút
@@ -118,7 +118,11 @@ ____
   + Cắt các hình liên tiếp từ video dẫn đến các biển báo sẽ xuất hiện rất giống nhau trong các ảnh: GTSRB
   
  ![alt text](./Photos/training_data_01.jpg "Training data")
-  Với bộ data mới này (Tsinghua-Tencent 100K), các tấm ảnh được chụp từ các camera trong những điều kiện ánh sáng và thời tiết khác nhau, chỉ chiếm một phần nhỏ và có thể ở bất cứ vị trí nào trong ảnh nên sẽ mô phỏng các tình huống thực tế tốt hơn. Các loại biển báo và góc chụp đa dạng hơn (100000 ảnh với 30000 biển báo)
+  + Với bộ data mới này (Tsinghua-Tencent 100K), các tấm ảnh được chụp từ các camera trong những điều kiện ánh sáng và thời tiết khác nhau, chỉ chiếm một phần nhỏ và có thể ở bất cứ vị trí nào trong ảnh nên sẽ mô phỏng các tình huống thực tế tốt hơn.<br> 
+  + Nhiều loại biển báo (100K ảnh với 30K biển báo), góc chụp đa dạng hơn (chính diện, nghiêng), có các biển nhìn rõ và cả những biển bị che khuất một phần<br>
+  + Ảnh chụp trong nhiều điều kiện thời tiết (trời nắng, có mây)<br>
+  + Một số ảnh chụp có background phức tạp làm tăng độ khó khi detect biển báo<br>
+  
 ____
 + ####Họ chuẩn hóa data như thế nào? Dùng tay để lọc hay dùng máy?
   Các tấm ảnh được chọn lọc và đánh nhãn bằng tay. Ghi dấu lại khung bao, các đỉnh của khung và gán nhãn cho biển báo trong từng tấm ảnh
