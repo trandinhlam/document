@@ -164,44 +164,51 @@ ____
   + Kiến trúc AlexNet bao gồm 5 convolutional Layer và 3 fully connected layer. Nó có tổng cộng 60 triệu tham số và 650 nghìn neural.
   + Các convolutional Layer (filter) đầu tiên có chức năng trích xuất các đặc trưng cơ bản của tấm ảnh:
     + Filter đầu tiên chứa 96 kernel có kích thước 3x11x11, stride=4
-    + Các layer sau kết nối với layer trước đó qua một Overlapping Max Pooling ở giữa.
+    + Các layer sau kết nối với layer trước đó qua một Overlapping Max Pooling ở layer thứ 1,2 và 5. Max Pooling layer thường được sử dụng để giảm chiều rộng và chiều dài của một tensor nhưng vẫn giữ nguyên chiều sâu
     + ReLU nonlinerity được sử dụng sau tất các các convolution và fully connected layer. Theo tác giả, ReLU giúp cho mạng
       huấn luyện nhanh hơn và cải thiện độ lỗi gấp nhiều lần so với khi dùng hàm Tanh hay Sigmoid. 
     + Cho đến cuối cùng, layer thứ 7 là fully connected kết nối với layer 8 là một bộ phân lớp softmax với 1000 vector đầu ra, với tổng giá trị bằng 1.
 
 Read more: https://www.phamduytung.com/blog/2018-06-15-understanding-alexnet/#ixzz6op5N5Kb8
 ____
-  + **OverFeat** là một mạng CNN dùng để detect đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
+  + **OverFeat** là một mạng CNN dùng để detect (classification, localization and detection) đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
 
 + Dưới đây là bảng mô tả kiến trúc cơ bản của mạng OverFeat
-![](photos/overFeat-Archi.png)
+![](photos/overfeat_archi.png)
++ Các cải tiến của OverFeat so với AlexNet bao gồm:
+  + Pooling region không xài Overlapping, tức stride của lớp max pooling  đúng bằng kích thước của kernel, các tấm kernel khi trượt sẽ không chồng lắp lên nhau (mạng AlexNet có chồng lên 1 pixel).
+  + Feature map sẽ to hơn một chút do dùng slide nhỏ hơn so với AlexNet.    
+  + Sử dụng cửa số trượt sliding window hiệu quả hơn nhờ vào việc share kết quả tính toán của một vùng từ lần trước cho lần tính toán sau (thường sẽ overlap nhau rất nhiều).
+  ![](photos/slide-window.png)
+  + Sử dụng cơ chế multi-view voting: scale tấm ảnh ra thành nhiều tấm ảnh, sau đó dự đoán tất cả chúng, rồi lấy trung bình kết quả.
+  + Để localization, tìm ra bouding box của đối tượng, mạng này thay classifier layer (layer thứ 6,7,8) bằng một mạng hồi quy, sử dụng kết quả từ layer thứ 5 làm input.
+  Ở đó, output cuối cùng của mạng hồi quy này là các vector 4 chiều mô tả bounding box của input tương ứng.
+    Như vậy bằng việc tách nhánh ở cuối layer 5, tác giả đã xử lý được song song việc classification và tìm ra bounding box luôn.
+    
 
 Read more: https://towardsdatascience.com/overfeat-review-1312-6229-4fd925f3739f
 ____
-+ Tác giả dựa trên giải pháp Vehicle Detection của bài báo trước đó [5], sử dụng kết hợp OverFeat và một mạng Hồi quy () 
-
-Kiến trúc của mạng Vehicle Detection vẫn đang nghiên cứu. 
-____
-+ ####Đưa ra hình ảnh mô hình?
-____
-+ ####Bạn có thể giái thích cơ bản mô tả mô hình cũ này không?
++ Tác giả dựa trên giải pháp Vehicle Detection của bài báo trước đó [5], sử dụng kết hợp OverFeat và một mạng Hồi quy ở cuối. Cụ thể:
+  + Hình input của mạng này được nâng lên 640 × 480, để đáp ứng bài toán detect phương tiện và lane đường xa hơn 100m so với camera.
+  + Kết hợp thêm một mask detector, để xác định được bonding box nhanh hơn so với OverFeat nguyên thủy.
+  + Các tầng layer fully connected (dense) được chuyển đổi thành các mạng convolution.
+  + Khi sử dụng hình input lớn hơn, dẫn đến output ở layer thứ 6 cũng nở ra từ 1x1x4096 thành 20x15x4096 
 ____
 
 ### 4.2. Mô hình mới
 
 ____
-+ Cơ sở lý thuyết cụ thể là gì ? Hướng tiếp cận?
-____
-+ Mô hình mạng mới của bài này có gì khác biệt? đặc biệt hơn cái cũ chỗ nào?
-____
-+ Công thức họ đưa ra là công thức gì?
-____
-+ Những kỹ thuật và phương pháp nào đã được tác giả sử dụng?
++ ####Mô hình mạng mới của bài này có gì khác biệt? đặc biệt hơn cái cũ chỗ nào?
+  Mô hình mới lấy ý tưởng từ cả mô hình OverFeat và Vehicle Detection như đã trình bày ở phần trên cho bài toán Traffic Sign Detection
 ____
 + ####Làm sao để giải thích rõ ràng mô hình mạng này cho mọi người hiểu?
   Bảng sau đây mô tả tổng thể kiến trúc các layer của mô hình mạng mà tác giả đề xuất 
 ![](photos/architech-cnn.png)
-
+  Các thay đổi, điều chỉnh so với mô hình gốc như sau:
+  + Các tác giả đã thử nghiệm việc chạy song song truoc khi xong layer thu 7, và nhận thấy tách nhánh để chạy song song từ sau layer 6 là giải pháp cân bằng giữa
+  thời gian tính toán và độ chính xác cần thiết (tách càng sớm thì performance càng nhanh nhưng tốn nhiều tài nguyên, tách quá trễ sẽ tính toán lâu hơn)
+  + So với bài toán Vehicle Detection, thì layer cuối cùng có thêm 1 nhánh chạy song song giúp phân loại luôn loại biển báo.
+  
 _______________________________________
 
 ## 5. Kết quả và đối sánh hiệu quả ra sao?
@@ -211,6 +218,11 @@ ____
   quả sau bao nhiều lần lặp?
 ____
 + Mỗi biểu đồ trong bài báo thể hiện điều gì? Thông số nào là quan trọng?
+
+   + Kết quả so sánh với mô hình Fast R-CNN trong việc classify loại biển báo, với các kích thước khác nhau
+     ![](photos/result_classification.png)
+   + Kết quả so sánh với các phương thức object detection khác như Selective Search, EdgeBoxes
+     ![](photos/result-detect.png)
 ____
 + Kết quả cho thấy tốt hơn như thế nào? Nhanh hơn hay chính xác hơn? Nhanh hơn bao nhiêu? Chính xác hơn bao nhiêu?
 ____

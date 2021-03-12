@@ -53,3 +53,5 @@ ____
 + __Softmax__: Là hàm hồi quy nhận đầu vào là x, đầu ra a(i) thể hiện xác suất để đầu vào đó rơi vào lớp thứ i. Ở đó a(i) luôn dương
 và tổng các a(i) có giá trị bằng 1. Công thức của nó là:
   ![](./photos/softmax.png)
+  
++ __LRN Layer__: Local Response Normalization, là một phép chuẩn hóa neuron dựa trên những neuron lân cận nó.
