@@ -74,7 +74,7 @@ ____
   + Các phương pháp đưa ra đã đạt kết quả rất tốt trên tập GTSRB, lên đến 99.6% tốt hơn cả con người
   + Họ đã Ứng dụng và cải tiến được đáng kể các thuật toán phổ biến trong object detection như:
     + R-CNN -> SPPNet -> Fast R-CNN -> Faster R-CNN
-    + EdgeBoxes
+    + OverFeat
     + 
 ____  
 + ###Bối cảnh và bài toán nào đã được các bài báo, các cuộc thi trước đó giải quyết?
@@ -154,14 +154,30 @@ ____
 ### 4.1. Mô hình cũ trước đó
 ____
 + ####Nêu ra các mô hình trước đó?
-  + AlexNet là một trong những Mô hình đầu tiên giải quyết bài toán phân lớp (classification)một bức ảnh vào 1 lớp trong 1000 lớp khác nhau (vd gà, chó, mèo … ). Đầu ra của mô hình là một vector có 1000 phần tử.
-  
+  + **AlexNet** là một trong những Mô hình đầu tiên giải quyết bài toán phân lớp (classification)một bức ảnh vào 1 lớp trong 1000 lớp khác nhau (vd gà, chó, mèo … ). Đầu ra của mô hình là một vector có 1000 phần tử.
+    Mạng CNN này đã thắng hạng nhất trong cuộc thi ILSVRC năm 2012.
+    Kiến trúc mạng như sau: 
+    ![](./photos/alexNet.png)
+    
+  + Đầu vào của AlexNet là một bức ảnh RGB 3x256x256 ở cả tập train và tập test. Đây là kích thước chuẩn bắt buộc sử dụng trong mạng.
+  + Sau khi chuẩn hóa, kích thước đầu vào được sử dụng là 227x227 và cắt ngẫu nhiên trên hình gốc 256x256.
+  + Kiến trúc AlexNet bao gồm 5 convolutional Layer và 3 fully connected layer. Nó có tổng cộng 60 triệu tham số và 650 nghìn neural.
+  + Các convolutional Layer (filter) đầu tiên có chức năng trích xuất các đặc trưng cơ bản của tấm ảnh:
+    + Filter đầu tiên chứa 96 kernel có kích thước 3x11x11, stride=4
+    + Các layer sau kết nối với layer trước đó qua một Overlapping Max Pooling ở giữa.
+    + ReLU nonlinerity được sử dụng sau tất các các convolution và fully connected layer. Theo tác giả, ReLU giúp cho mạng
+      huấn luyện nhanh hơn và cải thiện độ lỗi gấp nhiều lần so với khi dùng hàm Tanh hay Sigmoid. 
+    + Cho đến cuối cùng, layer thứ 7 là fully connected kết nối với layer 8 là một bộ phân lớp softmax với 1000 vector đầu ra, với tổng giá trị bằng 1.
 
-  + OverFeat là một mạng CNN dùng để detect đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
+Read more: https://www.phamduytung.com/blog/2018-06-15-understanding-alexnet/#ixzz6op5N5Kb8
+____
+  + **OverFeat** là một mạng CNN dùng để detect đối tượng cực kỳ hiệu quả, được cải tiến dựa trên mạng CNN AlexNet của Alex Krizhevsky (2012).
 
 + Dưới đây là bảng mô tả kiến trúc cơ bản của mạng OverFeat
 ![](photos/overFeat-Archi.png)
 
+Read more: https://towardsdatascience.com/overfeat-review-1312-6229-4fd925f3739f
+____
 + Tác giả dựa trên giải pháp Vehicle Detection của bài báo trước đó [5], sử dụng kết hợp OverFeat và một mạng Hồi quy () 
 
 Kiến trúc của mạng Vehicle Detection vẫn đang nghiên cứu. 
