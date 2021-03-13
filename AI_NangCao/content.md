@@ -42,13 +42,8 @@ _______________________________________
 + Tác giả cung cấp bộ data set 100K tấm ảnh góc rộng từ Tencent Street View<br>
 + Hướng dẫn chạy model của họ  với TT100K dataset
 + Có Phụ lục kèm theo bao gồm kết quả detect một số case, và kết quả classification một số case
-+ Có cung cấp 1 file caffemodel và 3 file .prototxt để train và test cho mô hình Fast-RNN
-+ Cung cấp dataset 17GB
++ Có cung cấp 1 file caffemodel và 3 file .prototxt để train và test cho mô hình Fast R-CNN
 + Cung cấp code 764MB
-_______________________________________
-+ ### Tác giả không cung cấp những gì? 
-_(thuật toán có chi tiết? cách cài đặt có rõ ràng ko?...)_
-
 _______________________________________
 
 ## 2. Lookback - Đặt vấn đề
@@ -74,8 +69,7 @@ ____
   + Các phương pháp đưa ra đã đạt kết quả rất tốt trên tập GTSRB, lên đến 99.6% tốt hơn cả con người
   + Họ đã Ứng dụng và cải tiến được đáng kể các thuật toán phổ biến trong object detection như:
     + R-CNN -> SPPNet -> Fast R-CNN -> Faster R-CNN
-    + OverFeat
-    + 
+    + OverFeat: là một feature extractor được huấn luyện trên tập dữ liệu ImageNet
 ____  
 + ###Bối cảnh và bài toán nào đã được các bài báo, các cuộc thi trước đó giải quyết?
   + 
