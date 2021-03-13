@@ -216,6 +216,7 @@ ____
 
 + Thời gian thực thi như thế nào? Chạy trên device gì? Card gì, chạy trong bao lâu thì ra kết quả? Model hội tụ được kết
   quả sau bao nhiều lần lặp?
+  Trong thí nghiệm này, cả hai pha huấn luyện và kiểm thử đều thực hiện trên Linux PC với chip Intel Xeon E5-1620 CPU,2 NDIVIA tesla K20 GPU và 32GB RAM
 ____
 + Mỗi biểu đồ trong bài báo thể hiện điều gì? Thông số nào là quan trọng?
 
@@ -228,10 +229,6 @@ ____
 ____
 + Những đóng góp mới của nhóm tác giả có giá trị như thế nào? Tạo tiền đề gì cho hậu thế? Cụ thể thì sẽ được mở rộng
   trong khía cạnh nào của lĩnh vực nhận diện biển báo giao thông?
-____
-+ Có điểm nào trong phần này bạn thấy chưa thỏa đáng hay không?
-____
-+ Từ đó đến hiện tại nhóm tác giả có đề xuất hay cải tiến thêm độ hiệu quả của mô hình này không? Bài báo nào? Mô tả hiệu quả?
 ____
 
 _______________________________________
@@ -250,7 +247,7 @@ _______________________________________
 
 _______
 ## 7. Tài liệu tham khảo
-+ The Graphics and Geometric Computing Group,  Tsinghua University
++ The Graphics and Geometric Computing Group, Tsinghua University
 + Towards Data Science, https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e
 + Semantic Scholar https://www.semanticscholar.org/
 + 
