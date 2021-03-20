@@ -88,16 +88,28 @@ ____
 ____
 
 ## Thực hiện huấn luyện
++ Mô tả các bước cần thực hiện
 
-+ Mô tả môi trường thiết bị
++ Mô tả môi trường thiết bị (vẽ ra bảng cho dễ hình dung)
+  + CPU: 
+  + GPU: 
 + So sánh thời gian chạy giữa các môi trường với nhau
 + So sánh kết quả khi thay đổi các tham số khác nhau
 + Lưu lại kết quả chạy
 
+_Lưu ý: Bước __Model Evaluation__ cần thực hiện ngay sau khi train ra kết quả và lưu xuống file h5, vì phải xài đến history của model_
+Mục đích của bước này là vẽ ra sự biến thiên của hàm loss và độ chính xác của mạng.
 ____
 
 ## Kiểm thử và đo kết quả
-
++ Load lại model đã lưu
++ lấy tập test trong TEST_PATH để kiểm tra, lưu ý ta phải dùng lại hàm chuẩn hóa data trước khi đưa vào cho model dự đoán. Chỗ này sẽ phải tách hàm
+để tái sử dụng
+  
+_____
++ 15h ngày 20/03/2021 Lâm train và test lần 1 được các thông số sau (dùng sklearn.metrics.classification_report):
+![](./photos/classification_report_1.png)
+_____
 ____
 
 ## So sánh với baseline và state-of-the-art
