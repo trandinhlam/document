@@ -34,9 +34,11 @@ _https://giaphiep.com/blog/deep-learning-qua-kho-dung-lo-da-co-keras-9314_
 ____
 
 ## prepare dataset
++ Cấu trúc project phân loại traffic sign như sau:
+![img.png](./photos/project_struct.png)
 
-+ download bộ dataset GTSRB và bỏ vào thư mục ./input
-+ define các đường dẫn TRAIN_PATH, TEST_PATH
++ Download bộ dataset GTSRB và bỏ vào thư mục ./input
++ Define các đường dẫn TRAIN_PATH, TEST_PATH trong file config
 + Visualize một bộ gồm 25 hình ngẫu nhiên để thấy được các tấm hình không đồng đều về kích thước
   ![](./photos/data_visualize.png)
 + Tiến hành scan toàn bộ train để xem phân bố kích thước width_height của ảnh như thế nào
@@ -52,7 +54,7 @@ ____
   [0,1]  (để làm gì thì chưa biết)
 + Sẵn tiện tính luôn phân bổ data của 43 loại biển báo trong tập train
   ![](./photos/label_distribution.png)
-+ Sau khi chuẩn hóa xong thì dùng numpy để lưu lại 2 file để không phải scan lại tập train
++ Sau khi chuẩn hóa xong thì dùng numpy để lưu lại 2 file vào folder "numpy", để không phải scan lại tập train
 + Lúc này ta có được tập train kích thước (39209, 50, 50, 3)
 
 ## Load dataset
@@ -113,7 +115,8 @@ _____
 ____
 
 ## So sánh với baseline và state-of-the-art
-
++ Ở bước baseline ta sẽ so sánh với chính bài tham khảo xem cái nào hiệu quả hơn
++ Ở bước state-of-the-art so sánh với AlexNet hoặc OverFeat xem có thể so sánh được không
 
 
 

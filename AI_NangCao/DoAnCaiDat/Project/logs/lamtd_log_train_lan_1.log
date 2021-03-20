@@ -1,3 +1,4 @@
+
 Model: "sequential"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
@@ -34,6 +35,7 @@ Non-trainable params: 0
 _________________________________________________________________
 None
 
+TapTrain: 0.8, tập test 0.3
 
 #start train
 model.fit(x=x_train, y=y_train,

@@ -10,7 +10,7 @@ def start_train():
     images = np.load('./numpy/standard_training.npy')
     labels = np.load('./numpy/labels.npy')
 
-    x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.2, random_state=42)
+    x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.3, random_state=42)
 
     # one-hot encoding
     from tensorflow.keras.utils import to_categorical
@@ -69,3 +69,5 @@ def start_train():
     evaluation = pd.DataFrame(model.history.history)
     evaluation[['accuracy', 'val_accuracy']].plot()
     evaluation[['loss', 'val_loss']].plot()
+
+start_train()

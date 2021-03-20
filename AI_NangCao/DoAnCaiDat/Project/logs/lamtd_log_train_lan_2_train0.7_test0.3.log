@@ -1,0 +1,52 @@
+/home/tdlam/Documents/CaoHoc/document/AI_NangCao/DoAnCaiDat/Project/venv/bin/python /home/tdlam/Documents/CaoHoc/document/AI_NangCao/DoAnCaiDat/Project/train_model.py
+2021-03-20 15:40:52.942115: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-03-20 15:40:52.942138: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+(27446, 43)
+(11763, 43)
+2021-03-20 15:40:55.542872: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-03-20 15:40:55.543019: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-03-20 15:40:55.543029: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-03-20 15:40:55.543042: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (tdlam-ThinkPad): /proc/driver/nvidia/version does not exist
+2021-03-20 15:40:55.543211: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-03-20 15:40:55.543323: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 50, 50, 64)        1792      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 25, 25, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 25, 25, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 23, 23, 64)        36928     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 64)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 9, 64)          36928     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 64)          0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 64)          0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1024)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               131200    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 43)                5547      
+=================================================================
+Total params: 212,395
+Trainable params: 212,395
+Non-trainable params: 0
+_________________________________________________________________
+None
+2021-03-20 15:40:56.228156: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 823380000 exceeds 10% of free system memory.
+2021-03-20 15:40:56.921094: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-03-20 15:40:56.945519: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2699905000 Hz
+Epoch 1/25
+
