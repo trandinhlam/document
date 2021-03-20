@@ -90,10 +90,22 @@ ____
 ____
 
 ## Thực hiện huấn luyện
-+ Mô tả các bước cần thực hiện
++ Mô tả các bước cần thực hiện:
+ + b1
+ + b2
+ + ...
+
+____
 
 + Mô tả môi trường thiết bị (vẽ ra bảng cho dễ hình dung)
   + CPU: 
+    + máy của Lâm:
+      + CPU 4-core Model Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+      + Thời gian thực thi lần 1 (0.8 train,0.2 test): 2796 giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi lần 2 (0.7 train,0.3 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi lần 2 (0.9 train,0.1 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
+       
+    
   + GPU: 
 + So sánh thời gian chạy giữa các môi trường với nhau
 + So sánh kết quả khi thay đổi các tham số khác nhau

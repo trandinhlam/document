@@ -70,4 +70,4 @@ def start_train():
     evaluation[['accuracy', 'val_accuracy']].plot()
     evaluation[['loss', 'val_loss']].plot()
 
-start_train()
+# start_train()
