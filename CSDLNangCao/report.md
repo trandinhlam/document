@@ -105,19 +105,20 @@ Sau đây là bảng so sánh môt số đặc trưng, tính chất cơ bản c�
 |Feature             | RDBMS            | HBase            |
 | ------------------ | -----------------|------------------|
 |Data volume         |TB of data        |PB of data
-|Primary query language |SQL |Get, Put, Scan shell
-|Data object         |Table             |Table       
 |Relational          |Yes               |No       
 |Join                |Yes               |No       
 |Transactions        |Supported         |Not supported
-|Indexes             |Primary, secondary, B-Tree,Clustered |Secondary indexes 
 |Schema              |Fixed schema      |Schema-less       
-|Storage model       |Table spaces       |StoreFiles (HFiles) in HDFS
-|Oriented            |Row-oriented      |Column-oriented
-|Caching             |Standard data/metadata cache with query cache |In-memory caching
 |Architecture        |Monolithic        |Distributed
+|Oriented            |Row-oriented      |Column-oriented
+|Primary query language |SQL |Get, Put, Scan shell 
+|Indexes             |Primary, secondary, B-Tree,Clustered |Secondary indexes 
+|Caching             |Standard data/metadata cache with query cache |In-memory caching
+|Storage model       |Table spaces       |StoreFiles (HFiles) in HDFS
+|Data object         |Table             |Table
 |Fault tolerant      |Some case         |Highly fault tolerant       |
 |Scalability         |Hard              |Highly horizontal scalability       |
+|Indexes             |Primary, secondary, B-Tree,Clustered |Secondary indexes
 |Read/write throughput |~1.000s/second |~1.000.000s/second
 |Write performance   |Does not scale well |Scales linearly
 |Single point of failure |Yes |No

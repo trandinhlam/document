@@ -1,0 +1,89 @@
+/home/tdlam/Documents/CaoHoc/document/AI_NangCao/DoAnCaiDat/Project/venv/bin/python /home/tdlam/Documents/CaoHoc/document/AI_NangCao/DoAnCaiDat/Project/train_model.py
+2021-03-21 15:45:22.483651: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-03-21 15:45:22.483672: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+(35288, 43)
+(3921, 43)
+2021-03-21 15:45:30.582255: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-03-21 15:45:30.582691: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-03-21 15:45:30.582703: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-03-21 15:45:30.582717: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (tdlam-ThinkPad): /proc/driver/nvidia/version does not exist
+2021-03-21 15:45:30.582926: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-03-21 15:45:30.583099: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 50, 50, 64)        1792      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 25, 25, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 25, 25, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 23, 23, 64)        36928     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 64)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 9, 64)          36928     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 64)          0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 64)          0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1024)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               131200    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 43)                5547      
+=================================================================
+Total params: 212,395
+Trainable params: 212,395
+Non-trainable params: 0
+_________________________________________________________________
+None
+2021-03-21 15:45:31.608010: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 1058640000 exceeds 10% of free system memory.
+2021-03-21 15:45:32.453982: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-03-21 15:45:32.473891: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2699905000 Hz
+Epoch 1/25
+2021-03-21 15:45:33.302359: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 40960000 exceeds 10% of free system memory.
+2021-03-21 15:45:33.457002: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 25595136 exceeds 10% of free system memory.
+2021-03-21 15:45:33.550986: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 20480000 exceeds 10% of free system memory.
+2021-03-21 15:45:33.551063: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 40960000 exceeds 10% of free system memory.
+552/552 - 184s - loss: 2.4922 - accuracy: 0.2875 - val_loss: 1.2776 - val_accuracy: 0.6106
+Epoch 2/25
+552/552 - 192s - loss: 1.1632 - accuracy: 0.6224 - val_loss: 0.5065 - val_accuracy: 0.8822
+Epoch 3/25
+552/552 - 241s - loss: 0.7072 - accuracy: 0.7708 - val_loss: 0.2546 - val_accuracy: 0.9419
+Epoch 4/25
+552/552 - 217s - loss: 0.5280 - accuracy: 0.8265 - val_loss: 0.1725 - val_accuracy: 0.9689
+Epoch 5/25
+552/552 - 197s - loss: 0.4293 - accuracy: 0.8610 - val_loss: 0.1304 - val_accuracy: 0.9753
+Epoch 6/25
+552/552 - 173s - loss: 0.3606 - accuracy: 0.8839 - val_loss: 0.0966 - val_accuracy: 0.9829
+Epoch 7/25
+552/552 - 171s - loss: 0.3176 - accuracy: 0.8996 - val_loss: 0.0823 - val_accuracy: 0.9842
+Epoch 8/25
+552/552 - 168s - loss: 0.2913 - accuracy: 0.9065 - val_loss: 0.0635 - val_accuracy: 0.9862
+Epoch 9/25
+552/552 - 165s - loss: 0.2692 - accuracy: 0.9143 - val_loss: 0.0637 - val_accuracy: 0.9880
+Epoch 10/25
+552/552 - 173s - loss: 0.2464 - accuracy: 0.9215 - val_loss: 0.0503 - val_accuracy: 0.9890
+Epoch 11/25
+552/552 - 170s - loss: 0.2338 - accuracy: 0.9259 - val_loss: 0.0534 - val_accuracy: 0.9865
+Epoch 12/25
+552/552 - 179s - loss: 0.2249 - accuracy: 0.9296 - val_loss: 0.0463 - val_accuracy: 0.9901
+Epoch 13/25
+552/552 - 165s - loss: 0.2148 - accuracy: 0.9326 - val_loss: 0.0374 - val_accuracy: 0.9921
+Epoch 14/25
+552/552 - 162s - loss: 0.2082 - accuracy: 0.9349 - val_loss: 0.0308 - val_accuracy: 0.9921
+Epoch 15/25
+552/552 - 163s - loss: 0.1976 - accuracy: 0.9395 - val_loss: 0.0356 - val_accuracy: 0.9895
+Epoch 16/25
+552/552 - 165s - loss: 0.1947 - accuracy: 0.9388 - val_loss: 0.0371 - val_accuracy: 0.9916
+
+Process finished with exit code 0
+

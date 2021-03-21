@@ -1,0 +1,92 @@
+Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+/content/drive/MyDrive/Colab Notebooks//input
+['Train']
+(35288, 43)
+(3921, 43)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 50, 50, 64)        1792      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 25, 25, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 25, 25, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 23, 23, 64)        36928     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 64)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 9, 64)          36928     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 64)          0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 64)          0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1024)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               131200    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 43)                5547      
+=================================================================
+Total params: 212,395
+Trainable params: 212,395
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/25
+552/552 - 38s - loss: 2.5072 - accuracy: 0.2874 - val_loss: 1.3173 - val_accuracy: 0.6011
+Epoch 2/25
+552/552 - 4s - loss: 1.1933 - accuracy: 0.6097 - val_loss: 0.5124 - val_accuracy: 0.8531
+Epoch 3/25
+552/552 - 4s - loss: 0.7377 - accuracy: 0.7575 - val_loss: 0.2896 - val_accuracy: 0.9306
+Epoch 4/25
+552/552 - 4s - loss: 0.5490 - accuracy: 0.8161 - val_loss: 0.2026 - val_accuracy: 0.9523
+Epoch 5/25
+552/552 - 4s - loss: 0.4481 - accuracy: 0.8515 - val_loss: 0.1487 - val_accuracy: 0.9612
+Epoch 6/25
+552/552 - 4s - loss: 0.3901 - accuracy: 0.8703 - val_loss: 0.1061 - val_accuracy: 0.9745
+Epoch 7/25
+552/552 - 4s - loss: 0.3467 - accuracy: 0.8850 - val_loss: 0.0957 - val_accuracy: 0.9793
+Epoch 8/25
+552/552 - 4s - loss: 0.3118 - accuracy: 0.8973 - val_loss: 0.0913 - val_accuracy: 0.9804
+Epoch 9/25
+552/552 - 4s - loss: 0.2960 - accuracy: 0.9036 - val_loss: 0.0692 - val_accuracy: 0.9850
+Epoch 10/25
+552/552 - 4s - loss: 0.2730 - accuracy: 0.9122 - val_loss: 0.0638 - val_accuracy: 0.9837
+Epoch 11/25
+552/552 - 4s - loss: 0.2548 - accuracy: 0.9176 - val_loss: 0.0517 - val_accuracy: 0.9885
+Epoch 12/25
+552/552 - 4s - loss: 0.2432 - accuracy: 0.9218 - val_loss: 0.0432 - val_accuracy: 0.9893
+Epoch 13/25
+552/552 - 4s - loss: 0.2231 - accuracy: 0.9275 - val_loss: 0.0393 - val_accuracy: 0.9893
+Epoch 14/25
+552/552 - 4s - loss: 0.2228 - accuracy: 0.9293 - val_loss: 0.0451 - val_accuracy: 0.9878
+Epoch 15/25
+552/552 - 4s - loss: 0.2133 - accuracy: 0.9322 - val_loss: 0.0337 - val_accuracy: 0.9911
+Epoch 16/25
+552/552 - 4s - loss: 0.2152 - accuracy: 0.9323 - val_loss: 0.0343 - val_accuracy: 0.9903
+Epoch 17/25
+552/552 - 4s - loss: 0.2020 - accuracy: 0.9362 - val_loss: 0.0330 - val_accuracy: 0.9923
+Epoch 18/25
+552/552 - 4s - loss: 0.1964 - accuracy: 0.9366 - val_loss: 0.0292 - val_accuracy: 0.9931
+Epoch 19/25
+552/552 - 4s - loss: 0.1875 - accuracy: 0.9417 - val_loss: 0.0287 - val_accuracy: 0.9929
+Epoch 20/25
+552/552 - 4s - loss: 0.1868 - accuracy: 0.9415 - val_loss: 0.0326 - val_accuracy: 0.9926
+Epoch 21/25
+552/552 - 4s - loss: 0.1795 - accuracy: 0.9437 - val_loss: 0.0235 - val_accuracy: 0.9941
+Epoch 22/25
+552/552 - 4s - loss: 0.1796 - accuracy: 0.9437 - val_loss: 0.0268 - val_accuracy: 0.9944
+Epoch 23/25
+552/552 - 4s - loss: 0.1689 - accuracy: 0.9470 - val_loss: 0.0198 - val_accuracy: 0.9952
+Epoch 24/25
+552/552 - 4s - loss: 0.1648 - accuracy: 0.9474 - val_loss: 0.0205 - val_accuracy: 0.9941
+Epoch 25/25
+552/552 - 4s - loss: 0.1680 - accuracy: 0.9480 - val_loss: 0.0205 - val_accuracy: 0.9952
+
+
