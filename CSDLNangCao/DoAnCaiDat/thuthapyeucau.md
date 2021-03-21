@@ -11,20 +11,25 @@ ___
 #### Chọn một HT thực tế: Bán hàng, Vé máy bay, vé tàu, báo đài truyền thông, chứng khoán, nhà đất batdongsan.com, giao đồ ăn, map, xe ôm, bán vé rạp phim, web xem phim, web nghe nhạc,...
  + Lâm vote: (chưa biết xài MongoDB)
    + __Social networking__ (good for Neo4j - GraphDB + Redis + HBase(log user action...) + Kafka): chức năng đăng feed, kết bạn, khám phá bạn, tương tác like, comment...
-   + __Thương mại điện tử__ (good for MongoDB): web bán hàng online như tiki (dùng SQL ok, NoSQL thì chưa biết)
- + Minh vote:
-   + 
- + Kiệt vote:
+   + __Thương mại điện tử__ (good for MongoDB + SQL): web bán hàng online như tiki (dùng SQL ok, NoSQL thì chưa biết)
+   + __Web xem phim online (Netflix)__ (good for MongoDB):
+ + Minh vote: (chưa xài Neo4j, MongoDB)
+   + __Vé máy bay__ (SQL + ?):
+ + Kiệt vote: 
    + 
 ___   
 
 #### Xác định một số nghiệp vụ _CHÍNH_ của hệ thống, chức năng phải đủ lớn và phù hợp để áp dụng CSDL
 + Cần giới hạn lại số lượng chức năng:
-  + Tối thiểu _x_ chức năng
-  + Tối đa _y_ chức năng
+  + Tối thiểu 5 chức năng
+  + Tối đa 10 chức năng
  ___
 
 #### Xây dựng bảng mô tả yêu cầu hệ thống
+ + Chưa có form mô tả yêu cầu, cần tham khảo các project thật
+ + Lần lượt vẽ sơ đồ usecase cho từng chức năng
+ + Vẽ mockup cho các flow
+ + ...
 
 ___
 ___
