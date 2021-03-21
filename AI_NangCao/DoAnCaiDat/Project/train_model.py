@@ -4,23 +4,20 @@ from tensorflow.keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPool2D
 from tensorflow.keras.models import Sequential
 from sklearn.model_selection import train_test_split
 import pandas as pd
+from tensorflow.keras.utils import to_categorical
+
 
 def start_train():
     # chia tập train đã chuẩn hóa thành 2 tập train và test
     images = np.load('./numpy/standard_training.npy')
     labels = np.load('./numpy/labels.npy')
 
-    x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.3, random_state=42)
-
+    x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.1, random_state=42)
     # one-hot encoding
-    from tensorflow.keras.utils import to_categorical
-
     y_train_cat = to_categorical(y_train)
     y_val_cat = to_categorical(y_val)
-
     print(y_train_cat.shape)
     print(y_val_cat.shape)
-
     # model building
     model = Sequential()
     # layer 1
@@ -39,7 +36,6 @@ def start_train():
     model.add(Conv2D(filters=64, kernel_size=(3, 3), activation='relu'))
     model.add(MaxPool2D(pool_size=(2, 2)))
     model.add(Dropout(0.5))
-
     # layer flatten
     model.add(Flatten())
     # Dense layer
@@ -47,15 +43,14 @@ def start_train():
     model.add(Dropout(0.5))
     # output layer
     model.add(Dense(43, activation='softmax'))
-
     # loss
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer='adam',
                   metrics=['accuracy'])
+
     print(model.summary())
 
     early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=2)
-
     # start train
     model.fit(x=x_train, y=y_train,
               epochs=25,
@@ -64,10 +59,11 @@ def start_train():
               callbacks=[early_stopping],
               verbose=2
               )
-    model.save('tdlam_Model_2nd.h5')
+    model.save('tdlam_Model_3rd.h5')
     # Đánh giá kết quả train
     evaluation = pd.DataFrame(model.history.history)
-    evaluation[['accuracy', 'val_accuracy']].plot()
-    evaluation[['loss', 'val_loss']].plot()
+    plot1 = evaluation[['accuracy', 'val_accuracy']].plot()
+    plot2 = evaluation[['loss', 'val_loss']].plot()
 
-# start_train()
+
+start_train()

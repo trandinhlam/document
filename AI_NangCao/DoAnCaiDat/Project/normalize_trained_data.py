@@ -6,9 +6,10 @@ import numpy as np
 from config import TRAIN_PATH
 from PIL import Image
 
+standard = (50, 50)
 
-def nomalize_data():
-    standard = (50, 50)
+
+def normalize_data():
     images = []
     labels = []
     for i in range(43):
@@ -33,3 +34,4 @@ def nomalize_data():
 
     np.save('numpy/standard_training', images)
     np.save('numpy/labels', labels)
+    return images, labels

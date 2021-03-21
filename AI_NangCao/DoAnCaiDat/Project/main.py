@@ -12,7 +12,7 @@ from tensorflow import keras
 from config import INPUT, TRAIN_PATH, TEST_PATH
 from visualization import visualize
 from find_mean_dimension import find_mean
-from nomalize_trained_data import nomalize_data
+from normalize_trained_data import normalize_data
 from train_model import start_train
 from PIL import Image
 
@@ -20,7 +20,7 @@ from PIL import Image
 ##Các bước cần thực hiện nhu sau
 # visualization.visualize()
 # find_mean()
-# nomalize_data()
+# normalize_data()
 # start_train()
 
 
