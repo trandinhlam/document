@@ -1,5 +1,5 @@
 # ĐỒ ÁN CÀI ĐẶT MẠNG CNN TRAFFIC-SIGN DETECTION CỦA NHÓM 13
-
+#Phần 1 : Traffic-Sign Classification
 #### _Author: tdlam@gmail.com_
 
 ## Tài liệu trích dẫn, mã nguồn tham khảo:
@@ -129,7 +129,17 @@ ____
 
 ## So sánh với baseline và state-of-the-art
 + Ở bước baseline ta sẽ so sánh với chính bài tham khảo xem cái nào hiệu quả hơn
+  + Lấy kết quả từ cuộc thi GTSRB luôn, link https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
+    https://benchmark.ini.rub.de/gtsrb_results.html
 + Ở bước state-of-the-art so sánh với AlexNet hoặc OverFeat xem có thể so sánh được không
 
+_____________
+_____________
+_____________
+# PHẦN 2: TRAFFIC-SIGN DETECTION
+
+#Sử dụng Faster R-CNN
+https://www.kaggle.com/safabouguezzi/german-traffic-sign-detection-benchmark-gtsdb/code
 
 
+https://benchmark.ini.rub.de/gtsdb_results_prohibitory.html
