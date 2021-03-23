@@ -66,4 +66,4 @@ def start_train():
     plot2 = evaluation[['loss', 'val_loss']].plot()
 
 
-start_train()
+# start_train()

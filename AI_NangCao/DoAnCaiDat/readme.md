@@ -85,7 +85,7 @@ ____
 + Các nguyên liệu sử dụng
 + Cơ sở lý thuyết
 + Bảng cấu trúc mạng
-  ![img.png](./photos/img.png)
+  ![img.png](photos/cnn_architect.png)
 
 ____
 
@@ -121,8 +121,9 @@ ____
 để tái sử dụng
   
 _____
-+ 15h ngày 20/03/2021 Lâm train và test lần 1 được các thông số sau (dùng sklearn.metrics.classification_report):
++ 15h ngày 20/03/2021 Lâm train và test lần 1 (Model_1) được các thông số sau (dùng sklearn.metrics.classification_report):
 ![](./photos/classification_report_1.png)
++ ngày 
 _____
 ____
 

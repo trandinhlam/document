@@ -1,5 +1,6 @@
 from PIL import Image
 import numpy as np
+from config import STANDARD_SIZE
 
 
 def scale(test_images, test_path):
@@ -7,7 +8,7 @@ def scale(test_images, test_path):
     image_path = test_images
     for x in image_path:
         img = Image.open(test_path + '/' + x)
-        img = img.resize((50, 50))
+        img = img.resize(STANDARD_SIZE)
         img = np.array(img)
         images.append(img)
     images = np.array(images)

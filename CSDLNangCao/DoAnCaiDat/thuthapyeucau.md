@@ -45,7 +45,9 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
   + Chức năng 5:
   + ...
   
-___Từ danh sách khảo sát trên, nhóm đã chọn ra các chức năng CHÍNH của một hệ thống Social Network cơ bản:
+___
+
+**Từ danh sách khảo sát trên, nhóm đã chọn ra các chức năng CHÍNH của một hệ thống Social Network cơ bản:**
   + 
  ___
 

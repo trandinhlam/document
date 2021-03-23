@@ -3,10 +3,8 @@ from builtins import range
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-from config import TRAIN_PATH
+from config import TRAIN_PATH, STANDARD_SIZE
 from PIL import Image
-
-standard = (50, 50)
 
 
 def normalize_data():
@@ -17,7 +15,7 @@ def normalize_data():
         image_path = os.listdir(folder)
         for item in image_path:
             img = Image.open(folder + '/' + item)
-            img = img.resize(standard)
+            img = img.resize(STANDARD_SIZE)
             img = np.array(img)
             images.append(img)
             labels.append(i)
