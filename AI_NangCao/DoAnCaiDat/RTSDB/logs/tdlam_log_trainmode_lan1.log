@@ -1,0 +1,5 @@
+/home/tdlam/Documents/CaoHoc/document/AI_NangCao/DoAnCaiDat/RTSDB/venv/bin/python /home/tdlam/Documents/CaoHoc/document/AI_NangCao/DoAnCaiDat/RTSDB/main.py
+[[983, 388, 1024, 432, 40], [386, 494, 442, 552, 38], [973, 335, 1031, 390, 13]]
+506
+Epoch: [0]  [  0/203]  eta: 1:18:07  lr: 0.000003  loss: 4.5111 (4.5111)  loss_classifier: 3.7934 (3.7934)  loss_box_reg: 0.0043 (0.0043)  loss_objectness: 0.6962 (0.6962)  loss_rpn_box_reg: 0.0173 (0.0173)  time: 23.0908  data: 0.0564
+
