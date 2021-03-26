@@ -1,1 +1,1 @@
-PATH_TRAIN = './Input/new_train'
+PATH_TRAIN = '/content/drive/MyDrive/Colab Notebooks/input/new_train'

@@ -1,14 +1,9 @@
 import os
 import numpy as np
-import pandas as pd
 from glob import glob
-import cv2
 import torch
-from numpy import short
 from torch.utils import data
-from PIL import Image
 import torchvision
-from torchvision import transforms
 import matplotlib.pyplot as plt
 
 # load file danh dau bounding box cua tung image
@@ -84,7 +79,7 @@ load_meta()
 
 
 ##Transform data
-import detection.transforms as T
+import transforms as T
 
 
 def transform_data(train):
@@ -99,9 +94,8 @@ def transform_data(train):
 
 def train():
     ##Train the Model
-    import detection.utils as utils
-    from detection.engine import train_one_epoch, evaluate
-    import torch.nn as nn
+    import utils as utils
+    from engine import train_one_epoch, evaluate
 
     os.environ['TORCH_HOME'] = './'
     device = torch.device('cpu')

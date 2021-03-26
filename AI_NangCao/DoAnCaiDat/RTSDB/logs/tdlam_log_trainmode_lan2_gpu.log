@@ -1,0 +1,18 @@
+Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+[[983, 388, 1024, 432, 40], [386, 494, 442, 552, 38], [973, 335, 1031, 390, 13]]
+506
+True
+1
+Epoch: [0]  [  0/203]  eta: 0:03:07  lr: 0.000003  loss: 4.5640 (4.5640)  loss_classifier: 3.8442 (3.8442)  loss_box_reg: 0.0041 (0.0041)  loss_objectness: 0.6989 (0.6989)  loss_rpn_box_reg: 0.0168 (0.0168)  time: 0.9222  data: 0.2528  max mem: 3588
+Epoch: [0]  [ 50/203]  eta: 0:01:49  lr: 0.000127  loss: 2.0896 (3.6006)  loss_classifier: 1.3642 (2.8773)  loss_box_reg: 0.0063 (0.0179)  loss_objectness: 0.6857 (0.6912)  loss_rpn_box_reg: 0.0145 (0.0142)  time: 0.7001  data: 0.0977  max mem: 3853
+Epoch: [0]  [100/203]  eta: 0:01:14  lr: 0.000250  loss: 0.2940 (2.0519)  loss_classifier: 0.1223 (1.5491)  loss_box_reg: 0.0235 (0.0211)  loss_objectness: 0.0979 (0.4662)  loss_rpn_box_reg: 0.0133 (0.0155)  time: 0.7123  data: 0.0956  max mem: 3854
+Epoch: [0]  [150/203]  eta: 0:00:38  lr: 0.000374  loss: 0.4040 (1.5059)  loss_classifier: 0.2387 (1.1081)  loss_box_reg: 0.1158 (0.0490)  loss_objectness: 0.0469 (0.3348)  loss_rpn_box_reg: 0.0067 (0.0140)  time: 0.7596  data: 0.1329  max mem: 3854
+Epoch: [0]  [200/203]  eta: 0:00:02  lr: 0.000498  loss: 0.4720 (1.2447)  loss_classifier: 0.2181 (0.8929)  loss_box_reg: 0.1165 (0.0693)  loss_objectness: 0.0517 (0.2680)  loss_rpn_box_reg: 0.0077 (0.0146)  time: 0.7475  data: 0.1089  max mem: 3854
+Epoch: [0]  [202/203]  eta: 0:00:00  lr: 0.000500  loss: 0.4720 (1.2361)  loss_classifier: 0.2302 (0.8862)  loss_box_reg: 0.1162 (0.0697)  loss_objectness: 0.0517 (0.2656)  loss_rpn_box_reg: 0.0080 (0.0145)  time: 0.7447  data: 0.1047  max mem: 3854
+Epoch: [0] Total time: 0:02:28 (0.7337 s / it)
+creating index...
+index created!
+Test:  [ 0/50]  eta: 0:00:19  model_time: 0.3446 (0.3446)  evaluator_time: 0.0013 (0.0013)  time: 0.3859  data: 0.0343  max mem: 3854
+Test:  [49/50]  eta: 0:00:00  model_time: 0.2732 (0.2733)  evaluator_time: 0.0013 (0.0014)  time: 0.3178  data: 0.0368  max mem: 3854
+Test: Total time: 0:00:15 (0.3173 s / it)
+Averaged stats: model_time: 0.2732 (0.2733)  evaluator_time: 0.0013 (0.0014)

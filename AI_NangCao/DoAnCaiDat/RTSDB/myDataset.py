@@ -40,17 +40,24 @@ class MyDataset(data.Dataset):
         boxes = torch.as_tensor(boxes, dtype=torch.float32)
         labels = torch.as_tensor(labels, dtype=torch.int64)
         info = {}
-        info['boxes'] = boxes
-        info['labels'] = labels
-        info['id'] = torch.tensor([index])
-        info['area'] = (boxes[:, 3] - boxes[:, 1]) * (boxes[:, 2] - boxes[:, 0])
+        image_id = torch.tensor([index])
+        area = (boxes[:, 3] - boxes[:, 1]) * (boxes[:, 2] - boxes[:, 0])
+        # suppose all instances are not crowd
+        iscrowd = torch.zeros((len(objects),), dtype=torch.int64)
+
+        target = {}
+        target["boxes"] = boxes
+        target["labels"] = labels
+        target["image_id"] = image_id
+        target["area"] = area
+        target["iscrowd"] = iscrowd
 
         if self.transform is not None:
             # Note that target (including bbox) is also transformed\enhanced here, which is different from transforms from torchvision import
             # Https://github.com/pytorch/vision/tree/master/references/detectionOfTransforms.pyThere are examples of target transformations when RandomHorizontalFlip
-            img, info = self.transform(img, info)
+            img, target = self.transform(img, target)
 
-        return img, info
+        return img, target
 
     def __len__(self):
         return len(self.imgs)

@@ -3,3 +3,5 @@
 506
 Epoch: [0]  [  0/203]  eta: 1:18:07  lr: 0.000003  loss: 4.5111 (4.5111)  loss_classifier: 3.7934 (3.7934)  loss_box_reg: 0.0043 (0.0043)  loss_objectness: 0.6962 (0.6962)  loss_rpn_box_reg: 0.0173 (0.0173)  time: 23.0908  data: 0.0564
 
+Epoch: [0]  [ 50/203]  eta: 1:24:35  lr: 0.000127  loss: 2.9477 (3.7969)  loss_classifier: 2.2177 (3.0656)  loss_box_reg: 0.0210 (0.0281)  loss_objectness: 0.6746 (0.6828)  loss_rpn_box_reg: 0.0104 (0.0204)  time: 30.9136  data: 0.1036
+Epoch: [0]  [100/203]  eta: 0:53:32  lr: 0.000250  loss: 0.2772 (2.1655)  loss_classifier: 0.1186 (1.6560)  loss_box_reg: 0.0395 (0.0344)  loss_objectness: 0.0790 (0.4565)  loss_rpn_box_reg: 0.0094 (0.0186)  time: 30.8320  data: 0.0943
