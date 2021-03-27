@@ -1,0 +1,185 @@
+"C:\Program Files\Java\jdk1.8.0_211\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.1\lib\idea_rt.jar=50307:C:\Program Files\JetBrains\IntelliJ IDEA 2020.1\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;C:\Users\MIB\IdeaProjects\ShapeDrawing\out\production\ShapeDrawing" MainApplication
+
+Start for 2^24
+
+num1 = 16777206, num2 = 16777206.000000, delta = 0
+num1 = 16777207, num2 = 16777207.000000, delta = 0
+num1 = 16777208, num2 = 16777208.000000, delta = 0
+num1 = 16777209, num2 = 16777209.000000, delta = 0
+num1 = 16777210, num2 = 16777210.000000, delta = 0
+num1 = 16777211, num2 = 16777211.000000, delta = 0
+num1 = 16777212, num2 = 16777212.000000, delta = 0
+num1 = 16777213, num2 = 16777213.000000, delta = 0
+num1 = 16777214, num2 = 16777214.000000, delta = 0
+num1 = 16777215, num2 = 16777215.000000, delta = 0
+num1 = 16777216, num2 = 16777216.000000, delta = 0
+num1 = 16777217, num2 = 16777216.000000, delta = -1
+num1 = 16777218, num2 = 16777218.000000, delta = 0
+num1 = 16777219, num2 = 16777220.000000, delta = 1
+num1 = 16777220, num2 = 16777220.000000, delta = 0
+num1 = 16777221, num2 = 16777220.000000, delta = -1
+num1 = 16777222, num2 = 16777222.000000, delta = 0
+num1 = 16777223, num2 = 16777224.000000, delta = 1
+num1 = 16777224, num2 = 16777224.000000, delta = 0
+num1 = 16777225, num2 = 16777224.000000, delta = -1
+
+End for 2^24
+
+
+Start for 2^25
+
+num1 = 33554422, num2 = 33554422.000000, delta = 0
+num1 = 33554423, num2 = 33554424.000000, delta = 1
+num1 = 33554424, num2 = 33554424.000000, delta = 0
+num1 = 33554425, num2 = 33554424.000000, delta = -1
+num1 = 33554426, num2 = 33554426.000000, delta = 0
+num1 = 33554427, num2 = 33554428.000000, delta = 1
+num1 = 33554428, num2 = 33554428.000000, delta = 0
+num1 = 33554429, num2 = 33554428.000000, delta = -1
+num1 = 33554430, num2 = 33554430.000000, delta = 0
+num1 = 33554431, num2 = 33554432.000000, delta = 1
+num1 = 33554432, num2 = 33554432.000000, delta = 0
+num1 = 33554433, num2 = 33554432.000000, delta = -1
+num1 = 33554434, num2 = 33554432.000000, delta = -2
+num1 = 33554435, num2 = 33554436.000000, delta = 1
+num1 = 33554436, num2 = 33554436.000000, delta = 0
+num1 = 33554437, num2 = 33554436.000000, delta = -1
+num1 = 33554438, num2 = 33554440.000000, delta = 2
+num1 = 33554439, num2 = 33554440.000000, delta = 1
+num1 = 33554440, num2 = 33554440.000000, delta = 0
+num1 = 33554441, num2 = 33554440.000000, delta = -1
+
+End for 2^25
+
+
+Start for 2^26
+
+num1 = 67108854, num2 = 67108856.000000, delta = 2
+num1 = 67108855, num2 = 67108856.000000, delta = 1
+num1 = 67108856, num2 = 67108856.000000, delta = 0
+num1 = 67108857, num2 = 67108856.000000, delta = -1
+num1 = 67108858, num2 = 67108856.000000, delta = -2
+num1 = 67108859, num2 = 67108860.000000, delta = 1
+num1 = 67108860, num2 = 67108860.000000, delta = 0
+num1 = 67108861, num2 = 67108860.000000, delta = -1
+num1 = 67108862, num2 = 67108864.000000, delta = 2
+num1 = 67108863, num2 = 67108864.000000, delta = 1
+num1 = 67108864, num2 = 67108864.000000, delta = 0
+num1 = 67108865, num2 = 67108864.000000, delta = -1
+num1 = 67108866, num2 = 67108864.000000, delta = -2
+num1 = 67108867, num2 = 67108864.000000, delta = -3
+num1 = 67108868, num2 = 67108864.000000, delta = -4
+num1 = 67108869, num2 = 67108872.000000, delta = 3
+num1 = 67108870, num2 = 67108872.000000, delta = 2
+num1 = 67108871, num2 = 67108872.000000, delta = 1
+num1 = 67108872, num2 = 67108872.000000, delta = 0
+num1 = 67108873, num2 = 67108872.000000, delta = -1
+
+End for 2^26
+
+
+Start for 2^27
+
+num1 = 134217718, num2 = 134217720.000000, delta = 2
+num1 = 134217719, num2 = 134217720.000000, delta = 1
+num1 = 134217720, num2 = 134217720.000000, delta = 0
+num1 = 134217721, num2 = 134217720.000000, delta = -1
+num1 = 134217722, num2 = 134217720.000000, delta = -2
+num1 = 134217723, num2 = 134217720.000000, delta = -3
+num1 = 134217724, num2 = 134217728.000000, delta = 4
+num1 = 134217725, num2 = 134217728.000000, delta = 3
+num1 = 134217726, num2 = 134217728.000000, delta = 2
+num1 = 134217727, num2 = 134217728.000000, delta = 1
+num1 = 134217728, num2 = 134217728.000000, delta = 0
+num1 = 134217729, num2 = 134217728.000000, delta = -1
+num1 = 134217730, num2 = 134217728.000000, delta = -2
+num1 = 134217731, num2 = 134217728.000000, delta = -3
+num1 = 134217732, num2 = 134217728.000000, delta = -4
+num1 = 134217733, num2 = 134217728.000000, delta = -5
+num1 = 134217734, num2 = 134217728.000000, delta = -6
+num1 = 134217735, num2 = 134217728.000000, delta = -7
+num1 = 134217736, num2 = 134217728.000000, delta = -8
+num1 = 134217737, num2 = 134217744.000000, delta = 7
+
+End for 2^27
+
+
+Start for 2^28
+
+num1 = 268435446, num2 = 268435440.000000, delta = -6
+num1 = 268435447, num2 = 268435440.000000, delta = -7
+num1 = 268435448, num2 = 268435456.000000, delta = 8
+num1 = 268435449, num2 = 268435456.000000, delta = 7
+num1 = 268435450, num2 = 268435456.000000, delta = 6
+num1 = 268435451, num2 = 268435456.000000, delta = 5
+num1 = 268435452, num2 = 268435456.000000, delta = 4
+num1 = 268435453, num2 = 268435456.000000, delta = 3
+num1 = 268435454, num2 = 268435456.000000, delta = 2
+num1 = 268435455, num2 = 268435456.000000, delta = 1
+num1 = 268435456, num2 = 268435456.000000, delta = 0
+num1 = 268435457, num2 = 268435456.000000, delta = -1
+num1 = 268435458, num2 = 268435456.000000, delta = -2
+num1 = 268435459, num2 = 268435456.000000, delta = -3
+num1 = 268435460, num2 = 268435456.000000, delta = -4
+num1 = 268435461, num2 = 268435456.000000, delta = -5
+num1 = 268435462, num2 = 268435456.000000, delta = -6
+num1 = 268435463, num2 = 268435456.000000, delta = -7
+num1 = 268435464, num2 = 268435456.000000, delta = -8
+num1 = 268435465, num2 = 268435456.000000, delta = -9
+
+End for 2^28
+
+
+Start for 2^29
+
+num1 = 536870902, num2 = 536870912.000000, delta = 10
+num1 = 536870903, num2 = 536870912.000000, delta = 9
+num1 = 536870904, num2 = 536870912.000000, delta = 8
+num1 = 536870905, num2 = 536870912.000000, delta = 7
+num1 = 536870906, num2 = 536870912.000000, delta = 6
+num1 = 536870907, num2 = 536870912.000000, delta = 5
+num1 = 536870908, num2 = 536870912.000000, delta = 4
+num1 = 536870909, num2 = 536870912.000000, delta = 3
+num1 = 536870910, num2 = 536870912.000000, delta = 2
+num1 = 536870911, num2 = 536870912.000000, delta = 1
+num1 = 536870912, num2 = 536870912.000000, delta = 0
+num1 = 536870913, num2 = 536870912.000000, delta = -1
+num1 = 536870914, num2 = 536870912.000000, delta = -2
+num1 = 536870915, num2 = 536870912.000000, delta = -3
+num1 = 536870916, num2 = 536870912.000000, delta = -4
+num1 = 536870917, num2 = 536870912.000000, delta = -5
+num1 = 536870918, num2 = 536870912.000000, delta = -6
+num1 = 536870919, num2 = 536870912.000000, delta = -7
+num1 = 536870920, num2 = 536870912.000000, delta = -8
+num1 = 536870921, num2 = 536870912.000000, delta = -9
+
+End for 2^29
+
+
+Start for 2^30
+
+num1 = 1073741814, num2 = 1073741824.000000, delta = 10
+num1 = 1073741815, num2 = 1073741824.000000, delta = 9
+num1 = 1073741816, num2 = 1073741824.000000, delta = 8
+num1 = 1073741817, num2 = 1073741824.000000, delta = 7
+num1 = 1073741818, num2 = 1073741824.000000, delta = 6
+num1 = 1073741819, num2 = 1073741824.000000, delta = 5
+num1 = 1073741820, num2 = 1073741824.000000, delta = 4
+num1 = 1073741821, num2 = 1073741824.000000, delta = 3
+num1 = 1073741822, num2 = 1073741824.000000, delta = 2
+num1 = 1073741823, num2 = 1073741824.000000, delta = 1
+num1 = 1073741824, num2 = 1073741824.000000, delta = 0
+num1 = 1073741825, num2 = 1073741824.000000, delta = -1
+num1 = 1073741826, num2 = 1073741824.000000, delta = -2
+num1 = 1073741827, num2 = 1073741824.000000, delta = -3
+num1 = 1073741828, num2 = 1073741824.000000, delta = -4
+num1 = 1073741829, num2 = 1073741824.000000, delta = -5
+num1 = 1073741830, num2 = 1073741824.000000, delta = -6
+num1 = 1073741831, num2 = 1073741824.000000, delta = -7
+num1 = 1073741832, num2 = 1073741824.000000, delta = -8
+num1 = 1073741833, num2 = 1073741824.000000, delta = -9
+
+End for 2^30
+
+
+Process finished with exit code 0

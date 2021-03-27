@@ -1,0 +1,16 @@
+int range = 20;
+int startPoint = TWO_POWER_TWENTY_FOUR;
+for (int i = 24; i <= 30; i++) {
+	int input = startPoint - range/2;
+	System.out.println("\nStart for 2^"+ i + "\n");
+	for (int j = 0; j < range; j++) {
+		int num1 = input;
+		float num2 = input;
+		int delta = (int) num2 - num1;
+		String result = String.format("num1 = %d, num2 = %f, delta = %d", num1, num2, delta);
+		System.out.println(result);
+		input++;
+	}
+	System.out.println("\nEnd for 2^"+ i + "\n");
+	startPoint = startPoint * 2;
+}
