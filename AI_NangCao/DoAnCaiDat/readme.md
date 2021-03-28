@@ -131,8 +131,7 @@ ____
 + Ở bước baseline ta sẽ so sánh với chính bài tham khảo xem cái nào hiệu quả hơn
   + Lấy kết quả từ cuộc thi GTSRB luôn, link https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
     https://benchmark.ini.rub.de/gtsrb_results.html
-+ Ở bước state-of-the-art so sánh với AlexNet hoặc OverFeat xem có thể so sánh được không
++ Ở bước state-of-the-art so sánh với AlexNet hoặc OverFeat xem có thể so sánh được không, nếu không thì chỉ cần so sánh với các kết quả của cuộc thi ở cùng độ đo là đủ
 
-_____________
-_____________
+
 _____________

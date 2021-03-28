@@ -46,12 +46,19 @@ Các thư viện dễ/có sẵn:
 
 + 
 
-## Load CNN bằng Keras
+## Load CNN bằng Torch
+
 
 ## Thực hiện huấn luyện
++ Hiên tại Lâm test thấy thời gian thực thi quá lâu, mỗi epoch chiếm khoảng 3 phút, cần chạy khoảng 1000 epoch.
+Chắc phải tạm hold lại để tìm giải pháp traning nhanh hơn!!!
 
 ## Kiểm thử và đo kết quả
 
 ## So sánh với baseline và state-of-the-art
++ Có thể lấy số từ các cuộc thi GTSDB
+
+## Tài liệu tham khảo
++ https://cocodataset.org/#detection-eval
 
 
