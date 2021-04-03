@@ -10,3 +10,4 @@
 + Local optima
 + Swarm intelligence
 + selection pressure and population diversity
++ classification error percentage (CEP)

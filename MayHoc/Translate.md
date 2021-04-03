@@ -1,6 +1,7 @@
 # BÀI DỊCH PAPER
 
 Nghiên cứu hiệu suất so sánh thuật toán đom đóm lai để phân cụm dữ liệu tự động
+ + https://www.semanticscholar.org/paper/A-Comparative-Performance-Study-of-Hybrid-Firefly-Ezugwu-Agbaje/87a471ac21d86339c841c7bc5e1429341ce80d22
 ___
 
 ## ABSTRACT
@@ -111,8 +112,26 @@ ___
 
 ## II. RELATED WORK
 
-___
-
++ Thuật toán đom đóm (FA), nhờ vào tính mạnh mẽ, hiệu quả, khả năng xử lý vấn đề trong nhiều lĩnh vực khác nhau (bao gồm cả NP-hard), tính linh hoạt 
+  và những lợi ích khác, đã được áp dụng vào giải quyết nhiều vấn để khác nhau. Một bài đánh giá toàn diện về FA đã thảo luận về các lĩnh vực 
+  đa dạng, mà thuật toán này đã giải quyết được, và ứng dụng rộng rãi trong thế giới thực với kết quả khả quan đã được thực hiện bởi Fister vào năm 2014 [41]
+  Trong bài báo, tác giả đã đi xa hơn, để đề xuất các hướng đi trong tương lai cho thuật toán.
++ FA mặc dù đã được nghiên cứu và theo dõi trong nhiều lĩnh vực, tuy nhiên việc triển khai nó và phạm vi phân nhóm tự động vẫn còn rất nông cạn, chưa chuyên sâu.
+  Rất ít công trình thực hiện việc áp dụng thuật toán đom đóm trong phân cụm, và thực sự khó nhằn trong việc tìm kiếm các nghiên cứu trước đây nói về ứng dụng của thuật toán này.
++ Một nghiên cứu về hiệu suất của FA được thực hiện bởi Senthilnath [26]. Họ nhận ra các điểm mạnh của FA và đã áp dụng classification error percentage (CEP) để generate ra tâm tốt nhất của các cụm.
+  FA chuẩn đã được cài đặt để phân cụm tập trung nhiều hơn vào sự hấp dẫn, quy mô dân số, khoảng cách, và CEP đã được áp dụng để kiểm tra
+  phương pháp tạo ra cụm tối ưu. Xa hơn nữa, FA được so sánh với ABC, PSO và 9 phương pháp khác. Kết quả cho thấy sự hiệu quả của FA vượt trội hơn về độ tin cậy, hiệu quả, hiệu suất.
++ Hassanzadeh và Meybodi đã trình bày một phương pháp kết hợp dựa trên FA và k-means để phân cụm dữ liệu [42]. Các mô hình đề xuất được gọi là K-FA đã được thực hiện. FA được dùng để tìm ra tâm cụm do người dùng chỉ định số lượng cụm, sau đó FA được mở rộng 
+bằng thuật toán k-mean, để hỗ trợ tinh chỉnh tâm này. 
++ Ngoài ra, global-optima được dùng để cải thiện FA chuẩn. Một thí nghiệm đã chỉ ra rằng K-FA vượt trội hơn 3 thuật toán cluster khác về việc có hiệu quả hơn, giả thiểu khoảng cách trong cụm, cho phép k-mean được khởi tạo thích hợp hơn.
++ Banati và Bajaj đã tiến hành phân tích hiệu suất của FA để phân cụm dữ liệu trong [27]. Phương pháp đề xuất gọi là FClust, dựa trên centroid-based, thông qua hành vi nhấp nháy của đom đóm, vào hàm chính của bài toán phân cụm để được giải pháp tối ưu.
+  Hiệu suất của FClust được đánh giá bằng 2 tiêu chí thống kê [43]:
+  + trace within criteria (TWR)
+  + variance ratio criteria(VRC) [43]
+  So sánh kết quả mô phỏng của FClust với PSO, DE cho thấy FClust đạ giá trị tốt nhất về độ lệch chuẩn trong phép đo VRC.
+  Hơn nữa, chất lượng của giải pháp FClust cũng được đánh giá bằng cách tiếp cần phân phối (Run lengt distribution - RLD) [44].
+  RLD cho thấy rằng FCLust đạ được giá trị tốt nhất và tốc độ hội tụ nhanh hơn.
+  
 ## III. THE FIREFLY ALGORITHM
 
 ___
