@@ -11,3 +11,5 @@
 + Swarm intelligence
 + selection pressure and population diversity
 + classification error percentage (CEP)
++ fuzzy c-means
++ cluster validity index CVI

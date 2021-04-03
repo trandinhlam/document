@@ -131,7 +131,64 @@ bằng thuật toán k-mean, để hỗ trợ tinh chỉnh tâm này.
   So sánh kết quả mô phỏng của FClust với PSO, DE cho thấy FClust đạ giá trị tốt nhất về độ lệch chuẩn trong phép đo VRC.
   Hơn nữa, chất lượng của giải pháp FClust cũng được đánh giá bằng cách tiếp cần phân phối (Run lengt distribution - RLD) [44].
   RLD cho thấy rằng FCLust đạ được giá trị tốt nhất và tốc độ hội tụ nhanh hơn.
+    
+  ![](./photos/hinh1.png)<br>
+  FIGURE 1. A compartmentalized flowchart of the hybrid firefly algorithms.
   
+ 
+  ![](./photos/6-Figure2-1.png)<br>
+  FIGURE 2. Flowchart of the hybrid firefly algorithms.
+  
+  ![](./photos/7-Figure4-1.png)<br>
+  FIGURE 4. Average computational time consumed by the four hybrid firefly algorithms on DB measure for all the datasets
+  for 40 replications.
+  
++ Năm 2015, Kaushik và Arora đã tích hợp FA với một thuật toán di truyền cải tiến [45], được gọi là FGA.
+  Mô hình được đề xuất chọn dân số ban đầu của nó từ một nhóm dân số dựa trên thuật toán đom đóm, tức là dân số ban đầu 
+  được tạo ra từ các giải pháp toàn cục tốt nhất. FAG hoạt động theo 2 cách:
+  + 1, FA cổ điển được áp dụng cho các tập dân số được khởi tạo ngẫu nhiên, tạo ra nhiễm sắc thể chromosomes của một bộ
+  + 2, các nhiễm sắc thể sau đó được định vị trong vùng giao nhau, chúng tham gia vào các hoạt động đột biến và trao đổi chéo của thuật toán di truyền GA.
++ Ngoài ra, ở giai đoạn khởi tạo FGA, nó dẫn đến tối ưu toàn cục, điều này ngăn quá trình mắc kẹt trong local optima. Kết quả kiểm tra, 
+  khi so sánh với GA cơ bản và thuật toán đom đóm, cho thấy FGA có inter-cluter tốt hơn, và khoảng cách intra-cluster tốt hơn, dẫn đến kết quả tốt hơn.
+  
++ Nayak [47] cài đặt một FA cải tiến hơn với thuật toán fuzzy c-means gọi là FAFCM và FAFCM cải tiến cho các tập dữ liệu thế giới thực.
+  FA cải tiến đã giải quyết những thiếu sót của phương pháp fuzzy c-means, của entrapment local optima, và độ nhạy cao khi khởi tạo.
+  FAFCM bao gồm 2 giai đoạn:
+  + 1, một FA chuẩn với phân cụm fuzzy c-means. pha này xử lý các hạn chế của thuật toán fuzzy c-means bằng cách tối thiểu objective function. 
+  + 2, một FA cải tiến với phân cụm fuzzy c-means. Pha này tinh chỉnh các tâm cụm đã được xác định ở phase 1, và cũng hỗ trợ tiếp tục tối thiểu hóa hàm mục tiêu.
++ FAFCM được so sánh với 3 thuật toán phân cụm khác, kết quả cho thấy FAFCM có kết quả thống nhất với tập test, và tốc độ hội tụ nhanh hơn.
+Tuy nhiên, số lượng cụm đã được các định trước khi FAFCM gán vào.
+  
+  ![](./photos/9-Figure6-1.png)
+  FIGURE 6. Clustering results of hybrid FAABC of some datasets on DB-index.
+
+
++ Một phương pháp lai hiệu quả dựa trên FA và thuật toán dynamic k-means được phát triển bởi  Sundararajan and Karthikeyan[48]. 
+  Thuật toán này gọi là hybrid modified firefly and dynamic k-means. Thuật toán dynamic k-means được kết hợp để có thể tìm ra số cụm tối ưu trong thời gian thực thi,
+  cũng như để cải tiến chất lượng phân cụm và tính tối ưu.
+  Mô hình hoạt động theo cách đó, nó xác định các tâm cụm mới bằng cách thêm một tâm mới vào counter ở mỗi vòng lặp, cho đến khi chất lượng cụm yêu cầu đạt được, và mô hình hoạt động đủ tốt.
+  Kết quả thực nghiệm cho thấy chất lượng cụm tốt hơn trong thời gian ngắn hơn với tối ưu tốt hơn, so với các thuật toán khác.
+  
++ Ezugwu [40] đã trình bày một nghiên cứu khảo sát sâu rộng về Các thuật toán metaheuristic lấy cảm hứng từ thiên nhiên, được áp dụng để giải quyết các vấn đề 
+ về phân cụm tự động. Hơn nữa, tác giả đã thực hiện một so sánh một số thuật toán nổi tiếng về global metaheuristic để giải quyết phân cụm tự động, trong đó 3 thuật toán hybrid swarm intelligence and evolutionary algorithms:
+  + article swarm differential evolution algorithm
+  + firefly differential evolution algorithm
+  + invasive weed optimization differential evolution algorithm
+  <br>
+  Kết quả thử nghiệm cho thấy thuật toán FA phù hợp hơn để phân nhóm trong cả trường hợp đối tượng đa chiều so với các state-of-the-art.
+    
++ Tất cả các tài liệu và phân tích so sánh khác nhau đều chỉ ra rằng FA là một thuật toán metaheuristic rất hiệu quả và mạnh mẽ để giải quyết vấn đề này trong thế giới thực.
+  Hơn nữa, những phát hiện từ Ezugwu [40] và Agbaje et al. [49] về hiệu suất đầy hứa hẹn của FA trong phân nhóm tự động đã dẫn dắt chúng tôi đi vào nghiên cứu này,
+  để làm rõ hơn về sự vượt trội của cả thuật toán FA và các biến thể, cải tiến của nó trong phân nhóm tự động.
++ Sau khi các phân tích sâu rộng được thực hiện, chúng tôi đã tổng hợp các phương pháp phân cụm khả thi sau đây, với các thông số chỉ mục kèm theo được xác định, được trình bày trong bảng 1:
+
+![](./photos/4-Table1-1.png)<br>
+TABLE 1. A summary of metaheuristic algorithms that have been applied to automatic clustering problems.
+
+![](./photos/5-Table2-1.png)<br>
+TABLE 1. (Continued.) A summary of metaheuristic algorithms that have been applied to automatic clustering problems.
+
+___
 ## III. THE FIREFLY ALGORITHM
 
 ___
