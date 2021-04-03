@@ -7,3 +7,6 @@
 + Automatic clustering:
 + Firefly-based hybrid algorithms
 + Clustering validity
++ Local optima
++ Swarm intelligence
++ selection pressure and population diversity
