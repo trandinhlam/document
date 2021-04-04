@@ -7,11 +7,12 @@ import random
 
 
 def visualize():
+    print("Test dir: " + TEST_PATH)
     images_path = os.listdir(TEST_PATH)
     plt.figure(figsize=(25, 25))
     for i in range(1, 26):
         plt.subplot(5, 5, i)
-        random_img_path = TEST_PATH + '/' + random.choice(images_path)
+        random_img_path = TEST_PATH + '\\' + random.choice(images_path)
         ran_img = imread(random_img_path)
         plt.imshow(ran_img)
         plt.xlabel(ran_img.shape[1], fontsize=20)

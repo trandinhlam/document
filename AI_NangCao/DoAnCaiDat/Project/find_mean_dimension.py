@@ -5,17 +5,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
 import seaborn as sns
-from config import TRAIN_PATH
+from config import TRAIN_PATH, SLASH
 
 
 def find_mean():
     dim1 = []
     dim2 = []
     for i in range(0, 43):
-        labels = TRAIN_PATH + '/{0}'.format(i)
+        labels = TRAIN_PATH + SLASH + '{:02d}'.format(i)
         img_path = os.listdir(labels)
         for x in img_path:
-            img = imread(labels + '/' + x)
+            img = imread(labels + SLASH + x)
             dim1.append(img.shape[0])
             dim2.append(img.shape[1])
     sns.jointplot(dim1, dim2)

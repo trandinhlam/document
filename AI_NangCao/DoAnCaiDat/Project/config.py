@@ -1,7 +1,10 @@
 import os
 
-INPUT = os.getcwd() + '/input'
-TRAIN_PATH = INPUT + '/Train'
-TEST_PATH = INPUT + '/Test'
+SLASH = '\\'
+INPUT = os.path.join(os.getcwd(), 'input')
+NUMPY_OUTPUT = os.path.join(os.getcwd(), '.numpy')
+TRAIN_PATH = INPUT + SLASH + 'Train'
+TEST_PATH = INPUT + SLASH + 'Test'
+
 
 STANDARD_SIZE = (50, 50)

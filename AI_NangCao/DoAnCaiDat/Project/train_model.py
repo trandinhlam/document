@@ -5,12 +5,13 @@ from tensorflow.keras.models import Sequential
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from tensorflow.keras.utils import to_categorical, plot_model
+from config import NUMPY_OUTPUT, SLASH
 
 
 def start_train():
     # chia tập train đã chuẩn hóa thành 2 tập train và test
-    images = np.load('./numpy/standard_training.npy')
-    labels = np.load('./numpy/labels.npy')
+    images = np.load(NUMPY_OUTPUT + SLASH + 'standard_training.npy')
+    labels = np.load(NUMPY_OUTPUT + SLASH + 'labels.npy')
 
     x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.1, random_state=42)
     # one-hot encoding
