@@ -34,6 +34,6 @@ def single_test(image_path):
     print(model.predict_classes(images))
 
 
-# test()
-# single_test('./input/random.png')
-# single_test('./input/out.png')
+test()
+single_test('./input/random.png')
+single_test('./input/out.png')

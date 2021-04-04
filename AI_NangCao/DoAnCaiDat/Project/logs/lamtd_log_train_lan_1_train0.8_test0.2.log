@@ -35,7 +35,7 @@ Non-trainable params: 0
 _________________________________________________________________
 None
 
-TapTrain: 0.8, tập test 0.3
+Tập Train: 0.8, tập test 0.2
 
 #start train
 model.fit(x=x_train, y=y_train,
@@ -45,7 +45,7 @@ model.fit(x=x_train, y=y_train,
           callbacks=[early_stopping],
           verbose=2
           )
-model.save('Model.h5')
+model.save('tdlam_Model_1st.h5')
 
 
 2021-03-20 08:29:27.535164: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 941010000 exceeds 10% of free system memory.

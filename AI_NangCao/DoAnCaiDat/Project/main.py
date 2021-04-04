@@ -22,6 +22,6 @@ import tester
 # find_mean()
 # normalize_data()
 # start_train()
-# tester.test()
+tester.test()
 # tester.single_test('./input/random.png')
 

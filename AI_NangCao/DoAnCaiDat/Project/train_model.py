@@ -4,7 +4,7 @@ from tensorflow.keras.layers import Dense, Flatten, Dropout, Conv2D, MaxPool2D
 from tensorflow.keras.models import Sequential
 from sklearn.model_selection import train_test_split
 import pandas as pd
-from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical, plot_model
 
 
 def start_train():
@@ -49,6 +49,7 @@ def start_train():
                   metrics=['accuracy'])
 
     print(model.summary())
+    plot_model(model, 'model.png', show_shapes=True)
 
     early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=2)
     # start train
@@ -65,5 +66,4 @@ def start_train():
     plot1 = evaluation[['accuracy', 'val_accuracy']].plot()
     plot2 = evaluation[['loss', 'val_loss']].plot()
 
-
-# start_train()
+start_train()

@@ -1,19 +1,22 @@
 # ĐỒ ÁN CÀI ĐẶT MẠNG CNN TRAFFIC-SIGN DETECTION CỦA NHÓM 13
-#Phần 1 : Traffic-Sign Classification
-#### _Author: tdlam@gmail.com_
+#Traffic-Sign Classification with GTSRB
+#### _Author: tdlam123@gmail.com_
 
 ## Tài liệu trích dẫn, mã nguồn tham khảo:
 
 + https://www.kaggle.com/pritamaich/traffic-sign-classification-using-cnn
 + https://www.kaggle.com/valentynsichkar/traffic-signs-classification-with-cnn/notebook
 + https://www.kaggle.com/ashwanisahni/german-traffic-sign-recognition-with-99-accuracy
-+ dataset: https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign
-
++ ataset: https://benchmark.ini.rub.de/gtsrb_dataset.html
++ kết quả đối sánh trong cuộc thi của IJCNN: https://benchmark.ini.rub.de/gtsrb_results.html
++ Tool vẽ CNN Architect: http://alexlenail.me/NN-SVG/LeNet.html
++ D
 ____
 
-## Tổng quan và setup môi trường
+## I. Tổng quan và setup môi trường
+### I.1 Mô tả bài toán:
 
-#### Các thư viện sử dụng trong project:
+### I.2 Các thư viện sử dụng trong project:
 
 Các thư viện dễ/có sẵn:
 
@@ -33,10 +36,11 @@ Các thư viện to hơn cần cài đặt kỹ:
 _https://giaphiep.com/blog/deep-learning-qua-kho-dung-lo-da-co-keras-9314_
 ____
 
-## prepare dataset
-+ Cấu trúc project phân loại traffic sign như sau:
-![img.png](./photos/project_struct.png)
+## II. MÔ TẢ VỀ DATASET
+### II.1. Cấu trúc Dataset:
 
++ Có tổng cộng 43 loại traffic sign
+  ![img.png](photos/data_clasification.png)
 + Download bộ dataset GTSRB và bỏ vào thư mục ./input
 + Define các đường dẫn TRAIN_PATH, TEST_PATH trong file config
 + Visualize một bộ gồm 25 hình ngẫu nhiên để thấy được các tấm hình không đồng đều về kích thước
@@ -46,9 +50,7 @@ ____
 + Với phân bổ trên, ta dùng numpy tính mean của width, mean của height sẽ ra xấp xỉ __50x50__, nên ta sẽ chuẩn hóa data
   về 50x50x3
 
-____
-
-## Chuẩn hóa data
+### II.2. Chuẩn hóa data
 
 + Mỗi tấm ảnh từ nguyên gốc w x h x 3 sẽ được resize về 50x50x3. Giá trị của mỗi pixel lúc này là [0,255], ta cần đưa về
   [0,1]  (để làm gì thì chưa biết)
@@ -57,7 +59,7 @@ ____
 + Sau khi chuẩn hóa xong thì dùng numpy để lưu lại 2 file vào folder "numpy", để không phải scan lại tập train
 + Lúc này ta có được tập train kích thước (39209, 50, 50, 3)
 
-## Load dataset
+### II.3. Load dataset
 
 + Load lại 2 file đã có ở bước trên, sau đó chia ra thành 2 tập train và test với 4 biến:
     + x_train có x_val tương ứng
@@ -70,27 +72,41 @@ ____
 
 ____
 
-## Dựng CNN bằng Keras
-
-### Giới thiệu lý thuyết về Keras và các Keras core modules:
+## III. Dựng CNN bằng Keras
++ Cấu trúc project phân loại traffic sign như sau:
+  ![img.png](./photos/project_struct.png)
+  
+### III.1. Giới thiệu lý thuyết về Keras và các Keras core modules:
 
 + Keras layers
 + Keras models
 + Keras loss
 + Keras optimizer: Đối với optimizers, tất cả các optimizer của Kera đều được xây dựng dựa trên thuật toán Gradient
   Descent.
+  
++ Keras dropout: https://viblo.asia/p/deep-learning-ky-thuat-dropout-bo-hoc-trong-deep-learning-OeVKBn80KkW
++ padding và stride
 
-### Mô tả cấu trúc mạng CNN mà nhóm đã tham khảo cài đặt
-
-+ Các nguyên liệu sử dụng
-+ Cơ sở lý thuyết
+### III.2. Mô tả cấu trúc mạng CNN mà nhóm đã tham khảo cài đặt
++ Cơ sở lý thuyết:
+  + Vì sao phải dùng Dropout? Bỏ qua bước dropout được không?
+  + Cách tính số lượng tham số ở mỗi layer: https://forum.machinelearningcoban.com/t/tutorial-tinh-so-luong-parameters-trong-convolutional-neural-network/3638
 + Bảng cấu trúc mạng
+  
+  ![img.png](photos/my_model_architecture.png)
+
++ Số lượng tham số trong bảng sau:
+  
   ![img.png](photos/cnn_architect.png)
+  
++ Ta Trực quan hóa kiến trúc mạng như sau:  
+
+  ![img.png](photos/Architecture.png)
 
 ____
 
-## Thực hiện huấn luyện
-+ Mô tả các bước cần thực hiện:
+## IV. Thực hiện huấn luyện
+### IV.1. Mô tả các bước cần thực hiện:
  + b1
  + b2
  + ...
@@ -99,15 +115,15 @@ ____
 
 + Mô tả môi trường thiết bị (vẽ ra bảng cho dễ hình dung)
   + CPU: 
-    + máy của Lâm:
-      + CPU 4-core Model Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+    + máy của Lâm: CPU 4-core Model Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
       + Thời gian thực thi lần 1 (0.8 train,0.2 test): 2796 giây cho 25 lần lặp (mỗi lần batch_size=64)
-      + Thời gian thực thi lần 2 (0.7 train,0.3 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi lần 2 (0.7 train,0.3 test): 3148 giây cho 25 lần lặp (mỗi lần batch_size=64)
       + Thời gian thực thi lần 2 (0.9 train,0.1 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
        
     
-  + GPU: 
-+ So sánh thời gian chạy giữa các môi trường với nhau
+  + GPU: Google Colab GPU Tesla K30
+    + Thời gian thực thi lần 1: (0.9 train, 0.1 test): 134 giây cho 25 lần lặp
+
 + So sánh kết quả khi thay đổi các tham số khác nhau
 + Lưu lại kết quả chạy
 
@@ -115,23 +131,52 @@ _Lưu ý: Bước __Model Evaluation__ cần thực hiện ngay sau khi train ra
 Mục đích của bước này là vẽ ra sự biến thiên của hàm loss và độ chính xác của mạng.
 ____
 
-## Kiểm thử và đo kết quả
+### IV.2. Kiểm thử và đo kết quả
 + Load lại model đã lưu
-+ lấy tập test trong TEST_PATH để kiểm tra, lưu ý ta phải dùng lại hàm chuẩn hóa data trước khi đưa vào cho model dự đoán. Chỗ này sẽ phải tách hàm
++ Lấy tập test trong TEST_PATH để kiểm tra, lưu ý ta phải dùng lại hàm chuẩn hóa data trước khi đưa vào cho model dự đoán. Chỗ này sẽ phải tách hàm
 để tái sử dụng
   
 _____
 + 15h ngày 20/03/2021 Lâm train và test lần 1 (Model_1) được các thông số sau (dùng sklearn.metrics.classification_report):
 ![](./photos/classification_report_1.png)
-+ ngày 
++ 
+
++ Đưa các input bên ngoài vào để đánh giá độ chính xác của model. Các input được để trong ./input/online
+
 _____
 ____
 
-## So sánh với baseline và state-of-the-art
+## V. So sánh với baseline và state-of-the-art
 + Ở bước baseline ta sẽ so sánh với chính bài tham khảo xem cái nào hiệu quả hơn
   + Lấy kết quả từ cuộc thi GTSRB luôn, link https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
     https://benchmark.ini.rub.de/gtsrb_results.html
-+ Ở bước state-of-the-art so sánh với AlexNet hoặc OverFeat xem có thể so sánh được không, nếu không thì chỉ cần so sánh với các kết quả của cuộc thi ở cùng độ đo là đủ
-
+### V.1. Tiêu chí so sánh
++ Tham khảo: https://www.researchgate.net/publication/327389916_An_Efficient_Traffic_Sign_Recognition_Approach_Using_a_Novel_Deep_Neural_Network_Selection_Architecture_Proceedings_of_IEMIS_2018_Volume_3
++ Tiêu chí 1: Tổng Accuracy
+  
++ Tiêu chí 2: Từng loại Traffic-sign nhỏ:
+  Trong tài liệu tham khảo, các tác giả chia 43 loại Traffic-sign thành 6 loại con bao gồm:
+  + "Blue": 8 loại 33,..,40
+  + “Danger”: 15 loại : 11,18,...,  31 
+  + “End-of”: 4 loại 6,32,41,42
+  + “Speed”: 8 loại 0,1,2,3,4,5,7,8
+  + "Red-other”: 4 loại 9, 10, 15, 16
+  + “Spezial”: 4 loại 12, 13, 14,17
+  
+### V.2. Kết quả so sánh
+Nhóm sẽ chọn ra model tốt nhất trong các model đã huấn luyện được để so sánh với các model khác trong cuộc thi
+#### Tiêu chí 1: Tổng Accuracy
+|Method|Accuracy|
+|:-----|:------:|
+|Novel DNN Selection[]|99.92%  
+|Haloi []|99.81%
+|Committee of CNNs | 99.46%
+|Human Performance []|98.84%
+|Multi-Scale CNNs []|98.31%
+|__Của nhóm__|__98.00%__ (tốt nhất hiện tại, đang chờ thu thập thêm)|
+|Random Forests []| 96.14%
+#### Tiêu chí 2: Accuracy trên mỗi loại 
 
 _____________
+
+##Mở rộng: Thử nghiệm cài đặt mạng hiện có bằng mạng AlexNet
