@@ -17,3 +17,5 @@
 + Compact-Separated (CS)
 + Variance reduction exponent
 + inertia weight damping
++ Friedman rank-sum test
++ Wilcoxon post-hoc tes
