@@ -1,0 +1,75 @@
+Information:
+- Running with GPU GTX 1070
+- Standard size: 60x60
+- Train: 0.9 | Test: 0.1 | Filters_layer_1: 64 | Filters_layer_2: 96 | Filters_layer_3: 128
+
+============================================
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 50, 50, 64)        1792      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 25, 25, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 25, 25, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 23, 23, 96)        55392     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 96)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 96)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 9, 128)         110720    
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 128)         0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 128)         0         
+_________________________________________________________________
+flatten (Flatten)            (None, 2048)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               262272    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 43)                5547      
+=================================================================
+Total params: 435,723
+Trainable params: 435,723
+Non-trainable params: 0
+_________________________________________________________________
+None
+
+2021-04-10 21:25:20.510575: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:180] None of the MLIR Optimization Passes are enabled (registered 2)
+Epoch 1/25
+2021-04-10 21:25:21.838756: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-04-10 21:25:23.645178: I tensorflow/stream_executor/cuda/cuda_dnn.cc:367] Loaded cuDNN version 8101
+2021-04-10 21:25:24.622246: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-04-10 21:25:25.632023: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+552/552 - 13s - loss: 2.4457 - accuracy: 0.3018 - val_loss: 1.3335 - val_accuracy: 0.6292
+Epoch 2/25
+552/552 - 6s - loss: 1.1221 - accuracy: 0.6320 - val_loss: 0.3901 - val_accuracy: 0.9033
+Epoch 3/25
+552/552 - 6s - loss: 0.5893 - accuracy: 0.8064 - val_loss: 0.2020 - val_accuracy: 0.9617
+Epoch 4/25
+552/552 - 6s - loss: 0.4131 - accuracy: 0.8674 - val_loss: 0.1088 - val_accuracy: 0.9748
+Epoch 5/25
+552/552 - 6s - loss: 0.3256 - accuracy: 0.8920 - val_loss: 0.0790 - val_accuracy: 0.9824
+Epoch 6/25
+552/552 - 6s - loss: 0.2686 - accuracy: 0.9134 - val_loss: 0.0501 - val_accuracy: 0.9878
+Epoch 7/25
+552/552 - 6s - loss: 0.2317 - accuracy: 0.9251 - val_loss: 0.0428 - val_accuracy: 0.9901
+Epoch 8/25
+552/552 - 6s - loss: 0.2022 - accuracy: 0.9358 - val_loss: 0.0391 - val_accuracy: 0.9908
+Epoch 9/25
+552/552 - 6s - loss: 0.1890 - accuracy: 0.9410 - val_loss: 0.0354 - val_accuracy: 0.9931
+Epoch 10/25
+552/552 - 6s - loss: 0.1714 - accuracy: 0.9469 - val_loss: 0.0319 - val_accuracy: 0.9918
+Epoch 11/25
+552/552 - 6s - loss: 0.1578 - accuracy: 0.9508 - val_loss: 0.0240 - val_accuracy: 0.9929
+Epoch 12/25
+552/552 - 6s - loss: 0.1520 - accuracy: 0.9526 - val_loss: 0.0286 - val_accuracy: 0.9916
+Epoch 13/25
+552/552 - 6s - loss: 0.1508 - accuracy: 0.9540 - val_loss: 0.0295 - val_accuracy: 0.9923
+---> Execution time: 92.86077499389648 seconds
