@@ -254,7 +254,62 @@ Việc phân loại tập data này tạo tiền đề cho các cuộc điều t
 ### C. RESULTS AND DISCUSSION
 Trong phần này, chúng tôi trình bày và thảo luận về các kết quả trung bình thu được bởi standard FA và 4 thuật toán FA đã đề xuất.
 Các thuật toán được so sánh dựa trên các giá trị trung bình của chỉ số CS và DB.
-Trong bảng 3, các giá trị được in đậm
+Trong bảng 3, các giá trị được in đậm chỉ rằng thuật toán thu được giải pháp tốt nhất so với các thuật toán khác. Tất cả các kết quả được trình bày trong nghiên cứu này 
+được mô tả ở 4 chữ số thập phân và chúng tôi chủ yêu tập trung vào chất lượng của giải pháp được tạo ra bởi mỗi thuật toán, cũng như
+thời gian thực hiện ở mỗi thuật toán để tìm kiếm các giải pháp gần tối ưu nhất.
+![](./photos/15-Table3-1.png)<br>
+_TABLE 3. Numerical results comparison of average solutions obtained by muted FA and the four hybrid algorithms based on the CS and DB indices over 40 replications._ <br>
++ Đối với phép đo CS, chỉ ra rằng FA hoạt động tốt trên tập Breast dataset và Flame dataset. Tương tự, FAABC work tốt trên tập Flame. 
+Hơn nữa, FAPSO đã đạt được hiệu suất tốt nhất 9/12 bộ data, cụ thể là Compound, Iris, Jain, Pathbased, Spiral, Statlog, Thyroid, Wine and, Yeast datasets.
++ Bên phía DB index, hiệu suất tốt nhất là của FATLBO, trong 5 dataset Flame, Iris, Pathbased, Spiral and, Yeast. Theo sau là 
+FAPSO với 4 bộ dữ liệu Glass, Jain, Thyroid, and Wine datasets.  Mặc dù vậy, FA tiêu chuẩn đã làm khá tốt trên 3 tập  Breast, Compound, and Statlog.
+  Cả  FAABC và FAIWO đều không vượt trội trong chỉ số DB. Điều này chứng minh rằng FA hoạt động tốt hơn các thuật toán khác 
+  trên bộ dữ liệu Breast dataset trên cả 2 phép đo. Ngược lại FAIWO không tỏ ra vượt trội hơn ai ở cả 2 phép đo CS và DB.
+  
++ Nhìn chung, sự so sánh giữa FA chuẩn và các biến thể lai của nó, cho thấy răng các giải pháp optimal fitness đạt được bởi FAPSO trên chỉ số CS
+có giá trị thấp hơn, nghĩa là hiệu suất tốt hơn. Hơn thế nữa, hiệu suất của thuật toán FAPSO có thể đạt xuất sắc trên nhiều bộ dataset 
+  hơn bất kỳ thuật toán nào khác. Tuy nhiên, đối với chỉ số DB, FATLBO nổi lên là thuật toán hoạt động tốt nhất, sau đó là FAPSO, rồi đến FA chuẩn. 
+  Kết luận, chúng ta có thể suy ra FAPSO là một thuật toán phân nhóm tự động rất hiệu quả.
+___
++ Tiếp theo, chúng tôi trình bày và thảo luận về kết quả của 4 thuật toán bằng cách sử dụng thống kê để tìm ra giải pháp tốt nhất, kém nhất, trung bình 
+và độ lệch chuẩn. Các giá trị được đánh dấu in đậm cho biết thuật toán work tốt nhất.
+  + Như đã thấy ở CS index:
+    + FAABC, FAIWO và FATLBO đã đạt được kết quả tương tự trên tập Breast 
+    + cũng như FAABC and FATLBO trên Compound dataset. 
+    + Tương tự là FAPSO trên Flame, Iris, Jain, Thyroid, Wine and Yeast datasets.
+    + FAPSO và FATLBO đạt tốt nhất trên Pathbased
+    + FAABC thì trên Spiral.
+    Mức độ nhất quán và ổn định được thể hiện trong kết quả thu được trong bộ dữ liệu Glass và Statlog, trên tất cả bốn phương pháp kết hợp. Do đó, FAPSO thể 
+    hiện sự vượt trội so với các thuật toán khác trên CS index.
+  + Ở DB index:
+    + FAABC, FAIWO và FATLBO đã thu được kết quả tốt nhất nhưng giống hệt nhau đối với tập Breast. Kết quả này tương tự như kết quả của chỉ số CS, tức là hiệu suất của 3 thằng này là giống nhau ở cả 2 phép đo. 
+    + FAPSO đạt tốt nhấ trên Compound, Glass, Statlog and Thyroid.
+    + FAABC, FAIWO and FATLBO giống nhau ở tập Breast, Flame và Yeast.
+    + FAABC and FATLBO giống nhau ở Iris and Wine.
+    + FAABC tốt nhất ở Spiral
+    + FATLBO trên Jain and Pathbased
++ Mặc dù một số trường hợp bằng nhau giữa 2 hay nhiều thuật toán, không thể phủ nhật FAPSO hoạt động tốt hơn các thuật toán khác trên 4 tập Compound, Glass, Statlog and Thyroid.
+ FAPSO cũng thu được kết quả tốt trên tổng thể. Dựa trên những đánh giá này, ta có thể nói rằng chỉ số CS đánh giá hợp lý hơn DB cho cả 4 thuật toán
+  và trên 12 tập dữ liệu. 
++ Hình 3 và 4 cho thây thời gian tính toán trung bình của mỗi thuật toán qua 2 chỉ số trên. 
+![](./photos/7-Figure4-1.png)
+  <br>
+  + Trong 2 biểu đồ trên, FAACB biểu thị bằng màu vàng, FAIWO màu tím, FAPSO màu đỏ, FATLBO màu xanh lam. Thời gian thực thi trung bình 
+  được lập tương ứng với bộ dữ liệu
+    + Đối với CS index trong hình 3, FAPSO có thời gian kém nhất trên 12 tập.
+    + Tiếp theo là FAIWO, FATLBO.
+    + FAABC chạy tốt nhất.
+  + Như đã đề cập, mặc dù FAPSO là giải pháp tốt nhất trong CS index, nó lại tiêu tốn thời gian đáng kể nhất.
+  + Tương tự đối với DB index, thứ tự tốt nhất là FAABC, FATLBO, FAPSO, FAIWO.
+
+
+  
+### D. STATISTICAL ANALYSIS TEST
+### E. CLUSTERING PROCESS
+### F. ALGORITHM CONVERGENCE CURVES
+### G. HIGH-DIMENSIONAL DATASET AND PARAMETER FINE-TUNING
+### H. ALGORITHM COMPLEXITY 
+
 ___
 
 ## V. CONCLUSION
