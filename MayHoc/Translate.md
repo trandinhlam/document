@@ -32,28 +32,28 @@ ___
 
 ## I. INTRODUCTION
 
-+ Phân cụm dữ liệu là một kỹ thuật phân loại unsupervised quan trọng, liên quan đến tiến trình ghom nhóm dữ liệu mà ở
-  đó, các item giống nhau được nhóm vào một cụm dựa vào các thông số tương tự nhau [1]-[4]. Ghom cụm cũng thường được
++ Phân cụm dữ liệu là một kỹ thuật phân loại unsupervised quan trọng, liên quan đến tiến trình gom nhóm dữ liệu mà ở
+  đó, các item giống nhau được nhóm vào một cụm dựa vào các thông số tương tự nhau [1]-[4]. gom cụm cũng thường được
   dùng cho nhiều ứng dụng hấp dẫn trong thế giới thực, như tiếp thị, sinh học, phân tích hình ảnh, thư viện, bảo hiểm,
   khai thác dữ liệu, y học, phân tích thống kê, nhận diện cộng đồng, và các lĩnh vực khoa học kỹ thuật khác [5]-[7].
-+ Mặc dù phân tích ghom cụm đã được sử dụng lần đầu trong 2 lĩnh vực khoa học xã hội, cụ thể là nhân loại học và tâm lý
-  học [8], xa hơn nữa, nó cũng được sử dụng cho lý thuyết phân loại đặc điểm trogn tâm lấy nhân cách bởi Cattel vào đầu
++ Mặc dù phân tích gom cụm đã được sử dụng lần đầu trong 2 lĩnh vực khoa học xã hội, cụ thể là nhân loại học và tâm lý
+  học [8], xa hơn nữa, nó cũng được sử dụng cho lý thuyết phân loại đặc điểm trong tâm lý nhân cách bởi Cattel vào đầu
   năm 1943 [8],[9].
-+ Phương pháp trong ghom cụm dữ liệu đã được mở rộng với sự liên quan đáng kể trong việc áp dụng cho các nghiên cứu mới,
-  trong các lĩnh vực như KHDL, Lachine learning. Cần lưu ý rằng việc phân cụm dữ liệu ra thành các nhóm có ý nghĩa là
++ Phương pháp trong gom cụm dữ liệu đã được mở rộng với sự liên quan đáng kể trong việc áp dụng cho các nghiên cứu mới,
+  trong các lĩnh vực như KHDL, Machine learning. Cần lưu ý rằng việc phân cụm dữ liệu ra thành các nhóm có ý nghĩa là
   một nhiệm vụ quan trọng của cả AI và Data mining.
 + Thông thường, thuật ngữ clustering thường được gán với một phép gán nhãn dữ liệu không giám sát, ở đó kết quả của quá
   trình phân tích này phụ thuộc rất nhiều vào tính ưu việt và hiệu quả của các thuật toán, phương pháp phân nhóm được sử
   dụng.
 + Trong các thập niên trước, nhiều thuật toán heuristic-based đã đưa ra để giải bài toán phân cụm. Mỗi thuật toán được
-  thiết kế và cài đặt dựa trên 2 phân lớp chính của phương thức ghom cụm [10]-[11]:
+  thiết kế và cài đặt dựa trên 2 phân lớp chính của phương thức gom cụm [10]-[11]:
     + hierarchical - phân cụm phân cấp: Các thuật toán này tạo ra một cấu trúc phân cấp dạng cây, đại diện cho một cụm nhóm dính với nhau, 
       của một số điểm dữ liệu. Thuật toán phổ biến nhất trong nhóm này là thuật toán single-link (liên kết đơn) và complete-link (liên hết hoàn toàn) [12]
     + partitioning - phân cụm phân nhóm: ngược lại, các thuật toán này phân phối các điểm dữ liệu vào các cụm không overlap nhau. Nói cách khác, thuật toán phân nhóm 
       tạo ra các phân vùng dữ liệu đơn lẻ thay vì xậy dựng một cấu trúc cây như trên [13].
 + Một trong những thách thức lớn của các thuật toán kể trên là làm sao chọn số lượng cụm thích hợp ở đầu ra cuối cùng. Thuật toán k-means có lẽ là 
 phương pháp phổ biến nhất cho vấn đề này. Tuy nhiên, sự thành công của các thuật toán kể trên phụ thuộc nhiều vào việc có thông tin xác định trước
-  về các đối tượng dữ liệu và giải pháp yêu cầu ban đầu, trong đó hầu hết các trường hợp có thể dễ dàng làm cho thuật toán mắc xung quanh local optima [8]. Đây là những nhược điểm 
+  về các đối tượng dữ liệu và giải pháp yêu cầu ban đầu, trong đó hầu hết các trường hợp có thể dễ dàng làm cho thuật toán mắc kẹt xung quanh local optima [8]. Đây là những nhược điểm 
   nghiêm trọng khiến cho các nhà nghiên cứu phải đưa ra các giải pháp hữu hiệu khác để khắc phục, bao gồm việc sử dụng một số cải tiến 
   và các thuật toán thông minh, kết hợp với các thuật toán phức tạp hơn, và các vấn đề phân cụm dữ liệu nhiều chiều.
 + Một vài thuật toán cải tiến được sử dụng để xử lý các vấn đề kể trên là:
@@ -123,7 +123,7 @@ ___
   phương pháp tạo ra cụm tối ưu. Xa hơn nữa, FA được so sánh với ABC, PSO và 9 phương pháp khác. Kết quả cho thấy sự hiệu quả của FA vượt trội hơn về độ tin cậy, hiệu quả, hiệu suất.
 + Hassanzadeh và Meybodi đã trình bày một phương pháp kết hợp dựa trên FA và k-means để phân cụm dữ liệu [42]. Các mô hình đề xuất được gọi là K-FA đã được thực hiện. FA được dùng để tìm ra tâm cụm do người dùng chỉ định số lượng cụm, sau đó FA được mở rộng 
 bằng thuật toán k-mean, để hỗ trợ tinh chỉnh tâm này. 
-+ Ngoài ra, global-optima được dùng để cải thiện FA chuẩn. Một thí nghiệm đã chỉ ra rằng K-FA vượt trội hơn 3 thuật toán cluster khác về việc có hiệu quả hơn, giả thiểu khoảng cách trong cụm, cho phép k-mean được khởi tạo thích hợp hơn.
++ Ngoài ra, global-optima được dùng để cải thiện FA chuẩn. Một thí nghiệm đã chỉ ra rằng K-FA vượt trội hơn 3 thuật toán cluster khác về việc có hiệu quả hơn, giảm thiểu khoảng cách trong cụm, cho phép k-mean được khởi tạo thích hợp hơn.
 + Banati và Bajaj đã tiến hành phân tích hiệu suất của FA để phân cụm dữ liệu trong [27]. Phương pháp đề xuất gọi là FClust, dựa trên centroid-based, thông qua hành vi nhấp nháy của đom đóm, vào hàm chính của bài toán phân cụm để được giải pháp tối ưu.
   Hiệu suất của FClust được đánh giá bằng 2 tiêu chí thống kê [43]:
   + trace within criteria (TWR)
@@ -132,16 +132,20 @@ bằng thuật toán k-mean, để hỗ trợ tinh chỉnh tâm này.
   Hơn nữa, chất lượng của giải pháp FClust cũng được đánh giá bằng cách tiếp cần phân phối (Run lengt distribution - RLD) [44].
   RLD cho thấy rằng FCLust đạ được giá trị tốt nhất và tốc độ hội tụ nhanh hơn.
     
-  ![](./photos/hinh1.png)<br>
-  FIGURE 1. A compartmentalized flowchart of the hybrid firefly algorithms.
+[comment]: <> (  ![]&#40;./photos/hinh1.png&#41;<br>)
+
+[comment]: <> (  FIGURE 1. A compartmentalized flowchart of the hybrid firefly algorithms.)
   
  
-  ![](./photos/6-Figure2-1.png)<br>
-  FIGURE 2. Flowchart of the hybrid firefly algorithms.
+[comment]: <> (  ![]&#40;./photos/6-Figure2-1.png&#41;<br>)
+
+[comment]: <> (  FIGURE 2. Flowchart of the hybrid firefly algorithms.)
   
-  ![](./photos/7-Figure4-1.png)<br>
-  FIGURE 4. Average computational time consumed by the four hybrid firefly algorithms on DB measure for all the datasets
-  for 40 replications.
+[comment]: <> (  ![]&#40;./photos/7-Figure4-1.png&#41;<br>)
+
+[comment]: <> (  FIGURE 4. Average computational time consumed by the four hybrid firefly algorithms on DB measure for all the datasets)
+
+[comment]: <> (  for 40 replications.)
   
 + Năm 2015, Kaushik và Arora đã tích hợp FA với một thuật toán di truyền cải tiến [45], được gọi là FGA.
   Mô hình được đề xuất chọn dân số ban đầu của nó từ một nhóm dân số dựa trên thuật toán đom đóm, tức là dân số ban đầu 
@@ -159,14 +163,15 @@ bằng thuật toán k-mean, để hỗ trợ tinh chỉnh tâm này.
 + FAFCM được so sánh với 3 thuật toán phân cụm khác, kết quả cho thấy FAFCM có kết quả thống nhất với tập test, và tốc độ hội tụ nhanh hơn.
 Tuy nhiên, số lượng cụm đã được các định trước khi FAFCM gán vào.
   
-  ![](./photos/9-Figure6-1.png)
-  FIGURE 6. Clustering results of hybrid FAABC of some datasets on DB-index.
+[comment]: <> (  ![]&#40;./photos/9-Figure6-1.png&#41;)
+
+[comment]: <> (  FIGURE 6. Clustering results of hybrid FAABC of some datasets on DB-index.)
 
 
 + Một phương pháp lai hiệu quả dựa trên FA và thuật toán dynamic k-means được phát triển bởi  Sundararajan and Karthikeyan[48]. 
   Thuật toán này gọi là hybrid modified firefly and dynamic k-means. Thuật toán dynamic k-means được kết hợp để có thể tìm ra số cụm tối ưu trong thời gian thực thi,
   cũng như để cải tiến chất lượng phân cụm và tính tối ưu.
-  Mô hình hoạt động theo cách đó, nó xác định các tâm cụm mới bằng cách thêm một tâm mới vào counter ở mỗi vòng lặp, cho đến khi chất lượng cụm yêu cầu đạt được, và mô hình hoạt động đủ tốt.
+  Mô hình hoạt động theo cách đó, nó xác định các tâm cụm mới bằng cách thêm một tâm mới vào bộ đếm counter ở mỗi vòng lặp, cho đến khi chất lượng cụm yêu cầu đạt được, và mô hình hoạt động đủ tốt.
   Kết quả thực nghiệm cho thấy chất lượng cụm tốt hơn trong thời gian ngắn hơn với tối ưu tốt hơn, so với các thuật toán khác.
   
 + Ezugwu [40] đã trình bày một nghiên cứu khảo sát sâu rộng về Các thuật toán metaheuristic lấy cảm hứng từ thiên nhiên, được áp dụng để giải quyết các vấn đề 
@@ -194,7 +199,62 @@ ___
 ___
 
 ## IV. SIMULATION EXPERIMENTS
++ Thí nghiệm được thực hiện trên máy cấu hình:
+  + CPU 3.60 GHz Intel(R) Core(TM) i7-7700
+  + RAM 16GB
+  + Windows 10
++ Toàn bộ thuật toán được lập trình trên MATLAB R2018b và các phân tích thống kê được thực hiện trên IBM SPSS Version 25
 
+### A. PARAMETER SETTING
+Trong phần này, chúng tôi sẽ trình bày các cài đặt cụ thể các tham số cho 4 thuận toán đã đề xuất.
+Các cài đặt thông số được mô tả trong bảng 2(a)
+![](photos/14-Table2-1.png)<br>
+_TABLE 2. (a) Parameter configurations of ABC, IWO, PSO, and TLBO algorithms. (b) Characteristics of the twelve benchmark datasets._
+
++ Đối với mỗi thuật toán được đề xuất, chúng tôi khởi tạo một tập số lượng population bằng nhau ở mỗi lần lặp, trong trường hợp 
+này là 40 lần chạy cho tất cả các thử nghiệm. Các cài đặt tham số cho FA được mô tả như sau:
+  + size của population là 25, số lượng tối đa MaxIt là 200
+  + Hệ số light absorption  γ=1 (hệ số hấp thụ ánh sáng)
+  + hệ số attraction coefficient β=2 (hệ số hấp dẫn)
+  + hệ số mutation m=2
+  + tỉ lệ mutation damping α=1. 
++ Các cấu hình tham số của ABC, IWO, PSO, TLBO được trình bày chi tiết hơn trong bảng 2a.
+
++ Các thuật ngữ chính trong tham số:
+  + tham số _a_ là giới hạn trên của hệ số gia tốc acceleraton coefficient.
+  + _Smin_ và _Smax_ là số seed tối thiểu/tối đa
+  + _E_ là variance reduction exponent 
+  + _sigma_initial_ và _sigma_final_ là giá trị độ lệch chuẩn lúc đầu và lúc cuối
+  + _c1_ và _c2_ là hệ số học personal và global
+  + _wdamp_ tỉ số inertia weight damping
+  + _w_ là inertia weight được tính theo công thức ![img.png](img.png), với _t_
+ là số lần lặp. Lưu ý rằng giá trị của w được điều chỉnh liên quan đến lần lặp t để tránh hybrid FAPSO khỏi lao vào sự hội tụ quá sớm.
+
+### B. DATASETS DESCRIPTION
+12 tập data được sử dụng là các tập data phổ biến, dễ sử dụng từ UCI Machine Learning Repository. Mô tả ngắn gọn về một vài dataset:
+ + Breast Cancer Wisconsin (Original) dataset: Tập dữ liệu này được thu thập từ chuẩn đoán ung thư vú từ bệnh viện Đại học Wiscosin.
+Nó chưa hai class khối u (2 lành tính và 4 ác tính), 699 điểm dữ liệu với 10 thuộc tính.
+ + Glass dataset: tập dữ liệu này được lấy từ Dịch vụ Khoa học Pháp y Hoa Kỳ, được xác định theo hàm lượng oxide của chúng.
+Việc phân loại tập data này tạo tiền đề cho các cuộc điều tra tội phạm từ các hiện trường vụ án, nơi các tấm kính để lại có thể được sử dụng
+   làm nguồn bằng chứng nếu được xác định chính xác. 9 nhân tố hóa học khác nhau (chỉ số khúc xạ RI, Natri Na, Nhôm Al, Silicon Si, Kali K, Canxi Ca, Bari Ba,
+   Sắt Fe, Magie Mg) được sử dụng như một tiêu chuẩn để xác định một loại glass trong 6 loại glass. Tập này bao gồm 214 điểm dữ liệu với 10 thuộc tính.
+ + Iris dataset: Tập data bao gồm 3 biến thể khác nhau của hoa iris
+   + Iris Setosa
+   + Iris Versicolor
+   + Iris Virginica <br>
+  3 loại này bao gồm 150 cá thể với 4 thuộc tính
+ + Statlog (Heart) dataset: Bộ này dựa trên việc chuẩn đoán bệnh tim từ 4 CSDL khác nhau, được tạo ra dựa trên 13 thuộc tính khác nhau. Bao gồm 250 case và 13 thuộc tính
+ + Wine dataset: Tập dữ liệu về rượu được thu thập bằng cách sử dụng phân tích hóa học để xác định nguồn gốc của rượu được trồng ở cùng 1 vùng miền, nhưng từ 3 người trồng khác nhau ở Ý.
+ Phân tích này có thể xác định số lượng cấu thành trong 13 thành phần được tìm thấy trong mỗi loại của 3 loại rượu. Bộ này chứa 178 mẫu với 13 thuộc tính.
+ + Yeast dataset: Bộ dữ liệu nấm men được dùng để dự đoán các vị trí các vị trí localization của protein trong các tế bào. Bộ này gồm 
+1484 mẫu và 8 thuộc tính.
++ Chi tiết về các tập data còn lại, cụ thể là, Jain dataset, Pathbased dataset, Spiral dataset, and Thyroid được đề cập trong [38][39][40].
+12 bộ dữ liệu được tóm tắt trong bảng 2b ở trên. 
+  
+### C. RESULTS AND DISCUSSION
+Trong phần này, chúng tôi trình bày và thảo luận về các kết quả trung bình thu được bởi standard FA và 4 thuật toán FA đã đề xuất.
+Các thuật toán được so sánh dựa trên các giá trị trung bình của chỉ số CS và DB.
+Trong bảng 3, các giá trị được in đậm
 ___
 
 ## V. CONCLUSION

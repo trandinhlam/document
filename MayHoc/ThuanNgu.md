@@ -13,3 +13,7 @@
 + classification error percentage (CEP)
 + fuzzy c-means
 + cluster validity index CVI
++ Davies – Bouldin (DB)
++ Compact-Separated (CS)
++ Variance reduction exponent
++ inertia weight damping
