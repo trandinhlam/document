@@ -313,3 +313,15 @@ và độ lệch chuẩn. Các giá trị được đánh dấu in đậm cho bi
 ___
 
 ## V. CONCLUSION
++ Trong nghiên cứu này, 4 thuật toán lai dựa trên FA đã được triển khai thành công để giải các bài tóan phân cụm dữ liệu tự động. 
++ Theo đó, một nghiên cứu hiệu suất của các thuật toán này đã được thực hiện. Các kết quả mô phỏng thí nghiệm thu được cho thấy 
+FAPSO hoạt động tốt hơn so với các loại khác (FAABC, FAIWO, FATLBO) về chất lượng và tốc độ hội tụ.
++ Mặt khác, FATLBO hoạt động tương đối tốt và gần được như FAPSO, vì chất lượng gần bằng và tốc độ tốt hơn. 
++ Tuy nhiên, FAIWO tỏ ra kém hiệu quả về chất lượng và tốc độ thực thi. 
++ Trong tương lai, chúng tôi dự định áp dụng các thuật toán kết hợp dựa trên FA cải tiến tương tự bài báo này.
++ Tương tự, sẽ rất thú vị khi thấy một số phần mở rộng high-level của các thuật toán phân cụm tự động đã đề xuất, có thể xác định được 
+tập cấu hình tham số tối ưu nhất cho từng quá trình riêng lẻ. 
++ Cuối cùng, khả năng kết hợp các thuật toán FA với một số phương pháp Deep Learning clustering như Deep embedding clustering [83],
+  deep clustering network [84], pairwise constraints clustering [85], deep embedding network [86], joint unsupervised learning of deep representation for images [84],
+  deep learning with non-parametric clustering [87], convolutional neural network clustering [88] and deep clustering with convolutional autoencoder embedding [90]...
+  với kích thước dữ liệu lớn và các đặc trưng phức tạp hơn.
