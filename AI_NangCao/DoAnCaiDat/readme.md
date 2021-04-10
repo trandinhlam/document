@@ -118,10 +118,15 @@ ____
       + Thời gian thực thi lần 1 (0.8 train,0.2 test): 2796 giây cho 25 lần lặp (mỗi lần batch_size=64)
       + Thời gian thực thi lần 2 (0.7 train,0.3 test): 3148 giây cho 25 lần lặp (mỗi lần batch_size=64)
       + Thời gian thực thi lần 2 (0.9 train,0.1 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
-       
+    + Máy Kiên: CPU i5 8400 @ 2.800GHz (6 CPUs)
+      + Thời gian thực thi (kiennt_log_01) (0.9 train, 0.1 test, 60x60 size): 1479 giây cho 25 lần lặp (mỗi lần batch_size=64)
     
-  + GPU: Google Colab GPU Tesla K30
-    + Thời gian thực thi lần 1: (0.9 train, 0.1 test): 134 giây cho 25 lần lặp
+  + GPU: 
+    + Google Colab GPU Tesla K30
+      + Thời gian thực thi lần 1: (0.9 train, 0.1 test): 134 giây cho 25 lần lặp
+    + Máy Kiên: NVIDIA GTX 1070
+      + Thời gian thực thi (kiennt_log_02): (0.9 train, 0.1 test, 50x50 size, increasing filters): 130 giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi (kiennt_log_03) (0.9 train, 0.1 test, 60x60 size, increasing filters): 80 giây cho 25 lần lặp (mỗi lần batch_size=64)
 
 + So sánh kết quả khi thay đổi các tham số khác nhau
 + Lưu lại kết quả chạy

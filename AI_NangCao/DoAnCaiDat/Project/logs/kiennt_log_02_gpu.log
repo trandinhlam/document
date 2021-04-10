@@ -1,0 +1,91 @@
+Information:
+- Running with GPU GTX 1070
+- Standard size: 50x50
+- Train: 0.8 | Test: 0.2 | Filters_layer_1: 64 | Filters_layer_2: 96 | Filters_layer_3: 128
+
+============================================
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 50, 50, 64)        1792      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 25, 25, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 25, 25, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 23, 23, 96)        55392
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 96)        0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 96)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 9, 128)         110720
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 128)         0
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 128)         0
+_________________________________________________________________
+flatten (Flatten)            (None, 2048)              0
+_________________________________________________________________
+dense (Dense)                (None, 128)               262272
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0
+_________________________________________________________________
+dense_1 (Dense)              (None, 43)                5547
+=================================================================
+Total params: 435,723
+Trainable params: 435,723
+Non-trainable params: 0
+_________________________________________________________________
+None
+
+2021-04-10 21:51:59.506668: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:180] None of the MLIR Optimization Passes are enabled (registered 2)
+Epoch 1/25
+2021-04-10 21:52:00.822682: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-04-10 21:52:01.661887: I tensorflow/stream_executor/cuda/cuda_dnn.cc:367] Loaded cuDNN version 8101
+2021-04-10 21:52:02.643880: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-04-10 21:52:03.577348: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+491/491 - 11s - loss: 2.4729 - accuracy: 0.2970 - val_loss: 1.3914 - val_accuracy: 0.6135
+Epoch 2/25
+491/491 - 5s - loss: 1.1351 - accuracy: 0.6320 - val_loss: 0.4378 - val_accuracy: 0.8869
+Epoch 3/25
+491/491 - 6s - loss: 0.6578 - accuracy: 0.7849 - val_loss: 0.2231 - val_accuracy: 0.9481
+Epoch 4/25
+491/491 - 5s - loss: 0.4644 - accuracy: 0.8481 - val_loss: 0.1398 - val_accuracy: 0.9695
+Epoch 5/25
+491/491 - 5s - loss: 0.3512 - accuracy: 0.8841 - val_loss: 0.0868 - val_accuracy: 0.9765
+Epoch 6/25
+491/491 - 5s - loss: 0.2955 - accuracy: 0.9051 - val_loss: 0.0714 - val_accuracy: 0.9833
+Epoch 7/25
+491/491 - 5s - loss: 0.2501 - accuracy: 0.9200 - val_loss: 0.0538 - val_accuracy: 0.9890
+Epoch 8/25
+491/491 - 6s - loss: 0.2236 - accuracy: 0.9292 - val_loss: 0.0412 - val_accuracy: 0.9909
+Epoch 9/25
+491/491 - 6s - loss: 0.2032 - accuracy: 0.9356 - val_loss: 0.0417 - val_accuracy: 0.9875
+Epoch 10/25
+491/491 - 6s - loss: 0.1920 - accuracy: 0.9385 - val_loss: 0.0326 - val_accuracy: 0.9915
+Epoch 11/25
+491/491 - 5s - loss: 0.1725 - accuracy: 0.9455 - val_loss: 0.0300 - val_accuracy: 0.9927
+Epoch 12/25
+491/491 - 6s - loss: 0.1605 - accuracy: 0.9492 - val_loss: 0.0250 - val_accuracy: 0.9938
+Epoch 13/25
+491/491 - 6s - loss: 0.1531 - accuracy: 0.9516 - val_loss: 0.0237 - val_accuracy: 0.9948
+Epoch 14/25
+491/491 - 6s - loss: 0.1451 - accuracy: 0.9535 - val_loss: 0.0241 - val_accuracy: 0.9949
+Epoch 15/25
+491/491 - 6s - loss: 0.1572 - accuracy: 0.9518 - val_loss: 0.0201 - val_accuracy: 0.9960
+Epoch 16/25
+491/491 - 5s - loss: 0.1387 - accuracy: 0.9564 - val_loss: 0.0202 - val_accuracy: 0.9953
+Epoch 17/25
+491/491 - 6s - loss: 0.1294 - accuracy: 0.9605 - val_loss: 0.0174 - val_accuracy: 0.9959
+Epoch 18/25
+491/491 - 6s - loss: 0.1293 - accuracy: 0.9596 - val_loss: 0.0161 - val_accuracy: 0.9963
+Epoch 19/25
+491/491 - 6s - loss: 0.1227 - accuracy: 0.9626 - val_loss: 0.0146 - val_accuracy: 0.9967
+Epoch 20/25
+491/491 - 5s - loss: 0.1190 - accuracy: 0.9626 - val_loss: 0.0185 - val_accuracy: 0.9957
+Epoch 21/25
+491/491 - 5s - loss: 0.1239 - accuracy: 0.9623 - val_loss: 0.0185 - val_accuracy: 0.9953
+---> Execution time: 130.32483315467834 seconds

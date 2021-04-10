@@ -1,0 +1,86 @@
+Information:
+- Running with GPU GTX 1070
+- Standard size: 60x60
+- Train: 0.9 | Test: 0.1 | Filters_layer_1: 64 | Filters_layer_2: 64 | Filters_layer_3: 64
+
+============================================
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 50, 50, 64)        1792      
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 25, 25, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 25, 25, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 23, 23, 64)        36928     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 11, 11, 64)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 11, 11, 64)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 9, 64)          36928     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 4, 4, 64)          0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 4, 4, 64)          0         
+_________________________________________________________________
+flatten (Flatten)            (None, 1024)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               131200    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 43)                5547      
+=================================================================
+Total params: 212,395
+Trainable params: 212,395
+Non-trainable params: 0
+_________________________________________________________________
+None
+
+Epoch 1/25
+552/552 - 72s - loss: 2.6137 - accuracy: 0.2570 - val_loss: 1.5439 - val_accuracy: 0.5121
+Epoch 2/25
+552/552 - 71s - loss: 1.3398 - accuracy: 0.5597 - val_loss: 0.6857 - val_accuracy: 0.8212
+Epoch 3/25
+552/552 - 71s - loss: 0.8106 - accuracy: 0.7308 - val_loss: 0.3433 - val_accuracy: 0.9225
+Epoch 4/25
+552/552 - 71s - loss: 0.5654 - accuracy: 0.8134 - val_loss: 0.2027 - val_accuracy: 0.9579
+Epoch 5/25
+552/552 - 72s - loss: 0.4382 - accuracy: 0.8556 - val_loss: 0.1386 - val_accuracy: 0.9719
+Epoch 6/25
+552/552 - 70s - loss: 0.3677 - accuracy: 0.8800 - val_loss: 0.1132 - val_accuracy: 0.9735
+Epoch 7/25
+552/552 - 70s - loss: 0.3181 - accuracy: 0.8954 - val_loss: 0.0817 - val_accuracy: 0.9804
+Epoch 8/25
+552/552 - 70s - loss: 0.2954 - accuracy: 0.9040 - val_loss: 0.0674 - val_accuracy: 0.9839
+Epoch 9/25
+552/552 - 70s - loss: 0.2662 - accuracy: 0.9145 - val_loss: 0.0602 - val_accuracy: 0.9875
+Epoch 10/25
+552/552 - 70s - loss: 0.2478 - accuracy: 0.9209 - val_loss: 0.0589 - val_accuracy: 0.9898
+Epoch 11/25
+552/552 - 70s - loss: 0.2256 - accuracy: 0.9279 - val_loss: 0.0404 - val_accuracy: 0.9911
+Epoch 12/25
+552/552 - 70s - loss: 0.2194 - accuracy: 0.9299 - val_loss: 0.0384 - val_accuracy: 0.9923
+Epoch 13/25
+552/552 - 70s - loss: 0.2109 - accuracy: 0.9336 - val_loss: 0.0363 - val_accuracy: 0.9936
+Epoch 14/25
+552/552 - 70s - loss: 0.2022 - accuracy: 0.9366 - val_loss: 0.0321 - val_accuracy: 0.9926
+Epoch 15/25
+552/552 - 70s - loss: 0.1910 - accuracy: 0.9393 - val_loss: 0.0323 - val_accuracy: 0.9916
+Epoch 16/25
+552/552 - 70s - loss: 0.1897 - accuracy: 0.9422 - val_loss: 0.0310 - val_accuracy: 0.9926
+Epoch 17/25
+552/552 - 70s - loss: 0.1767 - accuracy: 0.9443 - val_loss: 0.0260 - val_accuracy: 0.9939
+Epoch 18/25
+552/552 - 70s - loss: 0.1762 - accuracy: 0.9443 - val_loss: 0.0281 - val_accuracy: 0.9949
+Epoch 19/25
+552/552 - 70s - loss: 0.1697 - accuracy: 0.9472 - val_loss: 0.0232 - val_accuracy: 0.9959
+Epoch 20/25
+552/552 - 70s - loss: 0.1663 - accuracy: 0.9475 - val_loss: 0.0265 - val_accuracy: 0.9936
+Epoch 21/25
+552/552 - 70s - loss: 0.1662 - accuracy: 0.9478 - val_loss: 0.0233 - val_accuracy: 0.9941
+---> Execution time: 1479.8707387447357 seconds
