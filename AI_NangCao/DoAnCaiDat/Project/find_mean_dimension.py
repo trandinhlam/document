@@ -9,10 +9,11 @@ from config import TRAIN_PATH, SLASH
 
 
 def find_mean():
+    print('finding mean...')
     dim1 = []
     dim2 = []
     for i in range(0, 43):
-        labels = TRAIN_PATH + SLASH + '{:02d}'.format(i)
+        labels = TRAIN_PATH + SLASH + '{0}'.format(i)
         img_path = os.listdir(labels)
         for x in img_path:
             img = imread(labels + SLASH + x)

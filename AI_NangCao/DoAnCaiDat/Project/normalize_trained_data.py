@@ -11,7 +11,7 @@ def normalize_data():
     images = []
     labels = []
     for i in range(43):
-        folder = TRAIN_PATH + SLASH + '{:02d}'.format(i)
+        folder = TRAIN_PATH + SLASH + '{0}'.format(i)
         image_path = os.listdir(folder)
         for item in image_path:
             img = Image.open(folder + SLASH + item)

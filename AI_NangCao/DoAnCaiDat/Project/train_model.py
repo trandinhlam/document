@@ -15,7 +15,7 @@ def start_train():
     images = np.load(NUMPY_OUTPUT + SLASH + 'standard_training.npy')
     labels = np.load(NUMPY_OUTPUT + SLASH + 'labels.npy')
 
-    x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.1, random_state=42)
+    x_train, x_val, y_train, y_val = train_test_split(images, labels, test_size=0.2, train_size=0.8, random_state=42)
     # one-hot encoding
     y_train_cat = to_categorical(y_train)
     y_val_cat = to_categorical(y_val)
@@ -32,11 +32,11 @@ def start_train():
     model.add(MaxPool2D(pool_size=(2, 2)))
     model.add(Dropout(0.5))
     # layer 2
-    model.add(Conv2D(filters=64, kernel_size=(3, 3), activation='relu'))
+    model.add(Conv2D(filters=96, kernel_size=(3, 3), activation='relu'))
     model.add(MaxPool2D(pool_size=(2, 2)))
     model.add(Dropout(0.5))
     # layer 3
-    model.add(Conv2D(filters=64, kernel_size=(3, 3), activation='relu'))
+    model.add(Conv2D(filters=128, kernel_size=(3, 3), activation='relu'))
     model.add(MaxPool2D(pool_size=(2, 2)))
     model.add(Dropout(0.5))
     # layer flatten
@@ -69,4 +69,3 @@ def start_train():
     plot1 = evaluation[['accuracy', 'val_accuracy']].plot()
     plot2 = evaluation[['loss', 'val_loss']].plot()
 
-start_train()
