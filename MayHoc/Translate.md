@@ -235,92 +235,218 @@ ___
 
 ## III. THE FIREFLY ALGORITHM
 
-
-+ Thuật toán Firefly (Firefly algorithm - FA)là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên được phát triển bởi Xin-She Yang vào cuối năm 2007 và đầu năm 2008 [29], [30]. Khái niệm thiết kế thuật toán FA lấy cảm hứng từ sự chiếu sáng động của thuộc tính ánh sáng từ những con đom đóm thường được tìm thấy ở hầu hết các vùng nhiệt đới và các vùng ôn đới. Có khoảng 2000 loài đom đóm, trong số đó có nhiều con tạo ra phát ra ánh sáng nhấp nháy trong những khoảng thời gian đều đặn.
-+ Ánh sáng do những loài côn trùng này tạo ra thường được dùng như tín hiệu (để thông báo cho các con khác trong đàn) được sử dụng để dụ những con đom đóm khác và cũng có thể dùng để gửi cảnh báo về con mồi tiềm năng [31]. 
-+ Như một trí thông minh bầy đàn mới lạ thuật toán metaheuristic dựa trên dân số (novel swarm intelligence population-based metaheuristic algorithm), FA đã được sử dụng để giải quyết các vấn đề tối ưu hóa thiết kế kỹ thuật phi tuyến khác nhau, như được báo cáo trong [32]. Hơn nữa, các nghiên cứu đã có cũng cho thấy rằng FA rất có triển vọng trong việc giải quyết các bài toán tối ưu hóa số NP khó nhất (NP-hard numerical optimization problem) trong cả không gian liên tục và không gian rời rạc [33]. 
-+ Mô hình toán học và biểu diễn thuật toán FA tiêu chuẩn được biểu diễn trong các phương trình từ (1) đến (5). Trong phương trình (1), cường độ ánh sáng I của đèn pin đom đóm được cho là tỷ lệ nghịch với tỷ lệ với bình phương khoảng cách của nó (ký hiệu là r). Điều này ngụ ý rằng cường độ ánh sáng của từng con đom đóm giảm dần với khoảng cách tăng dần . Tuy nhiên, điều này là do khi khoảng cách tăng lên, ánh sáng được tỏa ra vào môi trường xung quanh [33]. (giống giống kiểu cường độ âm thanh tỉ lệ với khoảng cách theo hàm mũ gì đó)
++ Thuật toán Firefly (Firefly algorithm - FA)là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên được phát triển
+  bởi Xin-She Yang vào cuối năm 2007 và đầu năm 2008 [29], [30]. Khái niệm thiết kế thuật toán FA lấy cảm hứng từ sự
+  chiếu sáng động của thuộc tính ánh sáng từ những con đom đóm thường được tìm thấy ở hầu hết các vùng nhiệt đới và các
+  vùng ôn đới. Có khoảng 2000 loài đom đóm, trong số đó có nhiều con tạo ra phát ra ánh sáng nhấp nháy trong những
+  khoảng thời gian đều đặn.
++ Ánh sáng do những loài côn trùng này tạo ra thường được dùng như tín hiệu (để thông báo cho các con khác trong đàn)
+  được sử dụng để dụ những con đom đóm khác và cũng có thể dùng để gửi cảnh báo về con mồi tiềm năng [31].
++ Như một trí thông minh bầy đàn mới lạ thuật toán metaheuristic dựa trên dân số (novel swarm intelligence
+  population-based metaheuristic algorithm), FA đã được sử dụng để giải quyết các vấn đề tối ưu hóa thiết kế kỹ thuật
+  phi tuyến khác nhau, như được báo cáo trong [32]. Hơn nữa, các nghiên cứu đã có cũng cho thấy rằng FA rất có triển
+  vọng trong việc giải quyết các bài toán tối ưu hóa số NP khó nhất (NP-hard numerical optimization problem) trong cả
+  không gian liên tục và không gian rời rạc [33].
++ Mô hình toán học và biểu diễn thuật toán FA tiêu chuẩn được biểu diễn trong các phương trình từ (1) đến (5). Trong
+  phương trình (1), cường độ ánh sáng I của đèn pin đom đóm được cho là tỷ lệ nghịch với tỷ lệ với bình phương khoảng
+  cách của nó (ký hiệu là r). Điều này ngụ ý rằng cường độ ánh sáng của từng con đom đóm giảm dần với khoảng cách tăng
+  dần . Tuy nhiên, điều này là do khi khoảng cách tăng lên, ánh sáng được tỏa ra vào môi trường xung quanh [33]. (giống
+  giống kiểu cường độ âm thanh tỉ lệ với khoảng cách theo hàm mũ gì đó)
 
 + // TODO: insert pt (1) vô đây
 
-Căn chỉnh bối cảnh vấn đề với thiết kế của thuật toán FA (Aligning the problem landscape to the FA algorithm design), mô hình tối ưu hóa có thể được xây dựng theo cách cách mà ánh sáng đom đóm tỷ lệ thuận với giá trị của fitness function cần được tối ưu hóa. Các nguyên tắc thiết kế sau đây được sử dụng để xây dựng FA cơ bản [31]: nó được giả định rằng tất cả các loài đom đóm giống hệt nhau về giới tính, sức hấp dẫn của mỗi con đom đóm tỷ lệ thuận với chất lượng ánh sáng của nó cường độ được tạo ra, cường độ của ánh sáng được tạo ra bởi bất kỳ đom đóm được xác định bởi giá trị của hàm fitness cần được tối ưu hóa . Trong thiết kế thuật toán FA, cường độ ánh sáng và sự hấp dẫn được coi là đóng một vai trò quan trọng trong thực hiện và hiệu suất thuật toán. Thông thường, trong trường hợp các vấn đề về tối đa hóa, cường độ ánh sáng, được tạo ra tại một điểm xác định (y) tỷ lệ thuận với giá trị phù hợp của fitness function, đó là I (y) / F (y). Như hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách và cường độ ánh sáng phát ra môi trường xung quanh.
+Căn chỉnh bối cảnh vấn đề với thiết kế của thuật toán FA (Aligning the problem landscape to the FA algorithm design), mô
+hình tối ưu hóa có thể được xây dựng theo cách cách mà ánh sáng đom đóm tỷ lệ thuận với giá trị của fitness function cần
+được tối ưu hóa. Các nguyên tắc thiết kế sau đây được sử dụng để xây dựng FA cơ bản [31]: nó được giả định rằng tất cả
+các loài đom đóm giống hệt nhau về giới tính, sức hấp dẫn của mỗi con đom đóm tỷ lệ thuận với chất lượng ánh sáng của nó
+cường độ được tạo ra, cường độ của ánh sáng được tạo ra bởi bất kỳ đom đóm được xác định bởi giá trị của hàm fitness cần
+được tối ưu hóa . Trong thiết kế thuật toán FA, cường độ ánh sáng và sự hấp dẫn được coi là đóng một vai trò quan trọng
+trong thực hiện và hiệu suất thuật toán. Thông thường, trong trường hợp các vấn đề về tối đa hóa, cường độ ánh sáng,
+được tạo ra tại một điểm xác định (y) tỷ lệ thuận với giá trị phù hợp của fitness function, đó là I (y) / F (y). Như
+hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách và cường độ ánh sáng phát ra môi trường xung quanh.
 
 // TODO: insert pt (2) vô đây
 
-+ trong đó I0 biểu thị cường độ ánh sáng ban đầu tại r D 0, γ là hệ số hấp thụ ánh sáng, còn r là khoảng cách. Từ pt (2), bằng cách kết hợp ảnh hưởng của luật bình phương nghịch đảo và sự hấp thụ, điểm kỳ dị (the singularity) tại r D 0 được phá vỡ (circumvented) trong biểu thức 1 / r ^ 2 [30], [33]. Dựa trên pt (3), sức hấp dẫn của đom đóm (β) tỷ lệ với cường độ ánh sáng của đom đóm.
++ trong đó I0 biểu thị cường độ ánh sáng ban đầu tại r D 0, γ là hệ số hấp thụ ánh sáng, còn r là khoảng cách. Từ pt (2)
+  , bằng cách kết hợp ảnh hưởng của luật bình phương nghịch đảo và sự hấp thụ, điểm kỳ dị (the singularity) tại r D 0
+  được phá vỡ (circumvented) trong biểu thức 1 / r ^ 2 [30], [33]. Dựa trên pt (3), sức hấp dẫn của đom đóm (β) tỷ lệ
+  với cường độ ánh sáng của đom đóm.
 
 + // TODO: insert pt (3) vô đây
 
-+ trong đó β0 chỉ độ hấp dẫn tại r D 0.
-Số đo khoảng cách giữa hai con đom đóm xi và xj bất kỳ được xác định theo khoảng cách Euclide
++ trong đó β0 chỉ độ hấp dẫn tại r D 0. Số đo khoảng cách giữa hai con đom đóm xi và xj bất kỳ được xác định theo khoảng
+  cách Euclide
 
 + // TODO: insert pt (4) vô đây
 
-+ trong đó d là thứ nguyên của vấn đề (problem dimension). Sự chuyển động của đom đóm từ một điểm (i) đến điểm khác (j) được xây dựng như thể hiện trong eq. (5):
++ trong đó d là thứ nguyên của vấn đề (problem dimension). Sự chuyển động của đom đóm từ một điểm (i) đến điểm khác (j)
+  được xây dựng như thể hiện trong eq. (5):
 
 + // TODO: insert pt (5) vô đây
 
-+ trong đó α 2 [0; 1]; γ 2 [0; 1). Tham số Ei là một số ngẫu nhiên thu được từ phân phối Gaussian. Ei có thể được được thay thế bằng rand - 0: 5, trong đó rand 2 [0; 1]. Thuật ngữ thứ ba (αEi) trong pt (5) cho thấy chuyển động của đom đóm từ một điểm đến một điểm khác, liên quan đến sức hấp dẫn của chúng (with regards to their attractiveness)
++ trong đó α 2 [0; 1]; γ 2 [0; 1). Tham số Ei là một số ngẫu nhiên thu được từ phân phối Gaussian. Ei có thể được được
+  thay thế bằng rand - 0: 5, trong đó rand 2 [0; 1]. Thuật ngữ thứ ba (αEi) trong pt (5) cho thấy chuyển động của đom
+  đóm từ một điểm đến một điểm khác, liên quan đến sức hấp dẫn của chúng (with regards to their attractiveness)
 
-+ Trong bài báo này, để cải thiện khả năng thăm dò và khai thác (exploration and exploitation capability) của FA, để thuật toán có thể xử lý các nhiệm vụ phân cụm nhiều chiều (clustering tasks of high dimensionality) hiệu quả hơn, khái niệm chiến lược đột biến (mutation strategy) được đưa vào quá trình tìm kiếm của thuật toán đom đóm. Lý tưởng nhất, chiến lược đột biến FA được sửa đổi (modified mutation strategy) khám phá và khai thác không gian tìm kiếm bằng cách tận dụng các tính năng mong muốn hơn (leveraging more desirable features) từ những con đom đóm hấp dẫn và thêm chức năng tương tự để nâng cao sức hấp dẫn (adding such functionality to enhance the attractiveness) của những con đom đóm kém sáng hơn. Sự mở rộng việc sửa đổi các tính năng cải thiện (The extent of the enhancement feature modification) là cần thiết cho bất kỳ con đom đóm nào có độ sáng yếu được xác định bằng cách tính xác suất đột biến (MP) của đom đóm đó. 
-+ Do đó, người ta cho rằng những con đom đóm có độ sáng tuyệt vời sẽ có MP thấp hơn, trong khi những con đom đóm có cường độ ánh sáng thấp sẽ có MP cao hơn. Nhìn chung, khái niệm sử dụng MP là có khả năng cao cải thiện các giải pháp chất lượng thấp và khả năng giảm chất lượng các giải pháp tốt là thấp. Xác suất toán tử đột biến được sử dụng để tạo ra sự đa dạng bổ sung giữa bầy đom đóm được hoán vị (commutated) như sau
++ Trong bài báo này, để cải thiện khả năng thăm dò và khai thác (exploration and exploitation capability) của FA, để
+  thuật toán có thể xử lý các nhiệm vụ phân cụm nhiều chiều (clustering tasks of high dimensionality) hiệu quả hơn, khái
+  niệm chiến lược đột biến (mutation strategy) được đưa vào quá trình tìm kiếm của thuật toán đom đóm. Lý tưởng nhất,
+  chiến lược đột biến FA được sửa đổi (modified mutation strategy) khám phá và khai thác không gian tìm kiếm bằng cách
+  tận dụng các tính năng mong muốn hơn (leveraging more desirable features) từ những con đom đóm hấp dẫn và thêm chức
+  năng tương tự để nâng cao sức hấp dẫn (adding such functionality to enhance the attractiveness) của những con đom đóm
+  kém sáng hơn. Sự mở rộng việc sửa đổi các tính năng cải thiện (The extent of the enhancement feature modification) là
+  cần thiết cho bất kỳ con đom đóm nào có độ sáng yếu được xác định bằng cách tính xác suất đột biến (MP) của đom đóm
+  đó.
++ Do đó, người ta cho rằng những con đom đóm có độ sáng tuyệt vời sẽ có MP thấp hơn, trong khi những con đom đóm có
+  cường độ ánh sáng thấp sẽ có MP cao hơn. Nhìn chung, khái niệm sử dụng MP là có khả năng cao cải thiện các giải pháp
+  chất lượng thấp và khả năng giảm chất lượng các giải pháp tốt là thấp. Xác suất toán tử đột biến được sử dụng để tạo
+  ra sự đa dạng bổ sung giữa bầy đom đóm được hoán vị (commutated) như sau
 
 + // TODO: insert pt (6) vô đây
 
-+ trong đó f (xnew) là fitness (tỉ lệ với ánh sáng phát ra ???) của đom đóm mới và f (xold) là fitness của đom đóm đầu tiên. Các bước chính của FA đột biến được tóm tắt như được minh họa trong danh sách Thuật toán 1.
++ trong đó f (xnew) là fitness (tỉ lệ với ánh sáng phát ra ???) của đom đóm mới và f (xold) là fitness của đom đóm đầu
+  tiên. Các bước chính của FA đột biến được tóm tắt như được minh họa trong danh sách Thuật toán 1.
 
 + // TODO: insert thuật toán 1 vô đây
 
 + A. FIREFLY-BASED HYBRIDS AND CLUSTERING PROBLEM DESCRIPTION
 
-+ Các phương pháp lai được đề xuất được mô tả trong bài báo này tập trung vào việc khai thác lợi thế khác nhau của cả FA và các thuật toán đại diện khác (other representative algorithms), cụ thể là các thuật toán PSO, ABC, IWO và TLBO. Điều thú vị không kém là tất cả các thuật toán được đề cập ở trên đều hoạt động tốt cho một loạt các vấn đề tối ưu hóa toàn cầu (global optimization problems). Trong nghiên cứu này, chúng tôi đề xuất một tập hợp các thuật toán lai mới dựa trên thuật toán đom đóm bằng cách kết hợp một số ưu điểm của tất cả các thuật toán riêng lẻ đã đề cập ở trên. Các thuật toán kết hợp được đề xuất kết hợp cơ chế thu hút của FA với khả năng liên kết hiệu quả của PSO, ABC, IWO và TLBO để duy trì sự cân bằng tốt giữa việc thăm dò và khai thác không gian tìm kiếm vấn đề. Ngoài ra, sự kết hợp được thực hiện như vậy cũng để tăng độ chính xác của lời giải, tốc độ hội tụ và sự đa dạng của phân bố (diversity of the population). Chúng tôi đã triển khai bốn thuật toán kết hợp, đó là FAPSO, FAABC, FAIWO và FATLBO, để giải quyết các vấn đề phân cụm dữ liệu. Đáng chú ý là FA được cải tiến và bốn metaheuristics khác được thực hiện song song để thúc đẩy cụ thể việc chia sẻ thông tin giữa quần thể bầy đàn và do đó nâng cao hiệu quả tìm kiếm [37].
++ Các phương pháp lai được đề xuất được mô tả trong bài báo này tập trung vào việc khai thác lợi thế khác nhau của cả FA
+  và các thuật toán đại diện khác (other representative algorithms), cụ thể là các thuật toán PSO, ABC, IWO và TLBO.
+  Điều thú vị không kém là tất cả các thuật toán được đề cập ở trên đều hoạt động tốt cho một loạt các vấn đề tối ưu hóa
+  toàn cầu (global optimization problems). Trong nghiên cứu này, chúng tôi đề xuất một tập hợp các thuật toán lai mới
+  dựa trên thuật toán đom đóm bằng cách kết hợp một số ưu điểm của tất cả các thuật toán riêng lẻ đã đề cập ở trên. Các
+  thuật toán kết hợp được đề xuất kết hợp cơ chế thu hút của FA với khả năng liên kết hiệu quả của PSO, ABC, IWO và TLBO
+  để duy trì sự cân bằng tốt giữa việc thăm dò và khai thác không gian tìm kiếm vấn đề. Ngoài ra, sự kết hợp được thực
+  hiện như vậy cũng để tăng độ chính xác của lời giải, tốc độ hội tụ và sự đa dạng của phân bố (diversity of the
+  population). Chúng tôi đã triển khai bốn thuật toán kết hợp, đó là FAPSO, FAABC, FAIWO và FATLBO, để giải quyết các
+  vấn đề phân cụm dữ liệu. Đáng chú ý là FA được cải tiến và bốn metaheuristics khác được thực hiện song song để thúc
+  đẩy cụ thể việc chia sẻ thông tin giữa quần thể bầy đàn và do đó nâng cao hiệu quả tìm kiếm [37].
 
-+ Chiến lược triển khai được sử dụng bởi bốn thuật toán kết hợp mới bắt đầu quá trình tìm kiếm của nó bằng cách sử dụng FA làm thuật toán tìm kiếm tối ưu hóa toàn cầu (global optimization search algorithm), vì khả năng khám phá mạnh mẽ của nó và sau đó giới thiệu riêng lẻ bốn thuật toán khác một cách riêng lẻ và sau đó sử dụng chúng như một thuật toán tối ưu hóa tìm kiếm cục bộ (local optimization search algorithm) để nâng cao khả năng thâm canh (intensification capability) của các phương pháp lai mới. Cơ chế tìm kiếm cục bộ có ý nghĩa quan trọng trong việc thiết kế thuật toán kết hợp mới, đặc biệt khi quá trình tìm kiếm đi xuống đường dẫn của các giải pháp tối ưu cục bộ (descends the paths of the local optimal solutions), nó sẽ ngăn các thuật toán mắc kẹt vào cực tiểu cục bộ (prevent the algorithms from entrapment into local minima). Do đó, lợi thế, như đã đề cập ở trên, được tận dụng để cải thiện cả khả năng khai thác và thăm dò của các thuật toán lai dựa trên FA được đề xuất. Hơn nữa, một trong những chất lượng nâng cao chính (main enhancement quality) của cơ chế kết hợp và tập hợp lại (hybridization and regrouping mechanism) của các thuật toán mới là để đảm bảo rằng việc tìm kiếm các giải pháp ứng cử viên (candidate solutions) chỉ tập trung vào vùng hứa hẹn (promising region) của không gian tìm kiếm giải pháp (solution search spaces). Cơ chế này rất quan trọng, vì nó hỗ trợ phương pháp được đề xuất không tìm kiếm giải pháp ứng cử viên trong các vùng kém hứa hẹn hơn của không gian tìm kiếm. Một kỹ thuật tương tự đã được thực hiện ở [37], nơi FA được kết hợp với thuật toán tiến hóa vi phân (differential evolution algorithm).
++ Chiến lược triển khai được sử dụng bởi bốn thuật toán kết hợp mới bắt đầu quá trình tìm kiếm của nó bằng cách sử dụng
+  FA làm thuật toán tìm kiếm tối ưu hóa toàn cầu (global optimization search algorithm), vì khả năng khám phá mạnh mẽ
+  của nó và sau đó giới thiệu riêng lẻ bốn thuật toán khác một cách riêng lẻ và sau đó sử dụng chúng như một thuật toán
+  tối ưu hóa tìm kiếm cục bộ (local optimization search algorithm) để nâng cao khả năng thâm canh (intensification
+  capability) của các phương pháp lai mới. Cơ chế tìm kiếm cục bộ có ý nghĩa quan trọng trong việc thiết kế thuật toán
+  kết hợp mới, đặc biệt khi quá trình tìm kiếm đi xuống đường dẫn của các giải pháp tối ưu cục bộ (descends the paths of
+  the local optimal solutions), nó sẽ ngăn các thuật toán mắc kẹt vào cực tiểu cục bộ (prevent the algorithms from
+  entrapment into local minima). Do đó, lợi thế, như đã đề cập ở trên, được tận dụng để cải thiện cả khả năng khai thác
+  và thăm dò của các thuật toán lai dựa trên FA được đề xuất. Hơn nữa, một trong những chất lượng nâng cao chính (main
+  enhancement quality) của cơ chế kết hợp và tập hợp lại (hybridization and regrouping mechanism) của các thuật toán mới
+  là để đảm bảo rằng việc tìm kiếm các giải pháp ứng cử viên (candidate solutions) chỉ tập trung vào vùng hứa hẹn (
+  promising region) của không gian tìm kiếm giải pháp (solution search spaces). Cơ chế này rất quan trọng, vì nó hỗ trợ
+  phương pháp được đề xuất không tìm kiếm giải pháp ứng cử viên trong các vùng kém hứa hẹn hơn của không gian tìm kiếm.
+  Một kỹ thuật tương tự đã được thực hiện ở [37], nơi FA được kết hợp với thuật toán tiến hóa vi phân (differential
+  evolution algorithm).
 
-+  lực và hiệu quả của các phương pháp lai dựa trên FA được đề xuất được đánh giá bằng cách sử dụng các chỉ số giá trị CS và DB (CS and DB validity indices) được thảo luận trong phần III của bài báo này. Hai chỉ số hợp lệ này cũng giúp xác định số lượng cụm tối ưu thích hợp và tìm cách phân vùng tốt nhất cho các cụm được phát hiện. Đối với giai đoạn đầu tiên của việc triển khai thuật toán lai, các thuật toán lai dựa trên FA bắt đầu quá trình tối ưu hóa tìm kiếm của chúng với việc tạo ra quần thể đom đóm khởi tạo (initialization population of fireflies). Sau đó, fitness function của từng giải pháp ứng viên do FA tìm thấy được tính toán và xác định bằng cách sử dụng hai phép đó phân cụm hợp lệ (clustering validity measures). 
-+ Ngược lại, các giải pháp mới này với các giá trị phù hợp nhất được cập nhật bằng cách sử dụng các toán tử của FA. 
-+ Trong giai đoạn tối ưu hóa thứ hai, quy trình tương tự được lặp đi lặp lại bằng cách sử dụng các toán tử của thuật toán PSO, ABC, IWO và TLBO, tương ứng để tối ưu hóa lại các giải pháp thu được trong giai đoạn đầu tiên. Lưu ý rằng hai giai đoạn của kỹ thuật tối ưu hóa tạo thành chu kỳ đầu tiên của giai đoạn đánh giá cho việc triển khai FAPSO, FAABC, FAIWO và FATLBO. 
-+ Điều thú vị là ở đây đề cập đến bốn thuật toán lai dựa trên FA sử dụng giải pháp tốt nhất được tạo ra bởi kết quả tìm kiếm của FA trong giai đoạn đầu tiên làm quần thể tìm kiếm ban đầu của nó.
-+ (It is interesting to mention here that the four FA-based hybrids use the best solution generated by the FA search results in the first phase as its initial search population) 
-+ Đối với quá trình đánh giá, những local best trước đó và global best trong quần thể mới được so sánh và giải pháp ứng cử viên có giá trị fitness tốt nhất được cập nhật cho phù hợp. Như đã nêu trước đó, các chỉ số CS và DB được sử dụng bởi bốn phương pháp để tính toán final fitness function của mỗi giải pháp, mà các phương pháp lai dựa trên FA sử dụng để xác định giải pháp ứng viên tốt nhất và thực hiện các cập nhật cần thiết. Cuối cùng, giải pháp tốt nhất được xác định dựa trên giải pháp nào có giá trị CS-index hoặc DB-index nhỏ nhất. Toàn bộ quá trình của các thuật toán lai dựa trên FA được lặp lại cho đến khi đạt được các tiêu chí kết thúc (termination criteria are reached). Danh sách Thuật toán 2 cho thấy các bước được đề cập ở trên đối với các thuật toán FA-hybrid. Hình 1 minh họa lưu đồ phân vùng của phương pháp được đề xuất, trong khi Hình 2 minh họa lưu đồ thực hiện của các phương pháp lai tổng quát. Nói chung, hình này cũng đại diện cho các quá trình phân cụm của bốn lần triển khai thuật toán kết hợp. Tuy nhiên, đáng chú ý là một phần đóng góp chính của bài báo hiện nay là đề xuất về một nghiên cứu hiệu suất quan trọng và đánh giá một số thuật toán đom đóm lai cho nhiệm vụ phân cụm tự động. Không có ghi chép nào về một nghiên cứu tương tự trong tài liệu tồn tại tính đến thời điểm viết bài báo này.
++ lực và hiệu quả của các phương pháp lai dựa trên FA được đề xuất được đánh giá bằng cách sử dụng các chỉ số giá trị CS
+  và DB (CS and DB validity indices) được thảo luận trong phần III của bài báo này. Hai chỉ số hợp lệ này cũng giúp xác
+  định số lượng cụm tối ưu thích hợp và tìm cách phân vùng tốt nhất cho các cụm được phát hiện. Đối với giai đoạn đầu
+  tiên của việc triển khai thuật toán lai, các thuật toán lai dựa trên FA bắt đầu quá trình tối ưu hóa tìm kiếm của
+  chúng với việc tạo ra quần thể đom đóm khởi tạo (initialization population of fireflies). Sau đó, fitness function của
+  từng giải pháp ứng viên do FA tìm thấy được tính toán và xác định bằng cách sử dụng hai phép đó phân cụm hợp lệ (
+  clustering validity measures).
++ Ngược lại, các giải pháp mới này với các giá trị phù hợp nhất được cập nhật bằng cách sử dụng các toán tử của FA.
++ Trong giai đoạn tối ưu hóa thứ hai, quy trình tương tự được lặp đi lặp lại bằng cách sử dụng các toán tử của thuật
+  toán PSO, ABC, IWO và TLBO, tương ứng để tối ưu hóa lại các giải pháp thu được trong giai đoạn đầu tiên. Lưu ý rằng
+  hai giai đoạn của kỹ thuật tối ưu hóa tạo thành chu kỳ đầu tiên của giai đoạn đánh giá cho việc triển khai FAPSO,
+  FAABC, FAIWO và FATLBO.
++ Điều thú vị là ở đây đề cập đến bốn thuật toán lai dựa trên FA sử dụng giải pháp tốt nhất được tạo ra bởi kết quả tìm
+  kiếm của FA trong giai đoạn đầu tiên làm quần thể tìm kiếm ban đầu của nó.
++ (It is interesting to mention here that the four FA-based hybrids use the best solution generated by the FA search
+  results in the first phase as its initial search population)
++ Đối với quá trình đánh giá, những local best trước đó và global best trong quần thể mới được so sánh và giải pháp ứng
+  cử viên có giá trị fitness tốt nhất được cập nhật cho phù hợp. Như đã nêu trước đó, các chỉ số CS và DB được sử dụng
+  bởi bốn phương pháp để tính toán final fitness function của mỗi giải pháp, mà các phương pháp lai dựa trên FA sử dụng
+  để xác định giải pháp ứng viên tốt nhất và thực hiện các cập nhật cần thiết. Cuối cùng, giải pháp tốt nhất được xác
+  định dựa trên giải pháp nào có giá trị CS-index hoặc DB-index nhỏ nhất. Toàn bộ quá trình của các thuật toán lai dựa
+  trên FA được lặp lại cho đến khi đạt được các tiêu chí kết thúc (termination criteria are reached). Danh sách Thuật
+  toán 2 cho thấy các bước được đề cập ở trên đối với các thuật toán FA-hybrid. Hình 1 minh họa lưu đồ phân vùng của
+  phương pháp được đề xuất, trong khi Hình 2 minh họa lưu đồ thực hiện của các phương pháp lai tổng quát. Nói chung,
+  hình này cũng đại diện cho các quá trình phân cụm của bốn lần triển khai thuật toán kết hợp. Tuy nhiên, đáng chú ý là
+  một phần đóng góp chính của bài báo hiện nay là đề xuất về một nghiên cứu hiệu suất quan trọng và đánh giá một số
+  thuật toán đom đóm lai cho nhiệm vụ phân cụm tự động. Không có ghi chép nào về một nghiên cứu tương tự trong tài liệu
+  tồn tại tính đến thời điểm viết bài báo này.
 
-+ Như đã đề cập trước đó, các phương pháp triển khai thuật toán kết hợp bao gồm hai giai đoạn. Giai đoạn đầu tiên sử dụng thuật toán FA đã sửa đổi bằng cách tạo ngẫu nhiên bầy ban đầu (initial swarm), trong đó số lượng đom đóm bằng số cụm và quần thể bầy được phân bố đồng đều trên các kích thước của tập dữ liệu, trong trường hợp này là không gian tìm kiếm vấn đề phân cụm. Sau khi khởi tạo bầy, nhiệm vụ tiếp theo là đánh giá bầy tốt nhất theo fitness function được xác định bởi các chỉ số hợp lệ DB và CS [40]. Lưu ý rằng vị trí bầy đàn tốt nhất, ví dụ, đại diện cho điểm dữ liệu đạt được khoảng cách tối thiểu đến bầy đàn từ các lần tìm kiếm trước đó. 
-+ PSO, ABC, IWO và TLBO hoạt động trên tập giải pháp mới (new set of the solution) được tạo ra bởi phương trình cập nhật FA được đưa ra trong (5). Các tham số của logarit tương ứng được sử dụng để xác định các mô hình chuyển động (movement patterns) tiếp theo của các chiến lược tối ưu hóa của chúng như đã được giải thích trước đó. Lặp đi lặp lại các vị trí khác nhau của các tập hợp mới được cập nhật cho đến khi đáp ứng được trường hợp điều kiện kết thúc thỏa đáng và quá trình mô phỏng thuật toán được kết thúc.
++ Như đã đề cập trước đó, các phương pháp triển khai thuật toán kết hợp bao gồm hai giai đoạn. Giai đoạn đầu tiên sử
+  dụng thuật toán FA đã sửa đổi bằng cách tạo ngẫu nhiên bầy ban đầu (initial swarm), trong đó số lượng đom đóm bằng số
+  cụm và quần thể bầy được phân bố đồng đều trên các kích thước của tập dữ liệu, trong trường hợp này là không gian tìm
+  kiếm vấn đề phân cụm. Sau khi khởi tạo bầy, nhiệm vụ tiếp theo là đánh giá bầy tốt nhất theo fitness function được xác
+  định bởi các chỉ số hợp lệ DB và CS [40]. Lưu ý rằng vị trí bầy đàn tốt nhất, ví dụ, đại diện cho điểm dữ liệu đạt
+  được khoảng cách tối thiểu đến bầy đàn từ các lần tìm kiếm trước đó.
++ PSO, ABC, IWO và TLBO hoạt động trên tập giải pháp mới (new set of the solution) được tạo ra bởi phương trình cập nhật
+  FA được đưa ra trong (5). Các tham số của logarit tương ứng được sử dụng để xác định các mô hình chuyển động (movement
+  patterns) tiếp theo của các chiến lược tối ưu hóa của chúng như đã được giải thích trước đó. Lặp đi lặp lại các vị trí
+  khác nhau của các tập hợp mới được cập nhật cho đến khi đáp ứng được trường hợp điều kiện kết thúc thỏa đáng và quá
+  trình mô phỏng thuật toán được kết thúc.
 
 + B. CLUSTERING PROBLEM DESCRIPTION
 
-+ Trong nghiên cứu hiệu suất này, chúng tôi đề xuất một loạt các thuật toán đom đóm lai để giải quyết các vấn đề phân cụm dữ liệu tự động.
-+ Như được mô tả trong [34] để xử lý các vấn đề phân cụm dữ liệu tự động, chúng tôi áp dụng cách tiếp cận tương tự để triển khai các biến thể của thuật toán đom đóm lai. Cho rằng tập dữ liệu F được định nghĩa là F = {f1, f2, ..., fn} được chia thành các nhóm không chồng chéo của cụm G = {g1, g2, ..., gn}, sao cho thứ nguyên wi (i = 1, 2, ..., n) là p. Đối với mỗi cụm G = {g1, g2, ..., gn}, có một centroid di = (i = 1, 2, ..., C) được đại diện cho mỗi cụm, tức là, D = (d1, d2, ..., dC) là trọng tâm của G = {g1, g2, ..., gC}. Đối với vectơ dữ liệu p-chiều, các điều kiện sau phải xảy ra
++ Trong nghiên cứu hiệu suất này, chúng tôi đề xuất một loạt các thuật toán đom đóm lai để giải quyết các vấn đề phân
+  cụm dữ liệu tự động.
++ Như được mô tả trong [34] để xử lý các vấn đề phân cụm dữ liệu tự động, chúng tôi áp dụng cách tiếp cận tương tự để
+  triển khai các biến thể của thuật toán đom đóm lai. Cho rằng tập dữ liệu F được định nghĩa là F = {f1, f2, ..., fn}
+  được chia thành các nhóm không chồng chéo của cụm G = {g1, g2, ..., gn}, sao cho thứ nguyên wi (i = 1, 2, ..., n) là
+  p. Đối với mỗi cụm G = {g1, g2, ..., gn}, có một centroid di = (i = 1, 2, ..., C) được đại diện cho mỗi cụm, tức là, D
+  = (d1, d2, ..., dC) là trọng tâm của G = {g1, g2, ..., gC}. Đối với vectơ dữ liệu p-chiều, các điều kiện sau phải xảy
+  ra
 
 + // TODO: insert 7 8 9 here
 
-+ Ở giai đoạn khởi tạo của mỗi thuật toán lai, kích thước quần thể (bầy đàn) K được xác định là W = {w1, w2, ..., wK}. Như đã mô tả ở trên, xem mỗi thành viên ai trong tập hợp là một vectơ Q × p-chiều, Fn × p, được định nghĩa là Wi = w1 *, w2 *, wq * (w11, w12, ..., w1p), (w21, w22, ..., w2p), ..., (wQ1, wQ2, ..., wQp). Mục tiêu chính của phương pháp tối ưu hóa trong bốn phép lai được đề xuất của thuật toán đom đóm trong nghiên cứu này là tối thiểu hóa, trong đó chúng tôi sử dụng hai chỉ số hợp lệ cụm phổ biến và được sử dụng nhiều nhất là chỉ số CS và DB, để giảm thiểu tổng khoảng cách giữa các tập dữ liệu fi (i = 1, 2, ..., n) và tâm di (i = 1, 2, ..., C). 
-+ Ranh giới trên và giới hạn dưới của số nhóm trong quần thể tương ứng được xác định là, Varmin được biểu thị là kj * = min {F1, F2, ..., Fp} và Varmax được biểu thị là mj * = max {F1, F2 ,. .., Fp}. Nói chung, biên dưới là k = (k1 *, k2 *, ..., kC *) và biên trên là m = (m1 *, m2 *, ..., mC *), đối với không gian nghiệm. Để giải quyết vấn đề phân cụm tự động, hạt (particle) thứ i Wi được đánh giá như sau:
++ Ở giai đoạn khởi tạo của mỗi thuật toán lai, kích thước quần thể (bầy đàn) K được xác định là W = {w1, w2, ..., wK}.
+  Như đã mô tả ở trên, xem mỗi thành viên ai trong tập hợp là một vectơ Q × p-chiều, Fn × p, được định nghĩa là Wi =
+  w1 *, w2 *, wq * (w11, w12, ..., w1p), (w21, w22, ..., w2p), ..., (wQ1, wQ2, ..., wQp). Mục tiêu chính của phương pháp
+  tối ưu hóa trong bốn phép lai được đề xuất của thuật toán đom đóm trong nghiên cứu này là tối thiểu hóa, trong đó
+  chúng tôi sử dụng hai chỉ số hợp lệ cụm phổ biến và được sử dụng nhiều nhất là chỉ số CS và DB, để giảm thiểu tổng
+  khoảng cách giữa các tập dữ liệu fi (i = 1, 2, ..., n) và tâm di (i = 1, 2, ..., C).
++ Ranh giới trên và giới hạn dưới của số nhóm trong quần thể tương ứng được xác định là, Varmin được biểu thị là kj * =
+  min {F1, F2, ..., Fp} và Varmax được biểu thị là mj * = max {F1, F2 ,. .., Fp}. Nói chung, biên dưới là k = (k1 *,
+  k2 *, ..., kC *) và biên trên là m = (m1 *, m2 *, ..., mC *), đối với không gian nghiệm. Để giải quyết vấn đề phân cụm
+  tự động, hạt (particle) thứ i Wi được đánh giá như sau:
 
 + // TODO: insert 10 here
 
-+ trong đó rand(1, Q x p) là một vector của một số ngẫu nhiên được phân phối đồng đều (uniformly distributed random number) mà trả về một số nguyên nằm giữa 0 và 1
++ trong đó rand(1, Q x p) là một vector của một số ngẫu nhiên được phân phối đồng đều (uniformly distributed random
+  number) mà trả về một số nguyên nằm giữa 0 và 1
 
 + C. CLUSTERING VALIDITY INDEX
 
-+ Trong phần này, chúng tôi thảo luận về hai chỉ số hợp lệ được sử dụng trong nghiên cứu để đo lường và phân tích hiệu quả của bốn phép lai được đề xuất của thuật toán đom đóm, cũng như chất lượng của giải pháp phân cụm thu được.
-+ Nói chung, chỉ số hiệu lực cụm tốt cung cấp hai mục đích quan trọng; thứ nhất, nó giúp xác định số lượng cụm và thứ hai, nó xác định phân vùng tốt nhất (tối ưu) (determines the best (optimal) partition) [35]. Tương tự như vậy, một chỉ số hiệu lực cụm tốt được kỳ vọng sẽ xử lý hai lĩnh vực chính của việc phân chia cụ thể là sự gắn kết và sự tách biệt (cohesion and separation). Tính liên kết: trong trường hợp này chỉ đơn giản có nghĩa là các đối tượng hoặc điểm dữ liệu trong một cụm phải nhỏ gọn và giống hệt nhau (tương tự) và càng tốt (should be compact and identical (similar) and as possible). Một độ lệch trong fitness phương sai (fitness variance) của các đối tượng trong một cụm cho thấy độ nhỏ gọn tốt (good compactness) của một cụm như vậy. 
-+ Mặt khác, sự phân tách trái ngược với sự gọn nhẹ (separation in contrast to cluster compactness) của cụm phải khác biệt và phân biệt với nhau (different and distinct to each other). 
-+ Tuy nhiên, bước này có thể được nhìn thấy trong khoảng cách giữa các trung tâm cụm, điều này cho thấy sự phân tách cụm. 
++ Trong phần này, chúng tôi thảo luận về hai chỉ số hợp lệ được sử dụng trong nghiên cứu để đo lường và phân tích hiệu
+  quả của bốn phép lai được đề xuất của thuật toán đom đóm, cũng như chất lượng của giải pháp phân cụm thu được.
++ Nói chung, chỉ số hiệu lực cụm tốt cung cấp hai mục đích quan trọng; thứ nhất, nó giúp xác định số lượng cụm và thứ
+  hai, nó xác định phân vùng tốt nhất (tối ưu) (determines the best (optimal) partition) [35]. Tương tự như vậy, một chỉ
+  số hiệu lực cụm tốt được kỳ vọng sẽ xử lý hai lĩnh vực chính của việc phân chia cụ thể là sự gắn kết và sự tách biệt (
+  cohesion and separation). Tính liên kết: trong trường hợp này chỉ đơn giản có nghĩa là các đối tượng hoặc điểm dữ liệu
+  trong một cụm phải nhỏ gọn và giống hệt nhau (tương tự) và càng tốt (should be compact and identical (similar) and as
+  possible). Một độ lệch trong fitness phương sai (fitness variance) của các đối tượng trong một cụm cho thấy độ nhỏ gọn
+  tốt (good compactness) của một cụm như vậy.
++ Mặt khác, sự phân tách trái ngược với sự gọn nhẹ (separation in contrast to cluster compactness) của cụm phải khác
+  biệt và phân biệt với nhau (different and distinct to each other).
++ Tuy nhiên, bước này có thể được nhìn thấy trong khoảng cách giữa các trung tâm cụm, điều này cho thấy sự phân tách
+  cụm.
 + (This step can be, however, seen in the distance among cluster centers, which indicates the cluster separation)
-Davis và Bouldin [36] còn tuyên bố thêm rằng chỉ số hợp lệ phân cụm cũng nên thể hiện các thuộc tính sau:
+  Davis và Bouldin [36] còn tuyên bố thêm rằng chỉ số hợp lệ phân cụm cũng nên thể hiện các thuộc tính sau:
 
-+ 1. Khả năng liên quan đến sự can thiệp tối thiểu hoặc không có sự can thiệp của con người hoặc thông số kỹ thuật trong quá trình hoạt động của nó.
-+ 2. Khả năng mở rộng tính toán khôn ngoan cho các bộ dữ liệu lớn.
-+ 3. Khả năng tạo ra kết quả chính xác cho bộ dữ liệu với kích thước tùy ý
++
+    1. Khả năng liên quan đến sự can thiệp tối thiểu hoặc không có sự can thiệp của con người hoặc thông số kỹ thuật
+       trong quá trình hoạt động của nó.
++
+    2. Khả năng mở rộng tính toán khôn ngoan cho các bộ dữ liệu lớn.
++
+    3. Khả năng tạo ra kết quả chính xác cho bộ dữ liệu với kích thước tùy ý
 
-+ Đối với phân nhóm rõ ràng hoặc cứng, một số chỉ số hợp lệ được sử dụng nhiều nhất và nổi tiếng là chỉ số CS [35] và chỉ số DB [36], cũng được sử dụng trong nghiên cứu này như đã nói ở trên. Đối với hầu hết các chỉ số hợp lệ, chúng được coi là kỹ thuật tối ưu hóa tối thiểu hóa hoặc tối ưu hóa theo mặc định. Tương tự như vậy, các đầu ra thực thi của chúng chứng tỏ một phân vùng phân cụm tốt. Do chiến lược tối ưu hóa của họ, các chỉ số hợp lệ phân cụm được áp dụng tốt nhất với các thuật toán tối ưu hóa như PSO, DE, GA, v.v. Trong nghiên cứu này, chúng tôi xác định chỉ số hợp lệ cụm là một hàm J, sao cho một phân nhóm B nhất định , và một độ đo tương tự V nó được định nghĩa là J (B; V). Hàm J (B; V) trả về một số thực cho biết chỉ số hợp lệ của cụm hoặc tính phù hợp của nhiệm vụ phân cụm B. Hai chỉ số hợp lệ được sử dụng cho nghiên cứu của chúng tôi sẽ được thảo luận thêm trong phần tiếp theo.
++ Đối với phân nhóm rõ ràng hoặc cứng, một số chỉ số hợp lệ được sử dụng nhiều nhất và nổi tiếng là chỉ số CS [35] và
+  chỉ số DB [36], cũng được sử dụng trong nghiên cứu này như đã nói ở trên. Đối với hầu hết các chỉ số hợp lệ, chúng
+  được coi là kỹ thuật tối ưu hóa tối thiểu hóa hoặc tối ưu hóa theo mặc định. Tương tự như vậy, các đầu ra thực thi của
+  chúng chứng tỏ một phân vùng phân cụm tốt. Do chiến lược tối ưu hóa của họ, các chỉ số hợp lệ phân cụm được áp dụng
+  tốt nhất với các thuật toán tối ưu hóa như PSO, DE, GA, v.v. Trong nghiên cứu này, chúng tôi xác định chỉ số hợp lệ
+  cụm là một hàm J, sao cho một phân nhóm B nhất định , và một độ đo tương tự V nó được định nghĩa là J (B; V). Hàm J (
+  B; V) trả về một số thực cho biết chỉ số hợp lệ của cụm hoặc tính phù hợp của nhiệm vụ phân cụm B. Hai chỉ số hợp lệ
+  được sử dụng cho nghiên cứu của chúng tôi sẽ được thảo luận thêm trong phần tiếp theo.
 
 
-+ 1) COMPACT-SEPARATED INDEX
-
-
-
++
+    1) COMPACT-SEPARATED INDEX
 
 ___
 
@@ -484,26 +610,29 @@ ___
 ___
 
 ### E. CLUSTERING PROCESS
-+ Kết quả phân nhóm của một số bộ data được chọn dựa trên CS và DB trên 4 thuật toán kết hợp đã đề xuất được mô tả trong hình 5 đến hình 12.
-![](./photos/8-Figure5-1.png)<br>
+
++ Kết quả phân nhóm của một số bộ data được chọn dựa trên CS và DB trên 4 thuật toán kết hợp đã đề xuất được mô tả trong
+  hình 5 đến hình 12.
+  ![](./photos/8-Figure5-1.png)<br>
   _FIGURE 5. Clustering results of hybrid FAABC of some datasets on CS-index_<br>
 + trong hình 5, ta có 3 cụm hoàn hảo cho tập Compound, có 1 cụm cho Flame, Pathbased and Yeasts.
   ![](./photos/9-Figure6-1.png)<br>
   _FIGURE 6. Clustering results of hybrid FAABC of some datasets on DB-index.
   _<br>
-+ Trong hình 6, ta có phân cụm tốt nhưng ngoại lai màu đỏ trên tập  Glass and Jain. và chuỗi màu đỏ trong Spiral cluster.
++ Trong hình 6, ta có phân cụm tốt nhưng ngoại lai màu đỏ trên tập Glass and Jain. và chuỗi màu đỏ trong Spiral cluster.
   ![](./photos/10-Figure7-1.png)<br>
   _FIGURE 7. Clustering results of hybrid FAIWO of some datasets on CS-index._<br>
   ![](./photos/11-Figure8-1.png)<br>
   _FIGURE 8. Clustering results of hybrid FAIWO of some datasets on DB-index._<br>
-+ hình 7 và hình 8 cho thấy kết quả phân nhóm cho FAIWO. Tập dữ liệu Compoud có chính xác 3 cụm,Statlog có 1 cụm. Một chuỗi ngoại lệ 
-màu xanh trong tập Flame và Iris như trong hình 7.
-+ trong hình 8, Compound có 3 nhóm, Pathbased là 1 group với mỗi chuỗi ngoại lệ màu đỏ, Thyroid có 3 lớp xanh, lục, đỏ. Wine dataset có 1 lớp, nhưng có lớp ngoại lệ màu xanh.
++ hình 7 và hình 8 cho thấy kết quả phân nhóm cho FAIWO. Tập dữ liệu Compoud có chính xác 3 cụm,Statlog có 1 cụm. Một
+  chuỗi ngoại lệ màu xanh trong tập Flame và Iris như trong hình 7.
++ trong hình 8, Compound có 3 nhóm, Pathbased là 1 group với mỗi chuỗi ngoại lệ màu đỏ, Thyroid có 3 lớp xanh, lục, đỏ.
+  Wine dataset có 1 lớp, nhưng có lớp ngoại lệ màu xanh.
   ![](./photos/19-Figure9-1.png)<br>
   _FIGURE 9. Clustering results of hybrid FAPSO of some datasets on CS-index._<br>
-+ trong hình 9 trên tập Compound, một phần nhỏ trên tập đỏ và lớp màu vàng trộn với màu xanh, nhưng tập dữ liệu được chia thành 6 lớp.
-Ngoài ra, một số ngoại lệ không được phân nhóm đúng cách, là hóm màu xanh lá cây. Đối với tập dữ liệu Jain, có 3 cụm với một số ngooại lệ 
-  xanh lá cây gắn với lớp màu đỏ. 
++ trong hình 9 trên tập Compound, một phần nhỏ trên tập đỏ và lớp màu vàng trộn với màu xanh, nhưng tập dữ liệu được
+  chia thành 6 lớp. Ngoài ra, một số ngoại lệ không được phân nhóm đúng cách, là hóm màu xanh lá cây. Đối với tập dữ
+  liệu Jain, có 3 cụm với một số ngooại lệ xanh lá cây gắn với lớp màu đỏ.
 + Ngoài ra tập Pathbased và Spiral, có 5 và 6 lớp rõ ràng.
   ![](./photos/20-Figure10-1.png)<br>
   _FIGURE 10. Clustering results of hybrid FAPSO of some datasets on DB-index._<br>
@@ -512,19 +641,71 @@ Ngoài ra, một số ngoại lệ không được phân nhóm đúng cách, là
   _FIGURE 11. Clustering results of hybrid FATLBO of some datasets on CS-index._<br>
   ![](./photos/22-Figure12-1.png)<br>
   _FIGURE 12. Clustering results of hybrid FATLBO of some datasets on DB-index._<br>
-+ Một kết quả phân nhóm FATLBO trong hình 11 và 12. Hình 11 FATLBO đạt được 1 nhóm trên mỗi tập đã chọn, với vài ngoại lệ đỏ, xanh và lục không đáng kể.
- Compound có 3 cụm xác định, 1 cụm cho Flame, Spiral và Yeast, với ngoại lệ màu lục, đỏ, lam như hình 12.
++ Một kết quả phân nhóm FATLBO trong hình 11 và 12. Hình 11 FATLBO đạt được 1 nhóm trên mỗi tập đã chọn, với vài ngoại
+  lệ đỏ, xanh và lục không đáng kể. Compound có 3 cụm xác định, 1 cụm cho Flame, Spiral và Yeast, với ngoại lệ màu lục,
+  đỏ, lam như hình 12.
+
 ___
 
 ### F. ALGORITHM CONVERGENCE CURVES
 
+Sự hội tụ của 4 thuật toán được thể hiện trong hình 13 và 14. Đánh giá tổng thể cho các thuật toán tương ứng trên cả CS
+và DB cho thấy rằng, FAPSO hội tụ tốt hơn 3 cái còn lại. Sau đó đến FATLBO, FAABC và FAIWO là kém nhất.
+![](./photos/23-Figure13-1.png)<br>
+![](./photos/24-Figure13-1.png)<br>
+![](photos/25-Figure14-1.png)<br>
+![](photos/26-Figure14-1.png)<br>
 ___
 
 ### G. HIGH-DIMENSIONAL DATASET AND PARAMETER FINE-TUNING
 
++ Trong phần này, một thử nghiệm bổ sung đã đucợ thực hiện để xác định scaling perfomance của 2 thuật toán tốt nhất là
+  FAPSO và FATLBO trên 7 tập dữ liệu có high dimensional. Hiệu suất của 2 thuật toán được xác nhận thêm bằng cách thinh
+  chỉnh các tham số, trong trường hơp này là 50 và 100. Một mặt, thước đo tham số điều chỉnh hỗ trợ đánh giá tác động
+  của sự điều chỉnh này đến 2 thuật toán, có thể ảnh hưởng phần nào tích cực hoặc tiêu chực đến hiệu suất của từng cái
+  riêng lẻ.
++ Kết quả thí nghiệm tinh chỉnh thể hiện trong bảng 8 và 9
+  ![](photos/27-Table8-1.png)<br>
+  ![](photos/27-Table9-1.png)<br>
++ Lưu ý rằng kết quả của FAPSO và FATLBO được so sánh với kết quả của 3 thuật toán lai trong paper:
+    + particle swarm optimization differential evolution (PSODE) [40]
+    + firefly algorithm differential evolution (FADE) [40]
+    + invasive weed optimization differential evolution (IWODE) [40]. <br>
+      Mỗi thuật toán được triển khai thực nghiệm trong cùng điều kiện.
++ Đối với 2 thuật toán chính, một số cải tến hiệu suất đáng chú ý về chất lượng được so sánh với các phương pháp lai
+  khác từ tài liệu [40].
++ Tuy nhiên, những cải tiến quan sát được là do thời gian tính toán, đã tăng lên đáng kể như thấy trong bảng 8 và 9.
+    + FAPSO thu được trung bình 0.5411 và 0.5700
+    + FATBO 0.5719 và 0.6096 cho cả 2 population size là 50 và 100.
+      <br> Tuy nhiên, với sự gia tăng population size, không có sự cải thiện đáng kể nào từ hybrid FATLBO.
++ Về thời gian tính toán, nhược điểm lớn của việc tinh chỉnh tham số là thời gian chạy tăng lên đáng kể:
+    + FAPSO chi phí tính toán tăng theo cấp số nhân so với population size.
++ Tuy nhiên, điều này đúng với dự đóan vì quá trình thực hiện kết hợp làm tăng chi phí xử lý, được ghi nhận ở cả FAPSO
+  và FATLBO.
+
 ___
 
 ### H. ALGORITHM COMPLEXITY
+
++ Khi xác định độ phức tạp của một thuật toán metaheuristic, không có một câu trả lời nào phù hợp cho tất cả.
++ Mặc dù vậy độ phức tạp chi tiết có thể phụ thuộc vào cấu trúc của thiết kế và quá trình cài đặt [29]
++ Tuy nhiên, đối với 5 thuật toán metaheuristic được đề xuất trong paper, có thể dễ dàng ước tính độ phức tạp của chúng.
++ Đối với FA cải tiến, độ phức tạp được define là ![img_1.png](img_1.png) với n là số population size, trong case n=25
+  và t là số lần lặp.
++ Cũng lưu ý rằng mục đích đơn giản hóa quá trình thực hiện, tất cả 5 thuật toán đều có 2 vòng lặp bên trong khi đi qua
+  toàn bộ tập hợp n. Do đó, đối với 4 đề xuất, độ phức tạp là ![img_2.png](img_2.png), vì mỗi phần của 4 thuật toán chỉ
+  sử dụng một nửa population size. Ngoài ra, vì các giá trị của n và t được dùng là nỏ (n=25, t=200), chi phí tính toán
+  tương đối nhỏ vì độ phức tạp là tuyến tính theo t.
++ Cũng lưu ý rằng chi phí tính toán dựa trên các đánh giá của hàm mục tiêu đã được định nghĩa trước.
++ Hơn nữa, tương tự một số thuật toán metaheuristic khác, FA được dùng làm đại diện cốt lõi có một số hạn chế:
+    + Hiệu suất phụ thuộc nhiều vào việc tinh chỉnh thông số fine-tuning
+    + Sự da dạng trong FA có thể giảm tốc độ tính toán và tốc độ hội tụ
+    + FA không phù hợp cho các vấn đề phức tạp, vì có thể bị mắc kẹt trong optima cục bộ trong khi tìm các ứng viên khả
+      thi [29]
++ Tuy nhiên, bởi vì mỗi phương pháp lai phụ thuộc vào FA, hiệu suất của chúng cũng có thể bị hạn chế, chính xác là do
+  các hiệu ứng điều chỉnh tham số và quá trình đa dạng hóa hoặc cơ chế thăm dò của thuật toán cơ sở FA. Những hạn chế
+  này đã gặp phải khi các thuật toán kết hợp phải chịu tác vụ phân cụm liên quan đến việc sử dụng các tập dữ liệu nhiều
+  chiều.
 
 ___
 
