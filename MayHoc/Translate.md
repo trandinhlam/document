@@ -484,7 +484,36 @@ ___
 ___
 
 ### E. CLUSTERING PROCESS
-
++ Kết quả phân nhóm của một số bộ data được chọn dựa trên CS và DB trên 4 thuật toán kết hợp đã đề xuất được mô tả trong hình 5 đến hình 12.
+![](./photos/8-Figure5-1.png)<br>
+  _FIGURE 5. Clustering results of hybrid FAABC of some datasets on CS-index_<br>
++ trong hình 5, ta có 3 cụm hoàn hảo cho tập Compound, có 1 cụm cho Flame, Pathbased and Yeasts.
+  ![](./photos/9-Figure6-1.png)<br>
+  _FIGURE 6. Clustering results of hybrid FAABC of some datasets on DB-index.
+  _<br>
++ Trong hình 6, ta có phân cụm tốt nhưng ngoại lai màu đỏ trên tập  Glass and Jain. và chuỗi màu đỏ trong Spiral cluster.
+  ![](./photos/10-Figure7-1.png)<br>
+  _FIGURE 7. Clustering results of hybrid FAIWO of some datasets on CS-index._<br>
+  ![](./photos/11-Figure8-1.png)<br>
+  _FIGURE 8. Clustering results of hybrid FAIWO of some datasets on DB-index._<br>
++ hình 7 và hình 8 cho thấy kết quả phân nhóm cho FAIWO. Tập dữ liệu Compoud có chính xác 3 cụm,Statlog có 1 cụm. Một chuỗi ngoại lệ 
+màu xanh trong tập Flame và Iris như trong hình 7.
++ trong hình 8, Compound có 3 nhóm, Pathbased là 1 group với mỗi chuỗi ngoại lệ màu đỏ, Thyroid có 3 lớp xanh, lục, đỏ. Wine dataset có 1 lớp, nhưng có lớp ngoại lệ màu xanh.
+  ![](./photos/19-Figure9-1.png)<br>
+  _FIGURE 9. Clustering results of hybrid FAPSO of some datasets on CS-index._<br>
++ trong hình 9 trên tập Compound, một phần nhỏ trên tập đỏ và lớp màu vàng trộn với màu xanh, nhưng tập dữ liệu được chia thành 6 lớp.
+Ngoài ra, một số ngoại lệ không được phân nhóm đúng cách, là hóm màu xanh lá cây. Đối với tập dữ liệu Jain, có 3 cụm với một số ngooại lệ 
+  xanh lá cây gắn với lớp màu đỏ. 
++ Ngoài ra tập Pathbased và Spiral, có 5 và 6 lớp rõ ràng.
+  ![](./photos/20-Figure10-1.png)<br>
+  _FIGURE 10. Clustering results of hybrid FAPSO of some datasets on DB-index._<br>
++ Trong hình 10, tất cả tập dữ liệu được chọn đều có phân nhóm hoàn hảo, ngoại trừ Yeast có vài ngoại lệ xung quanh.
+  ![](./photos/21-Figure11-1.png)<br>
+  _FIGURE 11. Clustering results of hybrid FATLBO of some datasets on CS-index._<br>
+  ![](./photos/22-Figure12-1.png)<br>
+  _FIGURE 12. Clustering results of hybrid FATLBO of some datasets on DB-index._<br>
++ Một kết quả phân nhóm FATLBO trong hình 11 và 12. Hình 11 FATLBO đạt được 1 nhóm trên mỗi tập đã chọn, với vài ngoại lệ đỏ, xanh và lục không đáng kể.
+ Compound có 3 cụm xác định, 1 cụm cho Flame, Spiral và Yeast, với ngoại lệ màu lục, đỏ, lam như hình 12.
 ___
 
 ### F. ALGORITHM CONVERGENCE CURVES
