@@ -10,7 +10,6 @@
 + ataset: https://benchmark.ini.rub.de/gtsrb_dataset.html
 + kết quả đối sánh trong cuộc thi của IJCNN: https://benchmark.ini.rub.de/gtsrb_results.html
 + Tool vẽ CNN Architect: http://alexlenail.me/NN-SVG/LeNet.html
-+ D
 ____
 
 ## I. Tổng quan và setup môi trường
@@ -179,4 +178,4 @@ Nhóm sẽ chọn ra model tốt nhất trong các model đã huấn luyện đ�
 
 _____________
 
-##Mở rộng: Thử nghiệm cài đặt mạng hiện có bằng mạng AlexNet
+## Mở rộng: Thử nghiệm cài đặt mạng hiện có bằng mạng AlexNet

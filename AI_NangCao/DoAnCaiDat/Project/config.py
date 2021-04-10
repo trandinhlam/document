@@ -8,3 +8,5 @@ TEST_PATH = INPUT + SLASH + 'Test'
 
 
 STANDARD_SIZE = (50, 50)
+
+MODEL_PATH = 'model/tdlam_Model_1st.h5'

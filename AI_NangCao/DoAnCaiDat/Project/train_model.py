@@ -7,6 +7,8 @@ import pandas as pd
 from tensorflow.keras.utils import to_categorical, plot_model
 from config import NUMPY_OUTPUT, SLASH
 
+from config import MODEL_PATH
+
 
 def start_train():
     # chia tập train đã chuẩn hóa thành 2 tập train và test
@@ -61,7 +63,7 @@ def start_train():
               callbacks=[early_stopping],
               verbose=2
               )
-    model.save('tdlam_Model_3rd.h5')
+    model.save(MODEL_PATH)
     # Đánh giá kết quả train
     evaluation = pd.DataFrame(model.history.history)
     plot1 = evaluation[['accuracy', 'val_accuracy']].plot()
