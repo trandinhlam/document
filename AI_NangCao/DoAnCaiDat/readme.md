@@ -118,10 +118,44 @@ ____
 
 ## IV. Thực hiện huấn luyện
 ### IV.1. Mô tả các bước cần thực hiện:
- + b1
- + b2
- + ...
+ + Cài đặt tham số và đường dẫn
+```python
+INPUT = os.getcwd() + '/input' 
+TRAIN_PATH = INPUT + '/Train' #Đường dẫn thư mục đầu vào cho tập Train
+TEST_PATH = INPUT + '/Test' #Đường dẫn thư mục đầu vào cho tập Test
 
+STANDARD_SIZE = (50, 50) #Kích thước hình ảnh
+
+MODEL_PATH = 'model/output_model.h5' #Đường dẫn đầu ra của model
+ ```
+ + Trực quan hóa dữ liệu
+```python
+import visualization
+visualization.visualize()
+ ```
+ + Tìm giá trị trung bình
+```python
+import find_mean_dimension
+find_mean_dimension.find_mean()
+ ```
+ + Chuẩn hóa dữ liệu
+```python
+import normalize_trained_data
+normalize_trained_data.normalize_data()
+ ```
+ + Bắt đầu thực hiện quá trình huấn luyện
+```python
+import train_model
+train_model.start_train()
+ ```
+ Sau khi quá trình huấn luyện hoàn tất, ta nhận được tập tin model h5 được lưu trong thư mục model. Đây là quá trình đánh giá mô hình (Model Evaluation), tập tin này lưu lại kết quả history của model. Mục đích của bước này là vẽ ra sự biến thiên của hàm loss và đo độ chính xác của mạng.
+  + Tiến hành load model đã lưu và chạy test
+ ```python
+model = keras.models.load_model(MODEL_PATH)
+...
+import tester
+tester.test()
+ ``` 
 ____
 
 + Mô tả môi trường thiết bị (vẽ ra bảng cho dễ hình dung)
@@ -131,14 +165,14 @@ ____
       + Thời gian thực thi lần 2 (0.7 train,0.3 test): 3148 giây cho 25 lần lặp (mỗi lần batch_size=64)
       + Thời gian thực thi lần 2 (0.9 train,0.1 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
     + Máy Kiên: CPU i5 8400 @ 2.800GHz (6 CPUs)
-      + Thời gian thực thi (kiennt_log_01) (0.9 train, 0.1 test, 60x60 size): 1479 giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi (kiennt_model_01) (0.9 train, 0.1 test, 60x60 size): 1479 giây cho 25 lần lặp (mỗi lần batch_size=64)
     
   + GPU: 
     + Google Colab GPU Tesla K30
       + Thời gian thực thi lần 1: (0.9 train, 0.1 test): 134 giây cho 25 lần lặp
     + Máy Kiên: NVIDIA GTX 1070
-      + Thời gian thực thi (kiennt_log_02): (0.9 train, 0.1 test, 50x50 size, increasing filters): 130 giây cho 25 lần lặp (mỗi lần batch_size=64)
-      + Thời gian thực thi (kiennt_log_03) (0.9 train, 0.1 test, 60x60 size, increasing filters): 80 giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi (kiennt_model_02): (0.8 train, 0.2 test, 50x50 size, increasing filters): 130 giây cho 25 lần lặp (mỗi lần batch_size=64)
+      + Thời gian thực thi (kiennt_model_03) (0.9 train, 0.1 test, 60x60 size, increasing filters): 80 giây cho 25 lần lặp (mỗi lần batch_size=64)
 
 + So sánh kết quả khi thay đổi các tham số khác nhau
 + Lưu lại kết quả chạy
@@ -155,7 +189,8 @@ ____
 _____
 + 15h ngày 20/03/2021 Lâm train và test lần 1 (Model_1) được các thông số sau (dùng sklearn.metrics.classification_report):
 ![](./photos/classification_report_1.png)
-+ 
++ Ngày 09/04/2021 Kiên train và test (kiennt_model_02) đạt được kết quả tốt nhất với (Train: 0.8 | Test: 0.2 | StandardSize=50x50 | Filters_layer_1: 64 | Filters_layer_2: 96 | Filters_layer_3: 128)
+![](./photos/classification_report_2_details.png)
 
 + Đưa các input bên ngoài vào để đánh giá độ chính xác của model. Các input được để trong ./input/online
 
