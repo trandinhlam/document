@@ -29,7 +29,7 @@ from train_model import start_train
 # print("---> Execution time: %s seconds" % (time.time() - start_time))
 import tester
 tester.test()
-tester.single_test('.\\input\\random.png')
-tester.single_test('.\\input\\out.png')
+#tester.single_test('.\\input\\random.png')
+# tester.single_test('.\\input\\out.png')
 # tester.single_test('./input/random.png')
 
