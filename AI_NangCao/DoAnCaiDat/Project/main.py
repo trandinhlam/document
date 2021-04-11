@@ -24,10 +24,12 @@ from normalize_trained_data import normalize_data
 # normalize_data()
 
 from train_model import start_train
-start_time = time.time()
-start_train()
-print("---> Execution time: %s seconds" % (time.time() - start_time))
-# import tester
-# tester.test()
+# start_time = time.time()
+# start_train()
+# print("---> Execution time: %s seconds" % (time.time() - start_time))
+import tester
+tester.test()
+tester.single_test('.\\input\\random.png')
+tester.single_test('.\\input\\out.png')
 # tester.single_test('./input/random.png')
 

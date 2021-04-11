@@ -4,11 +4,11 @@ import pandas as pd
 from PIL import Image
 from tensorflow import keras
 import numpy as np
-from config import TEST_PATH, STANDARD_SIZE, INPUT, SLASH
+from config import TEST_PATH, STANDARD_SIZE, INPUT, SLASH, MODEL_PATH
 
 
 def test():
-    model = keras.models.load_model('model' + SLASH + 'tdlam_Model_1st.h5')
+    model = keras.models.load_model(MODEL_PATH)
     # Test trên tập test ban đầu
     test_img = sorted(os.listdir(TEST_PATH))
     import image_utils
@@ -24,7 +24,7 @@ def test():
 
 
 def single_test(image_path):
-    model = keras.models.load_model('model' + SLASH + 'tdlam_Model_1st.h5')
+    model = keras.models.load_model(MODEL_PATH)
     img = Image.open(image_path)
     print(np.array(img).shape)
     img = img.resize(STANDARD_SIZE)
@@ -33,7 +33,3 @@ def single_test(image_path):
     images = images / 255
     print(model.predict_classes(images))
 
-
-test()
-single_test('./input/random.png')
-single_test('./input/out.png')

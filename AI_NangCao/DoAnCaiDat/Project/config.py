@@ -9,4 +9,4 @@ TEST_PATH = INPUT + SLASH + 'Test'
 
 STANDARD_SIZE = (50, 50)
 
-MODEL_PATH = 'model/tdlam_Model_1st.h5'
+MODEL_PATH = 'model\\kiennt_Model_02.h5'
