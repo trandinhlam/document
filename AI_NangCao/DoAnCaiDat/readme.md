@@ -7,14 +7,16 @@
 + https://www.kaggle.com/pritamaich/traffic-sign-classification-using-cnn
 + https://www.kaggle.com/valentynsichkar/traffic-signs-classification-with-cnn/notebook
 + https://www.kaggle.com/ashwanisahni/german-traffic-sign-recognition-with-99-accuracy
-+ ataset: https://benchmark.ini.rub.de/gtsrb_dataset.html
++ dataset: https://benchmark.ini.rub.de/gtsrb_dataset.html
 + kết quả đối sánh trong cuộc thi của IJCNN: https://benchmark.ini.rub.de/gtsrb_results.html
 + Tool vẽ CNN Architect: http://alexlenail.me/NN-SVG/LeNet.html
 ____
 
 ## I. Tổng quan và setup môi trường
 ### I.1 Mô tả bài toán:
-
++ Ý tưởng về mạng nơ-ron tích chập (Convolutional Neural Network) được giới thiệu vào những năm 1950 và 1960 bởi Hubel và Wiesel và được cài đặt lần đầu tiên năm 1990 bởi Yann LeCun để áp dụng và nhạn dạng chữ viết tay, và hiện tại là một mô hình được ứng dụng rất thành công trong việc nhận dạng và phân loại hình ảnh 
++ Trong đồ án này, nhóm sẽ tìm hiểu về cấu trúc, cách hoạt động và xây dựng một mạng nơ-ron tích chập để ứng dụng trong việc phân loại các biển báo giao thông. Sau đó bằng thực nghiệm so sánh kết quả đạt được với các mô hình khác
++ Tập dữ liệu được sử dụng trong quá trình huấn luyện và benchmark là GTSRB
 ### I.2 Các thư viện sử dụng trong project:
 
 Các thư viện dễ/có sẵn:
@@ -33,6 +35,16 @@ Các thư viện to hơn cần cài đặt kỹ:
 + Keras 2.4.3
 
 _https://giaphiep.com/blog/deep-learning-qua-kho-dung-lo-da-co-keras-9314_
+
+Công dụng các thư viện
++ os: làm việc với các tập tin và thư mục
++ pandas: làm việc với dataset
++ numpy: 
++ matplotlib và seaborn: trực quan hóa dữ liệu bằng các dạng biểu đồ
++ PIL: thao tác trên hình ảnh
++ Sciki-learn sklearn: cung cấp cài đặt của các thuật toán thường dùng trong machine learning
++ Tensorflow và Keras: xây dựng mô hình neural network
+
 ____
 
 ## II. MÔ TẢ VỀ DATASET
