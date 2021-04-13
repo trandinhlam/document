@@ -301,7 +301,7 @@ hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách v�
 
 ![](./photos/algo1.png)<br>
 
-+ A. FIREFLY-BASED HYBRIDS AND CLUSTERING PROBLEM DESCRIPTION
+### A. FIREFLY-BASED HYBRIDS AND CLUSTERING PROBLEM DESCRIPTION
 
 + Các phương pháp lai được đề xuất được mô tả trong bài báo này tập trung vào việc khai thác lợi thế khác nhau của cả FA
   và các thuật toán đại diện khác (other representative algorithms), cụ thể là các thuật toán PSO, ABC, IWO và TLBO.
@@ -372,7 +372,7 @@ hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách v�
   khác nhau của các tập hợp mới được cập nhật cho đến khi đáp ứng được trường hợp điều kiện kết thúc thỏa đáng và quá
   trình mô phỏng thuật toán được kết thúc.
 
-+ B. CLUSTERING PROBLEM DESCRIPTION
+### B. CLUSTERING PROBLEM DESCRIPTION
 
 + Trong nghiên cứu hiệu suất này, chúng tôi đề xuất một loạt các thuật toán đom đóm lai để giải quyết các vấn đề phân
   cụm dữ liệu tự động.
@@ -402,7 +402,7 @@ TABLE 2. (a) Parameter configurations of ABC, IWO, PSO, and TLBO algorithms. (b)
 + trong đó rand(1, Q x p) là một vector của một số ngẫu nhiên được phân phối đồng đều (uniformly distributed random
   number) mà trả về một số nguyên nằm giữa 0 và 1
 
-+ C. CLUSTERING VALIDITY INDEX
+### C. CLUSTERING VALIDITY INDEX
 
 + Trong phần này, chúng tôi thảo luận về hai chỉ số hợp lệ được sử dụng trong nghiên cứu để đo lường và phân tích hiệu quả của bốn phép lai được đề xuất của thuật toán đom đóm, cũng như chất lượng của giải pháp phân cụm thu được.
 + Nói chung, chỉ số hiệu lực cụm tốt cung cấp hai mục đích quan trọng; thứ nhất, nó giúp xác định số lượng cụm và thứ hai, nó xác định phân vùng tốt nhất (tối ưu) (determines the best (optimal) partition) [35]. Tương tự như vậy, một chỉ số hiệu lực cụm tốt được kỳ vọng sẽ xử lý hai lĩnh vực chính của việc phân chia cụ thể là sự gắn kết và sự tách biệt (cohesion and separation). Tính liên kết: trong trường hợp này chỉ đơn giản có nghĩa là các đối tượng hoặc điểm dữ liệu trong một cụm phải nhỏ gọn và giống hệt nhau (tương tự) và càng tốt (should be compact and identical (similar) and as  possible). Một độ lệch trong fitness phương sai (fitness variance) của các đối tượng trong một cụm cho thấy độ nhỏ gọn tốt (good compactness) của một cụm như vậy.
@@ -478,7 +478,7 @@ benchmark datasets._
     + _sigma_initial_ và _sigma_final_ là giá trị độ lệch chuẩn lúc đầu và lúc cuối
     + _c1_ và _c2_ là hệ số học personal và global
     + _wdamp_ tỉ số inertia weight damping
-    + _w_ là inertia weight được tính theo công thức ![img.png](img.png), với _t_
+    + _w_ là inertia weight được tính theo công thức ![img.png](photos/img.png), với _t_
       là số lần lặp. Lưu ý rằng giá trị của w được điều chỉnh liên quan đến lần lặp t để tránh hybrid FAPSO khỏi lao vào
       sự hội tụ quá sớm.
 
@@ -686,10 +686,10 @@ ___
 + Khi xác định độ phức tạp của một thuật toán metaheuristic, không có một câu trả lời nào phù hợp cho tất cả.
 + Mặc dù vậy độ phức tạp chi tiết có thể phụ thuộc vào cấu trúc của thiết kế và quá trình cài đặt [29]
 + Tuy nhiên, đối với 5 thuật toán metaheuristic được đề xuất trong paper, có thể dễ dàng ước tính độ phức tạp của chúng.
-+ Đối với FA cải tiến, độ phức tạp được define là ![img_1.png](img_1.png) với n là số population size, trong case n=25
++ Đối với FA cải tiến, độ phức tạp được define là ![img_1.png](photos/img_1.png) với n là số population size, trong case n=25
   và t là số lần lặp.
 + Cũng lưu ý rằng mục đích đơn giản hóa quá trình thực hiện, tất cả 5 thuật toán đều có 2 vòng lặp bên trong khi đi qua
-  toàn bộ tập hợp n. Do đó, đối với 4 đề xuất, độ phức tạp là ![img_2.png](img_2.png), vì mỗi phần của 4 thuật toán chỉ
+  toàn bộ tập hợp n. Do đó, đối với 4 đề xuất, độ phức tạp là ![img_2.png](photos/img_2.png), vì mỗi phần của 4 thuật toán chỉ
   sử dụng một nửa population size. Ngoài ra, vì các giá trị của n và t được dùng là nỏ (n=25, t=200), chi phí tính toán
   tương đối nhỏ vì độ phức tạp là tuyến tính theo t.
 + Cũng lưu ý rằng chi phí tính toán dựa trên các đánh giá của hàm mục tiêu đã được định nghĩa trước.
