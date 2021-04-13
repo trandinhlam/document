@@ -235,25 +235,17 @@ ___
 
 ## III. THE FIREFLY ALGORITHM
 
-+ Thuật toán Firefly (Firefly algorithm - FA)là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên được phát triển
-  bởi Xin-She Yang vào cuối năm 2007 và đầu năm 2008 [29], [30]. Khái niệm thiết kế thuật toán FA lấy cảm hứng từ sự
-  chiếu sáng động của thuộc tính ánh sáng từ những con đom đóm thường được tìm thấy ở hầu hết các vùng nhiệt đới và các
-  vùng ôn đới. Có khoảng 2000 loài đom đóm, trong số đó có nhiều con tạo ra phát ra ánh sáng nhấp nháy trong những
-  khoảng thời gian đều đặn.
-+ Ánh sáng do những loài côn trùng này tạo ra thường được dùng như tín hiệu (để thông báo cho các con khác trong đàn)
-  được sử dụng để dụ những con đom đóm khác và cũng có thể dùng để gửi cảnh báo về con mồi tiềm năng [31].
++ Thuật toán Firefly (Firefly algorithm - FA)là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên được phát triển bởi Xin-She Yang vào cuối năm 2007 và đầu năm 2008 [29], [30]. Khái niệm thiết kế thuật toán FA lấy cảm hứng từ sự chiếu sáng động của thuộc tính ánh sáng từ những con đom đóm thường được tìm thấy ở hầu hết các vùng nhiệt đới và các vùng ôn đới. Có khoảng 2000 loài đom đóm, trong số đó có nhiều con tạo ra phát ra ánh sáng nhấp nháy trong những khoảng thời gian đều đặn.
++ Ánh sáng do những loài côn trùng này tạo ra thường được dùng như tín hiệu (để thông báo cho các con khác trong đàn) được sử dụng để dụ những con đom đóm khác và cũng có thể dùng để gửi cảnh báo về con mồi tiềm năng [31].
 + Như một trí thông minh bầy đàn mới lạ thuật toán metaheuristic dựa trên dân số (novel swarm intelligence
-  population-based metaheuristic algorithm), FA đã được sử dụng để giải quyết các vấn đề tối ưu hóa thiết kế kỹ thuật
-  phi tuyến khác nhau, như được báo cáo trong [32]. Hơn nữa, các nghiên cứu đã có cũng cho thấy rằng FA rất có triển
-  vọng trong việc giải quyết các bài toán tối ưu hóa số NP khó nhất (NP-hard numerical optimization problem) trong cả
-  không gian liên tục và không gian rời rạc [33].
-+ Mô hình toán học và biểu diễn thuật toán FA tiêu chuẩn được biểu diễn trong các phương trình từ (1) đến (5). Trong
-  phương trình (1), cường độ ánh sáng I của đèn pin đom đóm được cho là tỷ lệ nghịch với tỷ lệ với bình phương khoảng
-  cách của nó (ký hiệu là r). Điều này ngụ ý rằng cường độ ánh sáng của từng con đom đóm giảm dần với khoảng cách tăng
-  dần . Tuy nhiên, điều này là do khi khoảng cách tăng lên, ánh sáng được tỏa ra vào môi trường xung quanh [33]. (giống
-  giống kiểu cường độ âm thanh tỉ lệ với khoảng cách theo hàm mũ gì đó)
+  population-based metaheuristic algorithm), FA đã được sử dụng để giải quyết các vấn đề tối ưu hóa thiết kế kỹ thuật phi tuyến khác nhau, như được báo cáo trong [32]. Hơn nữa, các nghiên cứu đã có cũng cho thấy rằng FA rất có triển vọng trong việc giải quyết các bài toán tối ưu hóa số NP khó nhất (NP-hard numerical optimization problem) trong cả không gian liên tục và không gian rời rạc [33].
+  
+  ![](./photos/10-Figure7-1.png)<br>
+FIGURE 7. Clustering results of hybrid FAIWO of some datasets on CS-index.
+  
++ Mô hình toán học và biểu diễn thuật toán FA tiêu chuẩn được biểu diễn trong các phương trình từ (1) đến (5). Trong phương trình (1), cường độ ánh sáng I của đèn pin đom đóm được cho là tỷ lệ nghịch với tỷ lệ với bình phương khoảng cách của nó (ký hiệu là r). Điều này ngụ ý rằng cường độ ánh sáng của từng con đom đóm giảm dần với khoảng cách tăng dần. Tuy nhiên, điều này là do khi khoảng cách tăng lên, ánh sáng được tỏa ra vào môi trường xung quanh [33]. (giống giống kiểu cường độ âm thanh tỉ lệ với khoảng cách theo hàm mũ)
 
-+ // TODO: insert pt (1) vô đây
+![](./photos/equation1.png)<br>
 
 Căn chỉnh bối cảnh vấn đề với thiết kế của thuật toán FA (Aligning the problem landscape to the FA algorithm design), mô
 hình tối ưu hóa có thể được xây dựng theo cách cách mà ánh sáng đom đóm tỷ lệ thuận với giá trị của fitness function cần
@@ -265,24 +257,24 @@ trong thực hiện và hiệu suất thuật toán. Thông thường, trong tr�
 được tạo ra tại một điểm xác định (y) tỷ lệ thuận với giá trị phù hợp của fitness function, đó là I (y) / F (y). Như
 hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách và cường độ ánh sáng phát ra môi trường xung quanh.
 
-// TODO: insert pt (2) vô đây
+![](./photos/equation2.png)<br>
 
 + trong đó I0 biểu thị cường độ ánh sáng ban đầu tại r D 0, γ là hệ số hấp thụ ánh sáng, còn r là khoảng cách. Từ pt (2)
   , bằng cách kết hợp ảnh hưởng của luật bình phương nghịch đảo và sự hấp thụ, điểm kỳ dị (the singularity) tại r D 0
   được phá vỡ (circumvented) trong biểu thức 1 / r ^ 2 [30], [33]. Dựa trên pt (3), sức hấp dẫn của đom đóm (β) tỷ lệ
   với cường độ ánh sáng của đom đóm.
 
-+ // TODO: insert pt (3) vô đây
+![](./photos/equation3.png)<br>
 
 + trong đó β0 chỉ độ hấp dẫn tại r D 0. Số đo khoảng cách giữa hai con đom đóm xi và xj bất kỳ được xác định theo khoảng
   cách Euclide
 
-+ // TODO: insert pt (4) vô đây
+![](./photos/equation4.png)<br>
 
 + trong đó d là thứ nguyên của vấn đề (problem dimension). Sự chuyển động của đom đóm từ một điểm (i) đến điểm khác (j)
   được xây dựng như thể hiện trong eq. (5):
 
-+ // TODO: insert pt (5) vô đây
+![](./photos/equation5.png)<br>
 
 + trong đó α 2 [0; 1]; γ 2 [0; 1). Tham số Ei là một số ngẫu nhiên thu được từ phân phối Gaussian. Ei có thể được được
   thay thế bằng rand - 0: 5, trong đó rand 2 [0; 1]. Thuật ngữ thứ ba (αEi) trong pt (5) cho thấy chuyển động của đom
@@ -302,12 +294,12 @@ hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách v�
   chất lượng thấp và khả năng giảm chất lượng các giải pháp tốt là thấp. Xác suất toán tử đột biến được sử dụng để tạo
   ra sự đa dạng bổ sung giữa bầy đom đóm được hoán vị (commutated) như sau
 
-+ // TODO: insert pt (6) vô đây
+![](./photos/equation6.png)<br>
 
 + trong đó f (xnew) là fitness (tỉ lệ với ánh sáng phát ra ???) của đom đóm mới và f (xold) là fitness của đom đóm đầu
   tiên. Các bước chính của FA đột biến được tóm tắt như được minh họa trong danh sách Thuật toán 1.
 
-+ // TODO: insert thuật toán 1 vô đây
+![](./photos/algo1.png)<br>
 
 + A. FIREFLY-BASED HYBRIDS AND CLUSTERING PROBLEM DESCRIPTION
 
@@ -391,63 +383,67 @@ hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách v�
   = (d1, d2, ..., dC) là trọng tâm của G = {g1, g2, ..., gC}. Đối với vectơ dữ liệu p-chiều, các điều kiện sau phải xảy
   ra
 
-+ // TODO: insert 7 8 9 here
+![](./photos/equation789.png)<br>
+
+![](./photos/14-Table2-1.png)<br>
+TABLE 2. (a) Parameter configurations of ABC, IWO, PSO, and TLBO algorithms. (b) Characteristics of the twelve benchmark datasets.
 
 + Ở giai đoạn khởi tạo của mỗi thuật toán lai, kích thước quần thể (bầy đàn) K được xác định là W = {w1, w2, ..., wK}.
   Như đã mô tả ở trên, xem mỗi thành viên ai trong tập hợp là một vectơ Q × p-chiều, Fn × p, được định nghĩa là Wi =
-  w1 *, w2 *, wq * (w11, w12, ..., w1p), (w21, w22, ..., w2p), ..., (wQ1, wQ2, ..., wQp). Mục tiêu chính của phương pháp
-  tối ưu hóa trong bốn phép lai được đề xuất của thuật toán đom đóm trong nghiên cứu này là tối thiểu hóa, trong đó
-  chúng tôi sử dụng hai chỉ số hợp lệ cụm phổ biến và được sử dụng nhiều nhất là chỉ số CS và DB, để giảm thiểu tổng
+  w1 *, w2 *, wq * (w11, w12, ..., w1p), (w21, w22, ..., w2p), ..., (wQ1, wQ2, ..., wQp). Mục tiêu chính của phương pháp tối ưu hóa trong bốn phép lai được đề xuất của thuật toán đom đóm trong nghiên cứu này là tối thiểu hóa, trong đó chúng tôi sử dụng hai chỉ số hợp lệ cụm phổ biến và được sử dụng nhiều nhất là chỉ số CS và DB, để giảm thiểu tổng
   khoảng cách giữa các tập dữ liệu fi (i = 1, 2, ..., n) và tâm di (i = 1, 2, ..., C).
 + Ranh giới trên và giới hạn dưới của số nhóm trong quần thể tương ứng được xác định là, Varmin được biểu thị là kj * =
   min {F1, F2, ..., Fp} và Varmax được biểu thị là mj * = max {F1, F2 ,. .., Fp}. Nói chung, biên dưới là k = (k1 *,
   k2 *, ..., kC *) và biên trên là m = (m1 *, m2 *, ..., mC *), đối với không gian nghiệm. Để giải quyết vấn đề phân cụm
   tự động, hạt (particle) thứ i Wi được đánh giá như sau:
 
-+ // TODO: insert 10 here
+![](./photos/equation10.png)<br>
 
 + trong đó rand(1, Q x p) là một vector của một số ngẫu nhiên được phân phối đồng đều (uniformly distributed random
   number) mà trả về một số nguyên nằm giữa 0 và 1
 
 + C. CLUSTERING VALIDITY INDEX
 
-+ Trong phần này, chúng tôi thảo luận về hai chỉ số hợp lệ được sử dụng trong nghiên cứu để đo lường và phân tích hiệu
-  quả của bốn phép lai được đề xuất của thuật toán đom đóm, cũng như chất lượng của giải pháp phân cụm thu được.
-+ Nói chung, chỉ số hiệu lực cụm tốt cung cấp hai mục đích quan trọng; thứ nhất, nó giúp xác định số lượng cụm và thứ
-  hai, nó xác định phân vùng tốt nhất (tối ưu) (determines the best (optimal) partition) [35]. Tương tự như vậy, một chỉ
-  số hiệu lực cụm tốt được kỳ vọng sẽ xử lý hai lĩnh vực chính của việc phân chia cụ thể là sự gắn kết và sự tách biệt (
-  cohesion and separation). Tính liên kết: trong trường hợp này chỉ đơn giản có nghĩa là các đối tượng hoặc điểm dữ liệu
-  trong một cụm phải nhỏ gọn và giống hệt nhau (tương tự) và càng tốt (should be compact and identical (similar) and as
-  possible). Một độ lệch trong fitness phương sai (fitness variance) của các đối tượng trong một cụm cho thấy độ nhỏ gọn
-  tốt (good compactness) của một cụm như vậy.
-+ Mặt khác, sự phân tách trái ngược với sự gọn nhẹ (separation in contrast to cluster compactness) của cụm phải khác
-  biệt và phân biệt với nhau (different and distinct to each other).
-+ Tuy nhiên, bước này có thể được nhìn thấy trong khoảng cách giữa các trung tâm cụm, điều này cho thấy sự phân tách
-  cụm.
++ Trong phần này, chúng tôi thảo luận về hai chỉ số hợp lệ được sử dụng trong nghiên cứu để đo lường và phân tích hiệu quả của bốn phép lai được đề xuất của thuật toán đom đóm, cũng như chất lượng của giải pháp phân cụm thu được.
++ Nói chung, chỉ số hiệu lực cụm tốt cung cấp hai mục đích quan trọng; thứ nhất, nó giúp xác định số lượng cụm và thứ hai, nó xác định phân vùng tốt nhất (tối ưu) (determines the best (optimal) partition) [35]. Tương tự như vậy, một chỉ số hiệu lực cụm tốt được kỳ vọng sẽ xử lý hai lĩnh vực chính của việc phân chia cụ thể là sự gắn kết và sự tách biệt (cohesion and separation). Tính liên kết: trong trường hợp này chỉ đơn giản có nghĩa là các đối tượng hoặc điểm dữ liệu trong một cụm phải nhỏ gọn và giống hệt nhau (tương tự) và càng tốt (should be compact and identical (similar) and as  possible). Một độ lệch trong fitness phương sai (fitness variance) của các đối tượng trong một cụm cho thấy độ nhỏ gọn tốt (good compactness) của một cụm như vậy.
++ Mặt khác, sự phân tách trái ngược với sự gọn nhẹ (separation in contrast to cluster compactness) của cụm phải khác biệt và phân biệt với nhau (different and distinct to each other).
++ Tuy nhiên, bước này có thể được nhìn thấy trong khoảng cách giữa các trung tâm cụm, điều này cho thấy sự phân tách cụm.
 + (This step can be, however, seen in the distance among cluster centers, which indicates the cluster separation)
   Davis và Bouldin [36] còn tuyên bố thêm rằng chỉ số hợp lệ phân cụm cũng nên thể hiện các thuộc tính sau:
 
-+
-    1. Khả năng liên quan đến sự can thiệp tối thiểu hoặc không có sự can thiệp của con người hoặc thông số kỹ thuật
++ 1. Khả năng liên quan đến sự can thiệp tối thiểu hoặc không có sự can thiệp của con người hoặc thông số kỹ thuật
        trong quá trình hoạt động của nó.
-+
-    2. Khả năng mở rộng tính toán khôn ngoan cho các bộ dữ liệu lớn.
-+
-    3. Khả năng tạo ra kết quả chính xác cho bộ dữ liệu với kích thước tùy ý
++ 2. Khả năng mở rộng tính toán khôn ngoan cho các bộ dữ liệu lớn.
++ 3. Khả năng tạo ra kết quả chính xác cho bộ dữ liệu với kích thước tùy ý
 
-+ Đối với phân nhóm rõ ràng hoặc cứng, một số chỉ số hợp lệ được sử dụng nhiều nhất và nổi tiếng là chỉ số CS [35] và
-  chỉ số DB [36], cũng được sử dụng trong nghiên cứu này như đã nói ở trên. Đối với hầu hết các chỉ số hợp lệ, chúng
-  được coi là kỹ thuật tối ưu hóa tối thiểu hóa hoặc tối ưu hóa theo mặc định. Tương tự như vậy, các đầu ra thực thi của
-  chúng chứng tỏ một phân vùng phân cụm tốt. Do chiến lược tối ưu hóa của họ, các chỉ số hợp lệ phân cụm được áp dụng
-  tốt nhất với các thuật toán tối ưu hóa như PSO, DE, GA, v.v. Trong nghiên cứu này, chúng tôi xác định chỉ số hợp lệ
-  cụm là một hàm J, sao cho một phân nhóm B nhất định , và một độ đo tương tự V nó được định nghĩa là J (B; V). Hàm J (
-  B; V) trả về một số thực cho biết chỉ số hợp lệ của cụm hoặc tính phù hợp của nhiệm vụ phân cụm B. Hai chỉ số hợp lệ
-  được sử dụng cho nghiên cứu của chúng tôi sẽ được thảo luận thêm trong phần tiếp theo.
+![](./photos/15-Table3-1.png)<br>
+TABLE 3. Numerical results comparison of average solutions obtained by muted FA and the four hybrid algorithms based on the CS and DB indices over
+40 replications.
 
++ Đối với phân nhóm rõ ràng hoặc cứng, một số chỉ số hợp lệ được sử dụng nhiều nhất và nổi tiếng là chỉ số CS [35] và chỉ số DB [36], cũng được sử dụng trong nghiên cứu này như đã nói ở trên. Đối với hầu hết các chỉ số hợp lệ, chúng được coi là kỹ thuật tối ưu hóa tối thiểu hóa hoặc tối ưu hóa theo mặc định. Tương tự như vậy, các đầu ra thực thi của chúng chứng tỏ một phân vùng phân cụm tốt. Do chiến lược tối ưu hóa của họ, các chỉ số hợp lệ phân cụm được áp dụng tốt nhất với các thuật toán tối ưu hóa như PSO, DE, GA, v.v. Trong nghiên cứu này, chúng tôi xác định chỉ số hợp lệ cụm là một hàm J, sao cho một phân nhóm B nhất định , và một độ đo tương tự V nó được định nghĩa là J (B; V). Hàm J (B; V) trả về một số thực cho biết chỉ số hợp lệ của cụm hoặc tính phù hợp của nhiệm vụ phân cụm B. Hai chỉ số hợp lệ được sử dụng cho nghiên cứu của chúng tôi sẽ được thảo luận thêm trong phần tiếp theo.
 
-+
-    1) COMPACT-SEPARATED INDEX
-
+ +   1) COMPACT-SEPARATED INDEX
+ + Phép đo tính hợp lệ của cụm này ước tính tỷ lệ giữa tổng phân tán trong cụm với sự phân tách giữa các cụm, tương tự như cách chỉ số DB hoạt động. Người ta đã nghiên cứu rằng chỉ số CS mang lại hiệu quả hơn trong việc xử lý các cụm có kích thước, mật độ hoặc kích thước khác nhau. Mặc dù về mặt tính toán, nó chuyên sâu hơn chỉ số DB về thời gian thực thi, tuy nhiên, nó tạo ra nhiều giải pháp chất lượng tốt hơn. Hơn nữa, giá trị lớn của chỉ số CS cho thấy độ chặt hoặc tách yếu, trong khi giá trị nhỏ hơn có nghĩa là phân cụm tốt và tốt hơn. Để phân tán trong cụm được biểu thị là Yi và sự phân tách giữa các cụm được biểu thị là Yj, sao cho số đo khoảng cách V được cho là V Yi; Yj: Do đó, chỉ số CS cho một nhóm B được tính như đã cho trong phương trình 11
+ 
+ ![](./photos/equation11.png)<br>
+ 
+ + 2) DAVIS-BOULDIN INDEX 
+ + Chỉ số DB ước tính chất lượng phân nhóm bằng cách đánh giá khoảng cách trong cụm (khoảng cách trung bình của tất cả các điểm dữ liệu trong một cụm từ trung tâm) đến các khoảng cách liên cụm (khoảng cách giữa hai trung tâm). Tương tự như vậy, đối với chỉ mục DB, giá trị chỉ mục càng nhỏ thì độ chặt chẽ hoặc phân tách càng tốt, và ngược lại đối với một giá trị lớn. Gọi Wi được định nghĩa là khoảng cách trung bình của tất cả các điểm dữ liệu trong một cụm Bi đến tâm của chúng xi. Khoảng cách trung bình được tính là ![](./photos/equation12.png)<br>      
+ + trong đó V (R; xi) là khoảng cách giữa điểm dữ liệu R trong Bi và tâm của nó là xi, và t ≥ 1 là một số nguyên có thể được chọn độc lập. Nếu t = 1, Wi tương đương với khoảng cách Euclid trung bình của các vectơ trong cụm. Mặt khác, nếu t = 2, Wi tương đương với độ lệch chuẩn của khoảng cách của các đối tượng trong một cụm đến tâm tương ứng của chúng. Lấy Hij để đại diện cho khoảng cách liên cụm giữa hai centroid xi và xj, chúng ta có rằng,
+ ![](./photos/equation13.png)<br>
+ + Hãy để Vi được định nghĩa là
+ ![](./photos/equation14.png)<br>
+ + Do đó, chỉ số DB được biểu thị là
+ ![](./photos/equation15.png)<br>
+ + trong đó K là số lượng cluster
+ 
+ 
+ ![](./photos/16-Table4-1.png)<br>
+ <br>
+ ![](./photos/17-Table4-1.png)<br>
+ TABLE 4. Numerical results for the four hybrid firefly algorithms based on the CS and DB indices on over 40 replications.
+ 
+ + Tóm lại, điều quan trọng cần lưu ý là vấn đề phân cụm dữ liệu được mô tả trong bài báo này được mô hình hóa như một bài toán tối ưu hóa. Ví dụ: với một ví dụ về điểm dữ liệu có thuộc tính x và số lượng cụm g được xác định trước, hàm mục tiêu nhằm xác định cài đặt cụm tối ưu sao cho tổng các khoảng cách Euclide bình phương giữa mỗi đối tượng dữ liệu và tâm của cụm thuộc tính là giảm thiểu. Do đó, khi làm như vậy, mỗi điểm dữ liệu phải thuộc về một cụm duy nhất và không được để trống cụm nào.
 ___
 
 ## IV. SIMULATION EXPERIMENTS
