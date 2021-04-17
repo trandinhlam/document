@@ -1,14 +1,28 @@
 # FILE TỔNG HỢP CÁC NGHIÊN CỨU CỦA NHÓM VỀ ĐỀ TÀI CLUSTERING
 
-#I. TỔNG QUAN- GIỚI THIỆU
+#I. TỔNG QUAN - GIỚI THIỆU
+##I.1. Bài toán Custering 
 ___
 #II.CƠ SỞ LÝ THUYẾT
+##II.2. Sơ lược Các thuật toán tối ưu
+ + PSO
+ +    
+##II.3. Thuật toán đom đóm
+ + Standard FA
+ + Hybrid FA
 ___
 #III.LỊCH SỬ CẢI TIẾN
+##III.1. Thành tựu trước đó
+##III.2. Vấn đề gặp phải & bài toán đặt ra của các paper trước 
 ___
 #IV.NỘI DUNG CHÍNH CỦA PAPER
+##IV.2. 4 thuật toán lai được đề xuất
+##IV.3. Thực nghiệm và so sánh
+
 ___
 #V. NHẬN XÉT
+##V.1. Nhận xét về tính đúng đắn của đề xuất 
+##V.2. Nhận xét về tính thực tế của đề xuất 
 ___
 ___
 ___

@@ -53,7 +53,7 @@ https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-
   + 
 + **NP-Hard:** at least as hard as the hardest problems in NP
 ___
-+ **fitness function:** hàm cần tối ưu hóa trong bài toán
++ **fitness function/objective function:** hàm cần tối ưu hóa trong bài toán
 ___
 + **evolution algorithm:** 
   + Một giải thuật tiến hóa (evolutionary algorithm - EA) là một thuật toán tối ưu hóa heuristic sử dụng các kỹ thuật bắt 
@@ -72,14 +72,25 @@ ___
    
     
 ___
-+ **Hybrid Firefly Algorithm:** 
++ **Hybrid Firefly Algorithm:** Thuật toán đom đóm lai 
 ___
-+ Particle Swarm Optimization (PSO):
++ **Particle Swarm Optimization (PSO):** Swarm Optimization (SO) tối ưu hóa bầy đàn, là một trong những thuật toán xây dựng dựa trên khái niệm Swarm Intelligence,
+để tìm kiếm lời giải cho bài toán tối ưu.
+  + SO là một dạng của các thuật toán tiến hóa như  thuật giải di truyền(Genetic algorithm (GA)), Thuật toán đàn kiến(Ant colony algorithm). 
+  + SO khác ở chỗ no thiên về sử dụng sự tương tác giữa các cá thể trong quần thể đó.
+  + Được giới thiệu vào năm 1995 tại một hội nghị của IEEE bởi James Kennedy và kỹ sư Russell C. Eberhart
+___
 + Compach-Separated và Davis-Bouldin: 
 + Automatic clustering:
 + Firefly-based hybrid algorithms
 + Clustering validity
-+ Local optima
+___
++ **Local optima:** 
+  + Là cực trị địa phương, (tối thiểu hoặc tối đa) của hàm mục tiêu cho một vùng nhất định của không gian đầu vào, chưa chắc đó là global optima.
+  + Một hàm mục tiêu có thể có nhiều optima cục bộ hoặc nó có thể có một optima cục bộ duy nhất, trong trường hợp đó, optima cục bộ cũng là optima toàn cục.
+  
+
+___
 + Swarm intelligence
 + selection pressure and population diversity
 + classification error percentage (CEP)
@@ -97,3 +108,5 @@ https://en.wikipedia.org/wiki/Firefly_algorithm <br>
 https://www.youtube.com/watch?v=QRtt_cJSMNk&ab_channel=Dr.HarishGarg <br>
 https://viblo.asia/p/hierarchical-clustering-phan-cum-du-lieu-maGK7q2elj2 <br>
 https://bigdatauni.com/tin-tuc/phuong-phap-clustering.html
+https://en.wikipedia.org/wiki/Particle_swarm_optimization
+https://uk.mathworks.com/matlabcentral/fileexchange/74769-the-standard-firefly-algorithm-fa

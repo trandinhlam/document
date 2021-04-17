@@ -259,14 +259,14 @@ hình trong pt (2), cường độ ánh sáng thay đổi theo khoảng cách v�
 
 ![](./photos/equation2.png)<br>
 
-+ trong đó I0 biểu thị cường độ ánh sáng ban đầu tại r D 0, γ là hệ số hấp thụ ánh sáng, còn r là khoảng cách. Từ pt (2)
-  , bằng cách kết hợp ảnh hưởng của luật bình phương nghịch đảo và sự hấp thụ, điểm kỳ dị (the singularity) tại r D 0
++ trong đó I0 biểu thị cường độ ánh sáng ban đầu tại r=0, γ là hệ số hấp thụ ánh sáng, còn r là khoảng cách. Từ pt (2)
+  , bằng cách kết hợp ảnh hưởng của luật bình phương nghịch đảo và sự hấp thụ, điểm kỳ dị (the singularity) tại r=0
   được phá vỡ (circumvented) trong biểu thức 1 / r ^ 2 [30], [33]. Dựa trên pt (3), sức hấp dẫn của đom đóm (β) tỷ lệ
   với cường độ ánh sáng của đom đóm.
 
 ![](./photos/equation3.png)<br>
 
-+ trong đó β0 chỉ độ hấp dẫn tại r D 0. Số đo khoảng cách giữa hai con đom đóm xi và xj bất kỳ được xác định theo khoảng
++ trong đó β0 chỉ độ hấp dẫn tại r=0. Số đo khoảng cách giữa hai con đom đóm xi và xj bất kỳ được xác định theo khoảng
   cách Euclide
 
 ![](./photos/equation4.png)<br>
