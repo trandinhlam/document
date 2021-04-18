@@ -107,8 +107,12 @@ ___
   + Là cực trị địa phương, (tối thiểu hoặc tối đa) của hàm mục tiêu cho một vùng nhất định của không gian đầu vào, chưa chắc đó là global optima.
   + Một hàm mục tiêu có thể có nhiều optima cục bộ hoặc nó có thể có một optima cục bộ duy nhất, trong trường hợp đó, optima cục bộ cũng là optima toàn cục.
 ___ 
-+ **Artificial bee colony optimization (ABC):** Thuật toán 
 
++ **Artificial bee colony optimization (ABC):** Thuật toán ong bầy đàn
+___ 
++ **Invasive weed optimization (IWO):** Thuật toán tối ưu hóa cỏ dại xâm lấn
+___
++ **Teaching learning-based optimization (TLBO):**
 ___
 + **Swarm intelligence:** Trí tuệ bầy đàn 
 ___

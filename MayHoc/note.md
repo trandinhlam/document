@@ -2,15 +2,17 @@
 
 #I. TỔNG QUAN - GIỚI THIỆU
 ##I.1. Bài toán Custering 
+##I.2. Bài toán Optimization
 ___
 #II.CƠ SỞ LÝ THUYẾT
-##II.2. Sơ lược Các thuật toán tối ưu
+##II.1. Sơ lược Các thuật toán tối ưu
  + PSO
- +    
-##II.3. Thuật toán đom đóm
+ + ABC
+ + IWO
+ + TLBO
+##II.2. Thuật toán đom đóm
  + Standard FA
- + Mutation FA
- + Hybrid FA
+ + Mutation FA/Hybrid FA (optional)
 ___
 #III.LỊCH SỬ CẢI TIẾN
 ##III.1. Thành tựu trước đó
@@ -19,9 +21,9 @@ ___
 #IV.NỘI DUNG CHÍNH CỦA PAPER
 ##IV.2. 4 thuật toán lai được đề xuất
 ###IV.2.1 FAPSO:
-###IV.2.1 FAABC:
-###IV.2.1 FAIWO:
-###IV.2.1 FATLBO:
+###IV.2.2 FAABC:
+###IV.2.3 FAIWO:
+###IV.2.4 FATLBO:
 
 ##IV.3. Thực nghiệm và so sánh
 
@@ -30,6 +32,7 @@ ___
 ##V.1. Nhận xét về tính đúng đắn của đề xuất 
 ##V.2. Nhận xét về tính thực tế của đề xuất 
 ___
+#VI: THỬ NGHIỆM CÀI ĐẶT THUẬT TOÁN TRÊN MỘT TẬP DATA 
 ___
 ___
 ___
