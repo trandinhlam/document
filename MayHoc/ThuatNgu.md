@@ -55,10 +55,25 @@ https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-
 ___
 + **fitness function/objective function:** hàm cần tối ưu hóa trong bài toán
 ___
-+ **evolution algorithm:** 
++ **Evolution algorithm:** 
   + Một giải thuật tiến hóa (evolutionary algorithm - EA) là một thuật toán tối ưu hóa heuristic sử dụng các kỹ thuật bắt 
     nguồn từ các cơ chế tiến hóa hữu cơ (organic evolution) chẳng hạn như biến dị, tái tổ hợp và chọn lọc tự nhiên để tìm 
     một cấu hình tối ưu cho một hệ thống với các ràng buộc cụ thể.
+___
++ **Metaheuristic**: Những kỹ thuật tối ưu hóa thường được dùng đề tìm kiếm các giải pháp cho bài toán tối ưu hóa toàn cục.
+  Trong đó chia thành 2 loại kỹ thuật khác nhau: Thuật toán chính xác và thuật toán gần đúng. Thuật toán chính xác là các mô hình 
+  toán học đã được dùng để tìm kiếm giải pháp tối ưu. Thuật toán gần đúng (metaheuristic) là giải pháp gần tối ưu trong một thời gian 
+  giải thuật ngắn, phù hợp cho những công trình phức tạp.
+  + Metaheuristic là một cách gọi chung cho các giải thuật heuristic trong việc giải quyết các bài toán tổ hợp khó.
+  + Metaheuristic bao gồm những chiến lược khác nhau trong việc khám phá không gian tìm kiếm bằng cách sử dụng những phương thức 
+  khác nhau và phải đạt được sự cân bằng giữa tính đa dạng và chuyên sâu của không gian tìm kiếm.
+  + Một cài đặt thành công của metaheuristic trong một bài toán tổ hợp phải cân bằng giữa sự khai thác được kinh nghiệm thu thập được trong quá trình tìm kiếm để xác định 
+  được những vùng với những lời giải có chất lượng cao gần tối ưu.
+  + Trong bài toán tối ưu, bằng việc tìm kiếm trong một vùng lớn của những giải pháp khả thi (feasible solutions), metaheuristic 
+  có thể tìm được lời gii3 gần tối ưu trong một khoảng thời gian ít hơn, tốn ít công sức hơn.
+  + 2 thành phần chính của phương pháp metaheuristic là:
+    + thăm dò  - exploration (đa dạng hóa): Quá trình khám phá không gian tìm kiếm và tránh bẫy trong các cực tiểu địa phương.
+    + khai thác - exploiation (tăng cường): Quá trình cải thiện bất kỳ giải pháp hứa hẹn nào đã thu được cho đến thời điểm hiện tại.
 ___
 + **Firefly Algorithm:** Trong tối ưu hóa, thuật toán đom đóm là một metaheuristic do Xin-She Yang đề xuất năm 2007 và lấy cảm hứng từ hành vi 
   nhấp nháy của đom đóm. Thuật toán bầy đom đóm là một công cụ hiệu quả cho tối ưu hóa toàn cục
@@ -71,6 +86,9 @@ ___
      + Khi không có con nào sáng hơn, nó di chuyển ngẫu nhiên
    
     
+___
++ **Mutation Firefly Algorithm:** Thuật toán đom đóm đột biến được mô tả chung trong bài báo
+![img_2.png](img_2.png)
 ___
 + **Hybrid Firefly Algorithm:** Thuật toán đom đóm lai 
 ___
@@ -88,10 +106,12 @@ ___
 + **Local optima:** 
   + Là cực trị địa phương, (tối thiểu hoặc tối đa) của hàm mục tiêu cho một vùng nhất định của không gian đầu vào, chưa chắc đó là global optima.
   + Một hàm mục tiêu có thể có nhiều optima cục bộ hoặc nó có thể có một optima cục bộ duy nhất, trong trường hợp đó, optima cục bộ cũng là optima toàn cục.
-  
+___ 
++ **Artificial bee colony optimization (ABC):** Thuật toán 
 
 ___
-+ Swarm intelligence
++ **Swarm intelligence:** Trí tuệ bầy đàn 
+___
 + selection pressure and population diversity
 + classification error percentage (CEP)
 + fuzzy c-means

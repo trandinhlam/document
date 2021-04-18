@@ -9,6 +9,7 @@ ___
  +    
 ##II.3. Thuật toán đom đóm
  + Standard FA
+ + Mutation FA
  + Hybrid FA
 ___
 #III.LỊCH SỬ CẢI TIẾN
@@ -17,10 +18,15 @@ ___
 ___
 #IV.NỘI DUNG CHÍNH CỦA PAPER
 ##IV.2. 4 thuật toán lai được đề xuất
+###IV.2.1 FAPSO:
+###IV.2.1 FAABC:
+###IV.2.1 FAIWO:
+###IV.2.1 FATLBO:
+
 ##IV.3. Thực nghiệm và so sánh
 
 ___
-#V. NHẬN XÉT
+#V. NHẬN XÉT - KẾT LUẬN
 ##V.1. Nhận xét về tính đúng đắn của đề xuất 
 ##V.2. Nhận xét về tính thực tế của đề xuất 
 ___
