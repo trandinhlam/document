@@ -438,10 +438,13 @@ TABLE 3. Numerical results comparison of average solutions obtained by muted FA 
  + trong đó K là số lượng cluster
  
  
- ![](./photos/16-Table4-1.png)<br>
- <br>
- ![](./photos/17-Table4-1.png)<br>
- TABLE 4. Numerical results for the four hybrid firefly algorithms based on the CS and DB indices on over 40 replications.
+[comment]: <> ( ![]&#40;./photos/16-Table4-1.png&#41;<br>)
+
+[comment]: <> ( <br>)
+
+[comment]: <> ( ![]&#40;./photos/17-Table4-1.png&#41;<br>)
+
+[comment]: <> ( TABLE 4. Numerical results for the four hybrid firefly algorithms based on the CS and DB indices on over 40 replications.)
  
  + Tóm lại, điều quan trọng cần lưu ý là vấn đề phân cụm dữ liệu được mô tả trong bài báo này được mô hình hóa như một bài toán tối ưu hóa. Ví dụ: với một ví dụ về điểm dữ liệu có thuộc tính x và số lượng cụm g được xác định trước, hàm mục tiêu nhằm xác định cài đặt cụm tối ưu sao cho tổng các khoảng cách Euclide bình phương giữa mỗi đối tượng dữ liệu và tâm của cụm thuộc tính là giảm thiểu. Do đó, khi làm như vậy, mỗi điểm dữ liệu phải thuộc về một cụm duy nhất và không được để trống cụm nào.
 ___

@@ -68,17 +68,17 @@ def converged(centers, new_centers):
 
 
 def kmeans(X, k):
-    centers = [kmean_init_centers(X, k)]
-    labels = []
-    i = 0
+    _centers = [kmean_init_centers(X, k)]
+    _labels = []
+    _i = 0
     while True:
-        labels.append(kmeans_assign_labels(X, centers[-1]))
-        new_centers = kmeans_update_centers(X, labels[-1], k)
-        if converged(centers[-1], new_centers):
+        _labels.append(kmeans_assign_labels(X, _centers[-1]))
+        new_centers = kmeans_update_centers(X, _labels[-1], k)
+        if converged(_centers[-1], new_centers):
             break
-        centers.append(new_centers)
-        i += 1
-    return (centers, labels, i)
+        _centers.append(new_centers)
+        _i += 1
+    return _centers, _labels, _i
 
 
 (centers, labels, i) = kmeans(X, K)
@@ -90,7 +90,7 @@ kmeans_display(X, labels[-1])
 from sklearn.cluster import KMeans
 
 kmeans = KMeans(n_clusters=K, random_state=0).fit(X)
-print('Centers found by our algorithm:')
+print('Centers found by sklearn algorithm:')
 print(kmeans.cluster_centers_)
 labels = kmeans.predict(X)
 kmeans_display(X, labels)

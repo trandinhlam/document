@@ -22,6 +22,8 @@
     + Độ đo Hamming
     + Độ đo Jaccard
     + Độ đo Kullback-Leibler (KL)
+  + Hình dưới đây mô tả khái quát các loại thuật toán clustering hiện có 
+    ![img_3.png](img_3.png)
 ___
 + **Hierarchical clustering**: Phân cụm phân cấp 
   + Agglomerative: "đi từ dưới lên": Ban đầu chọn K là một số lớn gần bằng số điểm dữ liệu. Sau khi thực hiện phân cụm K-meas
@@ -44,16 +46,19 @@ ___
 ___
 + **Partitioning clustering**: là phương pháp non-hierarchical clustering phổ biến nhất, là phương pháp phân cụm one-level, 
   các cluster không thể hiện dưới dạng cấp bậc. Hướng tiếp cận cơ bản nhất trong Partition clustering là tách cụm độc quyền,
-  giống như Hard-clustering, mỗi object chỉ thuộc một cluster duy nhất. 
+  giống như Hard-clustering, mỗi object chỉ thuộc một cluster duy nhất.
+  + Thuật toán phân cụm theo phương pháp này, phổ biến và đơn giản nhất đó chính là K-Means
+  
 ___
 + **NP:** In computational complexity theory, NP (nondeterministic polynomial time) is a complexity class used to classify 
   decision problems. NP is the set of decision problems for which the problem instances, where the answer is "yes", have 
   proofs verifiable in polynomial time by a deterministic Turing machine.
 https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
-  + 
 + **NP-Hard:** at least as hard as the hardest problems in NP
 ___
-+ **fitness function/objective function:** hàm cần tối ưu hóa trong bài toán
++ **fitness function/objective function:** hàm cần tối ưu hóa trong bài toán. Hàm này được chọn, hoặc suy ra từ yêu cầu của bài toán. 
+Đây là hàm mục tiêu của bài toán, ta giải bài toán bằng cách tìm ra cực tiểu toàn cục (global optima) của hàm này, bằng các kỹ thuật, thuật toán hay 
+  phương pháp tối ưu hóa.
 ___
 + **Evolution algorithm:** 
   + Một giải thuật tiến hóa (evolutionary algorithm - EA) là một thuật toán tối ưu hóa heuristic sử dụng các kỹ thuật bắt 
@@ -87,21 +92,65 @@ ___
    
     
 ___
-+ **Mutation Firefly Algorithm:** Thuật toán đom đóm đột biến được mô tả chung trong bài báo
-![img_2.png](img_2.png)
-___
-+ **Hybrid Firefly Algorithm:** Thuật toán đom đóm lai 
-___
 + **Particle Swarm Optimization (PSO):** Swarm Optimization (SO) tối ưu hóa bầy đàn, là một trong những thuật toán xây dựng dựa trên khái niệm Swarm Intelligence,
 để tìm kiếm lời giải cho bài toán tối ưu.
   + SO là một dạng của các thuật toán tiến hóa như  thuật giải di truyền(Genetic algorithm (GA)), Thuật toán đàn kiến(Ant colony algorithm). 
   + SO khác ở chỗ no thiên về sử dụng sự tương tác giữa các cá thể trong quần thể đó.
   + Được giới thiệu vào năm 1995 tại một hội nghị của IEEE bởi James Kennedy và kỹ sư Russell C. Eberhart
 ___
-+ Compach-Separated và Davis-Bouldin: 
-+ Automatic clustering:
-+ Firefly-based hybrid algorithms
-+ Clustering validity
++ **Mutation Firefly Algorithm:** Thuật toán đom đóm đột biến được mô tả chung trong bài báo
+![img_2.png](img_2.png)
+___
++ **Hybrid Firefly Algorithm:** Thuật toán đom đóm lai
+    <br/>
+    <br/>
+  + Đề xuất của paper cho mô hình thuật toán lai FA với 4 thuật toán tối ưu khác được chọn:
+  ![](./photos/hinh1.png)
+    <br/>
+    <br/>
+  ![](./photos/6-Figure2-1.png)
+  
+___
++ **FAPSO:** Thuật toán đom đóm FA lai với thuật toán tối ưu hóa bầy đàn PSO:
+  + What:
+  + Why: khi lai FA-PSO ta được gì?
+    + Nó tận dụng được khả năng tìm kiếm ngẫu nhiên của FA, dựa vào cơ chế thu hút độc đáo của FA
+    + Nó tận dụng được khả năng tìm kếm cục bộ của PSO, nhờ vào khả năng liên kết hiệu quả của bầy đàn<br>
+    Từ đó giúp vài toán hội tụ nhanh hơn
+  + How:
+___
++ **Cluster quality statistic**
++ **Clustering validity:** Là khái niệm chỉ các chỉ số, phương pháp đánh giá (có lượng hóa) kết quả phân cụm của các thuật toán
+  + Các phương pháp đánh giá thường dựa trên các tiêu chí internal và external
+  + Nếu pp nào dựa trên cơ sở thống kê, thì sẽ bị gặp trở ngại bởi chi phí tính toán cao.
+  + Đối với các tiêu chí internal, ta chia thành 2 chỉ số:
+    + Cohesion: Sự gắn kết của các phần tử trong cùng 1 cụm.
+    + Separation: Sự tách rời, tách biệt của một cụm so với các cụm còn lại.
+    + Kết hợp giữa cả 2 chỉ số trên
+  
+  + Trong paper có sử dụng 2 độ đo/phương pháp đánh giá là Compact-Separated Index và Davis-Bouldin Index
+  để đánh giá chất lượng phân cụm của 4 thuật toán lai đề xuất. 
+___
++ **Compact-Separated:**  
+![img_4.png](img_4.png)
+___
++ **Davis-Bouldin:**  The DB index estimates the quality of clustering by evaluating:
+  + intra-cluster (khoảng cách trung bình giữa tất cả các điểm trong cụm tính từ tâm cụm)
+  + to inter-cluster (Khoảng cách giữa 2 tâm cụm) <br/>
+  gọi Wi là khoảng cách intra-cluster của cụm i, tập hợp Bi, tâm xi
+    ![img_5.png](img_5.png)
+    <br>
+    Trong đó V(R,xi) là khoảng cách giữa tập điểm dữ liệu R của cụm i, tới tâm xi
+    <br>
+    Gọi H(ij) là khoảng cách inter-cluster giữa 2 tâm cụm khác nhau i và j (i<>j)
+    ![img_6.png](img_6.png)
+    ![img_7.png](img_7.png)
+    <br>
+    J_DB càng nhỏ, phân cụm càng tốt.
+    <br>
++ Vậy ta cần tối ưu hóa giá trị J_DB này để tìm ra phân cụm tốt nhất 
+___
++ **Automatic clustering:** Kỹ thuật tự động phân cụm dữ liệu mà không cần biết trước số cụm hay bất kỳ tri thức nào của dữ liệu.
 ___
 + **Local optima:** 
   + Là cực trị địa phương, (tối thiểu hoặc tối đa) của hàm mục tiêu cho một vùng nhất định của không gian đầu vào, chưa chắc đó là global optima.
@@ -128,9 +177,14 @@ ___
 + Wilcoxon post-hoc test
 
 ## links
-https://en.wikipedia.org/wiki/Firefly_algorithm <br>
-https://www.youtube.com/watch?v=QRtt_cJSMNk&ab_channel=Dr.HarishGarg <br>
-https://viblo.asia/p/hierarchical-clustering-phan-cum-du-lieu-maGK7q2elj2 <br>
-https://bigdatauni.com/tin-tuc/phuong-phap-clustering.html
-https://en.wikipedia.org/wiki/Particle_swarm_optimization
-https://uk.mathworks.com/matlabcentral/fileexchange/74769-the-standard-firefly-algorithm-fa
++ https://en.wikipedia.org/wiki/Firefly_algorithm <br>
++ https://www.youtube.com/watch?v=QRtt_cJSMNk&ab_channel=Dr.HarishGarg <br>
++ https://viblo.asia/p/hierarchical-clustering-phan-cum-du-lieu-maGK7q2elj2 <br>
++ https://bigdatauni.com/tin-tuc/phuong-phap-clustering.html
++ https://en.wikipedia.org/wiki/Particle_swarm_optimization
++ https://uk.mathworks.com/matlabcentral/fileexchange/74769-the-standard-firefly-algorithm-fa
+
++ A. E. Ezugwu, ‘‘Nature-inspired Metaheuristic techniques for automatic
+clustering: A survey and performance study,’’ Social Netw. Appl. Sci.,
+vol. 2, no. 2, p. 273, Feb. 2020
+https://link.springer.com/content/pdf/10.1007/s42452-020-2073-0.pdf
