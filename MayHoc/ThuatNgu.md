@@ -117,9 +117,12 @@ ___
     + Nó tận dụng được khả năng tìm kiếm ngẫu nhiên của FA, dựa vào cơ chế thu hút độc đáo của FA
     + Nó tận dụng được khả năng tìm kếm cục bộ của PSO, nhờ vào khả năng liên kết hiệu quả của bầy đàn<br>
     Từ đó giúp vài toán hội tụ nhanh hơn
-  + How:
-___
-+ **Cluster quality statistic**
+  + How: Thuật toán thực hiện được mô tả chung cho 4 thuật toán thông qua mã giả được trình bày trong paper. Trong đó, thay vì chạy 
+  N vòng lặp chỉ để thực hiện các bước cập nhật FA, thì các tác giả chia thành 2 pha:
+    + N/2 vòng lặp đầu thực hiện các bước cập nhật FA như bình thường
+    + N/2 vòng lặp sau, tái sử dụng lại tập quần thể đom đóm tìm được ở pha đầu, thực hiện cập nhật theo các bước của PSO 
+___      
+**Cluster quality statistic**
 + **Clustering validity:** Là khái niệm chỉ các chỉ số, phương pháp đánh giá (có lượng hóa) kết quả phân cụm của các thuật toán
   + Các phương pháp đánh giá thường dựa trên các tiêu chí internal và external
   + Nếu pp nào dựa trên cơ sở thống kê, thì sẽ bị gặp trở ngại bởi chi phí tính toán cao.
