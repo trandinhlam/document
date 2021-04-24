@@ -23,13 +23,13 @@
     + Độ đo Jaccard
     + Độ đo Kullback-Leibler (KL)
   + Hình dưới đây mô tả khái quát các loại thuật toán clustering hiện có 
-    ![img_3.png](img_3.png)
+    ![img_3.png](photos/img_3.png)
 ___
 + **Hierarchical clustering**: Phân cụm phân cấp 
   + Agglomerative: "đi từ dưới lên": Ban đầu chọn K là một số lớn gần bằng số điểm dữ liệu. Sau khi thực hiện phân cụm K-meas
   lần đầu, các cụm gần nhau được ghép lại thành một cụm. Lúc này khoảng cách giữa các cụm có thể được xác định bằng khoảng cách
   giữa các tâm cụm. Tiếp tục K-means ở các bước tiếp theo để giảm dần số lượng cụm.
-    ![img_1.png](img_1.png)
+    ![img_1.png](photos/img_1xx.png)
     + Các tiêu chí chọn hai cụm để sát nhập:
       + _Centroid-linkage_: Sát nhập hai cụm có khoảng cách giữa hai tâm của hai cụm này là nhỏ nhất.
       + _Single-linkage_: khoảng cách giữa hai điểm gần nhau nhất thuộc hai cụm. Sát nhập hai cụm có khoảng cách này nhỏ nhất.
@@ -82,7 +82,7 @@ ___
 ___
 + **Firefly Algorithm:** Trong tối ưu hóa, thuật toán đom đóm là một metaheuristic do Xin-She Yang đề xuất năm 2007 và lấy cảm hứng từ hành vi 
   nhấp nháy của đom đóm. Thuật toán bầy đom đóm là một công cụ hiệu quả cho tối ưu hóa toàn cục
-  ![img.png](img.png)
+  ![img.png](photos/img_xxx.png)
   Có 3 rule dùng để xây dựng thuật toán:
   + 1. Tất cả đom đóm có thể **bị thu hút** bởi các đom đóm khác **sáng hơn**.
   + 2. **Độ sáng** của mỗi con được xác định bằng một hàm **objective function**
@@ -99,7 +99,7 @@ ___
   + Được giới thiệu vào năm 1995 tại một hội nghị của IEEE bởi James Kennedy và kỹ sư Russell C. Eberhart
 ___
 + **Mutation Firefly Algorithm:** Thuật toán đom đóm đột biến được mô tả chung trong bài báo
-![img_2.png](img_2.png)
+![img_2.png](photos/img_2xxx.png)
 ___
 + **Hybrid Firefly Algorithm:** Thuật toán đom đóm lai
     <br/>
@@ -135,19 +135,19 @@ ___
   để đánh giá chất lượng phân cụm của 4 thuật toán lai đề xuất. 
 ___
 + **Compact-Separated:**  
-![img_4.png](img_4.png)
+![img_4.png](photos/img_4.png)
 ___
 + **Davis-Bouldin:**  The DB index estimates the quality of clustering by evaluating:
   + intra-cluster (khoảng cách trung bình giữa tất cả các điểm trong cụm tính từ tâm cụm)
   + to inter-cluster (Khoảng cách giữa 2 tâm cụm) <br/>
   gọi Wi là khoảng cách intra-cluster của cụm i, tập hợp Bi, tâm xi
-    ![img_5.png](img_5.png)
+    ![img_5.png](photos/img_5.png)
     <br>
     Trong đó V(R,xi) là khoảng cách giữa tập điểm dữ liệu R của cụm i, tới tâm xi
     <br>
     Gọi H(ij) là khoảng cách inter-cluster giữa 2 tâm cụm khác nhau i và j (i<>j)
-    ![img_6.png](img_6.png)
-    ![img_7.png](img_7.png)
+    ![img_6.png](photos/img_6.png)
+    ![img_7.png](photos/img_7.png)
     <br>
     J_DB càng nhỏ, phân cụm càng tốt.
     <br>

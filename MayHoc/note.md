@@ -22,25 +22,32 @@
     + Tính tam giác (traingle inequality): d(x, y) + d(y, z) >= d(x, z)
 
 + Các độ đo khoảng cách thường dùng (cần liệt kê ra công thức các độ đo)
-    + Độ đo Euclid r1
-    + Độ đo Euclid chuẩn (r = 2)
-    + Độ đo Manhattan
-    + Độ đo Cosine
+    + Độ đo Euclid r1 <br/>
+      ![img_8.png](photos/img_8.png)
+    + Độ đo Euclid chuẩn (r = 2)<br>
+      ![img_9.png](photos/img_9.png)
+    + Độ đo Manhattan<br/>
+      ![img_10.png](photos/img_10.png)
+    + Độ đo Cosine<br/>
+      ![img_11.png](photos/img_11.png)
+    + Độ đo Jaccard<br/>
+      ![img.png](photos/imgaa.png)
+      ![img_1.png](photos/img_1aaa.png)
     + Độ đo Hamming
-    + Độ đo Jaccard
     + Độ đo Kullback-Leibler (KL)
+    + ...
 
 ## I.2. Phân loại các thuật toán Custering
 
 + Hình dưới đây mô tả khái quát các loại thuật toán clustering hiện có
-  ![img_3.png](img_3.png)
+  ![img_3.png](photos/img_3.png)
 
 ### I.2.1 **Hierarchical clustering**: Phân cụm phân cấp
 
 + Agglomerative: "đi từ dưới lên": Ban đầu chọn K là một số lớn gần bằng số điểm dữ liệu. Sau khi thực hiện phân cụm
   K-meas lần đầu, các cụm gần nhau được ghép lại thành một cụm. Lúc này khoảng cách giữa các cụm có thể được xác định
   bằng khoảng cách giữa các tâm cụm. Tiếp tục K-means ở các bước tiếp theo để giảm dần số lượng cụm.
-  ![img_1.png](img_1.png)
+  ![img_1.png](photos/img_1xx.png)
     + Các tiêu chí chọn hai cụm để sát nhập:
         + _Centroid-linkage_: Sát nhập hai cụm có khoảng cách giữa hai tâm của hai cụm này là nhỏ nhất.
         + _Single-linkage_: khoảng cách giữa hai điểm gần nhau nhất thuộc hai cụm. Sát nhập hai cụm có khoảng cách này
@@ -77,17 +84,53 @@ ___
 
 # II.CƠ SỞ LÝ THUYẾT
 
-## II.1. Sơ lược Các thuật toán tối ưu
-
-+ PSO
-+ ABC
-+ IWO
-+ TLBO
-
-## II.2. Thuật toán đom đóm
+## II.1. Thuật toán đom đóm
 
 + Standard FA
 + Mutation FA/Hybrid FA (optional)
+
+## II.2. Sơ lược Các thuật toán tối ưu được lai
+
+___
+
+### PSO
+
+___
+
+### ABC
+
+___
+
+### IWO: Invasive weed optimization
+
++ IWO: thuật toán tối ưu cỏ dại xâm lấn, lấy cảm hứng từ các quần thể cỏ dại ngoài tự nhiên dựa vào hành vi sống, sự
+  thích nghi tốt với môi trường.
++ Thuật toán chia làm 4 giai đoạn:
+    + Initialization: Khởi tạo quần thể ngẫu nhiên các hạt trên không gian tìm kiếm
+    + Reproduction: Các hạt phát triển thành cây, và sinh ra nhiều hạt, tùy thuộc vào giá trị hiện tại
+    + Spatial dispersal: Các hạt sinh ra được tiếp tục phân tán, rồi phát triển thành cây mang giá trị
+    + Competitive exclusion: Khi đạt được số lượng cây quy định, tiến hành chọn lọc ra các cây có giá trị cao (low
+      fitness), bỏ đi các cây khác kém hơn.
++ Quá trình loại trừ theo cơ chế sau:
+    + Mỗi cá thể đều sinh ra hạt dựa vào giá trị hiện tại của chính nó
+    + Các hạt sinh ra được phân tán ngẫu nhiên
+    + Giá trị của mỗi cá thể được so sánh với cha của nó, và chỉ giữ lại các cây có giá trị cao.
++ Công thức sinh hạt như sau:<br/>
+  ![img_2.png](photos/img_2aaa.png)<br/>
+    + **f:** giá trị sức sống hiện tại của cá thể
+    + **f_max** và **f_min** là 2 ngưỡng sức sống của quần thể hiện tại
+    + **w_max** và **w_min** là 2 ngưỡng số lượng cá thể đã đặt ra
++ Quá trình phân tán hạt giống mô tả trong công thức:
+  ![img_3.png](photos/img_3aaa.png)<br/>
+    + **iter_max** là số vòng lặp tối đa
+    + ![img_5.png](photos/img_5aaaa.png) là độ lệch chuẩn hiện tại
+    + **n** là hệ số điều chỉnh
++ Mã giả của thuật toán:
+  ![img_4.png](photos/img_4aaaa.png)
+
+___
+
+### TLBO
 
 ___
 
@@ -137,6 +180,9 @@ ___
 +
 
 paper: https://www.semanticscholar.org/paper/A-Comparative-Performance-Study-of-Hybrid-Firefly-Ezugwu-Agbaje/87a471ac21d86339c841c7bc5e1429341ce80d22
+
++ paper: Mehrabian AR, Lucas C (2006) A novel numerical optimiza- tion algorithm inspired from weed colonization. Ecol
+  Inform 1(4):355–366
 
 +
 
