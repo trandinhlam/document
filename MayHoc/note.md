@@ -90,6 +90,35 @@ ___
 ## II.1. Thuật toán đom đóm
 
 + Standard FA
+
++ Thuật toán đom đóm (Firefly algorithm - FA) là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên, dựa trên trí thông minh bầy đàn được phát triển bởi Xin-She Yang (2009) bắt chước cách bầy đom đóm giao tiếp với nhau
++ Đom đóm là một loại côn trùng có cánh và có thể phát ra ánh sáng nhấp nháy về đêm. Ánh sáng này dùng để thu hút các con đom đóm khác di chuyển về phía nó, và cảnh báo về các mối nguy hiểm hoặc nguồn thức ăn
+
++ Cường độ ánh sáng trên đường đi sẽ giảm dần do bị hấp thụ một phần bởi môi trường, cho cường độ ánh sáng Itại điểm cách O một khoảng r, I tỉ lệ nghịch với bình phương khoảng cách
++ // TODO: bỏ pt vô đây
++ Cường độ ánh sáng của mỗi con đom đóm phát ra sẽ tỉ lệ với hàm cần tối ưu của bài toán.
+
++ Thuật toán đom đóm được phát triển dựa trên giả thuyết rằng
+	+ Khi một con đom đóm (A) bị thu hút bởi một con con đom đóm khác (B) thì nó chỉ dựa trên độ sáng (mà nó cảm nhận được) của con đom đóm B và không bị ảnh hưởng bởi các yếu tố khác (giới tính đom đóm, mùi hương, mùa, ...)
+	+ Độ thu hút tỉ lệ thuận với cường độ ánh sáng phát ra, một con đom đóm ít phát sáng hơn sẽ bị thu hút bởi một con đom đóm phát sáng sáng hơn, độ thu hút sẽ giảm dần theo khoảng cách giữa hai con đom đóm
+	Nếu hai con đom đóm có cùng độ sáng (và là độ sáng lớn nhất trong quần thể) thì chúng sẽ di chuyển ngẫu nhiên
+
++ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do con đom đóm phát ra tỉ lệ thuận với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng. 
++ // TODO: bỏ pt vô
++ và trong quá trình truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có phương trình
++ // TODO: bỏ pt vô
++ với I0 là cường độ tại điểm cớ khoảng cách r = 0, gamma là hệ số hấp thụ ánh sáng của môi trường, r là khoảng cách
++ Vì độ thu hút tỉ lệ với cường độ ánh sáng cảm nhận được, ta có phương trình
++ // TODO: bỏ pt vô
++ trong beta0 là độ thu hút tại điểm r = 0
+
++ Khoảng cách Euclid giữa 2 con đom đóm xi và xj được tính bởi công thức
++ // TODO: bỏ pt vô
++ với d là số chiều của dữ liệu.
++ Sự chuyển động của 1 con đom đóm được xác định bởi công thức
++ // TODO: bỏ pt vô
++ với alpha thuộc [0,1], gamma thuộc [0, vô cùng], epsilon_i là một số ngẫu nhiên từ phân phối Gauss (và có thể thay bằng rand - 0.5, với rand thuộc [0,1]).
+
 + Mutation FA/Hybrid FA (optional)
 
 ## II.2. Sơ lược Các thuật toán tối ưu được lai
