@@ -195,16 +195,52 @@ ___
 # IV.NỘI DUNG CHÍNH CỦA PAPER
 
 ## IV.1. Các hàm mục tiêu được sử dụng
+### IV.1.a Compact-Separated:
++ Là chỉ số ước lượng chất lượng phân cụm dựa vào tỉ lệ của 2 yếu tố:
+  + điểm biểu thị chất lượng phân tán trong cụm (within-cluster scatter) 
+  + điểm phân tách giữa các cụm (between-cluster separation)
++ Công thức tổng quát như sau:
+    ![img_1.png](photos/img_1bbb.png)
+ + ![img_2.png](photos/img_2bbb.png) là số lượng phần tử trong cụm tương ứng
+ + ![img_3.png](photos/img_3bbb.png) là hàm tính khoảng cách giữa within-cluster scatter Xi và between-cluster separation Xj
+ + ![img_4.png](photos/img_4bbbb.png) là khoảng cách giữa 2 tâm cụm đang xét
+    
++ J_CS càng nhỏ, phân cụm càng tốt và ngược lại
+### IV.1.b Davis-Bouldin: 
++ Là chỉ số ước lượng chất lượng phân cụm rất phổ biến, đề xuất bởi Davis và Bouldin. Phép đánh giá này dựa trên 2 tiêu chí:
+   + intra-cluster (khoảng cách trung bình giữa tất cả các điểm trong cụm tính từ tâm cụm)
+   + inter-cluster (Khoảng cách giữa 2 tâm cụm)
++ Công thức:
+  gọi Wi là khoảng cách intra-cluster của cụm i, tập hợp Bi, tâm xi
+  ![img_5.png](photos/img_5.png)
+  <br>
+  Trong đó V(R,xi) là khoảng cách giữa tập điểm dữ liệu R của cụm i, tới tâm xi
+  <br>
+  Gọi H(ij) là khoảng cách inter-cluster giữa 2 tâm cụm khác nhau i và j (i<>j)
+  ![img_6.png](photos/img_6.png)
+  ![img_7.png](photos/img_7.png)
+  <br>
+  J_DB càng nhỏ, phân cụm càng tốt.
+  <br>
++ Vậy ta cần tối ưu hóa giá trị J_DB này để tìm ra phân cụm tốt nhất
 
++ Nhìn chung 2 chỉ số đánh giá này có cách vận hành tương đối giống nhau, đều dựa vào 2 yếu tố nội suy từ tập dữ liệu đầu vào và tập các tâm ứng viên.
 ## IV.2. 4 thuật toán lai được đề xuất
 
 ### IV.2.1 FAPSO:
  + Là thuật toán lai giữa FA và PSO, được nhóm tác giả đề xuất trước đó vào tháng 12 năm 2019. Ở bài public này nhóm tác giả 
    cũng sử dụng 2 phép đánh giá hiệu quả phân cụm dựa vào CS và DB.
  + Dưới đây là mã giả của thuật toán:
- + ![img.png](img.png)
+ + ![img.png](photos/imgbbb.png)
  + Lưu đồ thuật toán:
    ![](./photos/FlowChart_FAPOS.png)
+   <br/>
+ + Nhận xét:  Trong thuật toán này, mỗi lần duyệt qua một cá thể đom đóm đều được chia thành 2 pha rõ rệt:
+   + Pha 1 vẫn thực hiện cập nhật cá thể theo thuật toán FA. Bước này là dễ hiểu vì thuật toán gốc là FA, có ưu điểm là tận dụng 
+     được khả năng tìm kiếm ngẫu nhiên của thuật toán FA để nhanh chóng tìm ra global optima.
+   + Pha 2 dựa trên bước đi của pha 1, sử dụng cách di chuyển của PSO để cập nhật vị trí của cá thể ngay sau đó. Bước này sẽ 
+     giúp quần thể đom đóm tăng cơ hội rơi vào local optima có thể có xung quanh cá thể đang duyệt.
+     => Kết hợp cả 2 yếu tố trên có thể giúp bài toán hội tụ nhanh hơn, khai thác được thế mạnh của 2 chiến lược tìm kiếm độc lập nhau.
 
 ### IV.2.2 FAABC - FAIWO - FATLBO:
 
