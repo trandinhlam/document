@@ -199,12 +199,14 @@ ___
 ## IV.2. 4 thuật toán lai được đề xuất
 
 ### IV.2.1 FAPSO:
+ + Là thuật toán lai giữa FA và PSO, được nhóm tác giả đề xuất trước đó vào tháng 12 năm 2019. Ở bài public này nhóm tác giả 
+   cũng sử dụng 2 phép đánh giá hiệu quả phân cụm dựa vào CS và DB.
+ + Dưới đây là mã giả của thuật toán:
+ + ![img.png](img.png)
+ + Lưu đồ thuật toán:
+   ![](./photos/FlowChart_FAPOS.png)
 
-### IV.2.2 FAABC:
-
-### IV.2.3 FAIWO:
-
-### IV.2.4 FATLBO:
+### IV.2.2 FAABC - FAIWO - FATLBO:
 
 ## IV.3. Thực nghiệm và so sánh
 

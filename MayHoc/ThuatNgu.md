@@ -171,7 +171,6 @@ ___
 + selection pressure and population diversity
 + classification error percentage (CEP)
 + fuzzy c-means
-+ cluster validity index (CVI)
 + Davies – Bouldin (DB)
 + Compact-Separated (CS)
 + Variance reduction exponent
@@ -191,3 +190,6 @@ ___
 clustering: A survey and performance study,’’ Social Netw. Appl. Sci.,
 vol. 2, no. 2, p. 273, Feb. 2020
 https://link.springer.com/content/pdf/10.1007/s42452-020-2073-0.pdf
++ Agbaje MB, Ezugwu AE, Els R (2019) Automatic data clustering using hybrid frefy particle swarm optimization algorithm.
+  IEEE Access 7:184963–184984. https://doi.org/10.1109/ACCES
+  S.2019.2960925
