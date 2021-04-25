@@ -177,7 +177,13 @@ ___
 + inertia weight damping
 + Friedman rank-sum test
 + Wilcoxon post-hoc test
-
+---
++ Exploitation and exploration: 
+    + Exploitation is the ability of particles to target the best solutions found so far (khả năng di chuyển của quần thể về nơi có nguồn thức ăn nhiều nhất, mỗi con sẽ đi theo con sáng nhất)
+    + Exploration, on the other hand, is the ability of particles to evaluate the entire research space. (khả năng của quần thể để đánh giá toàn bộ không gian tìm kiếm, từng con sẽ cố gắng tạo dấu ấn riêng bằng cách mở lối đi riêng chạy theo đường khác với hy vọng tìm được điểm tốt hơn)
+    + Trong PSO, với mỗi lần lặp, mỗi con sẽ cân bằng giữa exploitation và exploration (tìm ra 2 hướng rồi cộng vector)
+    + Nhận xét: exploitation -> tăng tốc độ hội tụ (về global minimum), exploration -> tăng khả năng tìm ra best global minimum
+---
 ## links
 + https://en.wikipedia.org/wiki/Firefly_algorithm <br>
 + https://www.youtube.com/watch?v=QRtt_cJSMNk&ab_channel=Dr.HarishGarg <br>

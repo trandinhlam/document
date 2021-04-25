@@ -102,56 +102,68 @@ ___
 
 + Standard FA
 
-+ Thuật toán đom đóm (Firefly algorithm - FA) là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên, dựa trên trí
-  thông minh bầy đàn được phát triển bởi Xin-She Yang (2009) bắt chước cách bầy đom đóm giao tiếp với nhau
-+ Đom đóm là một loại côn trùng có cánh và có thể phát ra ánh sáng nhấp nháy về đêm. Ánh sáng này dùng để thu hút các
-  con đom đóm khác di chuyển về phía nó, và cảnh báo về các mối nguy hiểm hoặc nguồn thức ăn
++ Thuật toán đom đóm (Firefly algorithm - FA) là một thuật toán tối ưu hóa lấy cảm hứng từ thiên nhiên, dựa trên trí thông minh bầy đàn được phát triển bởi Xin-She Yang (2009) bắt chước cách bầy đom đóm giao tiếp với nhau
++ Đom đóm là một loại côn trùng có cánh và có thể phát ra ánh sáng nhấp nháy về đêm. Ánh sáng này dùng để thu hút các con đom đóm khác di chuyển về phía nó, và cảnh báo về các mối nguy hiểm hoặc nguồn thức ăn
 
-+ Cường độ ánh sáng trên đường đi sẽ giảm dần do bị hấp thụ một phần bởi môi trường, cho cường độ ánh sáng I tại điểm
-  cách O một khoảng r, I tỉ lệ nghịch với bình phương khoảng cách ![](./photos/equation1.png)<br>
++ Ý tưởng của thuật toán: ở thời điểm ban đầu mỗi con đom đóm trong bầy sẽ ở một vị trí ngẫu nhiên trong không gian tìm kiếm và di chuyển theo một hướng ngẫu nhiên. Khi một con đom đóm tìm thấy thức ăn, nó sẽ phát ra ánh sáng với cường độ tỉ lệ với lượng thức ăn tìm được. Mỗi con đóm đóm sẽ dựa vào ánh sáng để di chuyển về nơi có nhiều thức ăn nhất
+
++ Cường độ ánh sáng trên đường đi sẽ giảm dần do bị hấp thụ một phần bởi môi trường, cho cường độ ánh sáng I tại điểm cách O một khoảng r, I tỉ lệ nghịch với bình phương khoảng cách ![](./photos/equation1.png)<br>
 + Cường độ ánh sáng của mỗi con đom đóm phát ra sẽ tỉ lệ với hàm cần tối ưu của bài toán.
 
 + Thuật toán đom đóm được phát triển dựa trên giả thuyết rằng
-    + Khi một con đom đóm (A) bị thu hút bởi một con con đom đóm khác (B) thì nó chỉ dựa trên độ sáng (mà nó cảm nhận
-      được) của con đom đóm B và không bị ảnh hưởng bởi các yếu tố khác (giới tính đom đóm, mùi hương, mùa, ...)
-    + Độ thu hút tỉ lệ thuận với cường độ ánh sáng phát ra, một con đom đóm ít phát sáng hơn sẽ bị thu hút bởi một con
-      đom đóm phát sáng sáng hơn, độ thu hút sẽ giảm dần theo khoảng cách giữa hai con đom đóm Nếu hai con đom đóm có
-      cùng độ sáng (và là độ sáng lớn nhất trong quần thể) thì chúng sẽ di chuyển ngẫu nhiên
+	+ Khi một con đom đóm (A) bị thu hút bởi một con con đom đóm khác (B) thì nó chỉ dựa trên độ sáng (mà nó cảm nhận được) của con đom đóm B và không bị ảnh hưởng bởi các yếu tố khác (giới tính đom đóm, mùi hương, mùa, ...)
+	+ Độ thu hút tỉ lệ thuận với cường độ ánh sáng phát ra, một con đom đóm ít phát sáng hơn sẽ bị thu hút bởi một con đom đóm phát sáng sáng hơn, độ thu hút sẽ giảm dần theo khoảng cách giữa hai con đom đóm
+	+ Nếu hai con đom đóm có cùng độ sáng (và là độ sáng lớn nhất trong quần thể) thì chúng sẽ di chuyển ngẫu nhiên
 
-+ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do
-  con đom đóm phát ra tỉ lệ thuận với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng, và trong quá trình
-  truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có
-  phương trình
-  ![](./photos/equation2.png)<br>
++ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do con đom đóm phát ra tỉ lệ thuận với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng, và trong quá trình truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có phương trình
+![](./photos/equation2.png)<br>
 + với I0 là cường độ tại điểm cớ khoảng cách r = 0, gamma là hệ số hấp thụ ánh sáng của môi trường, r là khoảng cách
 + Vì độ thu hút tỉ lệ với cường độ ánh sáng cảm nhận được, ta có phương trình
 + ![](./photos/equation3.png)<br>
 + trong đó beta0 là độ thu hút tại điểm r = 0
 
 + Khoảng cách Euclid giữa 2 con đom đóm xi và xj được tính bởi công thức
-  ![](./photos/equation4.png)<br>
+![](./photos/equation4.png)<br>
 + với d là số chiều của dữ liệu.
 + Sự chuyển động của 1 con đom đóm được xác định bởi công thức
-  ![](./photos/equation5.png)<br>
-+ với alpha thuộc [0,1], gamma thuộc [0, vô cùng], epsilon_i là một số ngẫu nhiên từ phân phối Gauss (và có thể thay
-  bằng rand - 0.5, với rand thuộc [0,1]).
+![](./photos/equation5.png)<br>
++ với alpha thuộc [0,1], gamma thuộc [0, vô cùng], epsilon_i là một số ngẫu nhiên từ phân phối Gauss (và có thể thay bằng rand - 0.5, với rand thuộc [0,1]).
 
 Mã giả của thuật toán đom đóm được mô tả như sau
 ![](./photos/firely_algo_original.png)<br>
 
 + Mutation FA/Hybrid FA (optional)
 
-+ Trong bài báo, để tăng khả năng khai thác và khám phá của thuật toán đom đóm, để có thể áp dụng vào những bài toán
-  nhiều chiều một cách hiệu quả hơn, nhóm tác giả đã cải tiến thuật toán đom đóm bằng cách giới thiệu thuật ngữ mutation
-  strategy (MP) để làm tăng độ thu hút của những con đom đóm có cường độ ánh sáng thấp hơn, thuật toán đom đóm sau khi
-  được cải tiến sẽ có dạng như sau:
-  ![](./photos/algo1.png)<br>
++ Trong bài báo, để tăng khả năng khai thác và khám phá của thuật toán đom đóm, để có thể áp dụng vào những bài toán nhiều chiều một cách hiệu quả hơn, nhóm tác giả đã cải tiến thuật toán đom đóm bằng cách giới thiệu thuật ngữ mutation strategy (MP) để làm tăng độ thu hút của những con đom đóm có cường độ ánh sáng thấp hơn, thuật toán đom đóm sau khi được cải tiến sẽ có dạng như sau:
+![](./photos/firefly_pseudocode.png)<br>
 
 ## II.2. Sơ lược Các thuật toán tối ưu được lai
 
 ___
 
 ### PSO
+
++ Particle Swarm Optimazation (PSO) là một kĩ thuật tối ưu ngẫu nhiên dựa trên trí thông minh bầy đàn (population based stochastic optimization technique) được giới thiệu bởi Eberhart và Kennedy vào năm 1995 lấy cảm hứng từ cách di chuyển và trao đổi thông tin khi kiếm ăn của các thành viên trong quần thể bầy chim và đàn cá
++ Tại thời điểm ban đầu, mỗi thành viên trong quần thể ở một vị trí ngẫu nhiên và bay theo một hướng ngẫu nhiên. Sau một thời gian, một số thành viên tìm được thức ăn, và gửi tín hiệu tới các thành viên khác trong bầy tùy theo lượng thức ăn tìm thấy được. Dựa vào thông tin đó, những thành viên khác sẽ di chuyển về nơi có nhiều thức ăn nhất (mà nó biết).
++ Ta có thể kết hợp PSO với một số thuật toán khác khi giải quyết các bài toán về tối ưu.
++ Cá thể: mỗi cá thể được xem như một giải pháp tiềm năng để đạt được global minimum trong không gian tìm kiếm. Không con nào biết được chính xác global minimum ở đâu, nhưng dựa vào vị trí của mỗi con có thể tính được giá trị của hàm mục tiêu cần tối ưu
++ Ở lúc ban đầu, mỗi cá thể sẽ được khởi tạo vị trí và vận tốc ngẫu nhiên
+![](./photos/pso_coordinate.png)<br>
+![](photos/pso_velocity.png)<br>
++ Quần thể: qua mỗi lần lặp, vector vận tốc của mỗi cá thể được thay đổi một cách ngẫu nhiên dựa theo hướng của vị trí nhiều thức ăn nhất của cá thể đó tìm được (personal best), và hướng của vị trí có nhiều thức ăn nhất của quần thể (global best)
+![](./photos/pso_velocity_change.png)<br>
++ trong đó 
+    + trọng số r1 và r2 là duy nhất cho mỗi cá thể và mỗi lần lặp, c1 và c2 là hệ số cho biết độ phụ thuộc của vận tốc mới vào personal best và global best, w là hệ số ứng với vận tốc hiện tại
+    + P t best(i) là điểm personal best của cá thể thứ i tại lần lặp thứ t, P t bestglobal là điểm global best tại lần lặp thứ t
++ Bộ trọng số đó sẽ quyết định vận tốc mới của cá thể, cân bằng giữa khai phá và tìm kiếm (exploitaion and exploration)
+![](./photos/pso_convergence.gif)<br>
++ trong hình minh họa trên ta có thể thấy:
+	+ với c1 lớn và c2 = 0, quần thể không hội tụ do mỗi cá thể chỉ tập trung vào personal best của nó
+	+ với c1 = 0 và c2 lớn, quần thể hội tụ rất nhanh sau vài lần lặp 
+
++ Mã giả của PSO như sau
+![](./photos/pso_pseudocode.png)<br>
+
 
 ___
 
