@@ -101,7 +101,27 @@ ___
 ___
 
 ### ABC
-
++ Artificial Bee Colony (ABC) algorithm là thuật toán meta-heuristic dựa trên bầy đàn được giới thiệu năm 2005 bởi Karaboga để tối ưu các bài toán số.
++ ACB lấy cảm hứng từ hành vi tìm kiếm thức ăn thông minh của ông mật.Trong đó bầy ông nhân tạo được chia thành ba nhóm: ong thợ (employed bees), ong giám sát(onlooker bees), ong trinh sát(scout bees).
+    + Ong thợ: đi đến nguồn thức ăn mà nó khám phá được trước đó.
+    + Ong quan sát: quan sát điệu nhảy của ong thợ để quyết định
+    + Ong trinh sát: thực hiện tìm kiếm ngẫu nhiên để tìm kiếm nguồn thức ăn mới.
++ Thuật toán được chia làm giai đoạn :
+    + Initialization Phase
+      + Khởi tạo ngẫu nhiên vị trí các food source, số lượng food source, số lượng ong thợ, ông giám sát, số lần chạy. Trong đó số lượng ong thợ, ông giám sát và food source là bằng nhau.
+      + Tính toán giá trị của hàm mục tiêu, hàm fit(công thức tính giá trị hàm fit sẽ được giải thích ở phase Employed Bee).
+    + Employed Bees Phase
+      + Tìm kiếm vị trị nguồn thức ăn lân cận dựa vào thông tin nguồn thức ăn trong kí ức trước đó. Vị trí nguồn thức ăn lân cận được tính theo công thức:
+      ![img_1.png](photos/abc_newfoodsourceposition.PNG)
+      + Sau khi tìm vị trí của nguồn thức ăn lân cần, các giá trị của hàm mục tiêu, hàm fit được tính toán lại. Nếu giá trị giá trị của hàm fit tại vị trí mới tốt hơn vị trí cũ trước đó, giá trị vị trí tốt nhất trong kí ức sẽ được cập nhật. Với mỗi lần mà vị trí nguồn thức ăn lân cận mới không tốt hơn vị trí cũ, số lần trial sẽ được tăng lên, và được reset khi giá trị tốt hơn.
+      + Giá trị của hàm fit sẽ được tính theo công thức sau:
+      ![img_1.png](photos/abc_hamfit.PNG)
+        + Trong đó f(Xm) là giá trị hàm mục tiêu tại vị trí Xm
+    + Onlooker Bees Phase
+      + Quyết định lựa chọn nguồn thức ăn dựa vào giá trị xác suất được tính toán thông qua công thức:         
+      ![img_1.png](photos/abc_probabilityfunc.PNG)
+    + Scout Bees Phase
+      + Những con ông thợ khi giá trị trial đạt ngưỡng giới hạn (tức sau một số lần thức nghiệm tìm nguồn thức ăn lân cận nó không tìm được giải pháp tốt hơn) sẽ phải tìm lại vị trí nguồn thức ăn một cách ngẫu nhiên.
 ___
 
 ### IWO: Invasive weed optimization
