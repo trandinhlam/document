@@ -115,7 +115,7 @@ ___
 	+ Độ thu hút tỉ lệ thuận với cường độ ánh sáng phát ra, một con đom đóm ít phát sáng hơn sẽ bị thu hút bởi một con đom đóm phát sáng sáng hơn, độ thu hút sẽ giảm dần theo khoảng cách giữa hai con đom đóm
 	+ Nếu hai con đom đóm có cùng độ sáng (và là độ sáng lớn nhất trong quần thể) thì chúng sẽ di chuyển ngẫu nhiên
 
-+ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do con đom đóm phát ra tỉ lệ thuận với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng, và trong quá trình truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có phương trình
++ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do con đom đóm phát ra tỉ lệ nghịch với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng, và trong quá trình truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có phương trình
 ![](./photos/equation2.png)<br>
 + với I0 là cường độ tại điểm cớ khoảng cách r = 0, gamma là hệ số hấp thụ ánh sáng của môi trường, r là khoảng cách
 + Vì độ thu hút tỉ lệ với cường độ ánh sáng cảm nhận được, ta có phương trình
@@ -130,12 +130,14 @@ ___
 + với alpha thuộc [0,1], gamma thuộc [0, vô cùng], epsilon_i là một số ngẫu nhiên từ phân phối Gauss (và có thể thay bằng rand - 0.5, với rand thuộc [0,1]).
 
 Mã giả của thuật toán đom đóm được mô tả như sau
-![](./photos/firely_algo_original.png)<br>
+![](./photos/firefly_pseudocode.png)<br>
++ đầu tiên khởi tạo các tham số cần thiết cho thuật toán, và giới hạn số lần lặp tối đa
++ trong mỗi lần lặp, ta so sánh độ thu hút của từng con đom đóm với các con còn lại trong quần thể, và di chuyển con đom đóm đó theo những con có độ thu hút lớn hơn nó.
 
 + Mutation FA/Hybrid FA (optional)
 
 + Trong bài báo, để tăng khả năng khai thác và khám phá của thuật toán đom đóm, để có thể áp dụng vào những bài toán nhiều chiều một cách hiệu quả hơn, nhóm tác giả đã cải tiến thuật toán đom đóm bằng cách giới thiệu thuật ngữ mutation strategy (MP) để làm tăng độ thu hút của những con đom đóm có cường độ ánh sáng thấp hơn, thuật toán đom đóm sau khi được cải tiến sẽ có dạng như sau:
-![](./photos/firefly_pseudocode.png)<br>
+![](./photos/algo1.png)<br>
 
 ## II.2. Sơ lược Các thuật toán tối ưu được lai
 
@@ -151,7 +153,9 @@ ___
 ![](./photos/pso_coordinate.png)<br>
 ![](photos/pso_velocity.png)<br>
 + Quần thể: qua mỗi lần lặp, vector vận tốc của mỗi cá thể được thay đổi một cách ngẫu nhiên dựa theo hướng của vị trí nhiều thức ăn nhất của cá thể đó tìm được (personal best), và hướng của vị trí có nhiều thức ăn nhất của quần thể (global best)
+![](./photos/pso_fusion_velocity_vectors.png)<br>
 ![](./photos/pso_velocity_change.png)<br>
+![](./photos/pso_weight_set.png)<br>
 + trong đó 
     + trọng số r1 và r2 là duy nhất cho mỗi cá thể và mỗi lần lặp, c1 và c2 là hệ số cho biết độ phụ thuộc của vận tốc mới vào personal best và global best, w là hệ số ứng với vận tốc hiện tại
     + P t best(i) là điểm personal best của cá thể thứ i tại lần lặp thứ t, P t bestglobal là điểm global best tại lần lặp thứ t
@@ -162,7 +166,7 @@ ___
 	+ với c1 = 0 và c2 lớn, quần thể hội tụ rất nhanh sau vài lần lặp 
 
 + Mã giả của PSO như sau
-![](./photos/pso_pseudocode.png)<br>
+![](./photos/pso_psuedocode.png)<br>
 
 
 ___
