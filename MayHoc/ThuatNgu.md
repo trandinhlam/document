@@ -171,14 +171,19 @@ ___
 + selection pressure and population diversity
 + classification error percentage (CEP)
 + fuzzy c-means
-+ cluster validity index (CVI)
 + Davies – Bouldin (DB)
 + Compact-Separated (CS)
 + Variance reduction exponent
 + inertia weight damping
 + Friedman rank-sum test
 + Wilcoxon post-hoc test
-
+---
++ Exploitation and exploration: 
+    + Exploitation is the ability of particles to target the best solutions found so far (khả năng di chuyển của quần thể về nơi có nguồn thức ăn nhiều nhất, mỗi con sẽ đi theo con sáng nhất)
+    + Exploration, on the other hand, is the ability of particles to evaluate the entire research space. (khả năng của quần thể để đánh giá toàn bộ không gian tìm kiếm, từng con sẽ cố gắng tạo dấu ấn riêng bằng cách mở lối đi riêng chạy theo đường khác với hy vọng tìm được điểm tốt hơn)
+    + Trong PSO, với mỗi lần lặp, mỗi con sẽ cân bằng giữa exploitation và exploration (tìm ra 2 hướng rồi cộng vector)
+    + Nhận xét: exploitation -> tăng tốc độ hội tụ (về global minimum), exploration -> tăng khả năng tìm ra best global minimum
+---
 ## links
 + https://en.wikipedia.org/wiki/Firefly_algorithm <br>
 + https://www.youtube.com/watch?v=QRtt_cJSMNk&ab_channel=Dr.HarishGarg <br>
@@ -191,3 +196,6 @@ ___
 clustering: A survey and performance study,’’ Social Netw. Appl. Sci.,
 vol. 2, no. 2, p. 273, Feb. 2020
 https://link.springer.com/content/pdf/10.1007/s42452-020-2073-0.pdf
++ Agbaje MB, Ezugwu AE, Els R (2019) Automatic data clustering using hybrid frefy particle swarm optimization algorithm.
+  IEEE Access 7:184963–184984. https://doi.org/10.1109/ACCES
+  S.2019.2960925

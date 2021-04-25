@@ -21,17 +21,25 @@ K = 4
 original_label = np.asarray([0] * N + [1] * N + [2] * N + [3] * N).T
 
 
+def kmeans_display_center(X, label, centers):
+    K = np.amax(label) + 1
+    colors = np.array(['b^', 'go', 'rs', 'yo']).T
+    for k in range(0, K - 1):
+        Xi = X[label == k, :]
+        plt.plot(Xi[:, 0], Xi[:, 1], colors[k], markersize=4, alpha=.8)
+        plt.plot(centers[k, 0], centers[k, 1], colors[K-1-k], markersize=10, alpha=.8)
+
+    plt.axis('equal')
+    plt.plot()
+    plt.show()
+
+
 def kmeans_display(X, label):
     K = np.amax(label) + 1
-    X0 = X[label == 0, :]
-    X1 = X[label == 1, :]
-    X2 = X[label == 2, :]
-    X3 = X[label == 3, :]
-
-    plt.plot(X0[:, 0], X0[:, 1], 'b^', markersize=4, alpha=.8)
-    plt.plot(X1[:, 0], X1[:, 1], 'go', markersize=4, alpha=.8)
-    plt.plot(X2[:, 0], X2[:, 1], 'rs', markersize=4, alpha=.8)
-    plt.plot(X3[:, 0], X3[:, 1], 'yo', markersize=4, alpha=.8)
+    colors = np.array(['b^', 'go', 'rs', 'yo']).T
+    for k in range(0, K - 1):
+        Xi = X[label == k, :]
+        plt.plot(Xi[:, 0], Xi[:, 1], colors[k], markersize=4, alpha=.8)
 
     plt.axis('equal')
     plt.plot()
@@ -85,7 +93,7 @@ def kmeans(X, k):
 print('Centers found by our algorithm:')
 print(centers[-1])
 
-kmeans_display(X, labels[-1])
+kmeans_display_center(X, labels[-1], centers[-1])
 
 from sklearn.cluster import KMeans
 
