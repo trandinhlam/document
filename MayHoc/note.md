@@ -190,7 +190,22 @@ ___
 
 ### TLBO: Teaching learning-based optimization
 
-+ TLBO: Tối ưu hóa dạy và học
++ TLBO: Tối ưu hóa dạy và học, là một thuật toán heuristic phổ biến, ra đời năm 2011. Thuật toán lấy cảm hứng từ hiện
+  tượng người giáo viên tác động lên nhóm học sinh. Theo đó thuật toán chia thành 2 pha riêng biệt:
+    + Pha dạy: Giáo viên truyền đạt kiến thức như nhau đối với các học sinh. Khả năng lĩnh hỗi kiến thức sẽ phụ thuộc
+      vào lực học của mỗi học sinh. <br/>
+      ![img.png](photos/imghinh.png)
+        + T_F là hệ số học (nhận giá trị 1 hoặc 2).
+        + XTeacher là người giỏi nhất
+        + XMean là độ giỏi trung bình của cả lớp
+        + r random trong khoảng [0,1]
+    + Pha học: Học sinh tự tăng độ giỏi của mình thông qua việc giao tiếp với bạn bè trong lớp. Ở đó, bạn học sẽ được
+      chọn ngẫu nhiên, trong trường hợp bạn học giỏi hơn, học sinh đó sẽ tăng được kiến thức, và ngược lại
+      ![img_1.png](photos/img_1laihinh.png)
+      ![img_2.png](photos/img_2hinhaa.png)
++ Lưu đồ thuật toán:
+  ![img_3.png](photos/img_3aaaaabbab.png)
++ Theo đó, Chất lượng trung bình của cả lớp học phụ thuộc vào chất lượng của người dạy.
 
 ___
 
@@ -215,7 +230,7 @@ ___
 + Công thức tổng quát như sau: (Có 2 công thức từ các bài bài trước)
   ![img_1.png](photos/img_1bbb.png)
     + Công thức trên bị nhầm ở ký hiệu Yj thuộc Ci, sửa Yj thành Xj <br/>
-    
+
 + ![img_2.png](photos/img_2bbb.png) là số lượng phần tử trong cụm tương ứng
 + ![img_3.png](photos/img_3bbb.png) là khoảng cách giữa within-cluster scatter Xi và between-cluster separation Xj
 + ![img_4.png](photos/img_4bbbb.png) là khoảng cách giữa 2 tâm cụm đang xét
