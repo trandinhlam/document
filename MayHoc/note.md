@@ -107,35 +107,45 @@ ___
 + Đom đóm là một loại côn trùng có cánh và có thể phát ra ánh sáng nhấp nháy về đêm. Ánh sáng này dùng để thu hút các
   con đom đóm khác di chuyển về phía nó, và cảnh báo về các mối nguy hiểm hoặc nguồn thức ăn
 
-+ Cường độ ánh sáng trên đường đi sẽ giảm dần do bị hấp thụ một phần bởi môi trường, cho cường độ ánh sáng I tại điểm cách O một khoảng r, I tỉ lệ nghịch với bình phương khoảng cách ![](./photos/equation1.png)<br>
++ Cường độ ánh sáng trên đường đi sẽ giảm dần do bị hấp thụ một phần bởi môi trường, cho cường độ ánh sáng I tại điểm
+  cách O một khoảng r, I tỉ lệ nghịch với bình phương khoảng cách ![](./photos/equation1.png)<br>
 + Cường độ ánh sáng của mỗi con đom đóm phát ra sẽ tỉ lệ với hàm cần tối ưu của bài toán.
 
 + Thuật toán đom đóm được phát triển dựa trên giả thuyết rằng
-	+ Khi một con đom đóm (A) bị thu hút bởi một con con đom đóm khác (B) thì nó chỉ dựa trên độ sáng (mà nó cảm nhận được) của con đom đóm B và không bị ảnh hưởng bởi các yếu tố khác (giới tính đom đóm, mùi hương, mùa, ...)
-	+ Độ thu hút tỉ lệ thuận với cường độ ánh sáng phát ra, một con đom đóm ít phát sáng hơn sẽ bị thu hút bởi một con đom đóm phát sáng sáng hơn, độ thu hút sẽ giảm dần theo khoảng cách giữa hai con đom đóm
-	Nếu hai con đom đóm có cùng độ sáng (và là độ sáng lớn nhất trong quần thể) thì chúng sẽ di chuyển ngẫu nhiên
+    + Khi một con đom đóm (A) bị thu hút bởi một con con đom đóm khác (B) thì nó chỉ dựa trên độ sáng (mà nó cảm nhận
+      được) của con đom đóm B và không bị ảnh hưởng bởi các yếu tố khác (giới tính đom đóm, mùi hương, mùa, ...)
+    + Độ thu hút tỉ lệ thuận với cường độ ánh sáng phát ra, một con đom đóm ít phát sáng hơn sẽ bị thu hút bởi một con
+      đom đóm phát sáng sáng hơn, độ thu hút sẽ giảm dần theo khoảng cách giữa hai con đom đóm Nếu hai con đom đóm có
+      cùng độ sáng (và là độ sáng lớn nhất trong quần thể) thì chúng sẽ di chuyển ngẫu nhiên
 
-+ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do con đom đóm phát ra tỉ lệ thuận với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng, và trong quá trình truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có phương trình
-![](./photos/equation2.png)<br>
++ Độ sáng cảm nhận được tại 1 điểm và độ thu hút là 2 yếu tố quan trọng trong thuật toán đom đóm. Cường độ ánh sáng do
+  con đom đóm phát ra tỉ lệ thuận với giá trị của hàm mục tiêu tại điểm mà con đom đóm đang đứng, và trong quá trình
+  truyền đi, độ sáng sẽ thay đổi theo độ lớn khoảng cách và lượng ánh sáng bị hấp thụ bởi môi trường, kết hợp lại, ta có
+  phương trình
+  ![](./photos/equation2.png)<br>
 + với I0 là cường độ tại điểm cớ khoảng cách r = 0, gamma là hệ số hấp thụ ánh sáng của môi trường, r là khoảng cách
 + Vì độ thu hút tỉ lệ với cường độ ánh sáng cảm nhận được, ta có phương trình
 + ![](./photos/equation3.png)<br>
 + trong đó beta0 là độ thu hút tại điểm r = 0
 
 + Khoảng cách Euclid giữa 2 con đom đóm xi và xj được tính bởi công thức
-![](./photos/equation4.png)<br>
+  ![](./photos/equation4.png)<br>
 + với d là số chiều của dữ liệu.
 + Sự chuyển động của 1 con đom đóm được xác định bởi công thức
-![](./photos/equation5.png)<br>
-+ với alpha thuộc [0,1], gamma thuộc [0, vô cùng], epsilon_i là một số ngẫu nhiên từ phân phối Gauss (và có thể thay bằng rand - 0.5, với rand thuộc [0,1]).
+  ![](./photos/equation5.png)<br>
++ với alpha thuộc [0,1], gamma thuộc [0, vô cùng], epsilon_i là một số ngẫu nhiên từ phân phối Gauss (và có thể thay
+  bằng rand - 0.5, với rand thuộc [0,1]).
 
 Mã giả của thuật toán đom đóm được mô tả như sau
 ![](./photos/firely_algo_original.png)<br>
 
 + Mutation FA/Hybrid FA (optional)
 
-+ Trong bài báo, để tăng khả năng khai thác và khám phá của thuật toán đom đóm, để có thể áp dụng vào những bài toán nhiều chiều một cách hiệu quả hơn, nhóm tác giả đã cải tiến thuật toán đom đóm bằng cách giới thiệu thuật ngữ mutation strategy (MP) để làm tăng độ thu hút của những con đom đóm có cường độ ánh sáng thấp hơn, thuật toán đom đóm sau khi được cải tiến sẽ có dạng như sau:
-![](./photos/algo1.png)<br>
++ Trong bài báo, để tăng khả năng khai thác và khám phá của thuật toán đom đóm, để có thể áp dụng vào những bài toán
+  nhiều chiều một cách hiệu quả hơn, nhóm tác giả đã cải tiến thuật toán đom đóm bằng cách giới thiệu thuật ngữ mutation
+  strategy (MP) để làm tăng độ thu hút của những con đom đóm có cường độ ánh sáng thấp hơn, thuật toán đom đóm sau khi
+  được cải tiến sẽ có dạng như sau:
+  ![](./photos/algo1.png)<br>
 
 ## II.2. Sơ lược Các thuật toán tối ưu được lai
 
@@ -195,21 +205,31 @@ ___
 # IV.NỘI DUNG CHÍNH CỦA PAPER
 
 ## IV.1. Các hàm mục tiêu được sử dụng
+
 ### IV.1.a Compact-Separated:
+
 + Là chỉ số ước lượng chất lượng phân cụm dựa vào tỉ lệ của 2 yếu tố:
-  + điểm biểu thị chất lượng phân tán trong cụm (within-cluster scatter) 
-  + điểm phân tách giữa các cụm (between-cluster separation)
-+ Công thức tổng quát như sau:
-    ![img_1.png](photos/img_1bbb.png)
- + ![img_2.png](photos/img_2bbb.png) là số lượng phần tử trong cụm tương ứng
- + ![img_3.png](photos/img_3bbb.png) là hàm tính khoảng cách giữa within-cluster scatter Xi và between-cluster separation Xj
- + ![img_4.png](photos/img_4bbbb.png) là khoảng cách giữa 2 tâm cụm đang xét
+    + điểm biểu thị chất lượng phân tán trong cụm (within-cluster scatter): Khoảng cách xa nhất có thể giữa 2 điểm trong
+      cụm
+    + điểm phân tách giữa các cụm (between-cluster separation): Khoảng cách giữa 2 tâm cụm
++ Công thức tổng quát như sau: (Có 2 công thức từ các bài bài trước)
+  ![img_1.png](photos/img_1bbb.png)
+    + Công thức trên bị nhầm ở ký hiệu Yj thuộc Ci, sửa Yj thành Xj <br/>
     
++ ![img_2.png](photos/img_2bbb.png) là số lượng phần tử trong cụm tương ứng
++ ![img_3.png](photos/img_3bbb.png) là khoảng cách giữa within-cluster scatter Xi và between-cluster separation Xj
++ ![img_4.png](photos/img_4bbbb.png) là khoảng cách giữa 2 tâm cụm đang xét
++ Công thức trong bài báo mới: <br/>
+  ![img.png](photos/imgbbbbb.png)
+
 + J_CS càng nhỏ, phân cụm càng tốt và ngược lại
-### IV.1.b Davis-Bouldin: 
-+ Là chỉ số ước lượng chất lượng phân cụm rất phổ biến, đề xuất bởi Davis và Bouldin. Phép đánh giá này dựa trên 2 tiêu chí:
-   + intra-cluster (khoảng cách trung bình giữa tất cả các điểm trong cụm tính từ tâm cụm)
-   + inter-cluster (Khoảng cách giữa 2 tâm cụm)
+
+### IV.1.b Davis-Bouldin:
+
++ Là chỉ số ước lượng chất lượng phân cụm rất phổ biến, đề xuất bởi Davis và Bouldin. Phép đánh giá này dựa trên 2 tiêu
+  chí:
+    + intra-cluster (khoảng cách trung bình giữa tất cả các điểm trong cụm tính từ tâm cụm)
+    + inter-cluster (Khoảng cách giữa 2 tâm cụm)
 + Công thức:
   gọi Wi là khoảng cách intra-cluster của cụm i, tập hợp Bi, tâm xi
   ![img_5.png](photos/img_5.png)
@@ -224,23 +244,27 @@ ___
   <br>
 + Vậy ta cần tối ưu hóa giá trị J_DB này để tìm ra phân cụm tốt nhất
 
-+ Nhìn chung 2 chỉ số đánh giá này có cách vận hành tương đối giống nhau, đều dựa vào 2 yếu tố nội suy từ tập dữ liệu đầu vào và tập các tâm ứng viên.
++ Nhìn chung 2 chỉ số đánh giá này có cách vận hành tương đối giống nhau, đều dựa vào 2 yếu tố nội suy từ tập dữ liệu
+  đầu vào và tập các tâm ứng viên.
+
 ## IV.2. 4 thuật toán lai được đề xuất
 
 ### IV.2.1 FAPSO:
- + Là thuật toán lai giữa FA và PSO, được nhóm tác giả đề xuất trước đó vào tháng 12 năm 2019. Ở bài public này nhóm tác giả 
-   cũng sử dụng 2 phép đánh giá hiệu quả phân cụm dựa vào CS và DB.
- + Dưới đây là mã giả của thuật toán:
- + ![img.png](photos/imgbbb.png)
- + Lưu đồ thuật toán:
-   ![](./photos/FlowChart_FAPOS.png)
-   <br/>
- + Nhận xét:  Trong thuật toán này, mỗi lần duyệt qua một cá thể đom đóm đều được chia thành 2 pha rõ rệt:
-   + Pha 1 vẫn thực hiện cập nhật cá thể theo thuật toán FA. Bước này là dễ hiểu vì thuật toán gốc là FA, có ưu điểm là tận dụng 
-     được khả năng tìm kiếm ngẫu nhiên của thuật toán FA để nhanh chóng tìm ra global optima.
-   + Pha 2 dựa trên bước đi của pha 1, sử dụng cách di chuyển của PSO để cập nhật vị trí của cá thể ngay sau đó. Bước này sẽ 
-     giúp quần thể đom đóm tăng cơ hội rơi vào local optima có thể có xung quanh cá thể đang duyệt.
-     => Kết hợp cả 2 yếu tố trên có thể giúp bài toán hội tụ nhanh hơn, khai thác được thế mạnh của 2 chiến lược tìm kiếm độc lập nhau.
+
++ Là thuật toán lai giữa FA và PSO, được nhóm tác giả đề xuất trước đó vào tháng 12 năm 2019. Ở bài public này nhóm tác
+  giả cũng sử dụng 2 phép đánh giá hiệu quả phân cụm dựa vào CS và DB.
++ Dưới đây là mã giả của thuật toán:
++ ![img.png](photos/imgbbb.png)
++ Lưu đồ thuật toán:
+  ![](./photos/FlowChart_FAPOS.png)
+  <br/>
++ Nhận xét:  Trong thuật toán này, mỗi lần duyệt qua một cá thể đom đóm đều được chia thành 2 pha rõ rệt:
+    + Pha 1 vẫn thực hiện cập nhật cá thể theo thuật toán FA. Bước này là dễ hiểu vì thuật toán gốc là FA, có ưu điểm là
+      tận dụng được khả năng tìm kiếm ngẫu nhiên của thuật toán FA để nhanh chóng tìm ra global optima.
+    + Pha 2 dựa trên bước đi của pha 1, sử dụng cách di chuyển của PSO để cập nhật vị trí của cá thể ngay sau đó. Bước
+      này sẽ giúp quần thể đom đóm tăng cơ hội rơi vào local optima có thể có xung quanh cá thể đang duyệt. => Kết hợp
+      cả 2 yếu tố trên có thể giúp bài toán hội tụ nhanh hơn, khai thác được thế mạnh của 2 chiến lược tìm kiếm độc lập
+      nhau.
 
 ### IV.2.2 FAABC - FAIWO - FATLBO:
 
