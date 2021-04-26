@@ -9,12 +9,13 @@ from optimizers import FA, PSO
 from lamtd import displayer
 
 ###### INIT OPTIMIZER AND DATASET
-optimizer = PSO
-# optimizer = FA
+# optimizer = PSO
+optimizer = FA
 # dataset_file = 'dataset/iris.csv'
 # dataset_file = 'dataset/iris2D.csv'
 # dataset_file = 'dataset/flame.csv'
-dataset_file = 'dataset/heart.csv'
+# dataset_file = 'dataset/heart.csv'
+dataset_file = 'dataset/jain.csv'
 ########### END INIT
 
 

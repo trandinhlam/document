@@ -16,6 +16,7 @@ Created on Sun May 29 00:49:35 2016
 # % for the design of a spring (benchmark)                   %
 # % by Xin-She Yang (Cambridge University) Copyright @2009   %
 # % -------------------------------------------------------- %
+from weakref import finalize
 
 import numpy
 import math
@@ -89,6 +90,18 @@ def run(objf, lb, ub, dim, n, MaxGeneration, k, points):
                     beta = (beta0 - beta_min) * math.exp(-gamma * r ** 2) + beta_min
                     tmpf = alpha * (numpy.random.rand(dim) - 0.5) * scale
                     ns[i, :] = ns[i, :] * (1 - beta) + nso[j, :] * beta + tmpf
+                    #update light intensity of current firefly
+                    startpts = numpy.reshape(ns[i, :], (k, int(dim / k)))
+                    fitnessValue, labelsPredValues = objf(startpts, points, k)
+                    Lightn[i] = fitnessValue
+        #best firefly moves randomly
+        tmpf = alpha * (numpy.random.rand(dim) - 0.5) * scale
+        tempNewPosition = ns[0, :] + tmpf
+        tmpSolution = numpy.reshape(tempNewPosition, (k, int(dim / k)))
+        fitnessValue, labelsPredValues = objf(tmpSolution, points, k)
+        if Lightn[0] > fitnessValue:
+            fbest = fitnessValue
+            ns[0, :] = tempNewPosition
         convergence.append(fbest)
         if Iteration % 1 == 0:
             print(['At iteration ' + str(Iteration) + ' the best fitness is ' + str(fbest)])
