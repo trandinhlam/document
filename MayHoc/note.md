@@ -246,11 +246,12 @@ ___
 ___
 
 # III.LỊCH SỬ CẢI TIẾN
-
-## III.1. Thành tựu trước đó, các nghiên cứu đã có
-
-## III.2. Vấn đề gặp phải & bài toán đặt ra của các paper trước
-
++ Hassanzadeh và Meybodi đã trình bày một phương pháp kết hợp dựa trên FA và k-means
++ Zabihi và Nasiri đề xuất việc sử dụng thuật toán ABC theo history-driven để giải quyết phân cụm dữ liệu, với cơ chế ghi nhớ dựa trên phân vùng không gian nhị phân đã được kết hợp vào thuật toán ABC, để cải thiện hiệu suất phân cụm.
++ Merwe và Engelbrecht đã đề xuất việc sử dụng PSO để giải quyết vấn đề phân cụm
++ Zhao đã làm về việc cải thiện hiệu suất của thuật toán k-mean bằng cách lai nó với PSO để tránh bị ảnh hưởng trực tiếp bởi các trung tâm cụm ban đầu.
++ Nikkam và cộng sự [19] đã đề xuật một thuật toán cải tiến hiệu quả kết hợp ACO và các thuật toán simulated annealing (SA) để giải quyết. Kết quả mô phỏng của ACO-SA cho thấy thuật toán kết hợp hoạt động hiệu quả hơn SA cơ bản, ACO và k-mean riêng lẻ.
++ Satapathy và Naik [20] đã phát triển một thuật toán TLBO đã được sử dụng để tìm các tâm của một số lượng cụm do người dùng chỉ định
 ___
 
 # IV.NỘI DUNG CHÍNH CỦA PAPER
@@ -318,7 +319,7 @@ ___
       nhau.
 
 ### IV.2.2 FAABC - FAIWO - FATLBO:
-
++ 3 thuật toán còn lại cũng có cách
 ## IV.3. Thực nghiệm và so sánh
 
 ___
@@ -328,29 +329,22 @@ ___
 ## V.1. Nhận xét về tính đúng đắn của đề xuất
 
 ## V.2. Nhận xét về tính thực tế của đề xuất
++ Mặc dù 
 
 ___
 
-# VI: THỬ NGHIỆM CÀI ĐẶT THUẬT TOÁN TRÊN MỘT TẬP DATA
+# VI: THỬ NGHIỆM CÀI ĐẶT THUẬT TOÁN TRÊN MỘT SỐ TẬP DATA
 
-___
-___
-___
-___
 ___
 ___
 
 # TÀI LIỆU THAM KHẢO
 
-+
-
-paper: https://www.semanticscholar.org/paper/A-Comparative-Performance-Study-of-Hybrid-Firefly-Ezugwu-Agbaje/87a471ac21d86339c841c7bc5e1429341ce80d22
++ paper: https://www.semanticscholar.org/paper/A-Comparative-Performance-Study-of-Hybrid-Firefly-Ezugwu-Agbaje/87a471ac21d86339c841c7bc5e1429341ce80d22
 
 + paper: Mehrabian AR, Lucas C (2006) A novel numerical optimiza- tion algorithm inspired from weed colonization. Ecol
   Inform 1(4):355–366
 
-+
-
-k-mean: https://machinelearningcoban.com/2017/01/01/kmeans/?fbclid=IwAR1izcp2yXBUpJiKPnCw_geiURx6qUrfwDiSfPP7R8he33kOvFBFYldT3oA#-gioi-thieu
++ k-mean: https://machinelearningcoban.com/2017/01/01/kmeans/?fbclid=IwAR1izcp2yXBUpJiKPnCw_geiURx6qUrfwDiSfPP7R8he33kOvFBFYldT3oA#-gioi-thieu
 
 ___
