@@ -101,7 +101,7 @@ _mô tả các nghiệp vụ, chức năng đã xác định ở bước trên_
 + Vẽ mockup cho các flow
 + Đang tham khảo giáo trình
 ___
-Link Sheet mô tả yêu cầu hệ thống: https://docs.google.com/spreadsheets/d/1iDzeZ_aNkeXcdrKpUuy2gGfRlAtPLVU-ZsDcMLTiRk8/edit?usp=sharing
+Link Sheet mô tả yêu cầu hệ thống: https://drive.google.com/file/d/1aiAWpaRydDQtTFf-b-Di8UnwJew8Sgv8/view?usp=sharing
 ###1: Chức năng 1: Kết bạn
 + Đối tượng tham gia: User cá nhân
 + Mô tả: Chức năng bắt đầu khi user truy cập vào một profile cá nhân của 1 user khác.
