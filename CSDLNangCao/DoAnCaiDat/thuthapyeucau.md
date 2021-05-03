@@ -6,7 +6,7 @@
 
 ___
 
-## Yêu cầu 1: Nghiên cứu, mô tả phạm vi cho các quy trình nghiệp vụ của một HT thực tế
+## Yêu cầu 1: Nghiên cứu,khảo sát, mô tả phạm vi cho các quy trình nghiệp vụ của một HT thực tế
 
 **Kết quả công việc:**
 
@@ -86,18 +86,30 @@ ___
 
 **Từ danh sách khảo sát trên, nhóm đã chọn ra các chức năng CHÍNH của một hệ thống Social Network cơ bản:**
 
-+
-
++ Chức năng 1: Kết bạn
++ Chức năng 2
++ Chức năng 3
++ Chức năng 4
++ Chức năng 5
  ___
 
-#### Xây dựng bảng mô tả yêu cầu hệ thống
+## Xây dựng bảng mô tả yêu cầu hệ thống
+_mô tả các nghiệp vụ, chức năng đã xác định ở bước trên_
 
 + Chưa có form mô tả yêu cầu, cần tham khảo các project thật
 + Lần lượt vẽ sơ đồ usecase cho từng chức năng
 + Vẽ mockup cho các flow
-+ ...
-
++ Đang tham khảo giáo trình
 ___
+Link Sheet mô tả yêu cầu hệ thống: https://docs.google.com/spreadsheets/d/1iDzeZ_aNkeXcdrKpUuy2gGfRlAtPLVU-ZsDcMLTiRk8/edit?usp=sharing
+###1: Chức năng 1: Kết bạn
++ Đối tượng tham gia: User cá nhân
++ Mô tả: Chức năng bắt đầu khi user truy cập vào một profile cá nhân của 1 user khác.
+  + User 1 có thể gửi yêu cầu kết bạn đến user 2
+  + User 2 thấy được danh sách các lời mời, và thực hiện đồng ý/ từ chối tương ứng
+    
+<br/>
+![img.png](img.png)
 ___
 
 ## Yêu cầu 2: Phân tích nghiệp vụ hệ thống, xác định loại CSDL phù hợp
