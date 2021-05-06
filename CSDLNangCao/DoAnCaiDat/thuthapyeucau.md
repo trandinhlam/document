@@ -87,10 +87,16 @@ ___
 **Từ danh sách khảo sát trên, nhóm đã chọn ra các chức năng CHÍNH của một hệ thống Social Network cơ bản:**
 
 + Chức năng 1: Kết bạn
-+ Chức năng 2
-+ Chức năng 3
-+ Chức năng 4
-+ Chức năng 5
++ Chức năng 2: Đăng bài
+    + Trên tường nhà mình
+    + Trên newsfeed bạn bè
+        + Sắp xếp các bài trên newsfeed theo độ ưu tiên
++ Chức năng 3: Gợi ý kết bạn
++ Chức năng 4: Thành lập nhóm
+    + Broadcast bài đăng mới
++ Chức năng 5: Tìm kiếm
+    + Bạn bè
+    + Nhóm 
  ___
 
 ## Xây dựng bảng mô tả yêu cầu hệ thống
