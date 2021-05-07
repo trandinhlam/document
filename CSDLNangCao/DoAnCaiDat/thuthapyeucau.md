@@ -33,39 +33,38 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
     + **Chức năng 1: Kết bạn - Kết nối bạn bè:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-      |:---:|:---|:----
+                                                                                                                                                                                                                                                                              |:---:|:---|:----
       |Danh sách bạn bè|Quản lý danh sách bạn bè <br> là các user đã kết bạn với mình. Khi user đã kết bạn với nhau thì có thể thấy profile, trạng thái của nhau|![img_1.png](photos/face_banbe.png)
       |Lời mời kết bạn|Quản lý lời mời kết bạn từ/đến các user khác|![img.png](photos/face_loimoi.png)
 
     + **Chức năng 2: Đăng Feed, Đăng tin lên trang cá nhân:**
-      
+
       |Chức năng|Mô tả khái quát|Hình ảnh
-      |:---:|:---|:----
+                                                                                                                                                                                                                                                                              |:---:|:---|:----
       |Đăng feed trên trang cái nhân| User soạn và đăng feed trên đầu trang cá nhân của mình|![img.png](photos/face_status.png)
       |Khám phá feed|Các Feed công khai của bạn bè sẽ hiển thị trên trang khám phá feed của mỗi user|![img.png](photos/face_explore_feed.png)
       |Tương tác feed|User có thể like,react, comment, share bất kỳ feed nào nếu là bạn bè hoặc là thành viên của hội|![img.png](photos/face_reaction.png)
-      
+
     + **Chức năng 3: Chat và Video call:**
-      
+
       |Chức năng|Mô tả khái quát|Hình ảnh
-      |---:|---:|----:
+                                                                                                                                                                                                                                                                              |---:|---:|----:
       |Chat với bạn bè| User trò chuyện 1-1 với bạn bè và nhận thông báo|![img.png](photos/face_chat.png)
       |Chat nhóm| User trò chuyện trong nhóm có nhiều thành viên, được mời vào trong nhóm bởi trưởng nhóm|
       |Video call| User Video trực tuyến 1-1 hoặc trong chung một nhóm|![img.png](photos/face_video.png)
     + **Chức năng 4: Quản lý nhóm hội/page:**
-      
-        |Chức năng|Mô tả khái quát|Hình ảnh
-        |---:|---:|----:
-        |Quản lý thành viên|Trường nhóm thêm/xóa thành viên ra khỏi nhóm|![img.png](photos/face_group.png)
-        |Đăng tin| Giống với đăng feed, nhưng chỉ cho các thành viên trong hội thấy với vai trò hội-thành viên|
-  
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                |---:|---:|----:
+      |Quản lý thành viên|Trường nhóm thêm/xóa thành viên ra khỏi nhóm|![img.png](photos/face_group.png)
+      |Đăng tin| Giống với đăng feed, nhưng chỉ cho các thành viên trong hội thấy với vai trò hội-thành viên|
+
     + **Chức năng 5: Tìm kiếm bạn bè, nhóm hội:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-      |---:|---:|----:
+                                                                                                                                                                                                                                                                              |---:|---:|----:
       |Tìm kiếm user|Gõ trên khung search để tìm kiếm các user, bạn bè, nhóm hội dựa vào keyword|![img.png](photos/face_search.png)
 
-    
 
 + **Kiệt: Instagram**
     + Chức năng 1:
@@ -96,42 +95,52 @@ ___
     + Broadcast bài đăng mới
 + Chức năng 5: Tìm kiếm
     + Bạn bè
-    + Nhóm 
+    + Nhóm
+
  ___
 
 ## Xây dựng bảng mô tả yêu cầu hệ thống
+
 _mô tả các nghiệp vụ, chức năng đã xác định ở bước trên_
 
 + Chưa có form mô tả yêu cầu, cần tham khảo các project thật
 + Lần lượt vẽ sơ đồ usecase cho từng chức năng
 + Vẽ mockup cho các flow
 + Đang tham khảo giáo trình
+
 ___
-Link Sheet mô tả yêu cầu hệ thống: https://drive.google.com/file/d/1aiAWpaRydDQtTFf-b-Di8UnwJew8Sgv8/view?usp=sharing
-###1: Chức năng 1: Kết bạn
-+ Đối tượng tham gia: User cá nhân
-+ Mô tả: Chức năng bắt đầu khi user truy cập vào một profile cá nhân của 1 user khác.
-  + User 1 có thể gửi yêu cầu kết bạn đến user 2
-  + User 2 thấy được danh sách các lời mời, và thực hiện đồng ý/ từ chối tương ứng
-    
-<br/>
-![img.png](img.png)
+
+### 1: Chức năng 1: Kết bạn
+
++ Đối tượng tham gia: User muốn kết bạn và User nhận lời mời
++ Mô tả các bước: Chức năng bắt đầu khi user truy cập vào một profile cá nhân của 1 user khác.
+    + Bước 1: User 1 vào profile User 2
+    + Bước 2: User 1 gửi Yêu cầu kết bạn đến User 2
+    + Bước 3: User 2 thấy được danh sách các lời mời, và thực hiện đồng ý/ từ chối tương ứng
+    + Bước 4: User 1 nhận phản hồi, cả 2 được thêm vào danh sách bạn bè của nhau, và có thể xem profile của nhau.
+
 ___
 
 ## Yêu cầu 2: Phân tích nghiệp vụ hệ thống, xác định loại CSDL phù hợp
 
 ___
 
-+ #### Phân tích, thiết kế chức năng đã liệt kê
++ ### Phân tích, thiết kế chức năng đã liệt kê
++ ### Lý giải loại CSDL nào áp dụng phù hợp cho từng chức năng, dựa trên đặc thù của chức năng và của loại CSDL
+
+Link Sơ đồ mô tả yêu cầu hệ thống:
+
++ https://drive.google.com/file/d/1aiAWpaRydDQtTFf-b-Di8UnwJew8Sgv8/view?usp=sharing
+
++ **Chức năng 1: Kết bạn**
+    - Sơ đồ hoạt động của quy trình kết bạn:
+      ![](./photos/chucnangketban.png)
+
+    - Lựa chọn Loại CSDL: Quan hệ bạn bè là mối quan hệ 2 chiều và yêu cầu tính nhất quán cao, do danh sách bạn bè của
+      user thường thay đổi không quá nhiều, và có thể rất dài. Vì vậy ta nên chọn CSDL quan hệ truyền thống để lưu trữ
+      thông tin user, và các yêu cầu kết bạn giữa các user với nhau.
 
 ___
-
-+ #### Lý giải loại CSDL nào áp dụng phù hợp cho từng chức năng, dựa trên đặc thù của chức năng và của loại CSDL
-
-___
-
-+ #### Viết báo cáo
-
 ___
 ___
 
@@ -139,15 +148,16 @@ ___
 
 ___
 
-+ #### Thiết kế dữ liệu lưu trữ cho từng chức năng
++ ### Thiết kế dữ liệu lưu trữ/ mô hình dữ liệu cho từng chức năng
++ **Chức năng 1: Kết bạn**
+    + Mô hình dữ liệu CSDL quan hệ chi tiết:
+      ![img.png](ketban_mohinhCSDL/img.png)
+    + _Quan hệ User:_ Lưu thông tin cơ bản của một user
+    + _Quan hệ BanBe:_ Lưu các lời mời kết bạn, kèm thời gian và trạng thái của lời mời (Đang chờ/Đồng ý/Từ chối). Danh
+      sách bạn bè của một user có thể được truy vấn trong bảng này
 
 ___
 
-+ #### Với mỗi chức năng cần thiết kế mô hình dữ liệu lưu trữ chi tiết
-
-___
-
-+ #### Viết báo cáo
 
 ___
 ___
@@ -170,6 +180,8 @@ ___
 
 #### Thực hiện:
 
++ Nên đặt mức độ hoàn thành như thế nào? Làm theo chức năng hay theo hệ thống? => Theo chức năng
++ Microservice hay Monolithic? => Monolithic
 + Có muốn cài đặt trên một Server Cloud ko? Lâm nghĩ nên xài cloud, dễ setup môi trường
 + Lâm tính xài MySQL
 + Xài MongoDB với Neo4j thì đặc thù là gì ?
@@ -177,6 +189,12 @@ ___
     + MongoDB thì chưa rõ
 
 ___
+
++ Chức năng 1: Kết bạn
+    + Cài đặt sử dụng: MySQL
+    + Tập lệnh khai báo cấu trúc: (Trích các table trong file export .sql)
+    + Tập lệnh thao tác nghiệp vụ
+
 ___
 
 #### Thiết kế giao diện cho chức năng
@@ -187,13 +205,6 @@ ___
 ___
 
 #### Implement hoàn chỉnh
-
-+ Nên đặt mức độ hoàn thành như thế nào? Làm theo chức năng hay theo hệ thống?
-+ Microservice hay Monolithic?
-
-___
-
-#### Viết báo cáo
 
 ___
 ___
