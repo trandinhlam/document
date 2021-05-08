@@ -1,5 +1,7 @@
 # ĐỒ ÁN CÀI ĐẶT MẠNG CNN TRAFFIC-SIGN DETECTION CỦA NHÓM 13
-#Traffic-Sign Classification with GTSRB
+
+# Traffic-Sign Classification with GTSRB
+
 #### _Author: tdlam123@gmail.com_
 
 ## Tài liệu trích dẫn, mã nguồn tham khảo:
@@ -10,13 +12,20 @@
 + dataset: https://benchmark.ini.rub.de/gtsrb_dataset.html
 + kết quả đối sánh trong cuộc thi của IJCNN: https://benchmark.ini.rub.de/gtsrb_results.html
 + Tool vẽ CNN Architect: http://alexlenail.me/NN-SVG/LeNet.html
+
 ____
 
 ## I. Tổng quan và setup môi trường
+
 ### I.1 Mô tả bài toán:
-+ Ý tưởng về mạng nơ-ron tích chập (Convolutional Neural Network) được giới thiệu vào những năm 1950 và 1960 bởi Hubel và Wiesel và được cài đặt lần đầu tiên năm 1990 bởi Yann LeCun để áp dụng và nhạn dạng chữ viết tay, và hiện tại là một mô hình được ứng dụng rất thành công trong việc nhận dạng và phân loại hình ảnh 
-+ Trong đồ án này, nhóm sẽ tìm hiểu về cấu trúc, cách hoạt động và xây dựng một mạng nơ-ron tích chập để ứng dụng trong việc phân loại các biển báo giao thông. Sau đó bằng thực nghiệm so sánh kết quả đạt được với các mô hình khác
+
++ Ý tưởng về mạng nơ-ron tích chập (Convolutional Neural Network) được giới thiệu vào những năm 1950 và 1960 bởi Hubel
+  và Wiesel và được cài đặt lần đầu tiên năm 1990 bởi Yann LeCun để áp dụng và nhạn dạng chữ viết tay, và hiện tại là
+  một mô hình được ứng dụng rất thành công trong việc nhận dạng và phân loại hình ảnh
++ Trong đồ án này, nhóm sẽ tìm hiểu về cấu trúc, cách hoạt động và xây dựng một mạng nơ-ron tích chập để ứng dụng trong
+  việc phân loại các biển báo giao thông. Sau đó bằng thực nghiệm so sánh kết quả đạt được với các mô hình khác
 + Tập dữ liệu được sử dụng trong quá trình huấn luyện và benchmark là GTSRB
+
 ### I.2 Các thư viện sử dụng trong project:
 
 Các thư viện dễ/có sẵn:
@@ -37,9 +46,10 @@ Các thư viện to hơn cần cài đặt kỹ:
 _https://giaphiep.com/blog/deep-learning-qua-kho-dung-lo-da-co-keras-9314_
 
 Công dụng các thư viện
+
 + os: làm việc với các tập tin và thư mục
 + pandas: làm việc với dataset
-+ numpy: 
++ numpy:
 + matplotlib và seaborn: trực quan hóa dữ liệu bằng các dạng biểu đồ
 + PIL: thao tác trên hình ảnh
 + Sciki-learn sklearn: cung cấp cài đặt của các thuật toán thường dùng trong machine learning
@@ -48,6 +58,7 @@ Công dụng các thư viện
 ____
 
 ## II. MÔ TẢ VỀ DATASET
+
 ### II.1. Cấu trúc Dataset:
 
 + Có tổng cộng 43 loại traffic sign
@@ -84,9 +95,10 @@ ____
 ____
 
 ## III. Dựng CNN bằng Keras
+
 + Cấu trúc project phân loại traffic sign như sau:
   ![img.png](./photos/project_struct.png)
-  
+
 ### III.1. Giới thiệu lý thuyết về Keras và các Keras core modules:
 
 + Keras layers
@@ -94,31 +106,36 @@ ____
 + Keras loss
 + Keras optimizer: Đối với optimizers, tất cả các optimizer của Kera đều được xây dựng dựa trên thuật toán Gradient
   Descent.
-  
+
 + Keras dropout: https://viblo.asia/p/deep-learning-ky-thuat-dropout-bo-hoc-trong-deep-learning-OeVKBn80KkW
 + padding và stride
 
 ### III.2. Mô tả cấu trúc mạng CNN mà nhóm đã tham khảo cài đặt
+
 + Cơ sở lý thuyết:
-  + Vì sao phải dùng Dropout? Bỏ qua bước dropout được không?
-  + Cách tính số lượng tham số ở mỗi layer: https://forum.machinelearningcoban.com/t/tutorial-tinh-so-luong-parameters-trong-convolutional-neural-network/3638
+    + Vì sao phải dùng Dropout? Bỏ qua bước dropout được không?
+    + Cách tính số lượng tham số ở mỗi
+      layer: https://forum.machinelearningcoban.com/t/tutorial-tinh-so-luong-parameters-trong-convolutional-neural-network/3638
 + Bảng cấu trúc mạng
-  
+
   ![img.png](photos/my_model_architecture.png)
 
 + Số lượng tham số trong bảng sau:
-  
+
   ![img.png](photos/cnn_architect.png)
-  
-+ Ta Trực quan hóa kiến trúc mạng như sau:  
+
++ Ta Trực quan hóa kiến trúc mạng như sau:
 
   ![img.png](photos/Architecture.png)
 
 ____
 
 ## IV. Thực hiện huấn luyện
+
 ### IV.1. Mô tả các bước cần thực hiện:
- + Cài đặt tham số và đường dẫn
+
++ Cài đặt tham số và đường dẫn
+
 ```python
 INPUT = os.getcwd() + '/input' 
 TRAIN_PATH = INPUT + '/Train' #Đường dẫn thư mục đầu vào cho tập Train
@@ -128,69 +145,91 @@ STANDARD_SIZE = (50, 50) #Kích thước hình ảnh
 
 MODEL_PATH = 'model/output_model.h5' #Đường dẫn đầu ra của model
  ```
- + Trực quan hóa dữ liệu
+
++ Trực quan hóa dữ liệu
+
 ```python
 import visualization
 visualization.visualize()
  ```
- + Tìm giá trị trung bình
+
++ Tìm giá trị trung bình
+
 ```python
 import find_mean_dimension
 find_mean_dimension.find_mean()
  ```
- + Chuẩn hóa dữ liệu
+
++ Chuẩn hóa dữ liệu
+
 ```python
 import normalize_trained_data
 normalize_trained_data.normalize_data()
  ```
- + Bắt đầu thực hiện quá trình huấn luyện
+
++ Bắt đầu thực hiện quá trình huấn luyện
+
 ```python
 import train_model
 train_model.start_train()
  ```
- Sau khi quá trình huấn luyện hoàn tất, ta nhận được tập tin model h5 được lưu trong thư mục model. Đây là quá trình đánh giá mô hình (Model Evaluation), tập tin này lưu lại kết quả history của model. Mục đích của bước này là vẽ ra sự biến thiên của hàm loss và đo độ chính xác của mạng.
-  + Tiến hành load model đã lưu và chạy test
+
+Sau khi quá trình huấn luyện hoàn tất, ta nhận được tập tin model h5 được lưu trong thư mục model. Đây là quá trình đánh
+giá mô hình (Model Evaluation), tập tin này lưu lại kết quả history của model. Mục đích của bước này là vẽ ra sự biến
+thiên của hàm loss và đo độ chính xác của mạng.
+
++ Tiến hành load model đã lưu và chạy test
+
  ```python
 model = keras.models.load_model(MODEL_PATH)
 ...
 import tester
 tester.test()
  ``` 
+
 ____
 
 + Mô tả môi trường thiết bị (vẽ ra bảng cho dễ hình dung)
-  + CPU: 
-    + máy của Lâm: CPU 4-core Model Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
-      + Thời gian thực thi lần 1 (0.8 train,0.2 test): 2796 giây cho 25 lần lặp (mỗi lần batch_size=64)
-      + Thời gian thực thi lần 2 (0.7 train,0.3 test): 3148 giây cho 25 lần lặp (mỗi lần batch_size=64)
-      + Thời gian thực thi lần 2 (0.9 train,0.1 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
-    + Máy Kiên: CPU i5 8400 @ 2.800GHz (6 CPUs)
-      + Thời gian thực thi (kiennt_model_01) (0.9 train, 0.1 test, 60x60 size): 1479 giây cho 25 lần lặp (mỗi lần batch_size=64)
-    
-  + GPU: 
-    + Google Colab GPU Tesla K30
-      + Thời gian thực thi lần 1: (0.9 train, 0.1 test): 134 giây cho 25 lần lặp
-    + Máy Kiên: NVIDIA GTX 1070
-      + Thời gian thực thi (kiennt_model_02): (0.8 train, 0.2 test, 50x50 size, increasing filters): 130 giây cho 25 lần lặp (mỗi lần batch_size=64)
-      + Thời gian thực thi (kiennt_model_03) (0.9 train, 0.1 test, 60x60 size, increasing filters): 80 giây cho 25 lần lặp (mỗi lần batch_size=64)
+    + CPU:
+        + máy của Lâm: CPU 4-core Model Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+            + Thời gian thực thi lần 1 (0.8 train,0.2 test): 2796 giây cho 25 lần lặp (mỗi lần batch_size=64)
+            + Thời gian thực thi lần 2 (0.7 train,0.3 test): 3148 giây cho 25 lần lặp (mỗi lần batch_size=64)
+            + Thời gian thực thi lần 2 (0.9 train,0.1 test):  giây cho 25 lần lặp (mỗi lần batch_size=64)
+        + Máy Kiên: CPU i5 8400 @ 2.800GHz (6 CPUs)
+            + Thời gian thực thi (kiennt_model_01) (0.9 train, 0.1 test, 60x60 size): 1479 giây cho 25 lần lặp (mỗi lần
+              batch_size=64)
+
+    + GPU:
+        + Google Colab GPU Tesla K30
+            + Thời gian thực thi lần 1: (0.9 train, 0.1 test): 134 giây cho 25 lần lặp
+        + Máy Kiên: NVIDIA GTX 1070
+            + Thời gian thực thi (kiennt_model_02): (0.8 train, 0.2 test, 50x50 size, increasing filters): 130 giây cho
+              25 lần lặp (mỗi lần batch_size=64)
+            + Thời gian thực thi (kiennt_model_03) (0.9 train, 0.1 test, 60x60 size, increasing filters): 80 giây cho 25
+              lần lặp (mỗi lần batch_size=64)
 
 + So sánh kết quả khi thay đổi các tham số khác nhau
 + Lưu lại kết quả chạy
 
-_Lưu ý: Bước __Model Evaluation__ cần thực hiện ngay sau khi train ra kết quả và lưu xuống file h5, vì phải xài đến history của model_
+_Lưu ý: Bước __Model Evaluation__ cần thực hiện ngay sau khi train ra kết quả và lưu xuống file h5, vì phải xài đến
+history của model_
 Mục đích của bước này là vẽ ra sự biến thiên của hàm loss và độ chính xác của mạng.
 ____
 
 ### IV.2. Kiểm thử và đo kết quả
+
 + Load lại model đã lưu
-+ Lấy tập test trong TEST_PATH để kiểm tra, lưu ý ta phải dùng lại hàm chuẩn hóa data trước khi đưa vào cho model dự đoán. Chỗ này sẽ phải tách hàm
-để tái sử dụng
-  
++ Lấy tập test trong TEST_PATH để kiểm tra, lưu ý ta phải dùng lại hàm chuẩn hóa data trước khi đưa vào cho model dự
+  đoán. Chỗ này sẽ phải tách hàm để tái sử dụng
+
 _____
-+ 15h ngày 20/03/2021 Lâm train và test lần 1 (Model_1) được các thông số sau (dùng sklearn.metrics.classification_report):
-![](./photos/classification_report_1.png)
-+ Ngày 09/04/2021 Kiên train và test (kiennt_model_02) đạt được kết quả tốt nhất với (Train: 0.8 | Test: 0.2 | StandardSize=50x50 | Filters_layer_1: 64 | Filters_layer_2: 96 | Filters_layer_3: 128)
-![](./photos/classification_report_2_details.png)
+
++ 15h ngày 20/03/2021 Lâm train và test lần 1 (Model_1) được các thông số sau (dùng
+  sklearn.metrics.classification_report):
+  ![](./photos/classification_report_1.png)
++ Ngày 09/04/2021 Kiên train và test (kiennt_model_02) đạt được kết quả tốt nhất với (Train: 0.8 | Test: 0.2 |
+  StandardSize=50x50 | Filters_layer_1: 64 | Filters_layer_2: 96 | Filters_layer_3: 128)
+  ![](./photos/classification_report_2_details.png)
 
 + Đưa các input bên ngoài vào để đánh giá độ chính xác của model. Các input được để trong ./input/online
 
@@ -198,35 +237,44 @@ _____
 ____
 
 ## V. So sánh với baseline và state-of-the-art
+
 + Ở bước baseline ta sẽ so sánh với chính bài tham khảo xem cái nào hiệu quả hơn
-  + Lấy kết quả từ cuộc thi GTSRB luôn, link https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
-    https://benchmark.ini.rub.de/gtsrb_results.html
+    + Lấy kết quả từ cuộc thi GTSRB luôn,
+      link https://www.ini.rub.de/upload/file/1470692848_f03494010c16c36bab9e/StallkampEtAl_GTSRB_IJCNN2011.pdf
+      https://benchmark.ini.rub.de/gtsrb_results.html
+
 ### V.1. Tiêu chí so sánh
-+ Tham khảo: https://www.researchgate.net/publication/327389916_An_Efficient_Traffic_Sign_Recognition_Approach_Using_a_Novel_Deep_Neural_Network_Selection_Architecture_Proceedings_of_IEMIS_2018_Volume_3
+
++ Tham
+  khảo: https://www.researchgate.net/publication/327389916_An_Efficient_Traffic_Sign_Recognition_Approach_Using_a_Novel_Deep_Neural_Network_Selection_Architecture_Proceedings_of_IEMIS_2018_Volume_3
 + Tiêu chí 1: Tổng Accuracy
-  
+
 + Tiêu chí 2: Từng loại Traffic-sign nhỏ:
   Trong tài liệu tham khảo, các tác giả chia 43 loại Traffic-sign thành 6 loại con bao gồm:
-  + "Blue": 8 loại 33,..,40
-  + “Danger”: 15 loại : 11,18,...,  31 
-  + “End-of”: 4 loại 6,32,41,42
-  + “Speed”: 8 loại 0,1,2,3,4,5,7,8
-  + "Red-other”: 4 loại 9, 10, 15, 16
-  + “Spezial”: 4 loại 12, 13, 14,17
-  
+    + "Blue": 8 loại 33,..,40
+    + “Danger”: 15 loại : 11,18,..., 31
+    + “End-of”: 4 loại 6,32,41,42
+    + “Speed”: 8 loại 0,1,2,3,4,5,7,8
+    + "Red-other”: 4 loại 9, 10, 15, 16
+    + “Spezial”: 4 loại 12, 13, 14,17
+
 ### V.2. Kết quả so sánh
+
 Nhóm sẽ chọn ra model tốt nhất trong các model đã huấn luyện được để so sánh với các model khác trong cuộc thi
+
 #### Tiêu chí 1: Tổng Accuracy
+
 |Method|Accuracy|
 |:-----|:------:|
-|Novel DNN Selection[]|99.92%  
+|Novel DNN Selection[]|99.92%
 |Haloi []|99.81%
 |Committee of CNNs | 99.46%
 |Human Performance []|98.84%
 |Multi-Scale CNNs []|98.31%
 |__Của nhóm__|__98.00%__ (tốt nhất hiện tại, đang chờ thu thập thêm)|
 |Random Forests []| 96.14%
-#### Tiêu chí 2: Accuracy trên mỗi loại 
+
+#### Tiêu chí 2: Accuracy trên mỗi loại
 
 _____________
 
