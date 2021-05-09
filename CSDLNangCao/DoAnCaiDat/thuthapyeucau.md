@@ -74,12 +74,36 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
     + Chức năng 5:
     + ...
 + **Minh: Twitter**
-    + Chức năng 1:
-    + Chức năng 2:
-    + Chức năng 3:
-    + Chức năng 4:
-    + Chức năng 5:
-    + ...
+    + Chức năng 1: Đăng tweet
+    
+    |Chức năng|Mô tả khái quát|Hình ảnh
+    |---:|---:|----:
+    |Đăng tweet|Ở trang chủ, gõ nội dung tweet vào khung input trên cùng, có thể thêm hình ảnh, url, ...; tùy chỉnh ai có thể xem và bình luận tweet|![img.png](photos/twitter_new_tweet.png)
+    
+    + Chức năng 2: Tìm kiếm và follow user khác
+    
+    |Chức năng|Mô tả khái quát|Hình ảnh
+        |---:|---:|----:
+        |Tìm kiếm|Ở bất kì trang nào, gõ tên user cần tìm vào khung tìm kiếm|![img.png](photos/twitter_search_and_follow.png)
+        |Follow user khác|Click vào nút Follow bên phải của tên user|![img.png](photos/twitter_follow.png)
+    
+    + Chức năng 3: Xem news feed
+    
+    |Chức năng|Mô tả khái quát|Hình ảnh
+        |---:|---:|----:
+        |Xem news feed|Ở trang chủ, user có thể xem các news feed của mình, cuộn xuống để xem tiếp các tin khác|![img.png](photos/twitter_newsfeed.png)
+    
+    + Chức năng 4: Nhắn tin với user khác
+    
+    |Chức năng|Mô tả khái quát|Hình ảnh
+            |---:|---:|----:
+            |Nhắn tin với user khác|Ở trang nhắn tin, chọn user muốn nhắn tin rồi bắt đầu cuộc trò chuyện|![img.png](photos/twitter_message.png)
+    
+    + Chức năng 5: Tương tác với tweet (like, share, retweet, comment)
+
+    |Chức năng|Mô tả khái quát|Hình ảnh
+                |---:|---:|----:
+                |Tương tác với tweet (like, share, retweet, comment)|Với mỗi post mà user có thể xem được, user đó có thể tương tác với tweet đó |![img.png](photos/twitter_post_interaction.png)
 
 ___
 
@@ -216,9 +240,9 @@ Link Sơ đồ mô tả yêu cầu hệ thống:
       thông tin user, và các yêu cầu kết bạn giữa các user với nhau.
 
 + **Chức năng 3: Gợi ý kết bạn**
-    - Sơ đồ hoạt động:
-      ![](./photos/goi_y_ket_ban.png)
-    - Lựa chọn loại CSDL: với yêu cầu tìm những user có mối quan hệ với user hiện tại theo những tiêu chí đã chọn một cách hiệu quả nhất, ta chọn NoSQL graph database 
+    + Sơ đồ hoạt động:
+        ![](./photos/goi_y_ket_ban.png)
+    + Lựa chọn loại CSDL: với yêu cầu tìm những user có mối quan hệ với user hiện tại theo những tiêu chí đã chọn một cách hiệu quả nhất, ta chọn NoSQL graph database 
 ___
 ___
 ___
