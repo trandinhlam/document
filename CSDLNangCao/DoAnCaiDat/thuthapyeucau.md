@@ -179,6 +179,21 @@ _(chức năng này gần giống với thao tác đăng bài trên trang cá nh
 + Hệ quả liên quan:
     + Danh sách bài post sẽ được nằm trên bảng tin nhóm, theo thứ tự từ mới tới cũ
 
+### 3: Chức năng 3: Gợi ý kết bạn
++ Ý nghĩa: gợi ý các user có liên quan tới user hiện tại theo những tiêu chí nhất định
++ ĐỐi tượng tham gia
+    + User muốn tìm gợi ý kết bạn (A)
+    + Những user có liên quan tới user A
++ Mô tả các bước: chức năng bắt đầu khi user truy cập vào màn hình gợi ý kết bạn
+    + Bước 1: User A truy cập vào màn hình gợi ý kết bạn
+    + Bước 2: User A chọn tiêu chí gợi ý
+        + Có bạn chung
+        + Giới tính
+        + Cùng tuổi
+        + Cùng trường
+        + Cùng quê
+    + Bước 3: User A nhìn thấy danh sách những user khác được gợi ý theo các tiêu chí đã chọn
+    
 ___
 
 ## Yêu cầu 2: Phân tích nghiệp vụ hệ thống, xác định loại CSDL phù hợp
@@ -200,6 +215,10 @@ Link Sơ đồ mô tả yêu cầu hệ thống:
       user thường thay đổi không quá nhiều, và có thể rất dài. Vì vậy ta nên chọn CSDL quan hệ truyền thống để lưu trữ
       thông tin user, và các yêu cầu kết bạn giữa các user với nhau.
 
++ **Chức năng 3: Gợi ý kết bạn**
+    - Sơ đồ hoạt động:
+      ![](./photos/goi_y_ket_ban.png)
+    - Lựa chọn loại CSDL: với yêu cầu tìm những user có mối quan hệ với user hiện tại theo những tiêu chí đã chọn một cách hiệu quả nhất, ta chọn NoSQL graph database 
 ___
 ___
 ___
