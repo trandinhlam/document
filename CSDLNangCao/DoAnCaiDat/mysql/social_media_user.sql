@@ -18,6 +18,7 @@
 --
 -- Table structure for table `user`
 --
+use `social_network`;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
