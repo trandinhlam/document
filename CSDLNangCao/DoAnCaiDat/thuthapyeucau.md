@@ -33,14 +33,14 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
     + **Chức năng 1: Kết bạn - Kết nối bạn bè:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |:---:|:---|:----
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |:---:|:---|:----
       |Danh sách bạn bè|Quản lý danh sách bạn bè <br> là các user đã kết bạn với mình. Khi user đã kết bạn với nhau thì có thể thấy profile, trạng thái của nhau|![img_1.png](photos/face_banbe.png)
       |Lời mời kết bạn|Quản lý lời mời kết bạn từ/đến các user khác|![img.png](photos/face_loimoi.png)
 
     + **Chức năng 2: Đăng Feed, Đăng tin lên trang cá nhân:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |:---:|:---|:----
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |:---:|:---|:----
       |Đăng feed trên trang cái nhân| User soạn và đăng feed trên đầu trang cá nhân của mình|![img.png](photos/face_status.png)
       |Khám phá feed|Các Feed công khai của bạn bè sẽ hiển thị trên trang khám phá feed của mỗi user|![img.png](photos/face_explore_feed.png)
       |Tương tác feed|User có thể like,react, comment, share bất kỳ feed nào nếu là bạn bè hoặc là thành viên của hội|![img.png](photos/face_reaction.png)
@@ -48,21 +48,21 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
     + **Chức năng 3: Chat và Video call:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |---:|---:|----:
       |Chat với bạn bè| User trò chuyện 1-1 với bạn bè và nhận thông báo|![img.png](photos/face_chat.png)
       |Chat nhóm| User trò chuyện trong nhóm có nhiều thành viên, được mời vào trong nhóm bởi trưởng nhóm|
       |Video call| User Video trực tuyến 1-1 hoặc trong chung một nhóm|![img.png](photos/face_video.png)
     + **Chức năng 4: Quản lý nhóm hội/page:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |---:|---:|----:
       |Quản lý thành viên|Trường nhóm thêm/xóa thành viên ra khỏi nhóm|![img.png](photos/face_group.png)
       |Đăng tin| Giống với đăng feed, nhưng chỉ cho các thành viên trong hội thấy với vai trò hội-thành viên|
 
     + **Chức năng 5: Tìm kiếm bạn bè, nhóm hội:**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |---:|---:|----:
       |Tìm kiếm user|Gõ trên khung search để tìm kiếm các user, bạn bè, nhóm hội dựa vào keyword|![img.png](photos/face_search.png)
 
 
@@ -70,75 +70,75 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
     + **Chức năng 1: Chức năng đăng bài viết**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |---:|---:|----:
       |Chức năng đăng bài viết|Khi đăng nhập vào app người dùng dó thể đăng những hình ảnh mới của mình để chỉa sẽ với mọi người|![img.png](photos/ins_PostStory.PNG)
 
     + **Chức năng 2: Chức năng following một người nào đó**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |---:|---:|----:
       |Chức năng following một người nào đó|Khi đăng nhập vào app người dùng có thể theo dỗi một/một số người nào đó để có thể cập nhật được những hình ảnh mới nhất khi người đó cập nhật|![img.png](photos/ins_Following.png)
 
     + **Chức năng 3: Chức năng tìm kiếm bằng tên**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |---:|---:|----:
       |Tiềm kiếm một người nào đó bằng tên|Biết được tài khoản của một người nào đó để follow cần thực hiện tìm kiếm tài khoản của người đó|![img.png](./photos/ins_Search.PNG)
 
     + **Chức năng 4: Chức năng bình luận một hình ảnh**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |---:|---:|----:
       |Chức năng bình luận một hình ảnh|Chức năng giúp người dùng có thể bình luận một bài viết của mình hoặc người khác|![img.png](photos/ins_CommentOnPost.PNG)
 
     + **Chức năng 5: Chức năng đề xuất follow**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |---:|---:|----:
       |Chức năng đề xuất follow|Với những người dùng khi mới tạo tài khoản hoặc truy cập vào chức nằng này, hệ thống sẽ đề xuất những người có thể quen để gợi ý follow.|![img.png](photos/ins_DiscoverPeople.PNG)
 
     + **Chức năng 6: Chức năng xem bài post của nhũng người đã follow theo thời gian bài đăng**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |---:|---:|----:
       |Chức năng xem bài post của nhũng người đã follow theo thời gian bài đăng|Sau khi người dùng thực hiện following một người nào đó. Những bài đăng của người đó sẽ được hiện lên page newfeed của người dùng. |![img.png](photos/ins_FollowerPost.PNG)
-    
+
     + **Chức năng 7: Chức năng trò chuyện**
 
       |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |---:|---:|----:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |---:|---:|----:
       |Chức năng trò chuyện|Người dùng có thể trao đổi trực tiếp với nhau|![img.png](photos/ins_Chat.png)
 
 + **Minh: Twitter**
     + Chức năng 1: Đăng tweet
 
   |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                    |---:|---:|----:
+                                                                                                                                                                        |---:|---:|----:
   |Đăng tweet|Ở trang chủ, gõ nội dung tweet vào khung input trên cùng, có thể thêm hình ảnh, url, ...; tùy chỉnh ai có thể xem và bình luận tweet|![img.png](photos/twitter_new_tweet.png)
 
     + Chức năng 2: Tìm kiếm và follow user khác
 
   |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                        |---:|---:|----:
+                                                                                                                                                                            |---:|---:|----:
   |Tìm kiếm|Ở bất kì trang nào, gõ tên user cần tìm vào khung tìm kiếm|![img.png](photos/twitter_search_and_follow.png)
   |Follow user khác|Click vào nút Follow bên phải của tên user|![img.png](photos/twitter_follow.png)
 
     + Chức năng 3: Xem news feed
 
   |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                        |---:|---:|----:
+                                                                                                                                                                            |---:|---:|----:
   |Xem news feed|Ở trang chủ, user có thể xem các news feed của mình, cuộn xuống để xem tiếp các tin khác|![img.png](photos/twitter_newsfeed.png)
 
     + Chức năng 4: Nhắn tin với user khác
 
   |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                            |---:|---:|----:
+                                                                                                                                                                                |---:|---:|----:
   |Nhắn tin với user khác|Ở trang nhắn tin, chọn user muốn nhắn tin rồi bắt đầu cuộc trò chuyện|![img.png](photos/twitter_message.png)
 
     + Chức năng 5: Tương tác với tweet (like, share, retweet, comment)
 
   |Chức năng|Mô tả khái quát|Hình ảnh
-                                                                                                                                |---:|---:|----:
+                                                                                                                                                                                    |---:|---:|----:
   |Tương tác với tweet (like, share, retweet, comment)|Với mỗi post mà user có thể xem được, user đó có thể tương tác với tweet đó |![img.png](photos/twitter_post_interaction.png)
 
 ___
@@ -188,20 +188,42 @@ ___
     + Hiển thị danh sách bạn bè
 
 ___
+
 ### 2: Chức năng 2: Chức năng đăng bài
+
 + Đối tượng tham gia:
-  + Người đăng bài (User A)
-  + Người follow của người đăng bài (User_1, User_2)
+    + Người đăng bài (User A)
+    + Người follow của người đăng bài (User_1, User_2)
 + Mô tả các bước:
-  + Bước 1: User A thực hiện đăng nhập
-  + Bước 2: User A thực hiện chọn chức năng đăng bài
-  + Bước 3: User A tiến hành nhập nội dung cần chia sẻ. Và tiến hành thực hiện bấm đăng bài.
-  + Bước 4: User A tiến hành truy cập vào trang cá nhân thấy được bài vừa đăng
-  + Bước 5: User_1, User_2 hai user thực hiện đăng nhập vào trang newfeed thì sẽ nhìn thấy được bài đăng của các user đã follow theo thời gian. 
-  +
+    + Bước 1: User A thực hiện đăng nhập
+    + Bước 2: User A thực hiện chọn chức năng đăng bài
+    + Bước 3: User A tiến hành nhập nội dung cần chia sẻ. Và tiến hành thực hiện bấm đăng bài.
+    + Bước 4: User A tiến hành truy cập vào trang cá nhân thấy được bài vừa đăng
+    + Bước 5: User_1, User_2 hai user thực hiện đăng nhập vào trang newfeed thì sẽ nhìn thấy được bài đăng của các user
+      đã follow theo thời gian.
+    +
 + Kết quả:
-  + User A sẽ nhìn thấy được bài mình vừa đăng.
-  + User_1, User_2 sẽ nhìn thấy được bài đăng của User A nếu có follow/kết bạn với user A.
+    + User A sẽ nhìn thấy được bài mình vừa đăng.
+    + User_1, User_2 sẽ nhìn thấy được bài đăng của User A nếu có follow/kết bạn với user A.
+
+___
+
+### 3: Chức năng 3: Gợi ý kết bạn
+
++ Ý nghĩa: gợi ý các user có liên quan tới user hiện tại theo những tiêu chí nhất định
++ ĐỐi tượng tham gia
+    + User muốn tìm gợi ý kết bạn (A)
+    + Những user có liên quan tới user A
++ Mô tả các bước: chức năng bắt đầu khi user truy cập vào màn hình gợi ý kết bạn
+    + Bước 1: User A truy cập vào màn hình gợi ý kết bạn
+    + Bước 2: User A chọn tiêu chí gợi ý
+        + Có bạn chung
+        + Giới tính
+        + Cùng độ tuổi
+        + Cùng trường
+        + Cùng quê
+    + Bước 3: User A nhìn thấy danh sách những user khác được gợi ý theo các tiêu chí đã chọn
+
 ___
 
 ### 4: Chức năng 4: Thành lập Nhóm hội
@@ -228,7 +250,6 @@ __Chức năng này chia thành 2 nghiệp vụ chính: Tạo nhóm và đăng b
         + 5.3: Nếu không chọn ai nữa, quay lại màn hình chi tiết nhóm
     + Bước 6: Kết thúc
 + Kết quả: 1 nhóm được tạo với 1 trưởng nhóm và n thành viên
-+ Hệ quả liên quan:
 
 #### 4.2 Đăng bài trong nhóm:
 
@@ -258,21 +279,22 @@ _(chức năng này gần giống với thao tác đăng bài trên trang cá nh
 + Hệ quả liên quan:
     + Danh sách bài post sẽ được nằm trên bảng tin nhóm, theo thứ tự từ mới tới cũ
 
-### 3: Chức năng 3: Gợi ý kết bạn
+___
 
-+ Ý nghĩa: gợi ý các user có liên quan tới user hiện tại theo những tiêu chí nhất định
+### 5: Chức năng 5: Tìm kiếm
+
++ Ý nghĩa: Đáp ứng nhu cầu tìm kiếm nhanh bạn bè hoặc nhóm
 + ĐỐi tượng tham gia
-    + User muốn tìm gợi ý kết bạn (A)
-    + Những user có liên quan tới user A
-+ Mô tả các bước: chức năng bắt đầu khi user truy cập vào màn hình gợi ý kết bạn
-    + Bước 1: User A truy cập vào màn hình gợi ý kết bạn
-    + Bước 2: User A chọn tiêu chí gợi ý
-        + Có bạn chung
-        + Giới tính
-        + Cùng độ tuổi
-        + Cùng trường
-        + Cùng quê
-    + Bước 3: User A nhìn thấy danh sách những user khác được gợi ý theo các tiêu chí đã chọn
+    + User cá nhân muốn tìm kiếm bạn bè hoặc nhóm
++ Trạng thái bắt đầu: khi user truy cập vào ô tìm kiếm
++ Mô tả các bước:
+    + Bước 1: User nhập vào ô tìm kiếm chuỗi ký tự cần tìm
+    + Bước 2: User nhấn nút "Tìm kiếm"
+    + Bước 3: Màn hình trả về danh sách bạn bè theo thứ tự gần đúng nhất, phù hợp nhất với từ khóa Nếu không có bạn bè
+      phù hợp thì hiển thị "Không tìm thấy"
+    + Bước 4: User nhấn chọn 1 user khác để vào trang profile
+    + Kết thúc
++ Kết quả: User truy cập nhanh được vào profile của một user bạn bè
 
 ___
 
@@ -291,7 +313,7 @@ ___
 
 + **Chức năng 1: Kết bạn**
     - Sơ đồ hoạt động của quy trình kết bạn:
-      ![](./photos/chucnangketban.png)
+      ![](photos/ketban_mohinhCSDL/chucnangketban.png)
 
     - Lựa chọn Loại CSDL: Quan hệ bạn bè là mối quan hệ 2 chiều và yêu cầu tính nhất quán cao, do danh sách bạn bè của
       user thường thay đổi không quá nhiều, và có thể rất dài. Vì vậy ta nên chọn CSDL quan hệ truyền thống để lưu trữ
@@ -329,6 +351,16 @@ ___
 
 ___
 
++ **Chức năng 5: Tìm kiếm**
+    + Sơ đồ hoạt động thao tác tìm kiếm của user:
+      ![img.png](photos/timkiem.png)
+    + Lựa chọn loại CSDL:
+        + Vì yêu cầu cần trả về ngay kết quả trong thời gian nhanh nhất, ta nên dùng Document Store.
+        + Lựa chọn Elastic Search để làm search engine cho chức năng này, nhờ vào tính năng truy vấn tài liệu theo từ
+          khóa đã được đánh chỉ mục trước đó.
+
+___
+
 ## Yêu cầu 3: Phân tích - thiết kế loại dữ liệu phù hợp cho các yêu cầu
 
 ___
@@ -350,7 +382,7 @@ ___
     + _Quan hệ ThanhVienNhom_: Lưu thông tin các thành viên nhóm tham gia
     + Đối với chức năng đăng bài trong nhóm, mô hình dữ liệu được sử dụng giống với chức năng đăng feed thông thường,
       kèm theo một số tinh chỉnh để phù hợp với nhu cầu phân phối bài đăng cho các thành viên trong nhóm.
-    
+
 ___
 ___
 
@@ -364,11 +396,6 @@ ___
         + Nêu rõ tập lệnh khai báo cấu trúc
         + Tập lệnh thao tác trên dữ liệu cho các nghiệp vụ chức năng
         + Các tập lệnh khác như index, partition,...
-
-    + NoSQL bắt buộc:
-        + MongoDB
-        + Neo4j
-        + Tự chọn thêm để mở rộng (Elastic Search)
 
 ### Thực hiện:
 
