@@ -1,2 +1,12 @@
 server:
   port: 8080
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://54.169.25.36:3306/social_network
+    username: root
+    password: root
+    jpa:
+      hibernate.ddl-auto: update
+      generate-ddl: true
+      show-sql: true

@@ -37,7 +37,13 @@ Bước phân loại biển báo (Traffic sign classification), nhóm sử dụn
 + Từ đó ta có thể chọn ra số lượng đủ nhiều các hình thuộc 8 loại biển báo với khoảng xxx hình tổng cộng. Tập này dùng
   làm dữ liệu huấn luyện cho pha phân loại (classification) trong mô hình
 
+#### 2. Mô hình mạng CNN sử dụng
+
 ### II.3 Bước phát hiện đối tượng biển báo
+
+#### 1. Phân tích bộ dữ liệu sử dụng:
+
+#### 2. Mô hình mạng
 
 ### II.4 Bước thể hiện trên giao diện ứng dụng
 
@@ -55,3 +61,4 @@ ___
 
 + https://benchmark.ini.rub.de/gtsrb_dataset.html
 + https://www.kaggle.com/gmerek/traffic-signs-detection-by-yolo-v3-opencv-31da0b
++ https://robocademy.com/2020/05/01/a-gentle-introduction-to-yolo-v4-for-object-detection-in-ubuntu-20-04/
