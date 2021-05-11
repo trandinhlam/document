@@ -67,12 +67,48 @@ __Cần giới hạn lại số lượng chức năng:__ tối thiểu 5 chức 
 
 
 + **Kiệt: Instagram**
-    + Chức năng 1:
-    + Chức năng 2:
-    + Chức năng 3:
-    + Chức năng 4:
-    + Chức năng 5:
-    + ...
+    + **Chức năng 1: Chức năng đăng bài viết**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |---:|---:|----:
+      |Chức năng đăng bài viết|Khi đăng nhập vào app người dùng dó thể đăng những hình ảnh mới của mình để chỉa sẽ với mọi người|![img.png](photos/ins_PostStory.PNG)
+
+    + **Chức năng 2: Chức năng following một người nào đó**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |---:|---:|----:
+      |Chức năng following một người nào đó|Khi đăng nhập vào app người dùng có thể theo dỗi một/một số người nào đó để có thể cập nhật được những hình ảnh mới nhất khi người đó cập nhật|![img.png](photos/ins_Following.png)
+
+    + **Chức năng 3: Chức năng tìm kiếm bằng tên**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |---:|---:|----:
+      |Tiềm kiếm một người nào đó bằng tên|Biết được tài khoản của một người nào đó để follow cần thực hiện tìm kiếm tài khoản của người đó|![img.png](./photos/ins_Search.PNG)
+
+    + **Chức năng 4: Chức năng bình luận một hình ảnh**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |---:|---:|----:
+      |Chức năng bình luận một hình ảnh|Chức năng giúp người dùng có thể bình luận một bài viết của mình hoặc người khác|![img.png](photos/ins_CommentOnPost.PNG)
+
+    + **Chức năng 5: Chức năng đề xuất follow**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |---:|---:|----:
+      |Chức năng đề xuất follow|Với những người dùng khi mới tạo tài khoản hoặc truy cập vào chức nằng này, hệ thống sẽ đề xuất những người có thể quen để gợi ý follow.|![img.png](photos/ins_DiscoverPeople.PNG)
+
+    + **Chức năng 6: Chức năng xem bài post của nhũng người đã follow theo thời gian bài đăng**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |---:|---:|----:
+      |Chức năng xem bài post của nhũng người đã follow theo thời gian bài đăng|Sau khi người dùng thực hiện following một người nào đó. Những bài đăng của người đó sẽ được hiện lên page newfeed của người dùng. |![img.png](photos/ins_FollowerPost.PNG)
+    
+    + **Chức năng 7: Chức năng trò chuyện**
+
+      |Chức năng|Mô tả khái quát|Hình ảnh
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |---:|---:|----:
+      |Chức năng trò chuyện|Người dùng có thể trao đổi trực tiếp với nhau|![img.png](photos/ins_Chat.png)
+
 + **Minh: Twitter**
     + Chức năng 1:
     + Chức năng 2:
@@ -127,6 +163,20 @@ ___
     + Hiển thị danh sách bạn bè
 
 ___
+### 2: Chức năng 2: Chức năng đăng bài
++ Đối tượng tham gia:
+  + Người đăng bài (User A)
+  + Người follow của người đăng bài (User_1, User_2)
++ Mô tả các bước:
+  + Bước 1: User A thực hiện đăng nhập
+  + Bước 2: User A thực hiện chọn chức năng đăng bài
+  + Bước 3: User A tiến hành nhập nội dung cần chia sẻ. Và tiến hành thực hiện bấm đăng bài.
+  + Bước 4: User A tiến hành truy cập vào trang cá nhân thấy được bài vừa đăng
+  + Bước 5: User_1, User_2 hai user thực hiện đăng nhập vào trang newfeed thì sẽ nhìn thấy được bài đăng của các user đã follow theo thời gian. 
+  +
++ Kết quả:
+  + User A sẽ nhìn thấy được bài mình vừa đăng.
+  + User_1, User_2 sẽ nhìn thấy được bài đăng của User A nếu có follow/kết bạn với user A.
 ___
 
 ### 4: Chức năng 4: Thành lập Nhóm hội
@@ -214,7 +264,11 @@ Link Sơ đồ mô tả yêu cầu hệ thống:
     - Lựa chọn Loại CSDL: Quan hệ bạn bè là mối quan hệ 2 chiều và yêu cầu tính nhất quán cao, do danh sách bạn bè của
       user thường thay đổi không quá nhiều, và có thể rất dài. Vì vậy ta nên chọn CSDL quan hệ truyền thống để lưu trữ
       thông tin user, và các yêu cầu kết bạn giữa các user với nhau.
-
++ **Chức năng 2: Đăng bài**
+    - Sơ đồ hoạt động của quy trình:
+      ![](./photos/dangBai.png)
+    - Cơ sở dữ liệu lựa chọn firebase.
+      
 + **Chức năng 3: Gợi ý kết bạn**
     - Sơ đồ hoạt động:
       ![](./photos/goi_y_ket_ban.png)
