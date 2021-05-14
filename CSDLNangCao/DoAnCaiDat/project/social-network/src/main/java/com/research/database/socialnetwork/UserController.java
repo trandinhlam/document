@@ -15,9 +15,14 @@ public class UserController {
     private IUserService userService;
 
     @GetMapping("/")
-    public String demo(Model model) {
-        List<User> users = userService.getAll();
-        System.err.println(users);
-        return String.valueOf(users.size());
+    public String index(Model model) {
+//        List<User> users = userService.getAll();
+//        System.err.println(users);
+        return "index";
+    }
+
+    @GetMapping("/profile")
+    public String getProfile(Model model) {
+        return "profile";
     }
 }
