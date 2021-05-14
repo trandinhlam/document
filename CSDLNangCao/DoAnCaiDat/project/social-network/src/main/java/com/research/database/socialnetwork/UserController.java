@@ -16,8 +16,8 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model) {
-//        List<User> users = userService.getAll();
-//        System.err.println(users);
+        List<User> users = userService.getAll();
+        System.err.println(users);
         return "index";
     }
 

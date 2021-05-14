@@ -1,36 +1,32 @@
 package com.research.database.socialnetwork.storage.mysql.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userid")
     private Integer userId;
+
+    @NotNull
+    @Column(name = "ten")
     private String name;
 
-    public User() {
-    }
-
-    public User(int userId, String name) {
-        this.userId = userId;
-        this.name = name;
-    }
-
+    @Column(name = "ngaythamgia")
+    private Date joinDate;
 
     @Override
     public int hashCode() {
