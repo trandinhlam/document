@@ -2,11 +2,10 @@ package com.research.database.socialnetwork.storage.mysql.entity;
 
 import lombok.*;
 
-import java.util.Date;
-import java.util.Objects;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "user")
@@ -24,6 +23,15 @@ public class User {
     @NotNull
     @Column(name = "ten")
     private String name;
+
+    @Column(name = "gioitinh")
+    private int gender;
+
+    @Column(name = "ngaysinh")
+    private int birth;
+
+    @Column(name = "avatar")
+    private String avatar;
 
     @Column(name = "ngaythamgia")
     private Date joinDate;
