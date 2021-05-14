@@ -27,6 +27,7 @@ CREATE TABLE `user` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `ten` varchar(300) NOT NULL,
   `ngaySinh` int(11) DEFAULT NULL,
+  `gioiTinh` int(11) DEFAULT NULL,
   `diaChi` mediumtext,
   `ngheNghiep` int(11) DEFAULT NULL,
   `ngayThamGia` timestamp NULL DEFAULT NULL,
