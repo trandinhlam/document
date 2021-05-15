@@ -2,26 +2,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"/>
-
     <title th:text="${user.name}"></title>
-    <!--
-  Reflux Template
-  https://templatemo.com/tm-531-reflux
-  -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css"/>
-    <link rel="stylesheet" href="assets/css/templatemo-style.css"/>
-    <link rel="stylesheet" href="assets/css/owl.css"/>
-    <link rel="stylesheet" href="assets/css/lightbox.css"/>
-    <link rel="stylesheet" href="assets/css/custom.css"/>
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
 </head>
 
 <body>
@@ -37,9 +33,9 @@
                 </div>
                 <div class="author-content">
                     <h4 th:text="${user.name}"></h4>
-                    <span th:text="Sinh ngày: ${user_birthdate}"></span>
-                    <span th:text="Tuổi: ${user_age}"></span>
-                    <span th:text="Giới tính: ${user_gender}"></span>
+                    <span th:text="'Sinh ngày: ' + ${user_birthdate}"></span>
+                    <span th:text="'Tuổi: ' + ${user_age}"></span>
+                    <span th:text="'Giới tính:' + ${user_gender}"></span>
                 </div>
                 <nav class="main-nav" role="navigation">
                     <ul class="main-menu">
