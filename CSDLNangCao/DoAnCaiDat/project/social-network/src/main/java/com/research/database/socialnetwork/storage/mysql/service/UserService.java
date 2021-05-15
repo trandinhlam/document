@@ -40,4 +40,9 @@ public class UserService implements IUserService {
             }
         }
     }
+
+    @Override
+    public int addMyFriend(int userid, int myid) {
+        return 0;
+    }
 }

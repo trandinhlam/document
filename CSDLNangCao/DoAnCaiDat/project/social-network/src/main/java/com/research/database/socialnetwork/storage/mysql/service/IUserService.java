@@ -12,4 +12,8 @@ public interface IUserService<T extends User> {
     Optional<T> getById(Integer id);
 
     T save(T user);
+
+    public void generateInit();
+
+    int addMyFriend(int userid, int myid);
 }
