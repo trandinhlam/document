@@ -27,6 +27,7 @@ CREATE TABLE `banbe` (
   `userNhan` int(11) NOT NULL,
   `ngayKetBan` timestamp NULL DEFAULT NULL,
   `trangThai` smallint(6) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`userYC`,`userNhan`),
   KEY `fk_nhan_idx` (`userNhan`),
   CONSTRAINT `fk_nhan` FOREIGN KEY (`userNhan`) REFERENCES `user` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION,

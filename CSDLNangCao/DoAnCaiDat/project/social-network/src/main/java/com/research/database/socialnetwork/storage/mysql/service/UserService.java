@@ -1,7 +1,7 @@
 package com.research.database.socialnetwork.storage.mysql.service;
 
 import com.research.database.socialnetwork.storage.mysql.entity.User;
-import com.research.database.socialnetwork.storage.mysql.entity.UserRepository;
+import com.research.database.socialnetwork.storage.mysql.repo.UserRepository;
 import com.research.database.socialnetwork.utils.AvatarUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
