@@ -27,6 +27,7 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model) {
+        userService.generateInit();
         return "home";
     }
 
@@ -44,6 +45,7 @@ public class UserController {
     @PostMapping("/profile/addfriend/{id}")
     public String addFriend(@PathVariable Integer id, Model model) {
         Optional<User> userOpt = userService.getById(id);
+
         User user = userOpt.get();
         int rs = userService.addMyFriend(user.getUserId(), CommonConfig.MY_ID);
         model.addAttribute("rs", rs);

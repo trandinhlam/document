@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 public class LayoutView {
 
     public static void setUser(User user, Model model) {
+        renderLayout(model);
+
         model.addAttribute("user", user);
         String date = TimeUtils.format(user.getBirth() * 1000l);
         model.addAttribute("user_birthdate", date);
@@ -16,5 +18,9 @@ public class LayoutView {
         int age = (now - user.getBirth()) / (int) TimeUnit.DAYS.toSeconds(365);
         model.addAttribute("user_age", age);
         model.addAttribute("user_gender", user.getGender() == 1 ? "Nam" : "Nữ");
+    }
+
+    private static void renderLayout(Model model) {
+        model.addAttribute("host", "http://localhost:8080/");
     }
 }

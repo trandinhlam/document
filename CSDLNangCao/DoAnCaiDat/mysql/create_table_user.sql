@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `ten` NVARCHAR(300) NOT NULL,
+  `ten` mediumtext NOT NULL CHARSET utf8,
   `ngaySinh` int(11) DEFAULT NULL,
   `gioiTinh` int(11) DEFAULT NULL,
   `diaChi` mediumtext,
