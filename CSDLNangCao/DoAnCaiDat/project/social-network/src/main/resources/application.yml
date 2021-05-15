@@ -3,8 +3,8 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://54.169.25.36:3306/social_network
-    url: jdbc:mysql://127.0.0.01:3306/social_network
+    url: jdbc:mysql://54.169.25.36:3306/social_network
+#    url: jdbc:mysql://127.0.0.01:3306/social_network
     username: root1
     password: root1
     jpa:

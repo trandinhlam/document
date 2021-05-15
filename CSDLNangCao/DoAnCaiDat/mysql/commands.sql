@@ -8,3 +8,5 @@ SET GLOBAL validate_password_special_char_count = 0;
 SET GLOBAL validate_password_policy = 'LOW';
 
 SHOW VARIABLES LIKE 'validate_password%';
+
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
