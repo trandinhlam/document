@@ -14,8 +14,14 @@ public interface FriendRepository extends CrudRepository<Friend, Integer> {
 
     List<Friend> findByInviter(Integer inviterId);
 
-    @Query("select f from Friend f where (f.inviter=:userId and f.trangthai=:trangthai) or (f.inviter=:receiver and f.trangthai=:trangthai)")
+    @Query("select f from Friend f where (f.inviter=:userId and f.trangthai=:trangthai) or (f.receiver=:userId and f.trangthai=:trangthai)")
     public List<Friend> findByUid(@Param("userId") Integer userId, @Param("trangthai") int trangthai);
+
+    @Query("select f from Friend f where (f.receiver=:receiver and f.trangthai=:trangthai)")
+    public List<Friend> findWaitings(@Param("receiver") Integer receiver, @Param("trangthai") int trangthai);
+
+    @Query("select f from Friend f where (f.inviter=:inviter and f.trangthai=:trangthai)")
+    public List<Friend> findRespondings(@Param("inviter") Integer inviter, @Param("trangthai") int trangthai);
 
     @Query("select f from Friend f where (f.inviter=:user1 and f.receiver=:user2) or (f.inviter=:user2 and f.receiver=:user1)")
     public Collection<Friend> findByKey(@Param("user1") int user1, @Param("user2") int user2);

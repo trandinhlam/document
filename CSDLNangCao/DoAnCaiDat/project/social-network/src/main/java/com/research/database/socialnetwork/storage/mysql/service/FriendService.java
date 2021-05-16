@@ -58,4 +58,13 @@ public class FriendService implements IFriendService<Friend> {
         }
         return save(fr);
     }
+
+    @Override
+    public List<Integer> getAllWaitingIds(Integer receiver) {
+        List<Friend> friends = repo.findWaitings(receiver, FriendStatus.REQUESTING.getValue());
+        if (friends == null) {
+            return Collections.EMPTY_LIST;
+        }
+        return friends.stream().map(f -> f.getInviter()).collect(Collectors.toList());
+    }
 }

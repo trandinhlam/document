@@ -33,15 +33,15 @@
                 </div>
                 <div class="author-content">
                     <h4 th:text="${user.name}"></h4>
-                    <span th:text="'Sinh ngày: ' + ${user_birthdate}"></span><br/>
-                    <span th:text="'Tuổi: ' + ${user_age}"></span><br/>
-                    <span th:text="'Giới tính:' + ${user_gender}"></span><br/>
+                    <span th:text="'Sinh ngày: ' + ${user.birthdate}"></span><br/>
+                    <span th:text="'Tuổi: ' + ${user.age}"></span><br/>
+                    <span th:text="'Giới tính:' + ${user.gender}"></span><br/>
                 </div>
                 <nav class="main-nav" role="navigation">
                     <ul class="main-menu">
                         <li><a href="#section1">Thông tin</a></li>
                         <li><a href="#section2">Bạn bè</a></li>
-                        <li th:if="${user_my}"><a href="#section3">Lời mời kết bạn</a></li>
+                        <li th:if="${user.isMy}"><a href="#section3">Lời mời kết bạn</a></li>
                     </ul>
                 </nav>
                 <div class="copyright-text">
@@ -50,22 +50,22 @@
             </div>
         </div>
     </div>
-
     <section class="section about-me" data-section="section1">
         <div class="container">
             <div class="section-heading">
                 <h2 th:text="${user.name}"></h2>
                 <div class="line-dec"></div>
-                <div th:if="${not user_my} and ${friend_not}">
+                <div th:if="${not user.isMy} and ${user.friendStatus}==-1">
                     <form action="/profile/addfriend" method="post">
                         <button type="submit" id="form-submit" class="button">
                             <input type="hidden" name="id" th:value="${user.userId}">
+                            <input type="hidden" name="myId" th:value="${myId}">
                             <i class="fa fa-user-plus"></i>
                             Kết bạn
                         </button>
                     </form>
                 </div>
-                <div th:if="${not user_my} and ${friend_status}==0">
+                <div th:if="${not user.isMy} and ${user.friendStatus}==0">
                     <form action="/profile/addfriend" method="post">
                         <button type="submit" disabled class="button">
                             <input type="hidden" name="id" th:value="${user.userId}">
@@ -74,7 +74,7 @@
                         </button>
                     </form>
                 </div>
-                <div th:if="${not user_my} and ${friend_status}==1">
+                <div th:if="${not user.isMy} and ${user.friendStatus}==1">
                     <form action="/profile/addfriend" method="post">
                         <button type="submit" disabled class="button">
                             <input type="hidden" name="id" th:value="${user.userId}">
@@ -95,91 +95,33 @@
                     <div class="col-md-6">
                         <div class="right-text">
                             <h4>Ngày sinh</h4>
-                            <p th:text="${user_birthdate}">
+                            <p th:text="${user.birthdate}">
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="right-image-post">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="left-text">
-                            <h4>Nơi ở</h4>
-                            <p>
-                                Hồ Chí Minh
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="right-image">
-                            <img src="assets/images/right-image.jpg" alt=""/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="section my-work" data-section="section2">
         <div class="container">
             <div class="section-heading">
                 <h2>Bạn bè</h2>
                 <div class="line-dec"></div>
-                <span>Những người là bạn của Thanh Tâm</span>
+                <span th:text="'Những người là bạn của ' + ${user.name}"></span>
             </div>
             <div class="row">
                 <div class="isotope-wrapper">
                     <div class="isotope-box">
-                        <div class="isotope-item" data-type="nature">
+                        <div th:each="friend : ${friends}" class="isotope-item" data-type="nature">
                             <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
+                                <img th:src="*{friend.avatar}" alt="sq-sample26"/>
                                 <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
+                                    <a th:href="*{friend.avatar}" data-lightbox="image-1"
+                                       th:data-title="*{friend.name}"><i
                                             class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="isotope-item" data-type="nature">
-                            <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
-                                <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
-                                            class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="isotope-item" data-type="nature">
-                            <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
-                                <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
-                                            class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="isotope-item" data-type="nature">
-                            <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
-                                <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
-                                            class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
+                                    <a th:href="'/profile/' + *{friend.userId}"><i class="fa fa-info-circle"></i></a>
+                                    <h4 th:text="*{friend.name}"></h4>
                                 </figcaption>
                             </figure>
                         </div>
@@ -188,7 +130,7 @@
             </div>
         </div>
     </section>
-    <section th:if="${user_my}" class="section my-work" data-section="section3">
+    <section th:if="${user.isMy}" class="section my-work" data-section="section3">
         <div class="container">
             <div class="section-heading">
                 <h2>Lời mời kết bạn</h2>
@@ -198,55 +140,24 @@
             <div class="row">
                 <div class="isotope-wrapper">
                     <div class="isotope-box">
-                        <div class="isotope-item" data-type="nature">
+                        <div th:each="waiting : ${waitings}" class="isotope-item" data-type="nature">
                             <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
+                                <img th:src="${waiting.avatar}" alt="sq-sample26"/>
                                 <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
+                                    <a th:href="${waiting.avatar}" data-lightbox="image-1"
+                                       th:data-title="${waiting.name}"><i
                                             class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="isotope-item" data-type="nature">
-                            <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
-                                <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
-                                            class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="isotope-item" data-type="nature">
-                            <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
-                                <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
-                                            class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="isotope-item" data-type="nature">
-                            <figure class="snip1321">
-                                <img src="assets/images/portfolio-01.jpg" alt="sq-sample26"/>
-                                <figcaption>
-                                    <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1"
-                                       data-title="BinZét"><i
-                                            class="fa fa-expand"></i></a>
-                                    <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                                    <h4>BinZét</h4>
-                                    <span>Hồ Chí Minh</span>
+                                    <a th:href="'/profile/' + *{waiting.userId}">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                    <form action="/profile/addfriend" method="post">
+                                        <button type="submit" class="button">
+                                            <input type="hidden" name="id" th:value="${waiting.userId}">
+                                            <input type="hidden" name="myId" th:value="${myId}">
+                                            Đồng ý
+                                        </button>
+                                    </form>
+                                    <h4 th:text="${waiting.name}"></h4>
                                 </figcaption>
                             </figure>
                         </div>
@@ -315,6 +226,7 @@
     $(window).scroll(function () {
       checkSection();
     });
+
 
 </script>
 </body>

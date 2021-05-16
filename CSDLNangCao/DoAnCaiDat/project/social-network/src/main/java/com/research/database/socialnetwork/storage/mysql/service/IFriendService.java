@@ -13,4 +13,6 @@ public interface IFriendService<T extends Friend> {
     T save(T friend);
 
     T addMyFriend(Integer userId, int myId);
+
+    List<Integer> getAllWaitingIds(Integer receiver);
 }

@@ -1,4 +1,4 @@
-package com.research.database.socialnetwork.controler;
+package com.research.database.socialnetwork.controller;
 
 import com.research.database.socialnetwork._enum.FriendStatus;
 import com.research.database.socialnetwork.storage.es.service.ESUserService;
@@ -11,8 +11,12 @@ import com.research.database.socialnetwork.view.LayoutView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -33,38 +37,56 @@ public class UserController {
         return "home";
     }
 
+    @GetMapping("/profile/my/{id}")
+    public String getMyProfile(@PathVariable Integer id, Model model) {
+        return _profile(id, id, model);
+    }
+
     @GetMapping("/profile/{id}")
     public String getProfile(@PathVariable Integer id, Model model) {
+        int myId = CommonConfig.MY_ID;
+        return _profile(myId, id, model);
+    }
+
+    private String _profile(int myId, Integer id, Model model) {
         Optional<User> userOpt = userService.getById(id);
-        if (userOpt.isPresent()) {
-            System.out.println(userOpt.get());
-        }
         User user = userOpt.get();
-        Friend friend = friendService.getItem(CommonConfig.MY_ID, id);
+        Friend friend = friendService.getItem(myId, id);
         List<Integer> allFriendIds = friendService.getAllFriendIds(id, FriendStatus.ACCEPTED.getValue());
         if (allFriendIds != null && !allFriendIds.isEmpty()) {
-            List<Friend> friends = userService.getByIds(allFriendIds);
-            LayoutView.renderFriends(friends);
+            List<User> friends = userService.getByIds(allFriendIds);
+            LayoutView.renderFriends(myId, friends, model);
         }
-        return _returnUser(user, model, friend);
+        //load danh sách chờ kết bạn
+        List<User> waitingApproved = _getWaiting(myId);
+        LayoutView.renderWaitings(myId, waitingApproved, model);
+        return _returnUser(myId, user, model, friend);
+    }
+
+    private List<User> _getWaiting(int myId) {
+        List<Integer> waitingIds = friendService.getAllWaitingIds(myId);
+        if (waitingIds == null || waitingIds.isEmpty()) {
+            return Collections.EMPTY_LIST;
+        }
+        return userService.getByIds(waitingIds);
     }
 
     @PostMapping("/profile/addfriend")
     public String addFriend(@RequestParam Map<String, String> body, Model model) {
         Integer id = Integer.valueOf(body.get("id"));
+        Integer myId = Integer.valueOf(body.get("myId"));
         Optional<User> userOpt = userService.getById(id);
         User user = userOpt.get();
-        if (id == CommonConfig.MY_ID) {
-            return _returnUser(user, model, null);
+        if (id == myId) {
+            return _returnUser(myId, user, model, null);
         }
-        Friend friend = friendService.addMyFriend(user.getUserId(), CommonConfig.MY_ID);
+        Friend friend = friendService.addMyFriend(user.getUserId(), myId);
         return "redirect:/profile/" + user.getUserId();
     }
 
-    private String _returnUser(User user, Model model, Friend friend) {
-        LayoutView.renderLayout(model);
-        LayoutView.renderUser(user, model);
-        LayoutView.renderFriend(friend, model);
+    private String _returnUser(int myId, User user, Model model, Friend friend) {
+        LayoutView.renderLayout(myId, model);
+        LayoutView.renderUser(myId, user, friend, model);
         return "profile";
     }
 }

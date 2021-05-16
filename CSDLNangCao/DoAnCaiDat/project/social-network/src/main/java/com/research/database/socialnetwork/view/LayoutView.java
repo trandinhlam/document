@@ -2,41 +2,30 @@ package com.research.database.socialnetwork.view;
 
 import com.research.database.socialnetwork.storage.mysql.entity.Friend;
 import com.research.database.socialnetwork.storage.mysql.entity.User;
-import com.research.database.socialnetwork.utils.CommonConfig;
-import com.research.database.socialnetwork.utils.TimeUtils;
 import org.springframework.ui.Model;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class LayoutView {
 
 
-    public static void renderLayout(Model model) {
+    public static void renderLayout(int myId, Model model) {
+        model.addAttribute("myId", myId);
         model.addAttribute("host", "http://localhost:8080/");
     }
 
-    public static void renderUser(User user, Model model) {
-        model.addAttribute("user_my", user.getUserId() == CommonConfig.MY_ID);
-        model.addAttribute("user", user);
-        String date = TimeUtils.format(user.getBirth() * 1000l);
-        model.addAttribute("user_birthdate", date);
-        int now = (int) (System.currentTimeMillis() / 1000l);
-        int age = (now - user.getBirth()) / (int) TimeUnit.DAYS.toSeconds(365);
-        model.addAttribute("user_age", age);
-        model.addAttribute("user_gender", user.getGender() == 1 ? "Nam" : "Nữ");
+    public static void renderUser(int myId, User user, Friend friend, Model model) {
+        model.addAttribute("user", new UserViewEntity(myId, user, friend));
     }
 
-    public static void renderFriend(Friend friend, Model model) {
-        if (friend == null) {
-            model.addAttribute("friend_not", true);
-        } else {
-            model.addAttribute("friend_has", true);
-            model.addAttribute("friend_status", friend.getTrangthai());
-        }
+    public static void renderFriends(int myId, List<User> friends, Model model) {
+        List<UserViewEntity> userView = friends.stream().map(u -> new UserViewEntity(myId, u, null)).collect(Collectors.toList());
+        model.addAttribute("friends", userView);
     }
 
-    public static void renderFriends(List<Friend> friends) {
-        
+    public static void renderWaitings(int myId, List<User> waitings, Model model) {
+        List<UserViewEntity> userView = waitings.stream().map(u -> new UserViewEntity(myId, u, null)).collect(Collectors.toList());
+        model.addAttribute("waitings", userView);
     }
 }
