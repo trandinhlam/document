@@ -23,7 +23,7 @@ public class RestUserControler {
 
     @GetMapping(value = "/search", produces = "application/json")
     public List<ESSearchUserDTO> searchUserWithName(@RequestParam("key") String nameInput, //
-                                                    @PageableDefault(size = 100, page = 0) Pageable paging) {
+                                                    @PageableDefault(size = 10, page = 0) Pageable paging) {
         return esUserService.searchByName(nameInput, paging);
     }
 }

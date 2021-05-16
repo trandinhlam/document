@@ -34,23 +34,21 @@
               </div>
               <div class="row">
                 <div class="container">
-                  <form id="contact" action="" method="post">
-                    <div class="row">
-                      <div class="col-md-10">
-                        <fieldset>
-                          <input name="subject" type="text" class="form-control" id="subject"
-                            placeholder="Nhập tên bạn bè, nhóm,..." required="" />
-                        </fieldset>
-                      </div>
-                      <div class="col-md-2">
-                        <fieldset>
-                          <button type="submit" id="form-submit" class="button">
-                            <i class="fa fa-search"></i>
-                          </button>
-                        </fieldset>
-                      </div>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control" id="search-value"
+                          placeholder="Nhập tên bạn bè, nhóm,..." required="" />
+                      </fieldset>
                     </div>
-                  </form>
+                    <div class="col-md-2">
+                      <fieldset>
+                        <button id="search-submit" class="button">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -58,39 +56,15 @@
           <div class="col-md-12">
             <section class="section my-work" data-section="section2">
               <div class="container">
-                <div class="section-heading">
-                  <h2>Kết quả</h2>
+                <div id="search-content" style="width:110mm; height:250mm; overflow: auto">
                 </div>
-                <div class="isotope-wrapper">
-                  <div class="isotope-box">
-                    <div class="" data-type="nature">
-                      <figure class="snip1321">
-                        <img src="assets/images/portfolio-01.jpg" alt="sq-sample26" />
-                        <figcaption>
-                          <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i
-                              class="fa fa-expand"></i></a>
-                          <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                          <h4>BinZét</h4>
-                          <span>Hồ Chí Minh</span>
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-                <div class="isotope-wrapper">
-                  <div class="isotope-box">
-                    <div class="" data-type="nature">
-                      <figure class="snip1321">
-                        <img src="assets/images/portfolio-01.jpg" alt="sq-sample26" />
-                        <figcaption>
-                          <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i
-                              class="fa fa-expand"></i></a>
-                          <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                          <h4>BinZét</h4>
-                          <span>Hồ Chí Minh</span>
-                        </figcaption>
-                      </figure>
-                    </div>
+                <div id="read-more-section" class="section-heading" style="visibility: hidden">
+                  <div>
+                    <fieldset>
+                        <button id="next-page" class="button">
+                            <i class="\tfa fa-angle-double-down">Xem Thêm</i>
+                          </button>
+                     </fieldset>
                   </div>
                 </div>
               </div>
@@ -223,6 +197,120 @@
     $(window).scroll(function () {
       checkSection();
     });
+  </script>
+  <script>
+    <!--reset page search-->
+    window.onload = function () {
+      localStorage.setItem("currentPage", 0);
+      localStorage.setItem("currentSearchValue", "");
+      $("#read-more-section").css('visibility', 'hidden');
+    };
+
+    <!--process event search-->
+    $("#search-submit").click(function () {
+      var searchValue = $("#search-value").val();
+      var currentPage = localStorage.getItem("currentPage");
+      if (searchValue != '') {
+        var defaultSearchSize = 10;
+        // Update current page for next time search
+        if (currentPage === null) {
+          currentPage = 0;
+        } else {
+          localStorage.setItem("currentPage", parseInt(currentPage) + 1);
+        }
+        var enpoint = "http://localhost:8080/api/user/search?key=" + searchValue + "&size=" + defaultSearchSize + "&page=" + currentPage;
+        $.ajax({
+          url: enpoint,
+          contentType: "application/json",
+          type: 'GET',
+          dataType: 'json',
+          success: function (result) {
+            console.log(result);
+            var finalHtml = '';
+            $.each(result, function(i, user) {
+              var htmlValue = '<div class="isotope-wrapper" style="width: 50%">\n' +
+                      '                    <div class="isotope-box">\n' +
+                      '                      <div class="" data-type="nature">\n' +
+                      '                        <figure class="snip1321">\n' +
+                      '                          <img src="' + user.avatar + '" alt="sq-sample26" />\n' +
+                      '                          <figcaption>\n' +
+                      '                            <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i\n' +
+                      '                                    class="fa fa-expand"></i></a>\n' +
+                      '                            <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>\n' +
+                      '                            <h4>'+ user.name +'</h4>\n' +
+                      '                          </figcaption>\n' +
+                      '                        </figure>\n' +
+                      '                      </div>\n' +
+                      '                    </div>\n' +
+                      '                  </div>';
+              finalHtml += htmlValue;
+            });
+
+            $("#search-content").html(finalHtml);
+            if(result.length !== 0){
+              $("#read-more-section").css('visibility', 'visible');
+              localStorage.setItem("currentSearchValue", searchValue);
+            }
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.log('Error in operation search!');
+          }
+        });
+      }
+    });
+
+
+  //  read more
+    $("#next-page").click(function () {
+      var searchValue = localStorage.getItem("currentSearchValue");
+      var currentPage = localStorage.getItem("currentPage");
+      if (searchValue != '') {
+        var defaultSearchSize = 10;
+        // Update current page for next time search
+        if (currentPage === null) {
+          currentPage = 0;
+        } else {
+          localStorage.setItem("currentPage", parseInt(currentPage) + 1);
+        }
+        var enpoint = "http://localhost:8080/api/user/search?key=" + searchValue + "&size=" + defaultSearchSize + "&page=" + currentPage;
+        $.ajax({
+          url: enpoint,
+          contentType: "application/json",
+          type: 'GET',
+          dataType: 'json',
+          success: function (result) {
+            console.log(result);
+            var finalHtml = '';
+            $.each(result, function(i, user) {
+              var htmlValue = '<div class="isotope-wrapper" style="width: 50%">\n' +
+                      '                    <div class="isotope-box">\n' +
+                      '                      <div class="" data-type="nature">\n' +
+                      '                        <figure class="snip1321">\n' +
+                      '                          <img src="' + user.avatar + '" alt="sq-sample26" />\n' +
+                      '                          <figcaption>\n' +
+                      '                            <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i\n' +
+                      '                                    class="fa fa-expand"></i></a>\n' +
+                      '                            <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>\n' +
+                      '                            <h4>'+ user.name +'</h4>\n' +
+                      '                          </figcaption>\n' +
+                      '                        </figure>\n' +
+                      '                      </div>\n' +
+                      '                    </div>\n' +
+                      '                  </div>';
+              finalHtml += htmlValue;
+            });
+            if(result.length === 0){
+              $("#read-more-section").css('visibility', 'hidden');
+            }
+            $("#search-content").html($("#search-content").html() + finalHtml);
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.log('Error in operation search!');
+          }
+        });
+      }
+    });
+
   </script>
 </body>
 

@@ -1,5 +1,6 @@
 package com.research.database.socialnetwork.storage.es.service;
 
+import com.research.database.socialnetwork.config.Configuration;
 import com.research.database.socialnetwork.storage.es.dto.ESSearchUserDTO;
 import com.research.database.socialnetwork.storage.es.entity.ESUser;
 import com.research.database.socialnetwork.storage.es.entity.ESUserRepository;
@@ -37,7 +38,6 @@ public class ESUserService {
     public List<ESSearchUserDTO> searchByName(String name, Pageable paging) {
         Map<Integer, Friend> friends = getFriendOfLoginUser().stream() //
                 .collect(Collectors.toMap(Friend::getReceiver, Function.identity()));
-
         return esUserRepository.findByNameContaining(name, paging).stream() //
                 .map(item -> mappingWithFriend(item, friends)) //
                 .collect(Collectors.toList());
