@@ -1,5 +1,6 @@
 package com.research.database.socialnetwork.controler;
 
+import com.research.database.socialnetwork.storage.es.service.ESUserService;
 import com.research.database.socialnetwork.storage.mysql.entity.User;
 import com.research.database.socialnetwork.storage.mysql.service.IUserService;
 import com.research.database.socialnetwork.utils.CommonConfig;
@@ -18,6 +19,9 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private ESUserService esUserService;
 
     @GetMapping("/")
     public String index(Model model) {
