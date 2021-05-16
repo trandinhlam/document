@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IUserService<T extends User> {
+    public List<T> getAll();
 
     Optional<T> getById(Integer id);
 
@@ -13,7 +14,5 @@ public interface IUserService<T extends User> {
 
     public void generateInit();
 
-    int addMyFriend(int userid, int myid);
-
-    List<User> getAll();
+    List<T> getByIds(List<Integer> ids);
 }

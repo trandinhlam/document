@@ -6,8 +6,11 @@ import java.util.List;
 
 public interface IFriendService<T extends Friend> {
 
-    List<T> get(Integer id, int trangthai);
+    public List<Integer> getAllFriendIds(int userId, int trangthai);
+
+    T getItem(Integer userYC, int userNhan);
 
     T save(T friend);
 
+    T addMyFriend(Integer userId, int myId);
 }

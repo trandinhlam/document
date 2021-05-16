@@ -3,12 +3,11 @@ package com.research.database.socialnetwork.storage.mysql.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "banbe")
-@IdClass(Friend.FriendId.class)
+@IdClass(FriendPK.class)
 @Getter
 @Setter
 @ToString
@@ -24,19 +23,11 @@ public class Friend {
     @Column(name = "usernhan")
     private Integer receiver;
 
+
     @Column(name = "ngayketban")
-    private Timestamp gender;
+    private Timestamp ngayketban;
 
     @Column(name = "trangthai")
     private int trangthai;
 
-    @Embeddable
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @Getter
-    @Setter
-    public class FriendId implements Serializable {
-        private Integer inviter;
-        private Integer receiver;
-    }
 }

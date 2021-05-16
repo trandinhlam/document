@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService implements IUserService {
+public class UserService implements IUserService<User> {
 
     @Autowired
     private UserRepository repo;
@@ -42,7 +42,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public int addMyFriend(int userid, int myid) {
-        return 0;
+    public List<User> getByIds(List<Integer> ids) {
+        return (List<User>) repo.findAllById(ids);
     }
 }
