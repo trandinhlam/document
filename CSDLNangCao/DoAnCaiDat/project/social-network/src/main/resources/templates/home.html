@@ -234,9 +234,8 @@
                       '                        <figure class="snip1321">\n' +
                       '                          <img src="' + user.avatar + '" alt="sq-sample26" />\n' +
                       '                          <figcaption>\n' +
-                      '                            <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i\n' +
-                      '                                    class="fa fa-expand"></i></a>\n' +
-                      '                            <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>\n' +
+                      '                            <a href="/profile/'+ user.userId +'" data-lightbox="'+ user.name +'" data-title="'+ user.name +'"><i\n' +
+                      '                                    class="fa fa-user-plus"></i></a>\n' +
                       '                            <h4>'+ user.name +'</h4>\n' +
                       '                          </figcaption>\n' +
                       '                        </figure>\n' +
@@ -247,7 +246,7 @@
             });
 
             $("#search-content").html(finalHtml);
-            if(result.length !== 0){
+            if(result.length !== 0 && result.length ===defaultSearchSize){
               $("#read-more-section").css('visibility', 'visible');
               localStorage.setItem("currentSearchValue", searchValue);
             }
@@ -288,9 +287,8 @@
                       '                        <figure class="snip1321">\n' +
                       '                          <img src="' + user.avatar + '" alt="sq-sample26" />\n' +
                       '                          <figcaption>\n' +
-                      '                            <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i\n' +
-                      '                                    class="fa fa-expand"></i></a>\n' +
-                      '                            <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>\n' +
+                      '                            <a href="/profile/'+ user.userId +'" data-lightbox="'+ user.name +'" data-title="'+ user.name +'"><i\n' +
+                      '                                    class="fa fa-user-plus"></i></a>\n' +
                       '                            <h4>'+ user.name +'</h4>\n' +
                       '                          </figcaption>\n' +
                       '                        </figure>\n' +
@@ -299,7 +297,7 @@
                       '                  </div>';
               finalHtml += htmlValue;
             });
-            if(result.length === 0){
+            if(result.length === 0 || result.length < defaultSearchSize){
               $("#read-more-section").css('visibility', 'hidden');
             }
             $("#search-content").html($("#search-content").html() + finalHtml);

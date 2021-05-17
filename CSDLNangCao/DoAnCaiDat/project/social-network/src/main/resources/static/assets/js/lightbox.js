@@ -77,7 +77,7 @@
     // Both enable and build methods require the body tag to be in the DOM.
     $(document).ready(function() {
       self.enable();
-      self.build();
+      // self.build();
     });
   };
 
@@ -90,109 +90,109 @@
       return false;
     });
   };
-
-  // Build html for the lightbox and the overlay.
-  // Attach event handlers to the new DOM elements. click click click
-  Lightbox.prototype.build = function() {
-    if ($('#lightbox').length > 0) {
-        return;
-    }
-
-    var self = this;
-    $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
-
-    // Cache jQuery objects
-    this.$lightbox       = $('#lightbox');
-    this.$overlay        = $('#lightboxOverlay');
-    this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
-    this.$container      = this.$lightbox.find('.lb-container');
-    this.$image          = this.$lightbox.find('.lb-image');
-    this.$nav            = this.$lightbox.find('.lb-nav');
-
-    // Store css values for future lookup
-    this.containerPadding = {
-      top: parseInt(this.$container.css('padding-top'), 10),
-      right: parseInt(this.$container.css('padding-right'), 10),
-      bottom: parseInt(this.$container.css('padding-bottom'), 10),
-      left: parseInt(this.$container.css('padding-left'), 10)
-    };
-
-    this.imageBorderWidth = {
-      top: parseInt(this.$image.css('border-top-width'), 10),
-      right: parseInt(this.$image.css('border-right-width'), 10),
-      bottom: parseInt(this.$image.css('border-bottom-width'), 10),
-      left: parseInt(this.$image.css('border-left-width'), 10)
-    };
-
-    // Attach event handlers to the newly minted DOM elements
-    this.$overlay.hide().on('click', function() {
-      self.end();
-      return false;
-    });
-
-    this.$lightbox.hide().on('click', function(event) {
-      if ($(event.target).attr('id') === 'lightbox') {
-        self.end();
-      }
-      return false;
-    });
-
-    this.$outerContainer.on('click', function(event) {
-      if ($(event.target).attr('id') === 'lightbox') {
-        self.end();
-      }
-      return false;
-    });
-
-    this.$lightbox.find('.lb-prev').on('click', function() {
-      if (self.currentImageIndex === 0) {
-        self.changeImage(self.album.length - 1);
-      } else {
-        self.changeImage(self.currentImageIndex - 1);
-      }
-      return false;
-    });
-
-    this.$lightbox.find('.lb-next').on('click', function() {
-      if (self.currentImageIndex === self.album.length - 1) {
-        self.changeImage(0);
-      } else {
-        self.changeImage(self.currentImageIndex + 1);
-      }
-      return false;
-    });
-
-    /*
-      Show context menu for image on right-click
-
-      There is a div containing the navigation that spans the entire image and lives above of it. If
-      you right-click, you are right clicking this div and not the image. This prevents users from
-      saving the image or using other context menu actions with the image.
-
-      To fix this, when we detect the right mouse button is pressed down, but not yet clicked, we
-      set pointer-events to none on the nav div. This is so that the upcoming right-click event on
-      the next mouseup will bubble down to the image. Once the right-click/contextmenu event occurs
-      we set the pointer events back to auto for the nav div so it can capture hover and left-click
-      events as usual.
-     */
-    this.$nav.on('mousedown', function(event) {
-      if (event.which === 3) {
-        self.$nav.css('pointer-events', 'none');
-
-        self.$lightbox.one('contextmenu', function() {
-          setTimeout(function() {
-              this.$nav.css('pointer-events', 'auto');
-          }.bind(self), 0);
-        });
-      }
-    });
-
-
-    this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
-      self.end();
-      return false;
-    });
-  };
+  //
+  // // Build html for the lightbox and the overlay.
+  // // Attach event handlers to the new DOM elements. click click click
+  // Lightbox.prototype.build = function() {
+  //   if ($('#lightbox').length > 0) {
+  //       return;
+  //   }
+  //
+  //   var self = this;
+  //   $('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
+  //
+  //   // Cache jQuery objects
+  //   this.$lightbox       = $('#lightbox');
+  //   this.$overlay        = $('#lightboxOverlay');
+  //   this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
+  //   this.$container      = this.$lightbox.find('.lb-container');
+  //   this.$image          = this.$lightbox.find('.lb-image');
+  //   this.$nav            = this.$lightbox.find('.lb-nav');
+  //
+  //   // Store css values for future lookup
+  //   this.containerPadding = {
+  //     top: parseInt(this.$container.css('padding-top'), 10),
+  //     right: parseInt(this.$container.css('padding-right'), 10),
+  //     bottom: parseInt(this.$container.css('padding-bottom'), 10),
+  //     left: parseInt(this.$container.css('padding-left'), 10)
+  //   };
+  //
+  //   this.imageBorderWidth = {
+  //     top: parseInt(this.$image.css('border-top-width'), 10),
+  //     right: parseInt(this.$image.css('border-right-width'), 10),
+  //     bottom: parseInt(this.$image.css('border-bottom-width'), 10),
+  //     left: parseInt(this.$image.css('border-left-width'), 10)
+  //   };
+  //
+  //   // Attach event handlers to the newly minted DOM elements
+  //   this.$overlay.hide().on('click', function() {
+  //     self.end();
+  //     return false;
+  //   });
+  //
+  //   this.$lightbox.hide().on('click', function(event) {
+  //     if ($(event.target).attr('id') === 'lightbox') {
+  //       self.end();
+  //     }
+  //     return false;
+  //   });
+  //
+  //   this.$outerContainer.on('click', function(event) {
+  //     if ($(event.target).attr('id') === 'lightbox') {
+  //       self.end();
+  //     }
+  //     return false;
+  //   });
+  //
+  //   this.$lightbox.find('.lb-prev').on('click', function() {
+  //     if (self.currentImageIndex === 0) {
+  //       self.changeImage(self.album.length - 1);
+  //     } else {
+  //       self.changeImage(self.currentImageIndex - 1);
+  //     }
+  //     return false;
+  //   });
+  //
+  //   this.$lightbox.find('.lb-next').on('click', function() {
+  //     if (self.currentImageIndex === self.album.length - 1) {
+  //       self.changeImage(0);
+  //     } else {
+  //       self.changeImage(self.currentImageIndex + 1);
+  //     }
+  //     return false;
+  //   });
+  //
+  //   /*
+  //     Show context menu for image on right-click
+  //
+  //     There is a div containing the navigation that spans the entire image and lives above of it. If
+  //     you right-click, you are right clicking this div and not the image. This prevents users from
+  //     saving the image or using other context menu actions with the image.
+  //
+  //     To fix this, when we detect the right mouse button is pressed down, but not yet clicked, we
+  //     set pointer-events to none on the nav div. This is so that the upcoming right-click event on
+  //     the next mouseup will bubble down to the image. Once the right-click/contextmenu event occurs
+  //     we set the pointer events back to auto for the nav div so it can capture hover and left-click
+  //     events as usual.
+  //    */
+  //   this.$nav.on('mousedown', function(event) {
+  //     if (event.which === 3) {
+  //       self.$nav.css('pointer-events', 'none');
+  //
+  //       self.$lightbox.one('contextmenu', function() {
+  //         setTimeout(function() {
+  //             this.$nav.css('pointer-events', 'auto');
+  //         }.bind(self), 0);
+  //       });
+  //     }
+  //   });
+  //
+  //
+  //   this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
+  //     self.end();
+  //     return false;
+  //   });
+  // };
 
   // Show overlay and lightbox. If the image is part of a set, add siblings to album array.
   Lightbox.prototype.start = function($link) {
