@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -54,7 +56,7 @@ public class UserController {
 //        initrandom();
 //        dataUtils.putFriendIntoGraph();
 //        dataUtils.putAgeIntoGraph();
-        dataUtils.putGenderIntoGraph();
+//        dataUtils.putGenderIntoGraph();
         SuggestCriteria cri = SuggestCriteria.builder().friendDepth(2).generation("z").city("ho chi minh").build();
         List<Integer> suggested = neo4jService.suggestFriendIds(myId, cri);
         System.err.println(suggested);
