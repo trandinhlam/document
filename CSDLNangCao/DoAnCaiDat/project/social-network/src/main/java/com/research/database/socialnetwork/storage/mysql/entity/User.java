@@ -36,6 +36,9 @@ public class User {
     @Column(name = "ngaythamgia")
     private Date joinDate;
 
+    @Column(name = "diachi")
+    private String city;
+
     @Override
     public int hashCode() {
         int hash = 7;

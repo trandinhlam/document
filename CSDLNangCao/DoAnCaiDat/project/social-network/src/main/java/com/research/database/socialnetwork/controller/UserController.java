@@ -6,7 +6,10 @@ import com.research.database.socialnetwork.storage.mysql.entity.Friend;
 import com.research.database.socialnetwork.storage.mysql.entity.User;
 import com.research.database.socialnetwork.storage.mysql.service.IFriendService;
 import com.research.database.socialnetwork.storage.mysql.service.IUserService;
+import com.research.database.socialnetwork.storage.neo4j.Neo4jService;
 import com.research.database.socialnetwork.utils.CommonConfig;
+import com.research.database.socialnetwork.utils.DataUtils;
+import com.research.database.socialnetwork.utils.SuggestCriteria;
 import com.research.database.socialnetwork.view.LayoutView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +19,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 public class UserController {
@@ -28,9 +29,13 @@ public class UserController {
     private IUserService userService;
     @Autowired
     private IFriendService friendService;
-
     @Autowired
     private ESUserService esUserService;
+    @Autowired
+    private Neo4jService neo4jService;
+
+    @Autowired
+    private DataUtils dataUtils;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -45,8 +50,17 @@ public class UserController {
     @GetMapping("/profile/{id}")
     public String getProfile(@PathVariable Integer id, Model model) {
         int myId = CommonConfig.MY_ID;
+        //init data random bạn bè
+//        initrandom();
+//        dataUtils.putFriendIntoGraph();
+//        dataUtils.putAgeIntoGraph();
+        dataUtils.putGenderIntoGraph();
+        SuggestCriteria cri = SuggestCriteria.builder().friendDepth(2).generation("z").city("ho chi minh").build();
+        List<Integer> suggested = neo4jService.suggestFriendIds(myId, cri);
+        System.err.println(suggested);
         return _profile(myId, id, model);
     }
+
 
     private String _profile(int myId, Integer id, Model model) {
         Optional<User> userOpt = userService.getById(id);

@@ -17,6 +17,11 @@ public class FriendService implements IFriendService<Friend> {
     FriendRepository repo;
 
     @Override
+    public List<Friend> getAll() {
+        return (List<Friend>) repo.findAll();
+    }
+
+    @Override
     public List<Integer> getAllFriendIds(int userId, int trangthai) {
         List<Friend> friends = repo.findByUid(userId, trangthai);
         if (friends == null) {

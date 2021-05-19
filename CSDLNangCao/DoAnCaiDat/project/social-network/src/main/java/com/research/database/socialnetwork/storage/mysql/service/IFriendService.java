@@ -5,6 +5,7 @@ import com.research.database.socialnetwork.storage.mysql.entity.Friend;
 import java.util.List;
 
 public interface IFriendService<T extends Friend> {
+    public List<T> getAll();
 
     public List<Integer> getAllFriendIds(int userId, int trangthai);
 
