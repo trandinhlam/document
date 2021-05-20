@@ -81,55 +81,20 @@
               <span>Những người bạn có thể quan tâm</span>
             </div>
             <div class="isotope-wrapper">
-              <div class="isotope-box">
+              <div th:each ="user : ${suggestedUsers}" class="isotope-box">
+
                 <div class="isotope-item" data-type="nature">
                   <figure class="snip1321">
-                    <img src="assets/images/portfolio-01.jpg" alt="sq-sample26" />
+                    <img th:src="${user.avatar}" alt="sq-sample26" />
                     <figcaption>
-                      <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i
-                          class="fa fa-expand"></i></a>
-                      <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                      <h4>BinZét</h4>
-                      <span>Hồ Chí Minh</span>
+                      <a th:href="${user.avatar}" data-lightbox="image-1"><i class="fa fa-expand"></i></a>
+                      <a th:href="${user.avatar}"><i class="fa fa-info-circle"></i></a>
+                      <h4 th:utext="${user.name}"></h4>
+                      <span th:utext="${user.city}"></span>
                     </figcaption>
                   </figure>
                 </div>
-                <div class="isotope-item" data-type="nature">
-                  <figure class="snip1321">
-                    <img src="assets/images/portfolio-01.jpg" alt="sq-sample26" />
-                    <figcaption>
-                      <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i
-                          class="fa fa-expand"></i></a>
-                      <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                      <h4>BinZét</h4>
-                      <span>Hồ Chí Minh</span>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="isotope-item" data-type="nature">
-                  <figure class="snip1321">
-                    <img src="assets/images/portfolio-01.jpg" alt="sq-sample26" />
-                    <figcaption>
-                      <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i
-                          class="fa fa-expand"></i></a>
-                      <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                      <h4>BinZét</h4>
-                      <span>Hồ Chí Minh</span>
-                    </figcaption>
-                  </figure>
-                </div>
-                <div class="isotope-item" data-type="nature">
-                  <figure class="snip1321">
-                    <img src="assets/images/portfolio-01.jpg" alt="sq-sample26" />
-                    <figcaption>
-                      <a href="assets/images/portfolio-01.jpg" data-lightbox="image-1" data-title="BinZét"><i
-                          class="fa fa-expand"></i></a>
-                      <a href="assets/images/portfolio-01.jpg"><i class="fa fa-info-circle"></i></a>
-                      <h4>BinZét</h4>
-                      <span>Hồ Chí Minh</span>
-                    </figcaption>
-                  </figure>
-                </div>
+
               </div>
             </div>
 

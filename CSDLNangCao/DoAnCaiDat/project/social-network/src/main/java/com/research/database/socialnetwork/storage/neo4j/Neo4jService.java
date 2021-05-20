@@ -14,7 +14,7 @@ public class Neo4jService {
     private Connection conn = null;
 
     public Neo4jService() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687?user=neo4j,password=123456,scheme=default");
+        conn = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687?user=neo4j,password=system,scheme=default");
 
 //        Statement stmt = conn.createStatement();
 //        ResultSet rs = stmt.executeQuery(
@@ -73,10 +73,10 @@ public class Neo4jService {
             query.append(String.format("MATCH (n)-[:FRIEND * %d]-(m) ", cri.getFriendDepth()));
         }
         if (cri.getGeneration() != null && !cri.getGeneration().isEmpty()) {
-            query.append(String.format("MATCH (m)-[:BORN]->(g:GEN{name:'y'}) ", cri.getGeneration()));
+            query.append(String.format("MATCH (m)-[:BORN]->(g:GEN{name:'%s'}) ", cri.getGeneration()));
         }
         if (cri.getCity() != null && !cri.getCity().isEmpty()) {
-            query.append(String.format("MATCH (m)-[:IN]->(g:CITY{name:'y'}) ", cri.getGeneration()));
+            query.append(String.format("MATCH (m)-[:IN]->(g:CITY{name:'%s'}) ", cri.getCity()));
         }
         query.append("WHERE NOT (n)-[:FRIEND]-(m) ");
         query.append("RETURN DISTINCT m.id");

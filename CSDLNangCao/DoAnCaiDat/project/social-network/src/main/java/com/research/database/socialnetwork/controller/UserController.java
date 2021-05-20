@@ -7,10 +7,12 @@ import com.research.database.socialnetwork.storage.mysql.entity.User;
 import com.research.database.socialnetwork.storage.mysql.service.IFriendService;
 import com.research.database.socialnetwork.storage.mysql.service.IUserService;
 import com.research.database.socialnetwork.storage.neo4j.Neo4jService;
+import com.research.database.socialnetwork.utils.AgeUtils;
 import com.research.database.socialnetwork.utils.CommonConfig;
 import com.research.database.socialnetwork.utils.DataUtils;
 import com.research.database.socialnetwork.utils.SuggestCriteria;
 import com.research.database.socialnetwork.view.LayoutView;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,12 +29,18 @@ import java.util.Optional;
 @Controller
 public class UserController {
 
+    public static final int FRIEND_DEPTH = 2;
+    public static final int CURRENT_USER_ID = 105;
+
     @Autowired
     private IUserService userService;
+
     @Autowired
     private IFriendService friendService;
+
     @Autowired
     private ESUserService esUserService;
+
     @Autowired
     private Neo4jService neo4jService;
 
@@ -41,6 +49,13 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model) {
+        // TODO [Minh]: add suggestion criteria box
+        User currentUser = (User) userService.getById(CURRENT_USER_ID).get();
+        SuggestCriteria criteria = SuggestCriteria.builder().friendDepth(FRIEND_DEPTH)
+                .generation(AgeUtils.calculateGenerationFromBirthday(currentUser.getBirth()))
+                .city(StringUtils.lowerCase(currentUser.getCity())).build();
+        List<Integer> suggestedUserIds = neo4jService.suggestFriendIds(CURRENT_USER_ID, criteria);
+        model.addAttribute("suggestedUsers", userService.getByIds(suggestedUserIds));
         return "home";
     }
 
@@ -53,13 +68,10 @@ public class UserController {
     public String getProfile(@PathVariable Integer id, Model model) {
         int myId = CommonConfig.MY_ID;
         //init data random bạn bè
-//        initrandom();
+//        dataUtils.initrandom();
 //        dataUtils.putFriendIntoGraph();
 //        dataUtils.putAgeIntoGraph();
 //        dataUtils.putGenderIntoGraph();
-        SuggestCriteria cri = SuggestCriteria.builder().friendDepth(2).generation("z").city("ho chi minh").build();
-        List<Integer> suggested = neo4jService.suggestFriendIds(myId, cri);
-        System.err.println(suggested);
         return _profile(myId, id, model);
     }
 

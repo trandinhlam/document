@@ -51,10 +51,7 @@ public class DataUtils {
     public void putAgeIntoGraph() {
         List<User> users = userService.getAll();
         users.forEach(u -> {
-            int now = (int) (System.currentTimeMillis() / 1000l);
-            int age = (now - u.getBirth()) / (int) TimeUnit.DAYS.toSeconds(365);
-            String generation = AgeUtils.getGeneration(age);
-            neo4jService.insertGen(u.getUserId(), generation);
+            neo4jService.insertGen(u.getUserId(), AgeUtils.calculateGenerationFromBirthday(u.getBirth()));
         });
     }
 
