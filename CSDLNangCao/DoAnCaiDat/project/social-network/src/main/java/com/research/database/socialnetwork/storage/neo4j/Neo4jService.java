@@ -76,7 +76,7 @@ public class Neo4jService {
             query.append(String.format("MATCH (m)-[:BORN]->(g:GEN{name:'%s'}) ", cri.getGeneration()));
         }
         if (cri.getCity() != null && !cri.getCity().isEmpty()) {
-            query.append(String.format("MATCH (m)-[:IN]->(g:CITY{name:'%s'}) ", cri.getCity()));
+            query.append(String.format("MATCH (m)-[:IN]->(c:CITY{name:'%s'}) ", cri.getCity()));
         }
         query.append("WHERE NOT (n)-[:FRIEND]-(m) ");
         query.append("RETURN DISTINCT m.id");
@@ -86,7 +86,6 @@ public class Neo4jService {
             List<Integer> ids = new ArrayList<>();
             while (resultSet.next()) {
                 int id = resultSet.getInt("m.id");
-                System.err.println(id);
                 ids.add(id);
             }
             return ids;
