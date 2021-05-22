@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 public class PostService {
 
     public static final String COL_NAME = "post";
-    private Integer principal = CommonConfig.MY_ID;
 
     @Autowired
     private IFriendService friendService;
@@ -37,8 +36,8 @@ public class PostService {
 
     public String savePost(PostDTO postDTO) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        DocumentReference commonDataReference = dbFirestore.collection(COL_NAME).document(principal.toString());
-        User principal = userRepository.findById(this.principal)//
+        DocumentReference commonDataReference = dbFirestore.collection(COL_NAME).document(CommonConfig.MY_ID.toString());
+        User principal = userRepository.findById(CommonConfig.MY_ID)//
                 .orElseThrow(() -> new RuntimeException("User ís not exits!"));
 
         commonDataReference.set(CommonPostData.builder()

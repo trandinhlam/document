@@ -32,7 +32,7 @@ import java.util.concurrent.ExecutionException;
 public class UserController {
 
     public static final int FRIEND_DEPTH = 3;
-    public static final Integer CURRENT_USER_ID = 105;
+//    public static final Integer CURRENT_USER_ID = CommonConfig.MY_ID;
 
     @Autowired
     private IUserService userService;
@@ -52,17 +52,22 @@ public class UserController {
     @Autowired
     PostService postService;
 
-    @GetMapping("/")
-    public String index(Model model) throws ExecutionException, InterruptedException {
+    @GetMapping("/home")
+    public String home(Model model) throws ExecutionException, InterruptedException {
         // TODO [Minh]: add suggestion criteria box
-        User currentUser = (User) userService.getById(CURRENT_USER_ID).get();
+        User currentUser = (User) userService.getById(CommonConfig.MY_ID).get();
         SuggestCriteria criteria = SuggestCriteria.builder().friendDepth(FRIEND_DEPTH)
                 .generation(AgeUtils.calculateGenerationFromBirthday(currentUser.getBirth()))
                 .city(StringUtils.lowerCase(currentUser.getCity())).build();
         List<Integer> suggestedUserIds = Collections.emptyList(); /*neo4jService.suggestFriendIds(CURRENT_USER_ID, criteria);*/
         model.addAttribute("suggestedUsers", userService.getByIds(suggestedUserIds));
-        model.addAttribute("newFeed", postService.getNewFeedByUserId(CURRENT_USER_ID));
+        model.addAttribute("newFeed", postService.getNewFeedByUserId(CommonConfig.MY_ID));
         return "home";
+    }
+
+    @GetMapping("/")
+    public String index(Model model) throws ExecutionException, InterruptedException {
+        return "index";
     }
 
     @GetMapping("/profile/my/{id}")
