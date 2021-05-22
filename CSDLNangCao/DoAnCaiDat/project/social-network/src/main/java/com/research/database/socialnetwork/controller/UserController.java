@@ -62,6 +62,7 @@ public class UserController {
         List<Integer> suggestedUserIds = Collections.emptyList(); /*neo4jService.suggestFriendIds(CURRENT_USER_ID, criteria);*/
         model.addAttribute("suggestedUsers", userService.getByIds(suggestedUserIds));
         model.addAttribute("newFeed", postService.getNewFeedByUserId(CommonConfig.MY_ID));
+        model.addAttribute("principal", CommonConfig.MY_ID);
         return "home";
     }
 

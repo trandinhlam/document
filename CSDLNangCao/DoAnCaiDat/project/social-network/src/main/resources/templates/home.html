@@ -28,10 +28,13 @@
 <body>
   <div id="page-wraper">
     <div class="row">
-      <div class="col-md-1"></div>
+      <div class="col-md-1">
+      </div>
       <div class="col-md-5" style="margin-top: 20mm">
+        <span class="btn btn-primary" style="font-weight: bold; color: white"> <a th:href="'/profile/my/'+${principal}" style="font-weight: bold; color: white"> Trang cá nhân</a></span>
+        <span class="btn btn-primary" > <a href="/timkiembanbe" style="font-weight: bold; color: white"> Tìm kiếm bạn bè</a></span>
 <!--    Content for newfeed-->
-          <div class="form-group">
+          <div class="form-group" style="margin-top: 5mm">
             <textarea name="content" id="editor" style="resize: none!important;width: 100%; height: 60mm!important;"></textarea>
           </div>
           <div style="text-align: right">
