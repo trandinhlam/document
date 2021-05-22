@@ -1,0 +1,41 @@
+{
+    "user_index": {
+        "mappings": {
+            "properties": {
+                "@timestamp": {
+                    "type": "date"
+                },
+                "avatar": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "gioitinh": {
+                    "type": "long"
+                },
+                "ngaysinh": {
+                    "type": "long"
+                },
+                "ten": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "timestamp": {
+                    "type": "date"
+                },
+                "userid": {
+                    "type": "long"
+                }
+            }
+        }
+    }
+}
