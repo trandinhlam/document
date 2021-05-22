@@ -18,8 +18,8 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 @ConfigurationProperties("application.yml")
 public class Configuration {
     //    TO-DO
-    //public static String elastichSeachHost= "http://localhost:9200";
-    public static String elastichSeachHost= "18.141.200.97:9200";
+    public static String elastichSeachHost= "localhost:9200";
+    //public static String elastichSeachHost= "18.141.200.97:9200";
     @Bean
     public RestHighLevelClient client() {
         ClientConfiguration clientConfiguration

@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
 
   <title>User Profile</title>
@@ -24,51 +28,27 @@
 <body>
   <div id="page-wraper">
     <div class="row">
-      <div class="col-md-6">
-        <div class="row">
-          <section class="section mh-30">
-            <div class="container">
-              <div class="section-heading">
-                <h2>Tìm kiếm bạn bè</h2>
-                <div class="line-dec"></div>
-              </div>
-              <div class="row">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <fieldset>
-                        <input name="subject" type="text" class="form-control" id="search-value"
-                          placeholder="Nhập tên bạn bè, nhóm,..." required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-2">
-                      <fieldset>
-                        <button id="search-submit" class="button">
-                          <i class="fa fa-search"></i>
-                        </button>
-                      </fieldset>
-                    </div>
-                  </div>
-                </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5" style="margin-top: 20mm">
+<!--    Content for newfeed-->
+          <div class="form-group">
+            <textarea name="content" id="editor" style="resize: none!important;width: 100%; height: 60mm!important;"></textarea>
+          </div>
+          <div style="text-align: right">
+            <button type="submit" class="btn btn-primary"  id="post-bai">Đăng bài</button>
+          </div>
+        <hr style="height: 1px;background: white">
+        <h2 style="text-align: center; color: white">Tin mới</h2>
+        <div id="newFeedSection" style="height:200mm; overflow: auto;">
+          <div th:each ="post : ${newFeed}" class="isotope-box">
+            <div style="padding: 2mm 6mm 2mm 6mm;background: #cbd3da;border-radius: 5px; margin: 2mm ;word-wrap: break-word;">
+            <b th:utext="${post.owner.name}"></b>
+              <span style="font-size: 8pt;float:right" th:utext="${#dates.format(post.dateCreated, 'dd-MMM-yyyy hh:mm:ss')}"></span>
+              <hr style="height: 1px;background: #2e4d84;padding: 0 2mm 0 2mm;padding-top: 0; margin-top: 0">
+              <div>
+                [(${post.content})]
               </div>
             </div>
-          </section>
-          <div class="col-md-12">
-            <section class="section my-work" data-section="section2">
-              <div class="container">
-                <div id="search-content" style="width:110mm; height:250mm; overflow: auto">
-                </div>
-                <div id="read-more-section" class="section-heading" style="visibility: hidden">
-                  <div>
-                    <fieldset>
-                        <button id="next-page" class="button">
-                            <i class="\tfa fa-angle-double-down">Xem Thêm</i>
-                          </button>
-                     </fieldset>
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </div>
@@ -113,6 +93,23 @@
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/lightbox.js"></script>
   <script src="assets/js/custom.js"></script>
+
+<!--  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+  <script>
+    tinymce.init({
+      selector: 'textarea#editor',
+      plugins: "textcolor",
+      toolbar: "undo redo | styleselect | fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent| forecolor backcolor",
+      menubar: false,
+      fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
+      content_style: "body {font-size: 14pt;color:black;}",
+    });
+  </script>
+</body>
   <script>
     //according to loftblog tut
     $(".main-menu li:first").addClass("active");
@@ -164,117 +161,26 @@
     });
   </script>
   <script>
-    <!--reset page search-->
-    window.onload = function () {
-      localStorage.setItem("currentPage", 0);
-      localStorage.setItem("currentSearchValue", "");
-      $("#read-more-section").css('visibility', 'hidden');
-    };
-
-    <!--process event search-->
-    $("#search-submit").click(function () {
-      var searchValue = $("#search-value").val();
-      var currentPage = localStorage.getItem("currentPage");
-      if (searchValue != '') {
-        var defaultSearchSize = 10;
-        // Update current page for next time search
-        if (currentPage === null) {
-          currentPage = 0;
-        } else {
-          localStorage.setItem("currentPage", parseInt(currentPage) + 1);
-        }
-        var enpoint = "http://localhost:8080/api/user/search?key=" + searchValue + "&size=" + defaultSearchSize + "&page=" + currentPage;
+    $("#post-bai").click(function () {
+        var postContent = tinyMCE.activeEditor.getContent();;
+        var enpoint = "http://localhost:8080/api/post";
         $.ajax({
           url: enpoint,
           contentType: "application/json",
-          type: 'GET',
+          type: 'POSt',
           dataType: 'json',
+          data : JSON.stringify({
+                    content : postContent
+                  }),
           success: function (result) {
-            console.log(result);
-            var finalHtml = '';
-            $.each(result, function(i, user) {
-              var htmlValue = '<div class="isotope-wrapper" style="width: 50%">\n' +
-                      '                    <div class="isotope-box">\n' +
-                      '                      <div class="" data-type="nature">\n' +
-                      '                        <figure class="snip1321">\n' +
-                      '                          <img src="' + user.avatar + '" alt="sq-sample26" />\n' +
-                      '                          <figcaption>\n' +
-                      '                            <a href="/profile/'+ user.userId +'" data-lightbox="'+ user.name +'" data-title="'+ user.name +'"><i\n' +
-                      '                                    class="fa fa-user-plus"></i></a>\n' +
-                      '                            <h4>'+ user.name +'</h4>\n' +
-                      '                          </figcaption>\n' +
-                      '                        </figure>\n' +
-                      '                      </div>\n' +
-                      '                    </div>\n' +
-                      '                  </div>';
-              finalHtml += htmlValue;
-            });
-
-            $("#search-content").html(finalHtml);
-            if(result.length !== 0 && result.length ===defaultSearchSize){
-              $("#read-more-section").css('visibility', 'visible');
-              localStorage.setItem("currentSearchValue", searchValue);
-            }
+            location.reload();
           },
           error: function (xhr, textStatus, errorThrown) {
-            console.log('Error in operation search!');
+            location.reload();
           }
         });
-      }
     });
-
-
-  //  read more
-    $("#next-page").click(function () {
-      var searchValue = localStorage.getItem("currentSearchValue");
-      var currentPage = localStorage.getItem("currentPage");
-      if (searchValue != '') {
-        var defaultSearchSize = 10;
-        // Update current page for next time search
-        if (currentPage === null) {
-          currentPage = 0;
-        } else {
-          localStorage.setItem("currentPage", parseInt(currentPage) + 1);
-        }
-        var enpoint = "http://localhost:8080/api/user/search?key=" + searchValue + "&size=" + defaultSearchSize + "&page=" + currentPage;
-        $.ajax({
-          url: enpoint,
-          contentType: "application/json",
-          type: 'GET',
-          dataType: 'json',
-          success: function (result) {
-            console.log(result);
-            var finalHtml = '';
-            $.each(result, function(i, user) {
-              var htmlValue = '<div class="isotope-wrapper" style="width: 50%">\n' +
-                      '                    <div class="isotope-box">\n' +
-                      '                      <div class="" data-type="nature">\n' +
-                      '                        <figure class="snip1321">\n' +
-                      '                          <img src="' + user.avatar + '" alt="sq-sample26" />\n' +
-                      '                          <figcaption>\n' +
-                      '                            <a href="/profile/'+ user.userId +'" data-lightbox="'+ user.name +'" data-title="'+ user.name +'"><i\n' +
-                      '                                    class="fa fa-user-plus"></i></a>\n' +
-                      '                            <h4>'+ user.name +'</h4>\n' +
-                      '                          </figcaption>\n' +
-                      '                        </figure>\n' +
-                      '                      </div>\n' +
-                      '                    </div>\n' +
-                      '                  </div>';
-              finalHtml += htmlValue;
-            });
-            if(result.length === 0 || result.length < defaultSearchSize){
-              $("#read-more-section").css('visibility', 'hidden');
-            }
-            $("#search-content").html($("#search-content").html() + finalHtml);
-          },
-          error: function (xhr, textStatus, errorThrown) {
-            console.log('Error in operation search!');
-          }
-        });
-      }
-    });
-
   </script>
-</body>
+  </body>
 
 </html>

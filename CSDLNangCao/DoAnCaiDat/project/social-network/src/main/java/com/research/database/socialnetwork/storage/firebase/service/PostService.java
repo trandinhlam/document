@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 public class PostService {
 
     public static final String COL_NAME = "post";
-    private Integer principal = 107;
+    private Integer principal = CommonConfig.MY_ID;
 
     @Autowired
     private IFriendService friendService;
@@ -46,6 +46,7 @@ public class PostService {
                 .userId(principal.getUserId())
                 .build());
         Post postEntity = mapping(postDTO, principal);
+        commonDataReference.collection("newFeed").document(postEntity.getUuid()).set(postEntity);
         ApiFuture<WriteResult> collectionsApiFuture = commonDataReference.collection("myPost").document(postEntity.getUuid()).set(postEntity);
         savePostToFriendNewFeed(principal, postEntity);
         return collectionsApiFuture.get().getUpdateTime().toString();
@@ -56,6 +57,7 @@ public class PostService {
         List<QueryDocumentSnapshot> documents = dbFirestore.collection(COL_NAME)
                 .document(ownerId.toString())
                 .collection("myPost")
+                .orderBy("dateCreated", Query.Direction.DESCENDING)
                 .get()
                 .get()
                 .getDocuments();
@@ -69,6 +71,7 @@ public class PostService {
         List<QueryDocumentSnapshot> documents = dbFirestore.collection(COL_NAME)
                 .document(userId.toString())
                 .collection("newFeed")
+                .orderBy("dateCreated", Query.Direction.DESCENDING)
                 .get()
                 .get()
                 .getDocuments();

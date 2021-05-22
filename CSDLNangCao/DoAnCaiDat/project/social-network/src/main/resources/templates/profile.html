@@ -42,6 +42,7 @@
                         <li><a href="#section1">Thông tin</a></li>
                         <li><a href="#section2">Bạn bè</a></li>
                         <li th:if="${user.isMy}"><a href="#section3">Lời mời kết bạn</a></li>
+                        <li><a href="#section4">Bài đăng của bạn</a></li>
                     </ul>
                 </nav>
                 <div class="copyright-text">
@@ -162,6 +163,21 @@
                             </figure>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section my-work" data-section="section4">
+        <div class="section-heading">
+            <h2>Bài đăng của bạn</h2>
+        </div>
+        <div th:each ="post : ${ownerPost}" class="isotope-box">
+            <div style="padding: 2mm 6mm 2mm 6mm;background: #cbd3da;border-radius: 5px; margin: 2mm ;word-wrap: break-word;">
+                <b th:utext="${post.owner.name}"></b>
+                <span style="font-size: 8pt;float:right" th:utext="${#dates.format(post.dateCreated, 'dd-MMM-yyyy hh:mm:ss')}"></span>
+                <hr style="height: 1px;background: #2e4d84;padding: 0 2mm 0 2mm;padding-top: 0; margin-top: 0">
+                <div>
+                    [(${post.content})]
                 </div>
             </div>
         </div>
