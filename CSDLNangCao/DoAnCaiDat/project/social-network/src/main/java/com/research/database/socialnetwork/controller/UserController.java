@@ -29,7 +29,7 @@ import java.util.Optional;
 @Controller
 public class UserController {
 
-    public static final int FRIEND_DEPTH = 2;
+    public static final int FRIEND_DEPTH = 3;
     public static final int CURRENT_USER_ID = 105;
 
     @Autowired
