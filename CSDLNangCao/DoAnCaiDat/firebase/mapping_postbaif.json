@@ -1,0 +1,24 @@
+
+
+				Collection<Post> {
+					DocumentId(use_id){
+						"dateUpdated",
+						"userId",
+						"userName"
+						Collection<newFeed>
+							[
+								DocumentId(uuid_id_of_post)
+									{
+										"content",
+										"datecreated"
+										"owner":{
+											"userId",
+											"Namename"
+										}
+									}
+							]
+						Collection<myPost>{
+							//Tuong tu newFeed
+						}
+					}
+				}
