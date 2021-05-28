@@ -2,6 +2,7 @@ package com.research.database.socialnetwork.config;
 
 import org.elasticsearch.client.RestHighLevelClient;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -18,13 +19,15 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 @ConfigurationProperties("application.yml")
 public class Configuration {
     //    TO-DO
-    public static String elastichSeachHost= "localhost:9200";
+//    public static String elastichSeachHost= "localhost:9200";
     //public static String elastichSeachHost= "18.141.200.97:9200";
+    @Autowired
+    DBHostConfig config;
     @Bean
     public RestHighLevelClient client() {
         ClientConfiguration clientConfiguration
                 = ClientConfiguration.builder()
-                .connectedTo(elastichSeachHost)
+                .connectedTo(config.getElasticsearchHost())
                 .build();
 
         return RestClients.create(clientConfiguration).rest();

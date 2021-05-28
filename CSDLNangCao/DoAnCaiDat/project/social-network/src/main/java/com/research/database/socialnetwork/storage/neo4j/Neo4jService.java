@@ -1,6 +1,8 @@
 package com.research.database.socialnetwork.storage.neo4j;
 
+import com.research.database.socialnetwork.config.DBHostConfig;
 import com.research.database.socialnetwork.utils.SuggestCriteria;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
@@ -12,9 +14,11 @@ import java.util.Map;
 @Service
 public class Neo4jService {
     private Connection conn = null;
+    @Autowired
+    DBHostConfig config;
 
     public Neo4jService() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687?user=neo4j,password=system,scheme=default");
+        conn = DriverManager.getConnection(config.getNeo4jConectionString());
 
 //        Statement stmt = conn.createStatement();
 //        ResultSet rs = stmt.executeQuery(
