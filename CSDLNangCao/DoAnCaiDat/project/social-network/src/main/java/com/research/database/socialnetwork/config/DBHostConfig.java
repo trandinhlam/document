@@ -15,5 +15,5 @@ import org.springframework.context.annotation.Configuration;
 @AllArgsConstructor
 public class DBHostConfig {
     private String elasticsearchHost;
-    private String neo4jConectionString;
+    private String neo4jConnectionString;
 }

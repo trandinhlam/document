@@ -18,17 +18,7 @@ public class Neo4jService {
     DBHostConfig config;
 
     public Neo4jService() throws SQLException {
-        conn = DriverManager.getConnection(config.getNeo4jConectionString());
-
-//        Statement stmt = conn.createStatement();
-//        ResultSet rs = stmt.executeQuery(
-//                "MATCH (company:Company)-[:owns]-> (car:Car)" +
-//                        "WHERE car.make='tesla' and car.model='modelX'" +
-//                        "RETURN company.name");
-//
-//        while (rs.next()) {
-//            rs.getString("company.name");
-//        }
+        conn = DriverManager.getConnection("jdbc:neo4j:bolt://localhost:7687?user=neo4j,password=123456,scheme=neo4j");
     }
 
     public void insertFriend(int id1, int id2) {

@@ -14,4 +14,4 @@ spring:
 socialnetwork:
   dbhost:
     elasticsearch-host: localhost:9200
-    neo4j-conection-string: jdbc:neo4j:bolt://localhost:7687?user=neo4j,password=system,scheme=default
+    neo4j-conection-string: jdbc:neo4j:bolt://localhost:7687?user=neo4j,password=123456,scheme=default
