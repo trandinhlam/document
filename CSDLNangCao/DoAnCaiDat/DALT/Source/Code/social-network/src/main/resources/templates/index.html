@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+</body>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+    var userLogin = getInteger();
+
+    $.ajax({
+        url: "http://localhost:8080/api/user/updatePrincipal/" + userLogin,
+        contentType: "application/json",
+        type: 'GET',
+        dataType: 'json',
+        success: function (result) {
+            window.location.replace("/home");
+            debugger
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            window.location.replace("/home");
+            debugger
+        }
+    });
+
+    function getInteger(){
+        while(true){
+            let input = prompt("Enter login user id");
+
+            if (input == null) {
+                // user hit cancel
+                alert("Enter login user id")
+                return true;
+            } else{
+                if (input.length<=0 || isNaN( input ) ) {
+                    // user pressed OK, but input invalid or does not input anything
+                    alert("Invalid input.");
+                } else {
+                    // user typed something valid and hit OK
+                    return parseInt(input);
+                }
+            }
+        }
+    }
+</script>
+</html>

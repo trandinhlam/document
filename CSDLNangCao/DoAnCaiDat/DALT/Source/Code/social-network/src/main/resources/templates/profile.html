@@ -1,0 +1,250 @@
+<!-- Thymeleaf Namespace -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${user.name}"></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//localhost:8080/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="//localhost:8080/assets/css/fontawesome.css"/>
+    <link rel="stylesheet" href="//localhost:8080/assets/css/templatemo-style.css"/>
+    <link rel="stylesheet" href="//localhost:8080/assets/css/owl.css"/>
+    <link rel="stylesheet" href="//localhost:8080/assets/css/lightbox.css"/>
+    <link rel="stylesheet" href="//localhost:8080/assets/css/custom.css"/>
+</head>
+
+<body>
+<div id="page-wraper">
+    <!-- Sidebar Menu -->
+    <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+            <i class="fa fa-times" id="menu-close"></i>
+            <div class="container">
+                <div class="image">
+                    <a href="#"><img th:src="${user.avatar}" alt=""/></a>
+                </div>
+                <div class="author-content">
+                    <h4 th:text="${user.name}"></h4>
+                    <span th:text="'Sinh ngày: ' + ${user.birthdate}"></span><br/>
+                    <span th:text="'Tuổi: ' + ${user.age}"></span><br/>
+                    <span th:text="'Giới tính:' + ${user.gender}"></span><br/>
+                </div>
+                <nav class="main-nav" role="navigation">
+                    <ul class="main-menu">
+                        <li><a href="#section1">Thông tin</a></li>
+                        <li><a href="#section2">Bạn bè</a></li>
+                        <li th:if="${user.isMy}"><a href="#section3">Lời mời kết bạn</a></li>
+                        <li><a href="#section4">Bài đăng của bạn</a></li>
+                    </ul>
+                </nav>
+                <div class="copyright-text">
+                    <p>Copyright 2019 Reflux Design</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section about-me" data-section="section1">
+        <div class="container">
+            <div class="section-heading">
+                <h2 th:text="${user.name}"></h2>
+                <div class="line-dec"></div>
+                <div th:if="${not user.isMy} and ${user.friendStatus}==-1">
+                    <form action="/profile/addfriend" method="post">
+                        <button type="submit" id="form-submit" class="button">
+                            <input type="hidden" name="id" th:value="${user.userId}">
+                            <input type="hidden" name="myId" th:value="${myId}">
+                            <i class="fa fa-user-plus"></i>
+                            Kết bạn
+                        </button>
+                    </form>
+                </div>
+                <div th:if="${not user.isMy} and ${user.friendStatus}==0">
+                    <form action="/profile/addfriend" method="post">
+                        <button type="submit" disabled class="button">
+                            <input type="hidden" name="id" th:value="${user.userId}">
+                            <i class="fa fa-user-plus"></i>
+                            Đang chờ
+                        </button>
+                    </form>
+                </div>
+                <div th:if="${not user.isMy} and ${user.friendStatus}==1">
+                    <form action="/profile/addfriend" method="post">
+                        <button type="submit" disabled class="button">
+                            <input type="hidden" name="id" th:value="${user.userId}">
+                            <i class="fa fa-info"></i>
+                            Đã kết bạn
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="left-image-post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="left-image">
+                            <img src="//localhost:8080/assets/images/left-image.jpg" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right-text">
+                            <h4>Ngày sinh</h4>
+                            <p th:text="${user.birthdate}">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section my-work" data-section="section2">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Bạn bè</h2>
+                <div class="line-dec"></div>
+                <span th:text="'Những người là bạn của ' + ${user.name}"></span>
+            </div>
+            <div class="row">
+                <div class="isotope-wrapper">
+                    <div class="isotope-box">
+                        <div th:each="friend : ${friends}" class="isotope-item" data-type="nature">
+                            <figure class="snip1321">
+                                <img th:src="*{friend.avatar}" alt="sq-sample26"/>
+                                <figcaption>
+                                    <a th:href="*{friend.avatar}" data-lightbox="image-1"
+                                       th:data-title="*{friend.name}"><i
+                                            class="fa fa-expand"></i></a>
+                                    <a th:href="'/profile/' + *{friend.userId}"><i class="fa fa-info-circle"></i></a>
+                                    <h4 th:text="*{friend.name}"></h4>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section th:if="${user.isMy}" class="section my-work" data-section="section3">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Lời mời kết bạn</h2>
+                <div class="line-dec"></div>
+                <span>Hãy phản hồi họ nhé!</span>
+            </div>
+            <div class="row">
+                <div class="isotope-wrapper">
+                    <div class="isotope-box">
+                        <div th:each="waiting : ${waitings}" class="isotope-item" data-type="nature">
+                            <figure class="snip1321">
+                                <img th:src="${waiting.avatar}" alt="sq-sample26"/>
+                                <figcaption>
+                                    <a th:href="${waiting.avatar}" data-lightbox="image-1"
+                                       th:data-title="${waiting.name}"><i
+                                            class="fa fa-expand"></i></a>
+                                    <a th:href="'/profile/' + *{waiting.userId}">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                    <form action="/profile/addfriend" method="post">
+                                        <button type="submit" class="button">
+                                            <input type="hidden" name="id" th:value="${waiting.userId}">
+                                            <input type="hidden" name="myId" th:value="${myId}">
+                                            Đồng ý
+                                        </button>
+                                    </form>
+                                    <h4 th:text="${waiting.name}"></h4>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section my-work" data-section="section4">
+        <div class="section-heading">
+            <h2>Bài đăng của bạn</h2>
+        </div>
+        <div th:each ="post : ${ownerPost}" class="isotope-box">
+            <div style="padding: 2mm 6mm 2mm 6mm;background: #cbd3da;border-radius: 5px; margin: 2mm ;word-wrap: break-word;">
+                <b th:utext="${post.owner.name}"></b>
+                <span style="font-size: 8pt;float:right" th:utext="${#dates.format(post.dateCreated, 'dd-MMM-yyyy hh:mm:ss')}"></span>
+                <hr style="height: 1px;background: #2e4d84;padding: 0 2mm 0 2mm;padding-top: 0; margin-top: 0">
+                <div>
+                    [(${post.content})]
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="//localhost:8080/vendor/jquery/jquery.min.js"></script>
+<script src="//localhost:8080/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="//localhost:8080/assets/js/isotope.min.js"></script>
+<script src="//localhost:8080/assets/js/owl-carousel.js"></script>
+<script src="//localhost:8080/assets/js/lightbox.js"></script>
+<script src="//localhost:8080/assets/js/custom.js"></script>
+<script>
+    //according to loftblog tut
+    $(".main-menu li:first").addClass("active");
+
+    var showSection = function showSection(section, isAnimate) {
+      var direction = section.replace(/#/, ""),
+        reqSection = $(".section").filter(
+          '[data-section="' + direction + '"]'
+        ),
+        reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $("body, html").animate(
+          {
+            scrollTop: reqSectionPos
+          },
+          800
+        );
+      } else {
+        $("body, html").scrollTop(reqSectionPos);
+      }
+    };
+
+    var checkSection = function checkSection() {
+      $(".section").each(function () {
+        var $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+          var currentId = $this.data("section"),
+            reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+          reqLink
+            .closest("li")
+            .addClass("active")
+            .siblings()
+            .removeClass("active");
+        }
+      });
+    };
+
+    $(".main-menu").on("click", "a", function (e) {
+      e.preventDefault();
+      showSection($(this).attr("href"), true);
+    });
+
+    $(window).scroll(function () {
+      checkSection();
+    });
+
+
+</script>
+</body>
+
+</html>
